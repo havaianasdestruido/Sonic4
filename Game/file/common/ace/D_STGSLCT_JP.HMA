@@ -1,0 +1,25 @@
+// root node
+
+// node
+
+// action
+#define IDA_D_STGSLCT_JP_ACT_TEX_TIME       (  0) // tex_time
+#define IDA_D_STGSLCT_JP_ACT_TEX_SCORE      (  1) // tex_score
+#define IDA_D_STGSLCT_JP_ACT_TEX_ZNAME      (  2) // tex_zname
+#define IDA_D_STGSLCT_JP_ACT_TEX_MENU       (  3) // tex_menu
+#define IDA_D_STGSLCT_JP_ACT_TEX_MESS       (  4) // tex_mess
+#define IDA_D_STGSLCT_JP_ACT_ACT1_TEX_ACT   (  5) // act1_tex_act
+#define IDA_D_STGSLCT_JP_ACT_ACT1_MESS      (  6) // act1_mess
+#define IDA_D_STGSLCT_JP_ACT_ACT1_TEX_SCORE (  7) // act1_tex_score
+#define IDA_D_STGSLCT_JP_ACT_ACT1_TEX_TIME  (  8) // act1_tex_time
+#define IDA_D_STGSLCT_JP_ACT_TEX_NEW        (  9) // tex_new
+#define IDA_D_STGSLCT_JP_ACT_BOSS_TEX_BOSS  ( 10) // boss_tex_boss
+#define IDA_D_STGSLCT_JP_ACT_SPE_TEX_STAGE  ( 11) // spe_tex_stage
+#define IDA_D_STGSLCT_JP_ACT_ZONE_TEXT      ( 12) // zone_text
+#define IDA_D_STGSLCT_JP_ACT_TEX_WIN_MSG    ( 13) // tex_win_msg
+#define IDA_D_STGSLCT_JP_ACT_TEX_WIN_SSONIC ( 14) // tex_win_ssonic
+#define IDA_D_STGSLCT_JP_ACT_TEX_SCTM01A    ( 15) // tex_sctm01a
+#define IDA_D_STGSLCT_JP_ACT_TEX_SCTM01B    ( 16) // tex_sctm01b
+#define IDA_D_STGSLCT_JP_ACT_TEX_SCTM02A    ( 17) // tex_sctm02a
+#define IDA_D_STGSLCT_JP_ACT_TEX_SCTM02B    ( 18) // tex_sctm02b
+#define IDA_D_STGSLCT_JP_ACT_TEX_WIN_MSG2   ( 19) // tex_win_msg2

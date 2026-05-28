@@ -1,0 +1,39 @@
+// root node
+
+// node
+
+// action
+#define IDA_D_OPTION_JP_ACT_TEX_TITLE         (  0) // tex_title
+#define IDA_D_OPTION_JP_ACT_TEX_ITEM_BGM      (  1) // tex_item_bgm
+#define IDA_D_OPTION_JP_ACT_TEX_ITEM_SE       (  2) // tex_item_se
+#define IDA_D_OPTION_JP_ACT_TEX_ITEM_CONT     (  3) // tex_item_cont
+#define IDA_D_OPTION_JP_ACT_TEX_ON            (  4) // tex_on
+#define IDA_D_OPTION_JP_ACT_TEX_OFF           (  5) // tex_off
+#define IDA_D_OPTION_JP_ACT_TEX_DEFAULT       (  6) // tex_default
+#define IDA_D_OPTION_JP_ACT_TEX_TOP_PLAY      (  7) // tex_top_play
+#define IDA_D_OPTION_JP_ACT_TEX_TOP_CONTROL   (  8) // tex_top_control
+#define IDA_D_OPTION_JP_ACT_TEX_TOP_SETTING   (  9) // tex_top_setting
+#define IDA_D_OPTION_JP_ACT_TEX_TOP_CREDIT    ( 10) // tex_top_credit
+#define IDA_D_OPTION_JP_ACT_SOUSA_TEX_EX_A    ( 11) // sousa_tex_ex_a
+#define IDA_D_OPTION_JP_ACT_SOUSA_TEX_EX_B    ( 12) // sousa_tex_ex_b
+#define IDA_D_OPTION_JP_ACT_SOUSA_TEX_HOM01   ( 13) // sousa_tex_hom01
+#define IDA_D_OPTION_JP_ACT_SOUSA_TEX_SPIN01  ( 14) // sousa_tex_spin01
+#define IDA_D_OPTION_JP_ACT_SOUSA_TEX_SUPER   ( 15) // sousa_tex_super
+#define IDA_D_OPTION_JP_ACT_SOUSA_TEX_JUMP    ( 16) // sousa_tex_jump
+#define IDA_D_OPTION_JP_ACT_SOUSA_TEX_MOVE    ( 17) // sousa_tex_move
+#define IDA_D_OPTION_JP_ACT_SOUSA_TEX_PAUSE   ( 18) // sousa_tex_pause
+#define IDA_D_OPTION_JP_ACT_SOUSA_TEX_TAP     ( 19) // sousa_tex_tap
+#define IDA_D_OPTION_JP_ACT_TEX_MSG01         ( 20) // tex_msg01
+#define IDA_D_OPTION_JP_ACT_TEX_TYPE_A        ( 21) // tex_type_a
+#define IDA_D_OPTION_JP_ACT_TEX_TYPE_B        ( 22) // tex_type_b
+#define IDA_D_OPTION_JP_ACT_TEX_DPAD          ( 23) // tex_dpad
+#define IDA_D_OPTION_JP_ACT_TEX_A_TILT        ( 24) // tex_a_tilt
+#define IDA_D_OPTION_JP_ACT_TEX_B_FLICK       ( 25) // tex_b_flick
+#define IDA_D_OPTION_JP_ACT_TEX_CONT_TILT     ( 26) // tex_cont_tilt
+#define IDA_D_OPTION_JP_ACT_TEX_CONT_TOUCH    ( 27) // tex_cont_touch
+#define IDA_D_OPTION_JP_ACT_A_SOUSA_TEX_SUPER ( 28) // a_sousa_tex_super
+#define IDA_D_OPTION_JP_ACT_A_SOUSA_TEX_PAUSE ( 29) // a_sousa_tex_pause
+#define IDA_D_OPTION_JP_ACT_A_SOUSA_TEX_MOVE  ( 30) // a_sousa_tex_move
+#define IDA_D_OPTION_JP_ACT_A_SOUSA_TEX_JUMP  ( 31) // a_sousa_tex_jump
+#define IDA_D_OPTION_JP_ACT_SOUSA_TEX_EX_A2   ( 32) // sousa_tex_ex_a2
+#define IDA_D_OPTION_JP_ACT_SOUSA_TEX_EX_B2   ( 33) // sousa_tex_ex_b2

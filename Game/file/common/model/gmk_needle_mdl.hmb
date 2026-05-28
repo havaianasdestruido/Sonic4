@@ -1,0 +1,30 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_GMK_NEEDLE_MDL
+#define	_IDB_GMK_NEEDLE_MDL
+
+/* Defined File ID */
+#define	IDB_GMK_NEEDLE_MDL_GMK_NEEDLE_F_ZNO		0		/*  */
+#define	IDB_GMK_NEEDLE_MDL_GMK_NEEDLE_B_ZNO		1		/*  */
+#define	IDB_GMK_NEEDLE_MDL_GMK_NEEDLE_STAND_ZNO		2		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_GMK_NEEDLE_MDL_GMK_NEEDLE_F_ZNO		0		/*  */
+#define	IDU0_GMK_NEEDLE_MDL_GMK_NEEDLE_B_ZNO		0		/*  */
+#define	IDU0_GMK_NEEDLE_MDL_GMK_NEEDLE_STAND_ZNO		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_GMK_NEEDLE_MDL_GMK_NEEDLE_F_ZNO		0		/*  */
+#define	IDU1_GMK_NEEDLE_MDL_GMK_NEEDLE_B_ZNO		0		/*  */
+#define	IDU1_GMK_NEEDLE_MDL_GMK_NEEDLE_STAND_ZNO		0		/*  */
+
+/* Defined File Name */
+#define	IDS_GMK_NEEDLE_MDL_GMK_NEEDLE_F_ZNO		"GMK_NEEDLE_F.ZNO"
+#define	IDS_GMK_NEEDLE_MDL_GMK_NEEDLE_B_ZNO		"GMK_NEEDLE_B.ZNO"
+#define	IDS_GMK_NEEDLE_MDL_GMK_NEEDLE_STAND_ZNO		"GMK_NEEDLE_STAND.ZNO"
+
+#endif	/* _IDB_GMK_NEEDLE_MDL */

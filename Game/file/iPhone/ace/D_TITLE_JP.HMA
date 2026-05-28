@@ -1,0 +1,14 @@
+// root node
+
+// node
+
+// action
+#define IDA_D_TITLE_JP_ACT_TEX_HAZIME    (  0) // tex_hazime
+#define IDA_D_TITLE_JP_ACT_TEX_TUZUKI    (  1) // tex_tuzuki
+#define IDA_D_TITLE_JP_ACT_TEX_OPTION    (  2) // tex_option
+#define IDA_D_TITLE_JP_ACT_TEX_KANZENBAN (  3) // tex_kanzenban
+#define IDA_D_TITLE_JP_ACT_TEX_WIN_MSG1  (  4) // tex_win_msg1
+#define IDA_D_TITLE_JP_ACT_TEX_WIN_MSG2  (  5) // tex_win_msg2
+#define IDA_D_TITLE_JP_ACT_TEX_START     (  6) // tex_start
+#define IDA_D_TITLE_JP_ACT_TEX_MODORU    (  7) // tex_modoru
+#define IDA_D_TITLE_JP_ACT_TEX_GAME      (  8) // tex_game

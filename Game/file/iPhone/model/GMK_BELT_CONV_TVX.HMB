@@ -1,0 +1,34 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_MODEL
+#define	_IDB_MODEL
+
+/* Defined File ID */
+#define	IDB_MODEL_GMK_BELT_CONV_TVX		0		/*  */
+#define	IDB_MODEL_GMK_BELT_CONV_AXIS_TVX		1		/*  */
+#define	IDB_MODEL_GMK_BELT_CONV_CH_A_TVX		2		/*  */
+#define	IDB_MODEL_GMK_BELT_CONV_CH_B_TVX		3		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_MODEL_GMK_BELT_CONV_TVX		0		/*  */
+#define	IDU0_MODEL_GMK_BELT_CONV_AXIS_TVX		0		/*  */
+#define	IDU0_MODEL_GMK_BELT_CONV_CH_A_TVX		0		/*  */
+#define	IDU0_MODEL_GMK_BELT_CONV_CH_B_TVX		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_MODEL_GMK_BELT_CONV_TVX		0		/*  */
+#define	IDU1_MODEL_GMK_BELT_CONV_AXIS_TVX		0		/*  */
+#define	IDU1_MODEL_GMK_BELT_CONV_CH_A_TVX		0		/*  */
+#define	IDU1_MODEL_GMK_BELT_CONV_CH_B_TVX		0		/*  */
+
+/* Defined File Name */
+#define	IDS_MODEL_GMK_BELT_CONV_TVX		"GMK_BELT_CONV.TVX"
+#define	IDS_MODEL_GMK_BELT_CONV_AXIS_TVX		"GMK_BELT_CONV_AXIS.TVX"
+#define	IDS_MODEL_GMK_BELT_CONV_CH_A_TVX		"GMK_BELT_CONV_CH_A.TVX"
+#define	IDS_MODEL_GMK_BELT_CONV_CH_B_TVX		"GMK_BELT_CONV_CH_B.TVX"
+
+#endif	/* _IDB_MODEL */

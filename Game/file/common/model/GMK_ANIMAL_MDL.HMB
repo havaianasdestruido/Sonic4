@@ -1,0 +1,38 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_GMK_ANIMAL_MDL
+#define	_IDB_GMK_ANIMAL_MDL
+
+/* Defined File ID */
+#define	IDB_GMK_ANIMAL_MDL_GMK_ANML_PIG_ZNO		0		/*  “Ø */
+#define	IDB_GMK_ANIMAL_MDL_GMK_ANML_BIRD_ZNO		1		/*  ’¹ */
+#define	IDB_GMK_ANIMAL_MDL_GMK_ANML_COCK_ZNO		2		/*  Œ{ */
+#define	IDB_GMK_ANIMAL_MDL_GMK_ANML_RABBIT_ZNO		3		/*  “e */
+#define	IDB_GMK_ANIMAL_MDL_GMK_ANML_PEN_ZNO		4		/*  ƒyƒ“ƒMƒ“ */
+
+/* Defined USR0 Data */
+#define	IDU0_GMK_ANIMAL_MDL_GMK_ANML_PIG_ZNO		0		/*  “Ø */
+#define	IDU0_GMK_ANIMAL_MDL_GMK_ANML_BIRD_ZNO		0		/*  ’¹ */
+#define	IDU0_GMK_ANIMAL_MDL_GMK_ANML_COCK_ZNO		0		/*  Œ{ */
+#define	IDU0_GMK_ANIMAL_MDL_GMK_ANML_RABBIT_ZNO		0		/*  “e */
+#define	IDU0_GMK_ANIMAL_MDL_GMK_ANML_PEN_ZNO		0		/*  ƒyƒ“ƒMƒ“ */
+
+/* Defined USR1 Data */
+#define	IDU1_GMK_ANIMAL_MDL_GMK_ANML_PIG_ZNO		0		/*  “Ø */
+#define	IDU1_GMK_ANIMAL_MDL_GMK_ANML_BIRD_ZNO		0		/*  ’¹ */
+#define	IDU1_GMK_ANIMAL_MDL_GMK_ANML_COCK_ZNO		0		/*  Œ{ */
+#define	IDU1_GMK_ANIMAL_MDL_GMK_ANML_RABBIT_ZNO		0		/*  “e */
+#define	IDU1_GMK_ANIMAL_MDL_GMK_ANML_PEN_ZNO		0		/*  ƒyƒ“ƒMƒ“ */
+
+/* Defined File Name */
+#define	IDS_GMK_ANIMAL_MDL_GMK_ANML_PIG_ZNO		"GMK_ANML_PIG.ZNO"
+#define	IDS_GMK_ANIMAL_MDL_GMK_ANML_BIRD_ZNO		"GMK_ANML_BIRD.ZNO"
+#define	IDS_GMK_ANIMAL_MDL_GMK_ANML_COCK_ZNO		"GMK_ANML_COCK.ZNO"
+#define	IDS_GMK_ANIMAL_MDL_GMK_ANML_RABBIT_ZNO		"GMK_ANML_RABBIT.ZNO"
+#define	IDS_GMK_ANIMAL_MDL_GMK_ANML_PEN_ZNO		"GMK_ANML_PEN.ZNO"
+
+#endif	/* _IDB_GMK_ANIMAL_MDL */

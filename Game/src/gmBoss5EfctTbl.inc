@@ -1,0 +1,713 @@
+// =======================================================================
+/*!
+  @file	gmBoss5EfctTbl.inc
+  @brief ボスファイナル エフェクト テーブル
+
+  @author Keisuke Tanaka
+ 				Copyright(c) 2009 Dimps
+  $Id$
+ */
+// =======================================================================
+/*
+ * $Log$
+ */
+
+/*------ Include Files -------------------------------------------------*/
+/*------ Macros --------------------------------------------------------*/
+/*------ Macro Functions -----------------------------------------------*/
+/*------ Definitions ---------------------------------------------------*/
+/*------ External Declarations -----------------------------------------*/
+/*------ Static Declarations -------------------------------------------*/
+/*------ Global Variables ----------------------------------------------*/
+/*------ Static Variables ----------------------------------------------*/
+
+//! データ情報テーブル
+const static GMS_BOSS5_EFCT_DATA_INFO gm_boss5_efct_data_info_tbl[GME_BOSS5_EFCT_IDX_MAX]	= {
+	// GME_BOSS5_EFCT_IDX_BLITZ_FB_00 (model)
+	{
+		TRUE,
+		IDB_BOSS05_EFF_BLITZ_FB_00_AME,
+		GMD_DWORK_NO_BOSS_05_EF_BLITZ_FB_00_ES,
+		IDB_BOSS05_EFF_BSF_TEX_TH_AMB,
+		GMD_DWORK_NO_BOSS_05_EF_TH_AMBTEX,
+		GMD_DWORK_NO_BOSS_05_EF_TH_TEXLIST,
+		IDB_BOSS05_EFF_THUNDER_1_ZNO,
+		GMD_DWORK_NO_BOSS_05_EF_THUNDER_MODELDAT,
+		GMD_DWORK_NO_BOSS_05_EF_THUNDER_OBJECT,
+	},
+	// GME_BOSS5_EFCT_IDX_BLITZ_FB_01 (model)
+	{
+		TRUE,
+		IDB_BOSS05_EFF_BLITZ_FB_01_AME,
+		GMD_DWORK_NO_BOSS_05_EF_BLITZ_FB_01_ES,
+		IDB_BOSS05_EFF_BSF_TEX_TH_AMB,
+		GMD_DWORK_NO_BOSS_05_EF_TH_AMBTEX,
+		GMD_DWORK_NO_BOSS_05_EF_TH_TEXLIST,
+		IDB_BOSS05_EFF_THUNDER_1_ZNO,
+		GMD_DWORK_NO_BOSS_05_EF_THUNDER_MODELDAT,
+		GMD_DWORK_NO_BOSS_05_EF_THUNDER_OBJECT,
+	},
+	// GME_BOSS5_EFCT_IDX_BLITZ_FB_02 (model)
+	{
+		TRUE,
+		IDB_BOSS05_EFF_BLITZ_FB_02_AME,
+		GMD_DWORK_NO_BOSS_05_EF_BLITZ_FB_02_ES,
+		IDB_BOSS05_EFF_BSF_TEX_TH_AMB,
+		GMD_DWORK_NO_BOSS_05_EF_TH_AMBTEX,
+		GMD_DWORK_NO_BOSS_05_EF_TH_TEXLIST,
+		IDB_BOSS05_EFF_THUNDER_1_ZNO,
+		GMD_DWORK_NO_BOSS_05_EF_THUNDER_MODELDAT,
+		GMD_DWORK_NO_BOSS_05_EF_THUNDER_OBJECT,
+	},
+	// GME_BOSS5_EFCT_IDX_BLITZ_FB_03 (model)
+	{
+		TRUE,
+		IDB_BOSS05_EFF_BLITZ_FB_03_AME,
+		GMD_DWORK_NO_BOSS_05_EF_BLITZ_FB_03_ES,
+		IDB_BOSS05_EFF_BSF_TEX_TH_AMB,
+		GMD_DWORK_NO_BOSS_05_EF_TH_AMBTEX,
+		GMD_DWORK_NO_BOSS_05_EF_TH_TEXLIST,
+		IDB_BOSS05_EFF_THUNDER_1_ZNO,
+		GMD_DWORK_NO_BOSS_05_EF_THUNDER_MODELDAT,
+		GMD_DWORK_NO_BOSS_05_EF_THUNDER_OBJECT,
+	},
+	// GME_BOSS5_EFCT_IDX_BLITZ_FB_C_00
+	{
+		FALSE,
+		IDB_BOSS05_EFF_BLITZ_FB_C_00_AME,
+		GMD_DWORK_NO_BOSS_05_EF_BLITZ_FB_C_00_ES,
+		IDB_BOSS05_EFF_BSF_TEX_AMB,
+		GMD_DWORK_NO_BOSS_05_EF_CMN_AMBTEX,
+		GMD_DWORK_NO_BOSS_05_EF_CMN_TEXLIST,
+		0,
+		0,
+		0,
+	},
+	// GME_BOSS5_EFCT_IDX_BLITZ_FB_C_01
+	{
+		FALSE,
+		IDB_BOSS05_EFF_BLITZ_FB_C_01_AME,
+		GMD_DWORK_NO_BOSS_05_EF_BLITZ_FB_C_01_ES,
+		IDB_BOSS05_EFF_BSF_TEX_AMB,
+		GMD_DWORK_NO_BOSS_05_EF_CMN_AMBTEX,
+		GMD_DWORK_NO_BOSS_05_EF_CMN_TEXLIST,
+		0,
+		0,
+		0,
+	},
+	// GME_BOSS5_EFCT_IDX_BLITZ_FB_C_02
+	{
+		FALSE,
+		IDB_BOSS05_EFF_BLITZ_FB_C_02_AME,
+		GMD_DWORK_NO_BOSS_05_EF_BLITZ_FB_C_02_ES,
+		IDB_BOSS05_EFF_BSF_TEX_AMB,
+		GMD_DWORK_NO_BOSS_05_EF_CMN_AMBTEX,
+		GMD_DWORK_NO_BOSS_05_EF_CMN_TEXLIST,
+		0,
+		0,
+		0,
+	},
+	// GME_BOSS5_EFCT_IDX_BLITZ_FB_START
+	{
+		FALSE,
+		IDB_BOSS05_EFF_BLITZ_FB_START_AME,
+		GMD_DWORK_NO_BOSS_05_EF_BLITZ_FB_START_ES,
+		IDB_BOSS05_EFF_BSF_TEX_AMB,
+		GMD_DWORK_NO_BOSS_05_EF_CMN_AMBTEX,
+		GMD_DWORK_NO_BOSS_05_EF_CMN_TEXLIST,
+		0,
+		0,
+		0,
+	},
+	// GME_BOSS5_EFCT_IDX_FB_SMORK00
+	{
+		FALSE,
+		IDB_BOSS05_EFF_FB_SMORK00_AME,
+		GMD_DWORK_NO_BOSS_05_EF_FB_SMORK00_ES,
+		IDB_BOSS05_EFF_BSF_TEX_AMB,
+		GMD_DWORK_NO_BOSS_05_EF_CMN_AMBTEX,
+		GMD_DWORK_NO_BOSS_05_EF_CMN_TEXLIST,
+		0,
+		0,
+		0,
+	},
+	// GME_BOSS5_EFCT_IDX_FB_SMORK01
+	{
+		FALSE,
+		IDB_BOSS05_EFF_FB_SMORK01_AME,
+		GMD_DWORK_NO_BOSS_05_EF_FB_SMORK01_ES,
+		IDB_BOSS05_EFF_BSF_TEX_AMB,
+		GMD_DWORK_NO_BOSS_05_EF_CMN_AMBTEX,
+		GMD_DWORK_NO_BOSS_05_EF_CMN_TEXLIST,
+		0,
+		0,
+		0,
+	},
+	// GME_BOSS5_EFCT_IDX_FB_SMORK02
+	{
+		FALSE,
+		IDB_BOSS05_EFF_FB_SMORK02_AME,
+		GMD_DWORK_NO_BOSS_05_EF_FB_SMORK02_ES,
+		IDB_BOSS05_EFF_BSF_TEX_AMB,
+		GMD_DWORK_NO_BOSS_05_EF_CMN_AMBTEX,
+		GMD_DWORK_NO_BOSS_05_EF_CMN_TEXLIST,
+		0,
+		0,
+		0,
+	},
+	// GME_BOSS5_EFCT_IDX_GLASS
+	{
+		FALSE,
+		IDB_BOSS05_EFF_GLASS_AME,
+		GMD_DWORK_NO_BOSS_05_EF_GLASS_ES,
+		IDB_BOSS05_EFF_BSF_TEX_AMB,
+		GMD_DWORK_NO_BOSS_05_EF_CMN_AMBTEX,
+		GMD_DWORK_NO_BOSS_05_EF_CMN_TEXLIST,
+		0,
+		0,
+		0,
+	},
+	// GME_BOSS5_EFCT_IDX_JET_FB
+	{
+		FALSE,
+		IDB_BOSS05_EFF_JET_FB_AME,
+		GMD_DWORK_NO_BOSS_05_EF_JET_FB_ES,
+		IDB_BOSS05_EFF_BSF_TEX_AMB,
+		GMD_DWORK_NO_BOSS_05_EF_CMN_AMBTEX,
+		GMD_DWORK_NO_BOSS_05_EF_CMN_TEXLIST,
+		0,
+		0,
+		0,
+	},
+	// GME_BOSS5_EFCT_IDX_JET_FB_SMORK
+	{
+		FALSE,
+		IDB_BOSS05_EFF_JET_FB_SMORK_AME,
+		GMD_DWORK_NO_BOSS_05_EF_JET_FB_SMORK_ES,
+		IDB_BOSS05_EFF_BSF_TEX_AMB,
+		GMD_DWORK_NO_BOSS_05_EF_CMN_AMBTEX,
+		GMD_DWORK_NO_BOSS_05_EF_CMN_TEXLIST,
+		0,
+		0,
+		0,
+	},
+	// GME_BOSS5_EFCT_IDX_ROCKET_BLITZ
+	{
+		FALSE,
+		IDB_BOSS05_EFF_ROCKET_BLITZ_AME,
+		GMD_DWORK_NO_BOSS_05_EF_ROCKET_BLITZ_ES,
+		IDB_BOSS05_EFF_BSF_TEX_AMB,
+		GMD_DWORK_NO_BOSS_05_EF_CMN_AMBTEX,
+		GMD_DWORK_NO_BOSS_05_EF_CMN_TEXLIST,
+		0,
+		0,
+		0,
+	},
+	// GME_BOSS5_EFCT_IDX_ROCKET_E
+	{
+		FALSE,
+		IDB_BOSS05_EFF_ROCKET_E_AME,
+		GMD_DWORK_NO_BOSS_05_EF_ROCKET_E_ES,
+		IDB_BOSS05_EFF_BSF_TEX_AMB,
+		GMD_DWORK_NO_BOSS_05_EF_CMN_AMBTEX,
+		GMD_DWORK_NO_BOSS_05_EF_CMN_TEXLIST,
+		0,
+		0,
+		0,
+	},
+	// GME_BOSS5_EFCT_IDX_ROCKET_JET (model)
+	{
+		TRUE,
+		IDB_BOSS05_EFF_ROCKET_JET_AME,
+		GMD_DWORK_NO_BOSS_05_EF_ROCKET_JET_ES,
+		IDB_BOSS05_EFF_BSF_TEX_MD_JT_AMB,
+		GMD_DWORK_NO_BOSS_05_EF_MD_JT_AMBTEX,
+		GMD_DWORK_NO_BOSS_05_EF_MD_JT_TEXLIST,
+		IDB_BOSS05_EFF_JET_ZNO,
+		GMD_DWORK_NO_BOSS_05_EF_JET_MODELDAT,
+		GMD_DWORK_NO_BOSS_05_EF_JET_OBJECT,
+	},
+	// GME_BOSS5_EFCT_IDX_ROCKET_S
+	{
+		FALSE,
+		IDB_BOSS05_EFF_ROCKET_S_AME,
+		GMD_DWORK_NO_BOSS_05_EF_ROCKET_S_ES,
+		IDB_BOSS05_EFF_BSF_TEX_AMB,
+		GMD_DWORK_NO_BOSS_05_EF_CMN_AMBTEX,
+		GMD_DWORK_NO_BOSS_05_EF_CMN_TEXLIST,
+		0,
+		0,
+		0,
+	},
+	// GME_BOSS5_EFCT_IDX_ROCKET_SMORK
+	{
+		FALSE,
+		IDB_BOSS05_EFF_ROCKET_SMORK_AME,
+		GMD_DWORK_NO_BOSS_05_EF_ROCKET_SMORK_ES,
+		IDB_BOSS05_EFF_BSF_TEX_AMB,
+		GMD_DWORK_NO_BOSS_05_EF_CMN_AMBTEX,
+		GMD_DWORK_NO_BOSS_05_EF_CMN_TEXLIST,
+		0,
+		0,
+		0,
+	},
+	// GME_BOSS5_EFCT_IDX_SHOCK
+	{
+		FALSE,
+		IDB_BOSS05_EFF_SHOCK_AME,
+		GMD_DWORK_NO_BOSS_05_EF_SHOCK_ES,
+		IDB_BOSS05_EFF_BSF_TEX_AMB,
+		GMD_DWORK_NO_BOSS_05_EF_CMN_AMBTEX,
+		GMD_DWORK_NO_BOSS_05_EF_CMN_TEXLIST,
+		0,
+		0,
+		0,
+	},
+	// GME_BOSS5_EFCT_IDX_SHOCK_ATK
+	{
+		FALSE,
+		IDB_BOSS05_EFF_SHOCK_ATK_AME,
+		GMD_DWORK_NO_BOSS_05_EF_SHOCK_ATK_ES,
+		IDB_BOSS05_EFF_BSF_TEX_AMB,
+		GMD_DWORK_NO_BOSS_05_EF_CMN_AMBTEX,
+		GMD_DWORK_NO_BOSS_05_EF_CMN_TEXLIST,
+		0,
+		0,
+		0,
+	},
+	// GME_BOSS5_EFCT_IDX_TARGET_FB
+	{
+		FALSE,
+		IDB_BOSS05_EFF_TARGET_FB_AME,
+		GMD_DWORK_NO_BOSS_05_EF_TARGET_FB_ES,
+		IDB_BOSS05_EFF_BSF_TEX_AMB,
+		GMD_DWORK_NO_BOSS_05_EF_CMN_AMBTEX,
+		GMD_DWORK_NO_BOSS_05_EF_CMN_TEXLIST,
+		0,
+		0,
+		0,
+	},
+	// GME_BOSS5_EFCT_IDX_TARGET_FB_E
+	{
+		FALSE,
+		IDB_BOSS05_EFF_TARGET_FB_E_AME,
+		GMD_DWORK_NO_BOSS_05_EF_TARGET_FB_E_ES,
+		IDB_BOSS05_EFF_BSF_TEX_AMB,
+		GMD_DWORK_NO_BOSS_05_EF_CMN_AMBTEX,
+		GMD_DWORK_NO_BOSS_05_EF_CMN_TEXLIST,
+		0,
+		0,
+		0,
+	},
+	// GME_BOSS5_EFCT_IDX_TARGET_FB_S
+	{
+		FALSE,
+		IDB_BOSS05_EFF_TARGET_FB_S_AME,
+		GMD_DWORK_NO_BOSS_05_EF_TARGET_FB_S_ES,
+		IDB_BOSS05_EFF_BSF_TEX_AMB,
+		GMD_DWORK_NO_BOSS_05_EF_CMN_AMBTEX,
+		GMD_DWORK_NO_BOSS_05_EF_CMN_TEXLIST,
+		0,
+		0,
+		0,
+	},
+	// GME_BOSS5_EFCT_IDX_TARGET_FB_W
+	{
+		FALSE,
+		IDB_BOSS05_EFF_TARGET_FB_W_AME,
+		GMD_DWORK_NO_BOSS_05_EF_TARGET_FB_W_ES,
+		IDB_BOSS05_EFF_BSF_TEX_AMB,
+		GMD_DWORK_NO_BOSS_05_EF_CMN_AMBTEX,
+		GMD_DWORK_NO_BOSS_05_EF_CMN_TEXLIST,
+		0,
+		0,
+		0,
+	},
+	// GME_BOSS5_EFCT_IDX_TARGET_FB_W_E
+	{
+		FALSE,
+		IDB_BOSS05_EFF_TARGET_FB_W_E_AME,
+		GMD_DWORK_NO_BOSS_05_EF_TARGET_FB_W_E_ES,
+		IDB_BOSS05_EFF_BSF_TEX_AMB,
+		GMD_DWORK_NO_BOSS_05_EF_CMN_AMBTEX,
+		GMD_DWORK_NO_BOSS_05_EF_CMN_TEXLIST,
+		0,
+		0,
+		0,
+	},
+	// GME_BOSS5_EFCT_IDX_TARGET_FB_W_S
+	{
+		FALSE,
+		IDB_BOSS05_EFF_TARGET_FB_W_S_AME,
+		GMD_DWORK_NO_BOSS_05_EF_TARGET_FB_W_S_ES,
+		IDB_BOSS05_EFF_BSF_TEX_AMB,
+		GMD_DWORK_NO_BOSS_05_EF_CMN_AMBTEX,
+		GMD_DWORK_NO_BOSS_05_EF_CMN_TEXLIST,
+		0,
+		0,
+		0,
+	},
+};
+
+
+//! エフェクト生成パラメータテーブル
+const static GMS_EFFECT_CREATE_PARAM gm_boss5_efct_create_param_tbl[GME_BOSS5_EFCT_IDX_MAX]	= {
+	// GME_BOSS5_EFCT_IDX_BLITZ_FB_00
+	{
+		IDB_BOSS05_EFF_BLITZ_FB_00_AME,
+		GME_EFFECT_3DES_POS_TYPE_MTX,
+		(GMD_EFFECT_3DES_FLAG_NOFLIP | GMD_EFFECT_3DES_FLAG_STICKPARENT | GMD_EFFECT_3DES_FLAG_ENABLE_DIR),	//init_flag
+		{.0f,	.0f,	.0f},	//disp_ofst
+		{0,		0,		0},		//disp_rot
+		3.2f,//scale
+		GmEffectDefaultMainFuncDeleteAtEnd,
+		IDB_BOSS05_EFF_THUNDER_1_ZNO,
+	},
+	// GME_BOSS5_EFCT_IDX_BLITZ_FB_01
+	{
+		IDB_BOSS05_EFF_BLITZ_FB_01_AME,
+		GME_EFFECT_3DES_POS_TYPE_MTX,
+		(GMD_EFFECT_3DES_FLAG_NOFLIP | GMD_EFFECT_3DES_FLAG_STICKPARENT | GMD_EFFECT_3DES_FLAG_ENABLE_DIR),	//init_flag
+		{.0f,	.0f,	.0f},	//disp_ofst
+		{0,		0,		0},		//disp_rot
+		3.2f,//scale
+		GmEffectDefaultMainFuncDeleteAtEnd,
+		IDB_BOSS05_EFF_THUNDER_1_ZNO,
+	},
+	// GME_BOSS5_EFCT_IDX_BLITZ_FB_02
+	{
+		IDB_BOSS05_EFF_BLITZ_FB_02_AME,
+		GME_EFFECT_3DES_POS_TYPE_MTX,
+		(GMD_EFFECT_3DES_FLAG_NOFLIP | GMD_EFFECT_3DES_FLAG_STICKPARENT | GMD_EFFECT_3DES_FLAG_ENABLE_DIR),	//init_flag
+		{.0f,	.0f,	.0f},	//disp_ofst
+		{0,		0,		0},		//disp_rot
+		3.2f,//scale
+		GmEffectDefaultMainFuncDeleteAtEnd,
+		IDB_BOSS05_EFF_THUNDER_1_ZNO,
+	},
+	// GME_BOSS5_EFCT_IDX_BLITZ_FB_03
+	{
+		IDB_BOSS05_EFF_BLITZ_FB_03_AME,
+		GME_EFFECT_3DES_POS_TYPE_MTX,
+		(GMD_EFFECT_3DES_FLAG_NOFLIP | GMD_EFFECT_3DES_FLAG_STICKPARENT | GMD_EFFECT_3DES_FLAG_ENABLE_DIR),	//init_flag
+		{.0f,	.0f,	.0f},	//disp_ofst
+		{0,		0,		0},		//disp_rot
+		3.2f,//scale
+		GmEffectDefaultMainFuncDeleteAtEnd,
+		IDB_BOSS05_EFF_THUNDER_1_ZNO,
+	},
+	// GME_BOSS5_EFCT_IDX_BLITZ_FB_C_00
+	{
+		IDB_BOSS05_EFF_BLITZ_FB_C_00_AME,
+		GME_EFFECT_3DES_POS_TYPE_EMT_DEPEND,
+		(GMD_EFFECT_3DES_FLAG_NOFLIP | GMD_EFFECT_3DES_FLAG_STICKPARENT | GMD_EFFECT_3DES_FLAG_ENABLE_DIR),	//init_flag
+		{.0f,	.0f,	.0f},	//disp_ofst
+		{0,		0,		0},		//disp_rot
+		1.f,//scale
+		GmEffectDefaultMainFuncDeleteAtEnd,
+		GMD_EFFECT_CR_PARAM_MODEL_IDX_NONE,
+	},
+	// GME_BOSS5_EFCT_IDX_BLITZ_FB_C_01
+	{
+		IDB_BOSS05_EFF_BLITZ_FB_C_01_AME,
+		GME_EFFECT_3DES_POS_TYPE_EMT_DEPEND,
+		(GMD_EFFECT_3DES_FLAG_NOFLIP | GMD_EFFECT_3DES_FLAG_STICKPARENT | GMD_EFFECT_3DES_FLAG_ENABLE_DIR),	//init_flag
+		{.0f,	.0f,	.0f},	//disp_ofst
+		{0,		0,		0},		//disp_rot
+		1.f,//scale
+		GmEffectDefaultMainFuncDeleteAtEnd,
+		GMD_EFFECT_CR_PARAM_MODEL_IDX_NONE,
+	},
+	// GME_BOSS5_EFCT_IDX_BLITZ_FB_C_02
+	{
+		IDB_BOSS05_EFF_BLITZ_FB_C_02_AME,
+		GME_EFFECT_3DES_POS_TYPE_EMT_DEPEND,
+		(GMD_EFFECT_3DES_FLAG_NOFLIP | GMD_EFFECT_3DES_FLAG_STICKPARENT | GMD_EFFECT_3DES_FLAG_ENABLE_DIR),	//init_flag
+		{.0f,	.0f,	.0f},	//disp_ofst
+		{0,		0,		0},		//disp_rot
+		1.f,//scale
+		GmEffectDefaultMainFuncDeleteAtEnd,
+		GMD_EFFECT_CR_PARAM_MODEL_IDX_NONE,
+	},
+	// GME_BOSS5_EFCT_IDX_BLITZ_FB_START
+	{
+		IDB_BOSS05_EFF_BLITZ_FB_START_AME,
+		GME_EFFECT_3DES_POS_TYPE_EMT_DEPEND,
+		(GMD_EFFECT_3DES_FLAG_NOFLIP | GMD_EFFECT_3DES_FLAG_STICKPARENT | GMD_EFFECT_3DES_FLAG_ENABLE_DIR),	//init_flag
+		{.0f,	.0f,	.0f},	//disp_ofst
+		{0,		0,		0},		//disp_rot
+		1.f,//scale
+		GmEffectDefaultMainFuncDeleteAtEnd,
+		GMD_EFFECT_CR_PARAM_MODEL_IDX_NONE,
+	},
+	// GME_BOSS5_EFCT_IDX_FB_SMORK00
+	{
+		IDB_BOSS05_EFF_FB_SMORK00_AME,
+		GME_EFFECT_3DES_POS_TYPE_EMT,
+		(GMD_EFFECT_3DES_FLAG_NOFLIP),	//init_flag
+		{.0f,	.0f,	.0f},	//disp_ofst
+		{0,		0,		0},		//disp_rot
+		1.f,//scale
+		GmEffectDefaultMainFuncDeleteAtEnd,
+		GMD_EFFECT_CR_PARAM_MODEL_IDX_NONE,
+	},
+	// GME_BOSS5_EFCT_IDX_FB_SMORK01
+	{
+		IDB_BOSS05_EFF_FB_SMORK01_AME,
+		GME_EFFECT_3DES_POS_TYPE_EMT,
+		(GMD_EFFECT_3DES_FLAG_NOFLIP),	//init_flag
+		{.0f,	.0f,	.0f},	//disp_ofst
+		{0,		0,		0},		//disp_rot
+		1.f,//scale
+		GmEffectDefaultMainFuncDeleteAtEnd,
+		GMD_EFFECT_CR_PARAM_MODEL_IDX_NONE,
+	},
+	// GME_BOSS5_EFCT_IDX_FB_SMORK02
+	{
+		IDB_BOSS05_EFF_FB_SMORK02_AME,
+		GME_EFFECT_3DES_POS_TYPE_EMT,
+		(GMD_EFFECT_3DES_FLAG_NOFLIP | GMD_EFFECT_3DES_FLAG_EMT_USE_DATA_ROT),	//init_flag
+		{.0f,	.0f,	.0f},	//disp_ofst
+		{0,		0,		0},		//disp_rot
+		1.f,//scale
+		GmEffectDefaultMainFuncDeleteAtEnd,
+		GMD_EFFECT_CR_PARAM_MODEL_IDX_NONE,
+	},
+	// GME_BOSS5_EFCT_IDX_GLASS
+	{
+		IDB_BOSS05_EFF_GLASS_AME,
+		GME_EFFECT_3DES_POS_TYPE_EMT,
+		(GMD_EFFECT_3DES_FLAG_NOFLIP | GMD_EFFECT_3DES_FLAG_ENABLE_DIR),	//init_flag
+		{.0f,	.0f,	.0f},	//disp_ofst
+		{0,		0,		0},		//disp_rot
+		1.f,//scale
+		GmEffectDefaultMainFuncDeleteAtEnd,
+		GMD_EFFECT_CR_PARAM_MODEL_IDX_NONE,
+	},
+	// GME_BOSS5_EFCT_IDX_JET_FB
+	{
+		IDB_BOSS05_EFF_JET_FB_AME,
+		GME_EFFECT_3DES_POS_TYPE_EMT_DEPEND,
+		(GMD_EFFECT_3DES_FLAG_NOFLIP | GMD_EFFECT_3DES_FLAG_STICKPARENT | GMD_EFFECT_3DES_FLAG_ENABLE_DIR),	//init_flag
+		{.0f,	-6.0f,	.0f},	//disp_ofst
+		{AKM_DEGtoA16(-180),		0,		0},		//disp_rot
+		1.f,//scale
+		GmEffectDefaultMainFuncDeleteAtEnd,
+		GMD_EFFECT_CR_PARAM_MODEL_IDX_NONE,
+	},
+	// GME_BOSS5_EFCT_IDX_JET_FB_SMORK
+	{
+		IDB_BOSS05_EFF_JET_FB_SMORK_AME,
+		GME_EFFECT_3DES_POS_TYPE_EMT,
+		(GMD_EFFECT_3DES_FLAG_NOFLIP),	//init_flag
+		{.0f,	.0f,	.0f},	//disp_ofst
+		{0,		0,		0},		//disp_rot
+		1.f,//scale
+		GmEffectDefaultMainFuncDeleteAtEnd,
+		GMD_EFFECT_CR_PARAM_MODEL_IDX_NONE,
+	},
+	
+	// GME_BOSS5_EFCT_IDX_ROCKET_BLITZ
+	{
+		IDB_BOSS05_EFF_ROCKET_BLITZ_AME,
+		GME_EFFECT_3DES_POS_TYPE_EMT_DEPEND,
+		(GMD_EFFECT_3DES_FLAG_NOFLIP | GMD_EFFECT_3DES_FLAG_STICKPARENT | GMD_EFFECT_3DES_FLAG_ENABLE_DIR),	//init_flag
+		{.0f,	.0f,	.0f},	//disp_ofst
+		{0,		0,		AKM_DEGtoA16(-90)/*腕の基本姿勢に合わせる*/},		//disp_rot
+		1.f,//scale
+		GmEffectDefaultMainFuncDeleteAtEnd,
+		GMD_EFFECT_CR_PARAM_MODEL_IDX_NONE,
+	},
+	// GME_BOSS5_EFCT_IDX_ROCKET_E
+	{
+		IDB_BOSS05_EFF_ROCKET_E_AME,
+		GME_EFFECT_3DES_POS_TYPE_EMT,
+		(GMD_EFFECT_3DES_FLAG_NOFLIP | GMD_EFFECT_3DES_FLAG_ENABLE_DIR),	//init_flag
+		{.0f,	.0f,	.0f},	//disp_ofst
+		{AKM_DEGtoA16(+90),		AKM_DEGtoA16(+90),		0},		//disp_rot
+		1.f,//scale
+		GmEffectDefaultMainFuncDeleteAtEnd,
+		GMD_EFFECT_CR_PARAM_MODEL_IDX_NONE,
+	},
+	// GME_BOSS5_EFCT_IDX_ROCKET_JET
+	{
+		IDB_BOSS05_EFF_ROCKET_JET_AME,
+		GME_EFFECT_3DES_POS_TYPE_MTX,
+		(GMD_EFFECT_3DES_FLAG_NOFLIP | GMD_EFFECT_3DES_FLAG_STICKPARENT | GMD_EFFECT_3DES_FLAG_SCALE_BY_MTX | GMD_EFFECT_3DES_FLAG_ENABLE_DIR),	//init_flag
+		{.0f,	.0f,	.0f},	//disp_ofst
+		{AKM_DEGtoA16(-90),		AKM_DEGtoA16(+90),		0},		//disp_rot
+		3.2f,//scale
+		GmEffectDefaultMainFuncDeleteAtEnd,
+		IDB_BOSS05_EFF_JET_ZNO,
+	},
+	// GME_BOSS5_EFCT_IDX_ROCKET_S
+	{
+		IDB_BOSS05_EFF_ROCKET_S_AME,
+		GME_EFFECT_3DES_POS_TYPE_EMT_DEPEND,
+		(GMD_EFFECT_3DES_FLAG_NOFLIP | GMD_EFFECT_3DES_FLAG_ENABLE_DIR),	//init_flag
+		{.0f,	.0f,	.0f},	//disp_ofst
+		{AKM_DEGtoA16(+90),		AKM_DEGtoA16(+90),		0},		//disp_rot
+		1.f,//scale
+		GmEffectDefaultMainFuncDeleteAtEnd,
+		GMD_EFFECT_CR_PARAM_MODEL_IDX_NONE,
+	},
+	// GME_BOSS5_EFCT_IDX_ROCKET_SMORK
+	{
+		IDB_BOSS05_EFF_ROCKET_SMORK_AME,
+		GME_EFFECT_3DES_POS_TYPE_EMT,
+		(GMD_EFFECT_3DES_FLAG_NOFLIP),	//init_flag
+		{.0f,	.0f,	.0f},	//disp_ofst
+		{0,		0,		0},		//disp_rot
+		1.f,//scale
+		GmEffectDefaultMainFuncDeleteAtEnd,
+		GMD_EFFECT_CR_PARAM_MODEL_IDX_NONE,
+	},
+	// GME_BOSS5_EFCT_IDX_SHOCK
+	{
+		IDB_BOSS05_EFF_SHOCK_AME,
+		GME_EFFECT_3DES_POS_TYPE_EMT,
+		(GMD_EFFECT_3DES_FLAG_NOFLIP | GMD_EFFECT_3DES_FLAG_EMT_USE_DATA_ROT),	//init_flag
+		{.0f,	.0f,	.0f},	//disp_ofst
+		{0,		0,		0},		//disp_rot
+		1.f,//scale
+		GmEffectDefaultMainFuncDeleteAtEnd,
+		GMD_EFFECT_CR_PARAM_MODEL_IDX_NONE,
+	},
+	// GME_BOSS5_EFCT_IDX_SHOCK_ATK
+	{
+		IDB_BOSS05_EFF_SHOCK_ATK_AME,
+		GME_EFFECT_3DES_POS_TYPE_EMT,
+		(GMD_EFFECT_3DES_FLAG_NOFLIP),	//init_flag
+		{.0f,	.0f,	.0f},	//disp_ofst
+		{0,		0,		0},		//disp_rot
+		1.f,//scale
+		GmEffectDefaultMainFuncDeleteAtEnd,
+		GMD_EFFECT_CR_PARAM_MODEL_IDX_NONE,
+	},
+	// GME_BOSS5_EFCT_IDX_TARGET_FB
+	{
+		IDB_BOSS05_EFF_TARGET_FB_AME,
+		GME_EFFECT_3DES_POS_TYPE_MTX,
+		(GMD_EFFECT_3DES_FLAG_NOFLIP),	//init_flag
+		{.0f,	.0f,	.0f},	//disp_ofst
+		{0,		0,		0},		//disp_rot
+		1.f,//scale
+		GmEffectDefaultMainFuncDeleteAtEnd,
+		GMD_EFFECT_CR_PARAM_MODEL_IDX_NONE,
+	},
+	// GME_BOSS5_EFCT_IDX_TARGET_FB_E
+	{
+		IDB_BOSS05_EFF_TARGET_FB_E_AME,
+		GME_EFFECT_3DES_POS_TYPE_MTX,
+		(GMD_EFFECT_3DES_FLAG_NOFLIP),	//init_flag
+		{.0f,	.0f,	.0f},	//disp_ofst
+		{0,		0,		0},		//disp_rot
+		1.f,//scale
+		GmEffectDefaultMainFuncDeleteAtEnd,
+		GMD_EFFECT_CR_PARAM_MODEL_IDX_NONE,
+	},
+	// GME_BOSS5_EFCT_IDX_TARGET_FB_S
+	{
+		IDB_BOSS05_EFF_TARGET_FB_S_AME,
+		GME_EFFECT_3DES_POS_TYPE_MTX,
+		(GMD_EFFECT_3DES_FLAG_NOFLIP),	//init_flag
+		{.0f,	.0f,	.0f},	//disp_ofst
+		{0,		0,		0},		//disp_rot
+		1.f,//scale
+		GmEffectDefaultMainFuncDeleteAtEnd,
+		GMD_EFFECT_CR_PARAM_MODEL_IDX_NONE,
+	},
+	// GME_BOSS5_EFCT_IDX_TARGET_FB_W
+	{
+		IDB_BOSS05_EFF_TARGET_FB_W_AME,
+		GME_EFFECT_3DES_POS_TYPE_MTX,
+		(GMD_EFFECT_3DES_FLAG_NOFLIP | GMD_EFFECT_3DES_FLAG_STICKPARENT),	//init_flag
+		{.0f,	.0f,	.0f},	//disp_ofst
+		{0,		0,		0},		//disp_rot
+		1.f,//scale
+		GmEffectDefaultMainFuncDeleteAtEnd,
+		GMD_EFFECT_CR_PARAM_MODEL_IDX_NONE,
+	},
+	// GME_BOSS5_EFCT_IDX_TARGET_FB_W_E
+	{
+		IDB_BOSS05_EFF_TARGET_FB_W_E_AME,
+		GME_EFFECT_3DES_POS_TYPE_MTX,
+		(GMD_EFFECT_3DES_FLAG_NOFLIP | GMD_EFFECT_3DES_FLAG_STICKPARENT),	//init_flag
+		{.0f,	.0f,	.0f},	//disp_ofst
+		{0,		0,		0},		//disp_rot
+		1.f,//scale
+		GmEffectDefaultMainFuncDeleteAtEnd,
+		GMD_EFFECT_CR_PARAM_MODEL_IDX_NONE,
+	},
+	// GME_BOSS5_EFCT_IDX_TARGET_FB_W_S
+	{
+		IDB_BOSS05_EFF_TARGET_FB_W_S_AME,
+		GME_EFFECT_3DES_POS_TYPE_MTX,
+		(GMD_EFFECT_3DES_FLAG_NOFLIP | GMD_EFFECT_3DES_FLAG_STICKPARENT),	//init_flag
+		{.0f,	.0f,	.0f},	//disp_ofst
+		{0,		0,		0},		//disp_rot
+		1.f,//scale
+		GmEffectDefaultMainFuncDeleteAtEnd,
+		GMD_EFFECT_CR_PARAM_MODEL_IDX_NONE,
+	},
+};
+
+
+//! 機能停止黒煙エフェクト 表示オフセットテーブル
+const static Float gm_boss5_efct_breakdown_smoke_disp_ofst_tbl[GMD_BOSS5_EFCT_BREAKDOWN_SMOKES_NUM][MTD_XYZ]	= {
+	{	32.f,	40.f,	16.f,	},	// 左側面
+	{	-32.f,	40.f,	16.f,	},	// 右側面
+};
+
+//! 機能停止黒煙エフェクト 表示回転テーブル
+const static Angle16 gm_boss5_efct_breakdown_smoke_disp_rot_tbl[GMD_BOSS5_EFCT_BREAKDOWN_SMOKES_NUM][MTD_XYZ]	= {
+	{	AKM_DEGtoA16(-45),	AKM_DEGtoA16(-45),	AKM_DEGtoA16(0),	},	// 左側面
+	{	AKM_DEGtoA16(-45),	AKM_DEGtoA16(45),	AKM_DEGtoA16(0),	},	// 右側面
+};
+
+
+//! 本体 小さい黒煙エフェクト 表示オフセットテーブル
+const static Float gm_boss5_efct_body_small_smoke_disp_ofst_tbl[GMD_BOSS5_EFCT_BODY_SMALL_SMOKES_NUM][MTD_XYZ]	= {
+	{	0.f,	30.f,	-28.f,	},	// 後頭部
+	{	-16.f,	30.f,	40.f,	},	// 右前方
+	{	16.f,	46.f,	28.f,	},	// 左前方ちょっと上
+};
+
+//! 本体 小さい黒煙エフェクト 表示回転テーブル
+const static Angle16 gm_boss5_efct_body_small_smoke_disp_rot_tbl[GMD_BOSS5_EFCT_BODY_SMALL_SMOKES_NUM][MTD_XYZ]	= {
+	{	AKM_DEGtoA16(0),	AKM_DEGtoA16(0),	AKM_DEGtoA16(0),	},
+	{	AKM_DEGtoA16(0),	AKM_DEGtoA16(180),	AKM_DEGtoA16(0),	},
+	{	AKM_DEGtoA16(0),	AKM_DEGtoA16(180),	AKM_DEGtoA16(0),	},
+};
+
+//! 凶暴化スチームエフェクト 表示オフセットテーブル
+const static Float gm_boss5_efct_berserk_steam_disp_ofst_tbl[GMD_BOSS5_EFCT_BERSERK_STEAM_NUM][MTD_XYZ]	= {
+	{	32.f,	48.f,	0.f,	},	// 左側面
+	{	-32.f,	48.f,	0.f,	},	// 右側面
+};
+
+//! 凶暴化スチームエフェクト 表示回転テーブル
+const static Angle16 gm_boss5_efct_berserk_steam_disp_rot_tbl[GMD_BOSS5_EFCT_BERSERK_STEAM_NUM][MTD_XYZ]	= {
+	{	AKM_DEGtoA16(-20),	AKM_DEGtoA16(0),	AKM_DEGtoA16(0),	},	// 左側面
+	{	AKM_DEGtoA16(-20),	AKM_DEGtoA16(0),	AKM_DEGtoA16(0),	},	// 右側面
+};
+
+/*------ Global Functions ----------------------------------------------*/
+
+
+/*------ Static Functions ----------------------------------------------*/
+// =======================================================================
+// test_func
+/*!
+  関数機能
+ 
+  @param param0 [in] 入力引数0説明
+  @param param1 [out] 出力ポインタ引数1説明
+  @param param2 [io] 入出力ポインタ引数2説明
+ 
+  @return 返値説明
+ 
+  @note
+  補足説明
+ */
+// =======================================================================

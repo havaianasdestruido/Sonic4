@@ -1,0 +1,22 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_MODEL
+#define	_IDB_MODEL
+
+/* Defined File ID */
+#define	IDB_MODEL_GMK_SW_WALL_3_TVX		0		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_MODEL_GMK_SW_WALL_3_TVX		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_MODEL_GMK_SW_WALL_3_TVX		0		/*  */
+
+/* Defined File Name */
+#define	IDS_MODEL_GMK_SW_WALL_3_TVX		"GMK_SW_WALL_3.TVX"
+
+#endif	/* _IDB_MODEL */

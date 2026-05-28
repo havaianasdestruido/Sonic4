@@ -1,0 +1,22 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_GMK_DASH_P_MDL
+#define	_IDB_GMK_DASH_P_MDL
+
+/* Defined File ID */
+#define	IDB_GMK_DASH_P_MDL_GMK_DASH_P_ZNO		0		/*  ダッシュパネル */
+
+/* Defined USR0 Data */
+#define	IDU0_GMK_DASH_P_MDL_GMK_DASH_P_ZNO		0		/*  ダッシュパネル */
+
+/* Defined USR1 Data */
+#define	IDU1_GMK_DASH_P_MDL_GMK_DASH_P_ZNO		0		/*  ダッシュパネル */
+
+/* Defined File Name */
+#define	IDS_GMK_DASH_P_MDL_GMK_DASH_P_ZNO		"GMK_DASH_P.ZNO"
+
+#endif	/* _IDB_GMK_DASH_P_MDL */

@@ -1,0 +1,12 @@
+// root node
+
+// node
+
+// action
+#define IDA_D_TITLE_ACT_BTN_L      (  0) // btn_l
+#define IDA_D_TITLE_ACT_BTN_C      (  1) // btn_c
+#define IDA_D_TITLE_ACT_BTN_R      (  2) // btn_r
+#define IDA_D_TITLE_ACT_BTN02_L    (  3) // btn02_l
+#define IDA_D_TITLE_ACT_BTN02_C    (  4) // btn02_c
+#define IDA_D_TITLE_ACT_GAME_BTN_L (  5) // game_btn_l
+#define IDA_D_TITLE_ACT_GAME_BTN_C (  6) // game_btn_c

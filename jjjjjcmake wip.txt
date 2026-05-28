@@ -1,0 +1,5 @@
+# https://web.archive.org/web/20141116113322/http://preetisblog.com/programming/how-to-write-cmakelists-txt
+# Reference.
+cmake_minimum_required(VERSION 2.8 FATAL_ERROR)
+SET(STH4RECOMP)
+later.project(SONIC4SOURCEWORK)

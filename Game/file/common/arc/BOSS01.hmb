@@ -1,0 +1,54 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_BOSS01
+#define	_IDB_BOSS01
+
+/* Defined File ID */
+#define	IDB_BOSS01_BOSS01_MDL_AMB		0		/*  */
+#define	IDB_BOSS01_BOSS01_TEX_AMB		1		/*  */
+#define	IDB_BOSS01_BOSS01_BODY_MTN_AMB		2		/*  */
+#define	IDB_BOSS01_BOSS01_CHAIN_MTN_AMB		3		/*  */
+#define	IDB_BOSS01_BOSS01_EGG_MTN_AMB		4		/*  */
+#define	IDB_BOSS01_EFF_BOSSZ1_00_AME		5		/*  */
+#define	IDB_BOSS01_EFF_BOSSZ1_01_AME		6		/*  */
+#define	IDB_BOSS01_EFF_BOSSZ1_02_AME		7		/*  */
+#define	IDB_BOSS01_EFF_BS1_TEX_AMB		8		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_BOSS01_BOSS01_MDL_AMB		0		/*  */
+#define	IDU0_BOSS01_BOSS01_TEX_AMB		0		/*  */
+#define	IDU0_BOSS01_BOSS01_BODY_MTN_AMB		0		/*  */
+#define	IDU0_BOSS01_BOSS01_CHAIN_MTN_AMB		0		/*  */
+#define	IDU0_BOSS01_BOSS01_EGG_MTN_AMB		0		/*  */
+#define	IDU0_BOSS01_EFF_BOSSZ1_00_AME		0		/*  */
+#define	IDU0_BOSS01_EFF_BOSSZ1_01_AME		0		/*  */
+#define	IDU0_BOSS01_EFF_BOSSZ1_02_AME		0		/*  */
+#define	IDU0_BOSS01_EFF_BS1_TEX_AMB		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_BOSS01_BOSS01_MDL_AMB		0		/*  */
+#define	IDU1_BOSS01_BOSS01_TEX_AMB		0		/*  */
+#define	IDU1_BOSS01_BOSS01_BODY_MTN_AMB		0		/*  */
+#define	IDU1_BOSS01_BOSS01_CHAIN_MTN_AMB		0		/*  */
+#define	IDU1_BOSS01_BOSS01_EGG_MTN_AMB		0		/*  */
+#define	IDU1_BOSS01_EFF_BOSSZ1_00_AME		0		/*  */
+#define	IDU1_BOSS01_EFF_BOSSZ1_01_AME		0		/*  */
+#define	IDU1_BOSS01_EFF_BOSSZ1_02_AME		0		/*  */
+#define	IDU1_BOSS01_EFF_BS1_TEX_AMB		0		/*  */
+
+/* Defined File Name */
+#define	IDS_BOSS01_BOSS01_MDL_AMB		"BOSS01_MDL.AMB"
+#define	IDS_BOSS01_BOSS01_TEX_AMB		"BOSS01_TEX.AMB"
+#define	IDS_BOSS01_BOSS01_BODY_MTN_AMB		"BOSS01_BODY_MTN.AMB"
+#define	IDS_BOSS01_BOSS01_CHAIN_MTN_AMB		"BOSS01_CHAIN_MTN.AMB"
+#define	IDS_BOSS01_BOSS01_EGG_MTN_AMB		"BOSS01_EGG_MTN.AMB"
+#define	IDS_BOSS01_EFF_BOSSZ1_00_AME		"EFF_BOSSZ1_00.AME"
+#define	IDS_BOSS01_EFF_BOSSZ1_01_AME		"EFF_BOSSZ1_01.AME"
+#define	IDS_BOSS01_EFF_BOSSZ1_02_AME		"EFF_BOSSZ1_02.AME"
+#define	IDS_BOSS01_EFF_BS1_TEX_AMB		"EFF_BS1_TEX.AMB"
+
+#endif	/* _IDB_BOSS01 */

@@ -1,0 +1,26 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_GMK_B_LAND1_MTN
+#define	_IDB_GMK_B_LAND1_MTN
+
+/* Defined File ID */
+#define	IDB_GMK_B_LAND1_MTN_GMK_BLOCK_R_ZNM		0		/*  */
+#define	IDB_GMK_B_LAND1_MTN_GMK_BLOCK_L_ZNM		1		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_GMK_B_LAND1_MTN_GMK_BLOCK_R_ZNM		0		/*  */
+#define	IDU0_GMK_B_LAND1_MTN_GMK_BLOCK_L_ZNM		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_GMK_B_LAND1_MTN_GMK_BLOCK_R_ZNM		0		/*  */
+#define	IDU1_GMK_B_LAND1_MTN_GMK_BLOCK_L_ZNM		0		/*  */
+
+/* Defined File Name */
+#define	IDS_GMK_B_LAND1_MTN_GMK_BLOCK_R_ZNM		"GMK_BLOCK_R.ZNM"
+#define	IDS_GMK_B_LAND1_MTN_GMK_BLOCK_L_ZNM		"GMK_BLOCK_L.ZNM"
+
+#endif	/* _IDB_GMK_B_LAND1_MTN */

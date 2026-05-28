@@ -1,0 +1,42 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_ENE_MEREON_MTN
+#define	_IDB_ENE_MEREON_MTN
+
+/* Defined File ID */
+#define	IDB_ENE_MEREON_MTN_ENE_MEREON_B_FW_ZNM		0		/*  */
+#define	IDB_ENE_MEREON_MTN_ENE_MEREON_B_FW_L_ZNM		1		/*  */
+#define	IDB_ENE_MEREON_MTN_ENE_MEREON_ATK_ZNM		2		/*  */
+#define	IDB_ENE_MEREON_MTN_ENE_MEREON_B_ATK_ZNM		3		/*  */
+#define	IDB_ENE_MEREON_MTN_ENE_MEREON_B_ATK_L_ZNM		4		/*  */
+#define	IDB_ENE_MEREON_MTN_ENE_MEREON_ROCKET_ZNM		5		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_ENE_MEREON_MTN_ENE_MEREON_B_FW_ZNM		0		/*  */
+#define	IDU0_ENE_MEREON_MTN_ENE_MEREON_B_FW_L_ZNM		0		/*  */
+#define	IDU0_ENE_MEREON_MTN_ENE_MEREON_ATK_ZNM		0		/*  */
+#define	IDU0_ENE_MEREON_MTN_ENE_MEREON_B_ATK_ZNM		0		/*  */
+#define	IDU0_ENE_MEREON_MTN_ENE_MEREON_B_ATK_L_ZNM		0		/*  */
+#define	IDU0_ENE_MEREON_MTN_ENE_MEREON_ROCKET_ZNM		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_ENE_MEREON_MTN_ENE_MEREON_B_FW_ZNM		0		/*  */
+#define	IDU1_ENE_MEREON_MTN_ENE_MEREON_B_FW_L_ZNM		0		/*  */
+#define	IDU1_ENE_MEREON_MTN_ENE_MEREON_ATK_ZNM		0		/*  */
+#define	IDU1_ENE_MEREON_MTN_ENE_MEREON_B_ATK_ZNM		0		/*  */
+#define	IDU1_ENE_MEREON_MTN_ENE_MEREON_B_ATK_L_ZNM		0		/*  */
+#define	IDU1_ENE_MEREON_MTN_ENE_MEREON_ROCKET_ZNM		0		/*  */
+
+/* Defined File Name */
+#define	IDS_ENE_MEREON_MTN_ENE_MEREON_B_FW_ZNM		"ENE_MEREON_B_FW.ZNM"
+#define	IDS_ENE_MEREON_MTN_ENE_MEREON_B_FW_L_ZNM		"ENE_MEREON_B_FW_L.ZNM"
+#define	IDS_ENE_MEREON_MTN_ENE_MEREON_ATK_ZNM		"ENE_MEREON_ATK.ZNM"
+#define	IDS_ENE_MEREON_MTN_ENE_MEREON_B_ATK_ZNM		"ENE_MEREON_B_ATK.ZNM"
+#define	IDS_ENE_MEREON_MTN_ENE_MEREON_B_ATK_L_ZNM		"ENE_MEREON_B_ATK_L.ZNM"
+#define	IDS_ENE_MEREON_MTN_ENE_MEREON_ROCKET_ZNM		"ENE_MEREON_ROCKET.ZNM"
+
+#endif	/* _IDB_ENE_MEREON_MTN */

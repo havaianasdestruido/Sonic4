@@ -1,0 +1,15 @@
+// root node
+#define IDA_D_BUY_SCREEN_ROOT_NODE_BG (  0) // bg
+
+// node
+#define IDA_D_BUY_SCREEN_NODE_BG      (  0) // bg
+#define IDA_D_BUY_SCREEN_NODE_BG_LT   (  1) // bg_lt
+#define IDA_D_BUY_SCREEN_NODE_BG_LB   (  2) // bg_lb
+#define IDA_D_BUY_SCREEN_NODE_BG_RT   (  3) // bg_rt
+#define IDA_D_BUY_SCREEN_NODE_BG_RB   (  4) // bg_rb
+
+// action
+#define IDA_D_BUY_SCREEN_ACT_BG_LT    (  0) // bg_lt
+#define IDA_D_BUY_SCREEN_ACT_BG_LB    (  1) // bg_lb
+#define IDA_D_BUY_SCREEN_ACT_BG_RT    (  2) // bg_rt
+#define IDA_D_BUY_SCREEN_ACT_BG_RB    (  3) // bg_rb

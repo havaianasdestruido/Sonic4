@@ -1,0 +1,8 @@
+// root node
+
+// node
+
+// action
+#define IDA_D_CMN_BG_ACT_BG_BLUE       (  0) // bg_blue
+#define IDA_D_CMN_BG_ACT_BG_WAVE       (  1) // bg_wave
+#define IDA_D_CMN_BG_ACT_BG_DOWN_WHITE (  2) // bg_down_white

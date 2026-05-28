@@ -1,0 +1,57 @@
+// root node
+
+// node
+
+// action
+#define IDA_D_OPTION_ACT_TAB_TITLE1       (  0) // tab_title1
+#define IDA_D_OPTION_ACT_TAB_TITLE2       (  1) // tab_title2
+#define IDA_D_OPTION_ACT_TAB_BACK         (  2) // tab_back
+#define IDA_D_OPTION_ACT_NUM_VOL_100      (  3) // num_vol_100
+#define IDA_D_OPTION_ACT_NUM_VOL_10       (  4) // num_vol_10
+#define IDA_D_OPTION_ACT_NUM_VOL_1        (  5) // num_vol_1
+#define IDA_D_OPTION_ACT_NUM_VOL_PERCENT  (  6) // num_vol_percent
+#define IDA_D_OPTION_ACT_ICON_VOL_UP      (  7) // icon_vol_up
+#define IDA_D_OPTION_ACT_ICON_VOL_DOWN    (  8) // icon_vol_down
+#define IDA_D_OPTION_ACT_ICON_VOL_GAUGE1  (  9) // icon_vol_gauge1
+#define IDA_D_OPTION_ACT_ICON_VOL_GAUGE2  ( 10) // icon_vol_gauge2
+#define IDA_D_OPTION_ACT_ICON_VOL_GAUGE3  ( 11) // icon_vol_gauge3
+#define IDA_D_OPTION_ACT_ICON_VOL_GAUGE4  ( 12) // icon_vol_gauge4
+#define IDA_D_OPTION_ACT_ICON_VOL_GAUGE5  ( 13) // icon_vol_gauge5
+#define IDA_D_OPTION_ACT_ICON_VOL_GAUGE6  ( 14) // icon_vol_gauge6
+#define IDA_D_OPTION_ACT_ICON_VOL_GAUGE7  ( 15) // icon_vol_gauge7
+#define IDA_D_OPTION_ACT_ICON_VOL_GAUGE8  ( 16) // icon_vol_gauge8
+#define IDA_D_OPTION_ACT_ICON_VOL_GAUGE9  ( 17) // icon_vol_gauge9
+#define IDA_D_OPTION_ACT_ICON_VOL_GAUGE10 ( 18) // icon_vol_gauge10
+#define IDA_D_OPTION_ACT_TAB_DEFAULT_1L   ( 19) // tab_default_1l
+#define IDA_D_OPTION_ACT_TAB_DEFAULT_1C   ( 20) // tab_default_1c
+#define IDA_D_OPTION_ACT_TAB_DEFAULT_1R   ( 21) // tab_default_1r
+#define IDA_D_OPTION_ACT_TAB_A_02_ON      ( 22) // tab_a_02_on
+#define IDA_D_OPTION_ACT_TAB_A_02_OFF     ( 23) // tab_a_02_off
+#define IDA_D_OPTION_ACT_TAB_A_01_L       ( 24) // tab_a_01_l
+#define IDA_D_OPTION_ACT_TAB_A_01_C       ( 25) // tab_a_01_c
+#define IDA_D_OPTION_ACT_TAB_A_01_R       ( 26) // tab_a_01_r
+#define IDA_D_OPTION_ACT_LINE_SE_01       ( 27) // line_se_01
+#define IDA_D_OPTION_ACT_TAB_SE_02L       ( 28) // tab_se_02l
+#define IDA_D_OPTION_ACT_TAB_SE_02R       ( 29) // tab_se_02r
+#define IDA_D_OPTION_ACT_TAB_SE_A_01_L    ( 30) // tab_se_a_01_l
+#define IDA_D_OPTION_ACT_TAB_SE_A_01_C    ( 31) // tab_se_a_01_c
+#define IDA_D_OPTION_ACT_TAB_SE_A_01_R    ( 32) // tab_se_a_01_r
+#define IDA_D_OPTION_ACT_TAB_SE_01L       ( 33) // tab_se_01l
+#define IDA_D_OPTION_ACT_TAB_SE_01C       ( 34) // tab_se_01c
+#define IDA_D_OPTION_ACT_TAB_SE_01R       ( 35) // tab_se_01r
+#define IDA_D_OPTION_ACT_TAB_SE_01L_2     ( 36) // tab_se_01l_2
+#define IDA_D_OPTION_ACT_TAB_SE_01R_2     ( 37) // tab_se_01r_2
+#define IDA_D_OPTION_ACT_SOUSA_CONT_A     ( 38) // sousa_cont_a
+#define IDA_D_OPTION_ACT_SOUSA_CONT_B     ( 39) // sousa_cont_b
+#define IDA_D_OPTION_ACT_SOUSA_BUT_A_A    ( 40) // sousa_but_a_a
+#define IDA_D_OPTION_ACT_SOUSA_BUT_A_B    ( 41) // sousa_but_a_b
+#define IDA_D_OPTION_ACT_TAB_SOUSA_01L    ( 42) // tab_sousa_01l
+#define IDA_D_OPTION_ACT_TAB_SOUSA_01C    ( 43) // tab_sousa_01c
+#define IDA_D_OPTION_ACT_TAB_SOUSA_01R    ( 44) // tab_sousa_01r
+#define IDA_D_OPTION_ACT_TAB_SOUSA_01L2   ( 45) // tab_sousa_01l2
+#define IDA_D_OPTION_ACT_TAB_SOUSA_01C2   ( 46) // tab_sousa_01c2
+#define IDA_D_OPTION_ACT_TAB_SOUSA_01R2   ( 47) // tab_sousa_01r2
+#define IDA_D_OPTION_ACT_LINE_SOUSA01     ( 48) // line_sousa01
+#define IDA_D_OPTION_ACT_LINE_SOUSA02     ( 49) // line_sousa02
+#define IDA_D_OPTION_ACT_S_SCREEN_01A     ( 50) // s_screen_01a
+#define IDA_D_OPTION_ACT_S_SCREEN_01B     ( 51) // s_screen_01b

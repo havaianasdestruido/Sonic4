@@ -1,0 +1,10 @@
+// root node
+
+// node
+
+// action
+#define IDA_D_CMN_OBI_ACT_OBI_CENTER   (  0) // obi_center
+#define IDA_D_CMN_OBI_ACT_OBI_LEFT     (  1) // obi_left
+#define IDA_D_CMN_OBI_ACT_OBI_RIGHT    (  2) // obi_right
+#define IDA_D_CMN_OBI_ACT_OBI_RIGHT2_R (  3) // obi_right2_r
+#define IDA_D_CMN_OBI_ACT_OBI_RIGHT2_L (  4) // obi_right2_l

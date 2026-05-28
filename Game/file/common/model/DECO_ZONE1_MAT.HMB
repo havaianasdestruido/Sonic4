@@ -1,0 +1,50 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_DECO_ZONE1_MAT
+#define	_IDB_DECO_ZONE1_MAT
+
+/* Defined File ID */
+#define	IDB_DECO_ZONE1_MAT_Z1_FALL_TEST_ZNV		0		/*  */
+#define	IDB_DECO_ZONE1_MAT_Z1_FALL_LEFT_ZNV		1		/*  */
+#define	IDB_DECO_ZONE1_MAT_Z1_FALL_RIGHT_ZNV		2		/*  */
+#define	IDB_DECO_ZONE1_MAT_Z1_FALL_ONE_ZNV		3		/*  */
+#define	IDB_DECO_ZONE1_MAT_Z1_D_FALL_TEST_A_ZNV		4		/*  */
+#define	IDB_DECO_ZONE1_MAT_Z1_D_FALL_LEFT_A_ZNV		5		/*  */
+#define	IDB_DECO_ZONE1_MAT_Z1_D_FALL_RIGHT_A_ZNV		6		/*  */
+#define	IDB_DECO_ZONE1_MAT_Z1_D_FALL_ONE_A_ZNV		7		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_DECO_ZONE1_MAT_Z1_FALL_TEST_ZNV		0		/*  */
+#define	IDU0_DECO_ZONE1_MAT_Z1_FALL_LEFT_ZNV		0		/*  */
+#define	IDU0_DECO_ZONE1_MAT_Z1_FALL_RIGHT_ZNV		0		/*  */
+#define	IDU0_DECO_ZONE1_MAT_Z1_FALL_ONE_ZNV		0		/*  */
+#define	IDU0_DECO_ZONE1_MAT_Z1_D_FALL_TEST_A_ZNV		0		/*  */
+#define	IDU0_DECO_ZONE1_MAT_Z1_D_FALL_LEFT_A_ZNV		0		/*  */
+#define	IDU0_DECO_ZONE1_MAT_Z1_D_FALL_RIGHT_A_ZNV		0		/*  */
+#define	IDU0_DECO_ZONE1_MAT_Z1_D_FALL_ONE_A_ZNV		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_DECO_ZONE1_MAT_Z1_FALL_TEST_ZNV		0		/*  */
+#define	IDU1_DECO_ZONE1_MAT_Z1_FALL_LEFT_ZNV		0		/*  */
+#define	IDU1_DECO_ZONE1_MAT_Z1_FALL_RIGHT_ZNV		0		/*  */
+#define	IDU1_DECO_ZONE1_MAT_Z1_FALL_ONE_ZNV		0		/*  */
+#define	IDU1_DECO_ZONE1_MAT_Z1_D_FALL_TEST_A_ZNV		0		/*  */
+#define	IDU1_DECO_ZONE1_MAT_Z1_D_FALL_LEFT_A_ZNV		0		/*  */
+#define	IDU1_DECO_ZONE1_MAT_Z1_D_FALL_RIGHT_A_ZNV		0		/*  */
+#define	IDU1_DECO_ZONE1_MAT_Z1_D_FALL_ONE_A_ZNV		0		/*  */
+
+/* Defined File Name */
+#define	IDS_DECO_ZONE1_MAT_Z1_FALL_TEST_ZNV		"Z1_FALL_TEST.ZNV"
+#define	IDS_DECO_ZONE1_MAT_Z1_FALL_LEFT_ZNV		"Z1_FALL_LEFT.ZNV"
+#define	IDS_DECO_ZONE1_MAT_Z1_FALL_RIGHT_ZNV		"Z1_FALL_RIGHT.ZNV"
+#define	IDS_DECO_ZONE1_MAT_Z1_FALL_ONE_ZNV		"Z1_FALL_ONE.ZNV"
+#define	IDS_DECO_ZONE1_MAT_Z1_D_FALL_TEST_A_ZNV		"Z1_D_FALL_TEST_A.ZNV"
+#define	IDS_DECO_ZONE1_MAT_Z1_D_FALL_LEFT_A_ZNV		"Z1_D_FALL_LEFT_A.ZNV"
+#define	IDS_DECO_ZONE1_MAT_Z1_D_FALL_RIGHT_A_ZNV		"Z1_D_FALL_RIGHT_A.ZNV"
+#define	IDS_DECO_ZONE1_MAT_Z1_D_FALL_ONE_A_ZNV		"Z1_D_FALL_ONE_A.ZNV"
+
+#endif	/* _IDB_DECO_ZONE1_MAT */

@@ -1,0 +1,30 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_END_SONIC_MDL
+#define	_IDB_END_SONIC_MDL
+
+/* Defined File ID */
+#define	IDB_END_SONIC_MDL_SON_END_01_GNO		0		/*  パターン１ */
+#define	IDB_END_SONIC_MDL_SON_END_02_GNO		1		/*  パターン２ */
+#define	IDB_END_SONIC_MDL_SSON_END_01_GNO		2		/*  パターン３ */
+
+/* Defined USR0 Data */
+#define	IDU0_END_SONIC_MDL_SON_END_01_GNO		0		/*  パターン１ */
+#define	IDU0_END_SONIC_MDL_SON_END_02_GNO		0		/*  パターン２ */
+#define	IDU0_END_SONIC_MDL_SSON_END_01_GNO		0		/*  パターン３ */
+
+/* Defined USR1 Data */
+#define	IDU1_END_SONIC_MDL_SON_END_01_GNO		0		/*  パターン１ */
+#define	IDU1_END_SONIC_MDL_SON_END_02_GNO		0		/*  パターン２ */
+#define	IDU1_END_SONIC_MDL_SSON_END_01_GNO		0		/*  パターン３ */
+
+/* Defined File Name */
+#define	IDS_END_SONIC_MDL_SON_END_01_GNO		"SON_END_01.GNO"
+#define	IDS_END_SONIC_MDL_SON_END_02_GNO		"SON_END_02.GNO"
+#define	IDS_END_SONIC_MDL_SSON_END_01_GNO		"SSON_END_01.GNO"
+
+#endif	/* _IDB_END_SONIC_MDL */

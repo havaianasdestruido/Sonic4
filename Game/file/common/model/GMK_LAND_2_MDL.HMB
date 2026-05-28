@@ -1,0 +1,30 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_GMK_LAND_2_MDL
+#define	_IDB_GMK_LAND_2_MDL
+
+/* Defined File ID */
+#define	IDB_GMK_LAND_2_MDL_GMK_LAND_2_ZNO		0		/*  •‚“‡ */
+#define	IDB_GMK_LAND_2_MDL_GMK_LAND_B_2_ZNO		1		/*  •‚“‡BIG */
+#define	IDB_GMK_LAND_2_MDL_GMK_LAND_R_2_ZNO		2		/*  •‚“‡SOLID */
+
+/* Defined USR0 Data */
+#define	IDU0_GMK_LAND_2_MDL_GMK_LAND_2_ZNO		0		/*  •‚“‡ */
+#define	IDU0_GMK_LAND_2_MDL_GMK_LAND_B_2_ZNO		0		/*  •‚“‡BIG */
+#define	IDU0_GMK_LAND_2_MDL_GMK_LAND_R_2_ZNO		0		/*  •‚“‡SOLID */
+
+/* Defined USR1 Data */
+#define	IDU1_GMK_LAND_2_MDL_GMK_LAND_2_ZNO		0		/*  •‚“‡ */
+#define	IDU1_GMK_LAND_2_MDL_GMK_LAND_B_2_ZNO		0		/*  •‚“‡BIG */
+#define	IDU1_GMK_LAND_2_MDL_GMK_LAND_R_2_ZNO		0		/*  •‚“‡SOLID */
+
+/* Defined File Name */
+#define	IDS_GMK_LAND_2_MDL_GMK_LAND_2_ZNO		"GMK_LAND_2.ZNO"
+#define	IDS_GMK_LAND_2_MDL_GMK_LAND_B_2_ZNO		"GMK_LAND_B_2.ZNO"
+#define	IDS_GMK_LAND_2_MDL_GMK_LAND_R_2_ZNO		"GMK_LAND_R_2.ZNO"
+
+#endif	/* _IDB_GMK_LAND_2_MDL */

@@ -1,0 +1,106 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_ZONE2_T_PC
+#define	_IDB_ZONE2_T_PC
+
+/* Defined File ID */
+#define	IDB_ZONE2_T_PC_ZONE2_T_PC_TXB		0		/*  */
+#define	IDB_ZONE2_T_PC_Z2_TEX4_DDS		1		/*  */
+#define	IDB_ZONE2_T_PC_Z2_BALLOON_ILMA_DDS		2		/*  */
+#define	IDB_ZONE2_T_PC_Z2_BALLOON_ILMB_DDS		3		/*  */
+#define	IDB_ZONE2_T_PC_Z2_ILM_BUILB_DDS		4		/*  */
+#define	IDB_ZONE2_T_PC_Z2_ILM_FLOWER_DDS		5		/*  */
+#define	IDB_ZONE2_T_PC_Z2_TEX1_DDS		6		/*  */
+#define	IDB_ZONE2_T_PC_Z2_TEX3_DDS		7		/*  */
+#define	IDB_ZONE2_T_PC_Z2_TEX2_DDS		8		/*  */
+#define	IDB_ZONE2_T_PC_Z2_ILM_ASHIBA_DDS		9		/*  */
+#define	IDB_ZONE2_T_PC_Z2_CODE_ILM_DDS		10		/*  */
+#define	IDB_ZONE2_T_PC_Z2_ILMBELT_DDS		11		/*  */
+#define	IDB_ZONE2_T_PC_Z2_3MARK_DDS		12		/*  */
+#define	IDB_ZONE2_T_PC_Z2_PALM_DDS		13		/*  */
+#define	IDB_ZONE2_T_PC_Z2_TEX7_DDS		14		/*  */
+#define	IDB_ZONE2_T_PC_Z2_ROLL_ILM_DDS		15		/*  */
+#define	IDB_ZONE2_T_PC_Z2_ILM_V_DDS		16		/*  */
+#define	IDB_ZONE2_T_PC_Z2_ILMC_DDS		17		/*  */
+#define	IDB_ZONE2_T_PC_Z2_ILMA_DDS		18		/*  */
+#define	IDB_ZONE2_T_PC_Z2_PANEL_DDS		19		/*  */
+#define	IDB_ZONE2_T_PC_Z2_ILMB_DDS		20		/*  */
+#define	IDB_ZONE2_T_PC_Z2_ILM_BUILA_DDS		21		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_ZONE2_T_PC_ZONE2_T_PC_TXB		0		/*  */
+#define	IDU0_ZONE2_T_PC_Z2_TEX4_DDS		0		/*  */
+#define	IDU0_ZONE2_T_PC_Z2_BALLOON_ILMA_DDS		0		/*  */
+#define	IDU0_ZONE2_T_PC_Z2_BALLOON_ILMB_DDS		0		/*  */
+#define	IDU0_ZONE2_T_PC_Z2_ILM_BUILB_DDS		0		/*  */
+#define	IDU0_ZONE2_T_PC_Z2_ILM_FLOWER_DDS		0		/*  */
+#define	IDU0_ZONE2_T_PC_Z2_TEX1_DDS		0		/*  */
+#define	IDU0_ZONE2_T_PC_Z2_TEX3_DDS		0		/*  */
+#define	IDU0_ZONE2_T_PC_Z2_TEX2_DDS		0		/*  */
+#define	IDU0_ZONE2_T_PC_Z2_ILM_ASHIBA_DDS		0		/*  */
+#define	IDU0_ZONE2_T_PC_Z2_CODE_ILM_DDS		0		/*  */
+#define	IDU0_ZONE2_T_PC_Z2_ILMBELT_DDS		0		/*  */
+#define	IDU0_ZONE2_T_PC_Z2_3MARK_DDS		0		/*  */
+#define	IDU0_ZONE2_T_PC_Z2_PALM_DDS		0		/*  */
+#define	IDU0_ZONE2_T_PC_Z2_TEX7_DDS		0		/*  */
+#define	IDU0_ZONE2_T_PC_Z2_ROLL_ILM_DDS		0		/*  */
+#define	IDU0_ZONE2_T_PC_Z2_ILM_V_DDS		0		/*  */
+#define	IDU0_ZONE2_T_PC_Z2_ILMC_DDS		0		/*  */
+#define	IDU0_ZONE2_T_PC_Z2_ILMA_DDS		0		/*  */
+#define	IDU0_ZONE2_T_PC_Z2_PANEL_DDS		0		/*  */
+#define	IDU0_ZONE2_T_PC_Z2_ILMB_DDS		0		/*  */
+#define	IDU0_ZONE2_T_PC_Z2_ILM_BUILA_DDS		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_ZONE2_T_PC_ZONE2_T_PC_TXB		0		/*  */
+#define	IDU1_ZONE2_T_PC_Z2_TEX4_DDS		0		/*  */
+#define	IDU1_ZONE2_T_PC_Z2_BALLOON_ILMA_DDS		0		/*  */
+#define	IDU1_ZONE2_T_PC_Z2_BALLOON_ILMB_DDS		0		/*  */
+#define	IDU1_ZONE2_T_PC_Z2_ILM_BUILB_DDS		0		/*  */
+#define	IDU1_ZONE2_T_PC_Z2_ILM_FLOWER_DDS		0		/*  */
+#define	IDU1_ZONE2_T_PC_Z2_TEX1_DDS		0		/*  */
+#define	IDU1_ZONE2_T_PC_Z2_TEX3_DDS		0		/*  */
+#define	IDU1_ZONE2_T_PC_Z2_TEX2_DDS		0		/*  */
+#define	IDU1_ZONE2_T_PC_Z2_ILM_ASHIBA_DDS		0		/*  */
+#define	IDU1_ZONE2_T_PC_Z2_CODE_ILM_DDS		0		/*  */
+#define	IDU1_ZONE2_T_PC_Z2_ILMBELT_DDS		0		/*  */
+#define	IDU1_ZONE2_T_PC_Z2_3MARK_DDS		0		/*  */
+#define	IDU1_ZONE2_T_PC_Z2_PALM_DDS		0		/*  */
+#define	IDU1_ZONE2_T_PC_Z2_TEX7_DDS		0		/*  */
+#define	IDU1_ZONE2_T_PC_Z2_ROLL_ILM_DDS		0		/*  */
+#define	IDU1_ZONE2_T_PC_Z2_ILM_V_DDS		0		/*  */
+#define	IDU1_ZONE2_T_PC_Z2_ILMC_DDS		0		/*  */
+#define	IDU1_ZONE2_T_PC_Z2_ILMA_DDS		0		/*  */
+#define	IDU1_ZONE2_T_PC_Z2_PANEL_DDS		0		/*  */
+#define	IDU1_ZONE2_T_PC_Z2_ILMB_DDS		0		/*  */
+#define	IDU1_ZONE2_T_PC_Z2_ILM_BUILA_DDS		0		/*  */
+
+/* Defined File Name */
+#define	IDS_ZONE2_T_PC_ZONE2_T_PC_TXB		"ZONE2_T_PC.TXB"
+#define	IDS_ZONE2_T_PC_Z2_TEX4_DDS		"Z2_TEX4.DDS"
+#define	IDS_ZONE2_T_PC_Z2_BALLOON_ILMA_DDS		"Z2_BALLOON_ILMA.DDS"
+#define	IDS_ZONE2_T_PC_Z2_BALLOON_ILMB_DDS		"Z2_BALLOON_ILMB.DDS"
+#define	IDS_ZONE2_T_PC_Z2_ILM_BUILB_DDS		"Z2_ILM_BUILB.DDS"
+#define	IDS_ZONE2_T_PC_Z2_ILM_FLOWER_DDS		"Z2_ILM_FLOWER.DDS"
+#define	IDS_ZONE2_T_PC_Z2_TEX1_DDS		"Z2_TEX1.DDS"
+#define	IDS_ZONE2_T_PC_Z2_TEX3_DDS		"Z2_TEX3.DDS"
+#define	IDS_ZONE2_T_PC_Z2_TEX2_DDS		"Z2_TEX2.DDS"
+#define	IDS_ZONE2_T_PC_Z2_ILM_ASHIBA_DDS		"Z2_ILM_ASHIBA.DDS"
+#define	IDS_ZONE2_T_PC_Z2_CODE_ILM_DDS		"Z2_CODE_ILM.DDS"
+#define	IDS_ZONE2_T_PC_Z2_ILMBELT_DDS		"Z2_ILMBELT.DDS"
+#define	IDS_ZONE2_T_PC_Z2_3MARK_DDS		"Z2_3MARK.DDS"
+#define	IDS_ZONE2_T_PC_Z2_PALM_DDS		"Z2_PALM.DDS"
+#define	IDS_ZONE2_T_PC_Z2_TEX7_DDS		"Z2_TEX7.DDS"
+#define	IDS_ZONE2_T_PC_Z2_ROLL_ILM_DDS		"Z2_ROLL_ILM.DDS"
+#define	IDS_ZONE2_T_PC_Z2_ILM_V_DDS		"Z2_ILM_V.DDS"
+#define	IDS_ZONE2_T_PC_Z2_ILMC_DDS		"Z2_ILMC.DDS"
+#define	IDS_ZONE2_T_PC_Z2_ILMA_DDS		"Z2_ILMA.DDS"
+#define	IDS_ZONE2_T_PC_Z2_PANEL_DDS		"Z2_PANEL.DDS"
+#define	IDS_ZONE2_T_PC_Z2_ILMB_DDS		"Z2_ILMB.DDS"
+#define	IDS_ZONE2_T_PC_Z2_ILM_BUILA_DDS		"Z2_ILM_BUILA.DDS"
+
+#endif	/* _IDB_ZONE2_T_PC */

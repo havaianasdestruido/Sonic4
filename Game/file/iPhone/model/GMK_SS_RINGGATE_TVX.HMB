@@ -1,0 +1,22 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_GMK_SS_RINGGATE_TVX
+#define	_IDB_GMK_SS_RINGGATE_TVX
+
+/* Defined File ID */
+#define	IDB_GMK_SS_RINGGATE_TVX_SS_GATE_TVX		0		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_GMK_SS_RINGGATE_TVX_SS_GATE_TVX		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_GMK_SS_RINGGATE_TVX_SS_GATE_TVX		0		/*  */
+
+/* Defined File Name */
+#define	IDS_GMK_SS_RINGGATE_TVX_SS_GATE_TVX		"SS_GATE.TVX"
+
+#endif	/* _IDB_GMK_SS_RINGGATE_TVX */

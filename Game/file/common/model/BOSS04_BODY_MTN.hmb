@@ -1,0 +1,62 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_BOSS04_BODY_MTN
+#define	_IDB_BOSS04_BODY_MTN
+
+/* Defined File ID */
+#define	IDB_BOSS04_BODY_MTN_B04_1_ATT01_01B_ZNM		0		/*  通常 */
+#define	IDB_BOSS04_BODY_MTN_B04_1_STA_01B_ZNM		1		/*  スタート演出(エッグマンは２通りあるので注意) */
+#define	IDB_BOSS04_BODY_MTN_B04_1_ANG_01B_ZNM		2		/*  怒り演出(1) */
+#define	IDB_BOSS04_BODY_MTN_B04_1_ANG_02B_ZNM		3		/*  怒り演出(2) バーニア変化 */
+#define	IDB_BOSS04_BODY_MTN_B04_1_ANG_03B_ZNM		4		/*  怒り演出(3) 画面外に移動 */
+#define	IDB_BOSS04_BODY_MTN_B04_2_STA_01B_ZNM		5		/*  第２形態スタート */
+#define	IDB_BOSS04_BODY_MTN_B04_2_ATT01_01B_ZNM		6		/*  通常(第二形態) */
+#define	IDB_BOSS04_BODY_MTN_B04_2_ATT02_01B_ZNM		7		/*  カプセル投げる(右) */
+#define	IDB_BOSS04_BODY_MTN_B04_2_ATT03_01B_ZNM		8		/*  カプセル投げる(左) */
+#define	IDB_BOSS04_BODY_MTN_B04_DMG01_01B_ZNM		9		/*  本体ダメージ(チェック用) */
+#define	IDB_BOSS04_BODY_MTN_B04_DMG02_01B_ZNM		10		/*  逃亡時 */
+
+/* Defined USR0 Data */
+#define	IDU0_BOSS04_BODY_MTN_B04_1_ATT01_01B_ZNM		0		/*  通常 */
+#define	IDU0_BOSS04_BODY_MTN_B04_1_STA_01B_ZNM		0		/*  スタート演出(エッグマンは２通りあるので注意) */
+#define	IDU0_BOSS04_BODY_MTN_B04_1_ANG_01B_ZNM		0		/*  怒り演出(1) */
+#define	IDU0_BOSS04_BODY_MTN_B04_1_ANG_02B_ZNM		0		/*  怒り演出(2) バーニア変化 */
+#define	IDU0_BOSS04_BODY_MTN_B04_1_ANG_03B_ZNM		0		/*  怒り演出(3) 画面外に移動 */
+#define	IDU0_BOSS04_BODY_MTN_B04_2_STA_01B_ZNM		0		/*  第２形態スタート */
+#define	IDU0_BOSS04_BODY_MTN_B04_2_ATT01_01B_ZNM		0		/*  通常(第二形態) */
+#define	IDU0_BOSS04_BODY_MTN_B04_2_ATT02_01B_ZNM		0		/*  カプセル投げる(右) */
+#define	IDU0_BOSS04_BODY_MTN_B04_2_ATT03_01B_ZNM		0		/*  カプセル投げる(左) */
+#define	IDU0_BOSS04_BODY_MTN_B04_DMG01_01B_ZNM		0		/*  本体ダメージ(チェック用) */
+#define	IDU0_BOSS04_BODY_MTN_B04_DMG02_01B_ZNM		0		/*  逃亡時 */
+
+/* Defined USR1 Data */
+#define	IDU1_BOSS04_BODY_MTN_B04_1_ATT01_01B_ZNM		0		/*  通常 */
+#define	IDU1_BOSS04_BODY_MTN_B04_1_STA_01B_ZNM		0		/*  スタート演出(エッグマンは２通りあるので注意) */
+#define	IDU1_BOSS04_BODY_MTN_B04_1_ANG_01B_ZNM		0		/*  怒り演出(1) */
+#define	IDU1_BOSS04_BODY_MTN_B04_1_ANG_02B_ZNM		0		/*  怒り演出(2) バーニア変化 */
+#define	IDU1_BOSS04_BODY_MTN_B04_1_ANG_03B_ZNM		0		/*  怒り演出(3) 画面外に移動 */
+#define	IDU1_BOSS04_BODY_MTN_B04_2_STA_01B_ZNM		0		/*  第２形態スタート */
+#define	IDU1_BOSS04_BODY_MTN_B04_2_ATT01_01B_ZNM		0		/*  通常(第二形態) */
+#define	IDU1_BOSS04_BODY_MTN_B04_2_ATT02_01B_ZNM		0		/*  カプセル投げる(右) */
+#define	IDU1_BOSS04_BODY_MTN_B04_2_ATT03_01B_ZNM		0		/*  カプセル投げる(左) */
+#define	IDU1_BOSS04_BODY_MTN_B04_DMG01_01B_ZNM		0		/*  本体ダメージ(チェック用) */
+#define	IDU1_BOSS04_BODY_MTN_B04_DMG02_01B_ZNM		0		/*  逃亡時 */
+
+/* Defined File Name */
+#define	IDS_BOSS04_BODY_MTN_B04_1_ATT01_01B_ZNM		"B04_1_ATT01_01B.ZNM"
+#define	IDS_BOSS04_BODY_MTN_B04_1_STA_01B_ZNM		"B04_1_STA_01B.ZNM"
+#define	IDS_BOSS04_BODY_MTN_B04_1_ANG_01B_ZNM		"B04_1_ANG_01B.ZNM"
+#define	IDS_BOSS04_BODY_MTN_B04_1_ANG_02B_ZNM		"B04_1_ANG_02B.ZNM"
+#define	IDS_BOSS04_BODY_MTN_B04_1_ANG_03B_ZNM		"B04_1_ANG_03B.ZNM"
+#define	IDS_BOSS04_BODY_MTN_B04_2_STA_01B_ZNM		"B04_2_STA_01B.ZNM"
+#define	IDS_BOSS04_BODY_MTN_B04_2_ATT01_01B_ZNM		"B04_2_ATT01_01B.ZNM"
+#define	IDS_BOSS04_BODY_MTN_B04_2_ATT02_01B_ZNM		"B04_2_ATT02_01B.ZNM"
+#define	IDS_BOSS04_BODY_MTN_B04_2_ATT03_01B_ZNM		"B04_2_ATT03_01B.ZNM"
+#define	IDS_BOSS04_BODY_MTN_B04_DMG01_01B_ZNM		"B04_DMG01_01B.ZNM"
+#define	IDS_BOSS04_BODY_MTN_B04_DMG02_01B_ZNM		"B04_DMG02_01B.ZNM"
+
+#endif	/* _IDB_BOSS04_BODY_MTN */

@@ -1,0 +1,46 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_GMK_SS_EMERALD_MTN
+#define	_IDB_GMK_SS_EMERALD_MTN
+
+/* Defined File ID */
+#define	IDB_GMK_SS_EMERALD_MTN_SS_CAOS_RED_ZNM		0		/*  */
+#define	IDB_GMK_SS_EMERALD_MTN_SS_CAOS_BLUE_ZNM		1		/*  */
+#define	IDB_GMK_SS_EMERALD_MTN_SS_CAOS_YELLOW_ZNM		2		/*  */
+#define	IDB_GMK_SS_EMERALD_MTN_SS_CAOS_GREEN_ZNM		3		/*  */
+#define	IDB_GMK_SS_EMERALD_MTN_SS_CAOS_WHITE_ZNM		4		/*  */
+#define	IDB_GMK_SS_EMERALD_MTN_SS_CAOS_CYAN_ZNM		5		/*  */
+#define	IDB_GMK_SS_EMERALD_MTN_SS_CAOS_PINK_ZNM		6		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_GMK_SS_EMERALD_MTN_SS_CAOS_RED_ZNM		0		/*  */
+#define	IDU0_GMK_SS_EMERALD_MTN_SS_CAOS_BLUE_ZNM		0		/*  */
+#define	IDU0_GMK_SS_EMERALD_MTN_SS_CAOS_YELLOW_ZNM		0		/*  */
+#define	IDU0_GMK_SS_EMERALD_MTN_SS_CAOS_GREEN_ZNM		0		/*  */
+#define	IDU0_GMK_SS_EMERALD_MTN_SS_CAOS_WHITE_ZNM		0		/*  */
+#define	IDU0_GMK_SS_EMERALD_MTN_SS_CAOS_CYAN_ZNM		0		/*  */
+#define	IDU0_GMK_SS_EMERALD_MTN_SS_CAOS_PINK_ZNM		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_GMK_SS_EMERALD_MTN_SS_CAOS_RED_ZNM		0		/*  */
+#define	IDU1_GMK_SS_EMERALD_MTN_SS_CAOS_BLUE_ZNM		0		/*  */
+#define	IDU1_GMK_SS_EMERALD_MTN_SS_CAOS_YELLOW_ZNM		0		/*  */
+#define	IDU1_GMK_SS_EMERALD_MTN_SS_CAOS_GREEN_ZNM		0		/*  */
+#define	IDU1_GMK_SS_EMERALD_MTN_SS_CAOS_WHITE_ZNM		0		/*  */
+#define	IDU1_GMK_SS_EMERALD_MTN_SS_CAOS_CYAN_ZNM		0		/*  */
+#define	IDU1_GMK_SS_EMERALD_MTN_SS_CAOS_PINK_ZNM		0		/*  */
+
+/* Defined File Name */
+#define	IDS_GMK_SS_EMERALD_MTN_SS_CAOS_RED_ZNM		"SS_CAOS_RED.ZNM"
+#define	IDS_GMK_SS_EMERALD_MTN_SS_CAOS_BLUE_ZNM		"SS_CAOS_BLUE.ZNM"
+#define	IDS_GMK_SS_EMERALD_MTN_SS_CAOS_YELLOW_ZNM		"SS_CAOS_YELLOW.ZNM"
+#define	IDS_GMK_SS_EMERALD_MTN_SS_CAOS_GREEN_ZNM		"SS_CAOS_GREEN.ZNM"
+#define	IDS_GMK_SS_EMERALD_MTN_SS_CAOS_WHITE_ZNM		"SS_CAOS_WHITE.ZNM"
+#define	IDS_GMK_SS_EMERALD_MTN_SS_CAOS_CYAN_ZNM		"SS_CAOS_CYAN.ZNM"
+#define	IDS_GMK_SS_EMERALD_MTN_SS_CAOS_PINK_ZNM		"SS_CAOS_PINK.ZNM"
+
+#endif	/* _IDB_GMK_SS_EMERALD_MTN */

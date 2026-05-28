@@ -1,0 +1,26 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_MAPFAR_ZONE2_MTN
+#define	_IDB_MAPFAR_ZONE2_MTN
+
+/* Defined File ID */
+#define	IDB_MAPFAR_ZONE2_MTN_BG_02_WHEEL_ZNM		0		/* 観覧車 */
+#define	IDB_MAPFAR_ZONE2_MTN_BG_02_SLIGHT_ZNM		1		/* サーチライト */
+
+/* Defined USR0 Data */
+#define	IDU0_MAPFAR_ZONE2_MTN_BG_02_WHEEL_ZNM		0		/* 観覧車 */
+#define	IDU0_MAPFAR_ZONE2_MTN_BG_02_SLIGHT_ZNM		0		/* サーチライト */
+
+/* Defined USR1 Data */
+#define	IDU1_MAPFAR_ZONE2_MTN_BG_02_WHEEL_ZNM		0		/* 観覧車 */
+#define	IDU1_MAPFAR_ZONE2_MTN_BG_02_SLIGHT_ZNM		0		/* サーチライト */
+
+/* Defined File Name */
+#define	IDS_MAPFAR_ZONE2_MTN_BG_02_WHEEL_ZNM		"BG_02_WHEEL.ZNM"
+#define	IDS_MAPFAR_ZONE2_MTN_BG_02_SLIGHT_ZNM		"BG_02_SLIGHT.ZNM"
+
+#endif	/* _IDB_MAPFAR_ZONE2_MTN */

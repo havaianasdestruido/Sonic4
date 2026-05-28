@@ -1,0 +1,58 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_GMK_B_WALL1_MDL
+#define	_IDB_GMK_B_WALL1_MDL
+
+/* Defined File ID */
+#define	IDB_GMK_B_WALL1_MDL_GMK_B_WALL1_L1_V_ZNO		0		/*  */
+#define	IDB_GMK_B_WALL1_MDL_GMK_B_WALL1_L2_V_ZNO		1		/*  */
+#define	IDB_GMK_B_WALL1_MDL_GMK_B_WALL1_R1_V_ZNO		2		/*  */
+#define	IDB_GMK_B_WALL1_MDL_GMK_B_WALL1_R2_V_ZNO		3		/*  */
+#define	IDB_GMK_B_WALL1_MDL_GMK_B_WALL1_V_ZNO		4		/*  */
+#define	IDB_GMK_B_WALL1_MDL_GMK_B_WALL1_F_V_ZNO		5		/*  */
+#define	IDB_GMK_B_WALL1_MDL_GMK_B_WALL1_H_ZNO		6		/*  */
+#define	IDB_GMK_B_WALL1_MDL_GMK_B_WALL1_V_P01_ZNO		7		/*  */
+#define	IDB_GMK_B_WALL1_MDL_GMK_B_WALL1_V_P02_ZNO		8		/*  */
+#define	IDB_GMK_B_WALL1_MDL_GMK_B_WALL1_V_P03_ZNO		9		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_GMK_B_WALL1_MDL_GMK_B_WALL1_L1_V_ZNO		0		/*  */
+#define	IDU0_GMK_B_WALL1_MDL_GMK_B_WALL1_L2_V_ZNO		0		/*  */
+#define	IDU0_GMK_B_WALL1_MDL_GMK_B_WALL1_R1_V_ZNO		0		/*  */
+#define	IDU0_GMK_B_WALL1_MDL_GMK_B_WALL1_R2_V_ZNO		0		/*  */
+#define	IDU0_GMK_B_WALL1_MDL_GMK_B_WALL1_V_ZNO		0		/*  */
+#define	IDU0_GMK_B_WALL1_MDL_GMK_B_WALL1_F_V_ZNO		0		/*  */
+#define	IDU0_GMK_B_WALL1_MDL_GMK_B_WALL1_H_ZNO		0		/*  */
+#define	IDU0_GMK_B_WALL1_MDL_GMK_B_WALL1_V_P01_ZNO		0		/*  */
+#define	IDU0_GMK_B_WALL1_MDL_GMK_B_WALL1_V_P02_ZNO		0		/*  */
+#define	IDU0_GMK_B_WALL1_MDL_GMK_B_WALL1_V_P03_ZNO		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_GMK_B_WALL1_MDL_GMK_B_WALL1_L1_V_ZNO		0		/*  */
+#define	IDU1_GMK_B_WALL1_MDL_GMK_B_WALL1_L2_V_ZNO		0		/*  */
+#define	IDU1_GMK_B_WALL1_MDL_GMK_B_WALL1_R1_V_ZNO		0		/*  */
+#define	IDU1_GMK_B_WALL1_MDL_GMK_B_WALL1_R2_V_ZNO		0		/*  */
+#define	IDU1_GMK_B_WALL1_MDL_GMK_B_WALL1_V_ZNO		0		/*  */
+#define	IDU1_GMK_B_WALL1_MDL_GMK_B_WALL1_F_V_ZNO		0		/*  */
+#define	IDU1_GMK_B_WALL1_MDL_GMK_B_WALL1_H_ZNO		0		/*  */
+#define	IDU1_GMK_B_WALL1_MDL_GMK_B_WALL1_V_P01_ZNO		0		/*  */
+#define	IDU1_GMK_B_WALL1_MDL_GMK_B_WALL1_V_P02_ZNO		0		/*  */
+#define	IDU1_GMK_B_WALL1_MDL_GMK_B_WALL1_V_P03_ZNO		0		/*  */
+
+/* Defined File Name */
+#define	IDS_GMK_B_WALL1_MDL_GMK_B_WALL1_L1_V_ZNO		"GMK_B_WALL1_L1_V.ZNO"
+#define	IDS_GMK_B_WALL1_MDL_GMK_B_WALL1_L2_V_ZNO		"GMK_B_WALL1_L2_V.ZNO"
+#define	IDS_GMK_B_WALL1_MDL_GMK_B_WALL1_R1_V_ZNO		"GMK_B_WALL1_R1_V.ZNO"
+#define	IDS_GMK_B_WALL1_MDL_GMK_B_WALL1_R2_V_ZNO		"GMK_B_WALL1_R2_V.ZNO"
+#define	IDS_GMK_B_WALL1_MDL_GMK_B_WALL1_V_ZNO		"GMK_B_WALL1_V.ZNO"
+#define	IDS_GMK_B_WALL1_MDL_GMK_B_WALL1_F_V_ZNO		"GMK_B_WALL1_F_V.ZNO"
+#define	IDS_GMK_B_WALL1_MDL_GMK_B_WALL1_H_ZNO		"GMK_B_WALL1_H.ZNO"
+#define	IDS_GMK_B_WALL1_MDL_GMK_B_WALL1_V_P01_ZNO		"GMK_B_WALL1_V_P01.ZNO"
+#define	IDS_GMK_B_WALL1_MDL_GMK_B_WALL1_V_P02_ZNO		"GMK_B_WALL1_V_P02.ZNO"
+#define	IDS_GMK_B_WALL1_MDL_GMK_B_WALL1_V_P03_ZNO		"GMK_B_WALL1_V_P03.ZNO"
+
+#endif	/* _IDB_GMK_B_WALL1_MDL */

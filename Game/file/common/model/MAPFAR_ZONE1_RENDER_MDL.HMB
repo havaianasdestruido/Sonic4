@@ -1,0 +1,22 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_MAPFAR_ZONE1_RENDER_MDL
+#define	_IDB_MAPFAR_ZONE1_RENDER_MDL
+
+/* Defined File ID */
+#define	IDB_MAPFAR_ZONE1_RENDER_MDL_Z1_SEA_D_ZNO		0		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_MAPFAR_ZONE1_RENDER_MDL_Z1_SEA_D_ZNO		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_MAPFAR_ZONE1_RENDER_MDL_Z1_SEA_D_ZNO		0		/*  */
+
+/* Defined File Name */
+#define	IDS_MAPFAR_ZONE1_RENDER_MDL_Z1_SEA_D_ZNO		"Z1_SEA_D.ZNO"
+
+#endif	/* _IDB_MAPFAR_ZONE1_RENDER_MDL */

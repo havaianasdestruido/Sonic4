@@ -1,0 +1,22 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_BOSS05_CTPLT_MTN
+#define	_IDB_BOSS05_CTPLT_MTN
+
+/* Defined File ID */
+#define	IDB_BOSS05_CTPLT_MTN_GMK_DEGG_CTPLT_ZNV		0		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_BOSS05_CTPLT_MTN_GMK_DEGG_CTPLT_ZNV		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_BOSS05_CTPLT_MTN_GMK_DEGG_CTPLT_ZNV		0		/*  */
+
+/* Defined File Name */
+#define	IDS_BOSS05_CTPLT_MTN_GMK_DEGG_CTPLT_ZNV		"GMK_DEGG_CTPLT.ZNV"
+
+#endif	/* _IDB_BOSS05_CTPLT_MTN */

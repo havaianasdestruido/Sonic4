@@ -1,0 +1,920 @@
+// ===========================================================================
+/*!
+	@file	gmGmkBreakLand.cpp
+	@brief	ギミック 崩壊足場
+
+	@author	ei-chi co.ltd
+				Copyright(c) 2009 Dimps
+	$Id: gmGmkBreakLand.cpp 2 2011-04-11 05:21:26Z thamada $
+	$Date::						   $
+	
+ */
+// ===========================================================================
+/*
+ *
+ *
+ */
+
+// ----- Include Files ---------------------------------------（インクルード）
+#include "pch.h"
+#include "gs.h"
+#include "objObject.h"
+#include "gmEnemy.h"
+#include "gmEffect.h"
+#include "gmMainDat.h"
+#include "gmEventTbl.h"
+#include "gmPlySeqGmk.h"
+#include "gmPlayer.h"
+#include "gmObjDef.h"
+#include "gmGameDat.h"
+#include "gmGameDBuild.h"
+#include "gmEffectZone.h"
+
+#include "gmSound.h"
+
+#include "gmGmkBreakLand.h"
+
+// データヘッダ
+#include "common/model/gmk_b_land1_mdl.hmb"
+#include "common/model/GMK_B_LAND1_MTN.HMB"
+
+
+
+
+// ----- Struct Definitions --------------------------------------（型の宣言）
+//! 崩壊足場
+
+typedef struct tag_GMS_GMK_BLAND_WORK
+{
+	GMS_ENEMY_3D_WORK	gmk_work;		//!< 敵・ギミックオブジェクト 3Dモデル使用 構造体
+										//		gmk_work の先頭にOBS_OBJECT_WORK が含まれます。
+
+	s32					broken_timer;
+	s32					quake_timer;
+
+	u16					vect;			//	向き
+	fx32				colrect_left;	//	判定用土地矩形左側
+	fx32				colrect_right;	//	判定用土地矩形右側
+
+
+}GMS_GMK_BLAND_WORK;
+#define		COMWORK		gmk_work.ene_com
+#define		OBJ3D		gmk_work.obj_3d
+#define		OBJWORK		COMWORK.obj_work
+
+// ----- External Declarations -----------------（グローバル変数及び関数宣言）
+// ----- Static Declarations -----------------（スタティック変数及び関数宣言）
+//static void gmGmkBreakLand_CreateFallParts(OBS_OBJECT_WORK *parent_obj, u16 vect, int offset);
+
+// ----- Global Variables ----------------------（グローバル変数の定義：外部）
+
+// ----- Static Variables --------------------（スタティック変数の定義：局所）
+static OBS_ACTION3D_NN_WORK *gm_gmk_breakland_obj_3d_list = NULL;
+
+
+// ----- Macros ------------------------------------------------（マクロ定義）
+
+
+// ----- Macro Functions -----------------------------------（処理マクロ定義）
+
+
+// ----- Definitions -------------------------------------------（定数の宣言）
+// ---------------------------------------------------------------------------
+// 地形矩形テーブル
+typedef enum tag_GME_GMK_COL_DATA{
+	GME_GMK_COL_DATA_WIDTH	= 0,	// 幅
+	GME_GMK_COL_DATA_HEIGHT,		// 高さ
+	GME_GMK_COL_DATA_OFST_X,		// 中心位置からＸ方向のオフセット
+	GME_GMK_COL_DATA_OFST_Y,		// 中心位置からＹ方向のオフセット
+
+	GME_GMK_COL_DATA_MAX
+
+} GME_GMK_COL_DATA;
+// ---------------------------------------------------------------------------
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+//	土地当たり矩形大きさ定義
+#define	GMD_GMK_BREAKLAND_COLRECT_LEFT	(+68)
+#define	GMD_GMK_BREAKLAND_COLRECT_RIGHT	(+128)
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+const static s16 gm_gmk_breakland_col_rect_tbl[GME_GMK_COL_DATA_MAX] = {
+	  GMD_GMK_BREAKLAND_COLRECT_RIGHT - GMD_GMK_BREAKLAND_COLRECT_LEFT,		//	中心位置からの幅
+	  32,		//	中心位置からの高さ
+	  GMD_GMK_BREAKLAND_COLRECT_LEFT,		//	中心位置から地形あたりの発生する場所までのオフセット
+	   0		//	中心位置から地形あたりの発生する場所までのオフセット
+};
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+static u8 NNM_ALIGN_VC(4) NNM_ALIGN_CW(4) g_gm_breakland_col[] = {
+// ブロック1
+    // 1段目
+    0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88,
+    0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88,
+    // 2段目
+    0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88,
+    0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88,
+    // 3段目
+    0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88,
+    0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88,
+    // 4段目
+    0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88,
+    0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88,
+
+// ブロック2
+    // 1段目
+    0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88,
+    0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88,
+    // 2段目
+    0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88,
+    0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88,
+    // 3段目
+    0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88,
+    0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88,
+    // 4段目
+    0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88,
+    0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88,
+
+// ブロック3
+    // 1段目
+    0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88,
+    0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88,
+    // 2段目
+    0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88,
+    0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88,
+    // 3段目
+    0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88,
+    0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88,
+    // 4段目
+    0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88,
+    0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88,
+
+// ブロック4
+    // 1段目
+    0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88,
+    0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88,
+    // 2段目
+    0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88,
+    0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88,
+    // 3段目
+    0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88,
+    0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88,
+    // 4段目
+    0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88,
+    0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88,
+
+// ブロック5
+    // 1段目
+    0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88,
+    0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88,
+    // 2段目
+    0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88,
+    0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88,
+    // 3段目
+    0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88,
+    0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88,
+    // 4段目
+    0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88,
+    0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88,
+
+// ブロック6
+    // 1段目
+    0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88,
+    0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88,
+    // 2段目
+    0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88,
+    0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88,
+    // 3段目
+    0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88,
+    0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88,
+    // 4段目
+    0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88,
+    0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x88,
+
+
+// ブロック7
+    // 1段目
+    0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x84, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x84, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x84, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x84, 
+    0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x84, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x84, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x84, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x84, 
+    // 2段目
+    0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x84, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x84, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x84, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x84, 
+    0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x84, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x84, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x84, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x84, 
+    // 3段目
+    0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x84, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x84, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x84, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x84, 
+    0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x84, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x84, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x84, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x84, 
+    // 4段目
+    0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x84, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x84, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x84, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x84, 
+    0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x84, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x84, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x84, 0x88,0x88,0x88,0x88,0x88,0x88,0x88,0x84, 
+};
+
+
+// ---------------------------------------------------------------------------
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+//	崩落パーツのパラメーター
+enum _tag_bland_parts_param
+{
+	GME_BLAND_PARTS_PARAM_OFF_X = 0,
+	GME_BLAND_PARTS_PARAM_OFF_Y,
+	GME_BLAND_PARTS_PARAM_OFF_Z,
+	GME_BLAND_PARTS_PARAM_MODEL_ID,
+
+	GME_BLAND_PARTS_PARAM_NUM_MAX
+
+}GME_BLAND_PARTS_PARAM;
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+/*
+static u8 _tbl_gmGmkBreakLand_PartParameter[][GME_BLAND_PARTS_PARAM_NUM_MAX] =
+{
+	{  0, 0, 0,  0 },
+	{  1, 0, 0,  0 },
+	{  2, 0, 0,  0 },
+	{  3, 0, 0,  0 },
+	{  0, 2, 0,  0 },
+	{  1, 2, 0,  0 },
+	{  0, 0, 0,  0 },
+	{  1, 0, 0,  0 },
+	{  2, 0, 0,  0 },
+	{  3, 0, 0,  0 },
+	{  0, 2, 0,  0 },
+	{  1, 2, 0,  0 },
+	{  0, 0, 0,  0 },
+	{  1, 0, 0,  0 },
+	{  2, 0, 0,  0 },
+	{  3, 0, 0,  0 },
+	{  0, 2, 0,  0 },
+	{  1, 2, 0,  0 },
+	{  0, 0, 0,  0 },
+	{  1, 0, 0,  0 },
+	{  2, 0, 0,  0 },
+	{  3, 0, 0,  0 },
+	{  0, 2, 0,  0 },
+	{  1, 2, 0,  0 },
+
+	// 000|100|200|300
+	// 010|110
+	{  0, 0, 0,  IDB_GMK_B_LAND1_MDL_GMK_B_LAND1_000_ZNO  },
+	{  1, 0, 0,  IDB_GMK_B_LAND1_MDL_GMK_B_LAND1_100_ZNO  },
+	{  2, 0, 0,  IDB_GMK_B_LAND1_MDL_GMK_B_LAND1_200_ZNO  },
+	{  3, 0, 0,  IDB_GMK_B_LAND1_MDL_GMK_B_LAND1_300_ZNO  },
+	{  0, 2, 0,  IDB_GMK_B_LAND1_MDL_GMK_B_LAND1_010_ZNO  },
+	{  1, 2, 0,  IDB_GMK_B_LAND1_MDL_GMK_B_LAND1_110_ZNO  },
+//	   x, y, z,  model
+
+
+	// ***|***|***|***
+	// 011|111|211|311
+	// 021|121|
+	{  0, 2, 1,  IDB_GMK_B_LAND1_MDL_GMK_B_LAND1_011_ZNO  },
+	{  1, 2, 1,  IDB_GMK_B_LAND1_MDL_GMK_B_LAND1_111_ZNO  },
+	{  2, 2, 1,  IDB_GMK_B_LAND1_MDL_GMK_B_LAND1_211_ZNO  },
+	{  3, 2, 1,  IDB_GMK_B_LAND1_MDL_GMK_B_LAND1_311_ZNO  },
+	{  0, 4, 1,  IDB_GMK_B_LAND1_MDL_GMK_B_LAND1_021_ZNO  },
+	{  1, 4, 1,  IDB_GMK_B_LAND1_MDL_GMK_B_LAND1_121_ZNO  },
+//	   x, y, z,  model
+
+
+	// ***|***|***|***
+	// ***|***|***|***
+	// 022|122|222|322
+	// 032|132
+	{  0, 3, 2,  IDB_GMK_B_LAND1_MDL_GMK_B_LAND1_022_ZNO  },
+	{  1, 3, 2,  IDB_GMK_B_LAND1_MDL_GMK_B_LAND1_122_ZNO  },
+	{  2, 3, 2,  IDB_GMK_B_LAND1_MDL_GMK_B_LAND1_222_ZNO  },
+	{  3, 3, 2,  IDB_GMK_B_LAND1_MDL_GMK_B_LAND1_322_ZNO  },
+	{  0, 5, 2,  IDB_GMK_B_LAND1_MDL_GMK_B_LAND1_032_ZNO  },
+	{  1, 5, 2,  IDB_GMK_B_LAND1_MDL_GMK_B_LAND1_132_ZNO  },
+//	   x, y, z,  model
+
+	// ***|***|***|***
+	// ***|***|***|***
+	// ***|***|***|***
+	// 033|133|233
+	{  0, 4, 3,  IDB_GMK_B_LAND1_MDL_GMK_B_LAND1_033_ZNO  },
+	{  1, 4, 3,  IDB_GMK_B_LAND1_MDL_GMK_B_LAND1_133_ZNO  },
+	{  2, 4, 3,  IDB_GMK_B_LAND1_MDL_GMK_B_LAND1_233_ZNO  },
+//	   x, y, z,  model
+
+	// ***|***|***|***|
+	// ***|***|***|***|
+	// ***|***|***|***|
+	// ***|***|***|***
+	// 044|144
+	{  0, 5, 3,  IDB_GMK_B_LAND1_MDL_GMK_B_LAND1_044_ZNO },
+	{  1, 5, 3,  IDB_GMK_B_LAND1_MDL_GMK_B_LAND1_144_ZNO },
+//	   x, y, z,  model
+};
+#define	GMD_GMK_BLAND_PARTS_NUM		(sizeof(_tbl_gmGmkBreakLand_PartParameter)/GME_BLAND_PARTS_PARAM_NUM_MAX)
+*/
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+/*
+static u8 _tbl_gmGmkBreakLand_FallDelayTimer[2][GMD_GMK_BLAND_PARTS_NUM] =
+{
+	//	プレイヤーが乗ってから各パーツが崩れ始めるまでの遅延時間定義
+	//	調整しやすいように落ちていく足場の形に並べました。
+
+	//	厚いほうに乗った
+	{
+		//	奥行き０パート
+//		 ↓この値が足場当たりがなくなる時間になります。
+		 60, 64, 68, 76,
+		 54, 58,
+		//	奥行き１パート
+		 50, 56, 62, 68,
+		 46, 50,
+		//	奥行き２パート
+		 26, 34, 42, 50,
+		 20, 28,
+		//	奥行き３パート
+		 12, 18, 24,
+		  0,  6
+	 },
+
+	//	薄いほうに乗った
+	{
+		//	奥行き０パート
+//		             ↓この値が足場当たりがなくなる時間になります。
+		 76, 68, 64, 60,
+		 54, 58,
+		//	奥行き１パート
+		 68, 62, 56, 50,
+		 48, 42,
+		//	奥行き２パート
+		 40, 34, 18,  6,
+		 32, 28,
+		//	奥行き３パート
+		 30, 24,  0,
+		 18, 12
+	 },
+};
+*/
+
+
+
+
+
+
+
+// ----- Static Functions ----------------------（スタティック関数の定義）
+// ギミックの本質部分
+
+
+
+
+// ===========================================================================
+// gmGmkBreakLand*
+/*!
+	ギミック 崩壊足場
+
+	@note
+		ソニックが乗っかると崩れだす足場です。
+		足場の左に乗るか、右に乗るかで崩れるパターンが変わります。
+ */
+// ---------------------------------------------------------------------------
+static void gmGmkBreakLandStay(OBS_OBJECT_WORK *obj_work);
+static void gmGmkBreakLandBroken(OBS_OBJECT_WORK *obj_work);
+// ===========================================================================
+
+// ---------------------------------------------------------------------------
+// gmGmkBreakLandStay
+/*!
+	ギミック 崩壊足場 待機
+
+	@note
+		ソニックが乗っかるまで待機
+		乗っかりを判定すると破片をまとめて生成して表示をOFFにします。
+		最上段が崩れだすとタスクは開放され足場判定も消えます。
+
+ */
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+static void gmGmkBreakLandStay_100(OBS_OBJECT_WORK *obj_work);
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+static void gmGmkBreakLandStay(OBS_OBJECT_WORK *obj_work)
+{
+	GMS_GMK_BLAND_WORK *pwork = (GMS_GMK_BLAND_WORK*)obj_work;
+	OBS_OBJECT_WORK	*ply_obj_work = &g_gm_main_system.ply_work[GSD_MAIN_PLAYER_1P]->obj_work;	
+
+	// プレイヤーが何かに乗っていて、それが自分か判定
+	if (ply_obj_work->ride_obj == obj_work)
+	{
+		//	プレイヤーが100％自分に乗っているか確認。
+		fx32 col_l,col_r;
+
+		col_l = obj_work->pos.x + pwork->colrect_left;
+		col_r = obj_work->pos.x + pwork->colrect_right;
+		col_l -= ply_obj_work->field_rect[MTD_LEFT] << FX32_SHIFT;	//	プレイヤー左側
+		col_r -= ply_obj_work->field_rect[MTD_RIGHT]<< FX32_SHIFT;	//	プレイヤー右側
+
+		if( col_l <= ply_obj_work->pos.x && ply_obj_work->pos.x <= col_r )
+		{
+			int ride_position = 0;	//	近い
+			fx32 offx = ply_obj_work->pos.x - obj_work->pos.x;
+			//	プレイヤーの位置 vs 自分の位置
+			if ((offx > pwork->COMWORK.col_work.obj_col.width*FX32_ONE/2) ||
+			    (offx < -(pwork->COMWORK.col_work.obj_col.width*FX32_ONE/2)) )
+				ride_position = 1;		//	一定以上離れていれば遠い位置に乗っている
+
+//		gmGmkBreakLand_CreateFallParts(obj_work, pwork->vect, ride_position);
+
+			//	エフェクト生成
+			OBS_OBJECT_WORK *effobj_work = 
+					(OBS_OBJECT_WORK*)GmEfctZoneEsCreate(NULL, GSD_MAIN_ZONE_TYPE_1, GME_EFCT_Z01_IDX_ASHIBA);
+			effobj_work->pos.x = obj_work->pos.x;
+			effobj_work->pos.y = obj_work->pos.y;
+			effobj_work->pos.z = obj_work->pos.z + 32*FX32_ONE;
+
+			if( pwork->vect == 0x0000 )
+				effobj_work->pos.x += 64*FX32_ONE;
+			else
+				effobj_work->pos.x -= 64*FX32_ONE;
+
+			//	崩壊までのカウントダウン
+			//if( !ride_position )
+			//	pwork->broken_timer = _tbl_gmGmkBreakLand_FallDelayTimer[0][0];
+			//else
+			//	pwork->broken_timer = _tbl_gmGmkBreakLand_FallDelayTimer[1][3];
+			pwork->broken_timer = 45;
+			pwork->quake_timer = 0;
+
+			obj_work->ppFunc = gmGmkBreakLandStay_100;
+
+
+		}
+	}
+}
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+static s8 tbl_breaklandquake[] =
+{
+	-1,0,+1,0,
+};
+static void gmGmkBreakLandStay_100(OBS_OBJECT_WORK *obj_work)
+{
+	GMS_GMK_BLAND_WORK *pwork = (GMS_GMK_BLAND_WORK*)obj_work;
+
+	pwork->broken_timer--;
+	if( pwork->broken_timer <= 0 )
+	{
+		// モデル再初期化
+		ObjObjectAction3dNNModelReleaseCopy(obj_work);
+		ObjObjectCopyAction3dNNModel(obj_work,
+		                             &gm_gmk_breakland_obj_3d_list[!pwork->vect?
+		                             IDB_GMK_B_LAND1_MDL_GMK_BLOCK_L_ZNO:
+		                             IDB_GMK_B_LAND1_MDL_GMK_BLOCK_R_ZNO],
+		                             &pwork->OBJ3D);
+		// モーション初期化
+		ObjObjectAction3dNNMotionLoad(obj_work,
+		                              0/*reg_file_id*/,
+		                              FALSE/*marge*/,
+		                              ObjDataGet(GMD_DWORK_NO_GMK_B_LAND1_MTN),
+		                              NULL/*mtn_data_path*/,
+		                              0/*index*/,
+		                              NULL/*archive*/);
+
+		// トゥーン設定
+//		ObjDrawObjectSetToon(obj_work);
+
+		if( pwork->vect == 0x8000 ) {
+			ObjDrawObjectActionSet(obj_work, IDB_GMK_B_LAND1_MTN_GMK_BLOCK_R_ZNM);
+			obj_work->obj_3d->use_light_flag &= ~OBD_LIGHT_USE_FLAG_0;		// 20090928 dimps Ishizaki
+			obj_work->obj_3d->use_light_flag |= OBD_LIGHT_USE_FLAG_2;		// 20090805 dimps Ishizaki
+		}
+		else {
+			ObjDrawObjectActionSet(obj_work, IDB_GMK_B_LAND1_MTN_GMK_BLOCK_L_ZNM);
+			obj_work->obj_3d->use_light_flag &= ~OBD_LIGHT_USE_FLAG_0;		// 20090928 dimps Ishizaki
+			obj_work->obj_3d->use_light_flag |= OBD_LIGHT_USE_FLAG_1;		// 20090805 dimps Ishizaki
+		}
+
+		obj_work->disp_flag &= ~OBD_DISP_STOP;
+		obj_work->disp_flag &= ~OBD_DISP_REPEAT;
+
+		pwork->COMWORK.col_work.obj_col.obj = NULL;
+		// SE
+		GmSoundPlaySE("BreakGround");
+		obj_work->ppFunc = gmGmkBreakLandBroken;
+	}
+	else
+	{
+		pwork->quake_timer &= 0x03;
+		obj_work->pos.y += (tbl_breaklandquake[pwork->quake_timer])*FX32_ONE;
+		pwork->quake_timer++;
+	}
+}
+// ---------------------------------------------------------------------------
+
+
+// ---------------------------------------------------------------------------
+// gmGmkBreakLandBroken
+/*!
+	ギミック 崩壊足場 崩壊中
+
+	@note
+
+ */
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+//static void gmGmkBreakLandBroken_100(OBS_OBJECT_WORK *obj_work);
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+static void gmGmkBreakLandBroken(OBS_OBJECT_WORK *obj_work)
+{
+	if (obj_work->disp_flag & OBD_DISP_END) {
+		obj_work->flag |= OBD_OBJECT_TASKCLEAR_REQUEST;
+	}
+}
+// ---------------------------------------------------------------------------
+// ===========================================================================
+
+
+
+#if 0
+モーション化のため不使用
+// ===========================================================================
+// gmGmkBreakLand*
+/*!
+	ギミック 崩壊足場の破片
+
+	@note
+		ソニックが乗っかると崩れだす足場の破片です。
+		足場の左に乗るか、右に乗るかで崩れるパターンが変わります。
+ */
+// ===========================================================================
+// ---------------------------------------------------------------------------
+// 足場の破片たち
+typedef struct tag_GMS_GMK_BLAND_PARTS
+{
+	GMS_EFFECT_3DNN_WORK	eff_work;
+
+	fx32		acc_y;
+	s16			falltimer;
+
+	u16			add_dir_x;
+	u16			add_dir_z;
+
+}GMS_GMK_BLAND_PARTS;
+// ---------------------------------------------------------------------------
+
+// ---------------------------------------------------------------------------
+// gmGmkBreakLandParts_*
+/*!
+	ギミック 崩壊足場の破片
+
+	@note
+		ソニックが乗っかると崩れだす足場の破片です。
+		足場の左に乗るか、右に乗るかで崩れるパターンが変わります。
+ */
+// ---------------------------------------------------------------------------
+static void gmGmkBreakLandParts_Main(OBS_OBJECT_WORK *obj_work);
+static void gmGmkBreakLandParts_Fall(OBS_OBJECT_WORK *obj_work);
+// ---------------------------------------------------------------------------
+static void gmGmkBreakLandParts_Main(OBS_OBJECT_WORK *obj_work)
+{
+	GMS_GMK_BLAND_PARTS *pwork = (GMS_GMK_BLAND_PARTS*)obj_work;
+
+	pwork->falltimer -= 1;
+	if( pwork->falltimer <= 0 )
+	{
+		obj_work->ppFunc = gmGmkBreakLandParts_Fall;
+		pwork->falltimer = 60;
+	}
+}
+// ---------------------------------------------------------------------------
+static void gmGmkBreakLandParts_Fall(OBS_OBJECT_WORK *obj_work)
+{
+	GMS_GMK_BLAND_PARTS *pwork = (GMS_GMK_BLAND_PARTS*)obj_work;
+
+	obj_work->dir.x += pwork->add_dir_x;
+	obj_work->dir.y += pwork->add_dir_z;
+
+	obj_work->spd.y += (fx32)(0.0625*FX32_ONE);
+	pwork->falltimer -= 1;
+	if( pwork->falltimer <= 0 )
+	{
+		obj_work->flag |= OBD_OBJECT_TASKCLEAR_REQUEST;
+	}
+}
+// ---------------------------------------------------------------------------
+
+
+
+// ---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
+static fx16 add_dir;	//	初期化不要
+static void gmGmkBreakLand_CreateFallParts(OBS_OBJECT_WORK *parent_obj, u16 vect, int ride)
+{
+	/*	崩壊足場の崩落部品は位置が決まっています。
+	 *----------------------------------------------------------------------
+	 *	        手前xx0                奥１xx1               奥２xx2
+	 *	x0x     000|100|200|300        ***|***|***|***       ***|***|***|***
+	 *	x1x     010|110                011|111|211|311       ***|***|***|***
+	 *  x2x                            021|121|              022|122|222|322
+	 *  x3x                                                  032|132
+	 *----------------------------------------------------------------------
+ 	 *          0xx|1xx|2xx|3xx|4xx    0xx|1xx|2xx|3xx|4xx   0xx|1xx|2xx|3xx
+ 	 *----------------------------------------------------------------------
+	 *	        奥３xx3                奥４xx4
+	 *	x0x     ***|***|***|***|***    ***|***|***|***|***
+	 *	x1x     ***|***|***|***|***    ***|***|***|***|***
+	 *	x2x     ***|***|***|***|***    ***|***|***|***|***
+	 *	x3x     033|133|233            ***|***|***|***
+	 *	x4x                            044|144
+	 *----------------------------------------------------------------------
+	 *	ひとつのブロックは16x16です。
+	 *　ブロックの基準は足場のスタンダードと違い16x16x16ブロックの中心に
+	 *	基準点があります。
+	 */
+
+	int	i;
+
+	for (i= 0; i < GMD_GMK_BLAND_PARTS_NUM; i++ )
+	{
+		GMS_GMK_BLAND_PARTS *pwork =
+			(GMS_GMK_BLAND_PARTS*)GMM_EFFECT_CREATE_WORK(sizeof(GMS_GMK_BLAND_PARTS),
+			                                             NULL,
+			                                             0,
+			                                             "BreakLand_Parts");
+		OBS_OBJECT_WORK *obj_work = (OBS_OBJECT_WORK*)pwork;
+
+		ObjObjectCopyAction3dNNModel(obj_work,
+	/*//モデル固定テスト*/	                             &gm_gmk_breakland_obj_3d_list[_tbl_gmGmkBreakLand_PartParameter[i][GME_BLAND_PARTS_PARAM_MODEL_ID]],
+//	&gm_gmk_breakland_obj_3d_list[IDB_GMK_B_LAND1_MDL_GMK_B_LAND1_110_ZNO],
+		                             &pwork->eff_work.obj_3d);
+
+		if( !vect )
+		{
+			obj_work->pos.x = parent_obj->pos.x + (fx32)((_tbl_gmGmkBreakLand_PartParameter[i][GME_BLAND_PARTS_PARAM_OFF_X]*16)*FX32_ONE) +8*FX32_ONE;
+			obj_work->dir.z = 0;
+		}
+		else
+		{
+			obj_work->pos.x = parent_obj->pos.x - (fx32)((_tbl_gmGmkBreakLand_PartParameter[i][GME_BLAND_PARTS_PARAM_OFF_X]*16)*FX32_ONE) -8*FX32_ONE;
+			obj_work->dir.y = 0x8000;
+		}
+		obj_work->pos.y = parent_obj->pos.y + (fx32)((_tbl_gmGmkBreakLand_PartParameter[i][GME_BLAND_PARTS_PARAM_OFF_Y]* 8)*FX32_ONE) +8*FX32_ONE;
+		obj_work->pos.z = parent_obj->pos.z - (fx32)((_tbl_gmGmkBreakLand_PartParameter[i][GME_BLAND_PARTS_PARAM_OFF_Z]*16)*FX32_ONE) -8*FX32_ONE;
+
+		obj_work->dir.x = 0;
+		obj_work->dir.z = 0;
+
+		if( add_dir > 0x0080 )
+			add_dir = -0x0080;
+		pwork->add_dir_x = add_dir;
+		pwork->add_dir_z = add_dir;
+		add_dir += 0x73;
+
+		// フラグ
+		obj_work->move_flag |= OBD_MOVE_NOCOL;						// 地形あたり無し
+		obj_work->disp_flag |= OBD_DISP_NODIRFLIP;
+		obj_work->disp_flag &= ~OBD_DISP_NODIR;
+//		obj_work->disp_flag = NULL;
+		obj_work->flag |= OBD_OBJECT_NOHIT;							// 矩形あたり無し◆
+
+		pwork->falltimer = (s16)_tbl_gmGmkBreakLand_FallDelayTimer[ride][i];
+
+		obj_work->ppFunc = gmGmkBreakLandParts_Main;
+	}
+}
+#endif
+// ===========================================================================
+
+
+
+
+// ----- Global Functions ----------------------（グローバル関数の定義：外部）
+// ===========================================================================
+// GmGmkBreakLandInit
+/*!
+	ギミック 崩壊足場 初期化関数
+	
+	@param eve_rec	[io] レコードポインタ
+	@param pos_x	[in] 出現座標X
+	@param pos_y	[in] 出現座標Y
+	@param type		[in] 処理内容タイプ 通常は0
+	
+	@note
+
+ */
+// ===========================================================================
+//	崩壊足場　生成に関する定義
+#define GMD_GMK_LAND_EVE_FLAG_NO_THROUGH		(0x0080)	//!< すり抜け不可
+// ---------------------------------------------------------------------------
+static OBS_OBJECT_WORK* gmGmkBreakLandInit(GMS_EVE_RECORD_EVENT *eve_rec ,fx32 pos_x, fx32 pos_y, u8 type, u16 vect)
+{
+	GMS_GMK_BLAND_WORK	*pwork;
+
+	OBS_OBJECT_WORK		*obj_work;
+	GMS_ENEMY_3D_WORK	*gmk_work;
+
+
+	UNREFERENCED_PARAMETER(type);
+
+	pwork = (GMS_GMK_BLAND_WORK*)GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, sizeof(GMS_GMK_BLAND_WORK), "GMK_BREAK_LAND_MAIN");
+
+	obj_work = (OBS_OBJECT_WORK*)pwork /*&pwork->gmk_work.ene_com.obj_work*/;
+	gmk_work = (GMS_ENEMY_3D_WORK*)pwork /*&pwork->gmk_work*/;
+
+	// モデル初期化
+	ObjObjectCopyAction3dNNModel(obj_work,
+	                             &gm_gmk_breakland_obj_3d_list[!vect?
+	//	                             IDB_GMK_B_LAND1_MDL_GMK_B_LAND1_R_ZNO:
+	//	                             IDB_GMK_B_LAND1_MDL_GMK_B_LAND1_L_ZNO],
+	//	09.7.29名前変更              IDB_GMK_B_LAND1_MDL_GMK_B_BLOCK_L_ZNO:
+	//	↑                           IDB_GMK_B_LAND1_MDL_GMK_B_BLOCK_R_ZNO],
+		                             IDB_GMK_B_LAND1_MDL_GMK_BIL_L_ZNO:
+		                             IDB_GMK_B_LAND1_MDL_GMK_BIL_R_ZNO],
+	                             &gmk_work->obj_3d);
+
+	// マップライト設定
+#if _IPHONE
+	if (g_gs_main_sys_info.stage_id == GSD_MAIN_STAGE_ID_1_3 || g_gs_main_sys_info.stage_id == GSD_MAIN_STAGE_ID_1_BOSS)
+#endif // _IPHONE
+	{
+		obj_work->obj_3d->use_light_flag &= ~OBD_LIGHT_USE_FLAG_0;
+		obj_work->obj_3d->use_light_flag |= OBD_LIGHT_USE_FLAG_5;
+	}
+	// ローカルイベント作成サンプル
+	/*
+	local_obj = GmEventMgrLocalEventBirth( GMD_EVENT_ID_,
+	                                       obj_work->pos.x,
+	                                       obj_work->pos.y,
+	                                       gmk_work->ene_com.eve_rec->flag,
+	                                       gmk_work->ene_com.eve_rec->left,
+	                                       gmk_work->ene_com.eve_rec->top,
+	                                       gmk_work->ene_com.eve_rec->width,
+	                                       gmk_work->ene_com.eve_rec->height,
+	                                       (u8)ndl_work->needle_type );
+
+	// 後ろ側トゲとスタンドにはクリップ無効設定になっているので、親と同時に消えるように親を設定
+	local_obj->parent_obj = obj_work;
+	*/
+
+	//	土地あたり矩形餅オブジェ設定
+	gmk_work->ene_com.col_work.obj_col.obj       = obj_work;
+	gmk_work->ene_com.col_work.obj_col.diff_data = (s8*)g_gm_breakland_col;
+	// 地形矩形設定
+	gmk_work->ene_com.col_work.obj_col.width  = (u16)gm_gmk_breakland_col_rect_tbl[GME_GMK_COL_DATA_WIDTH];	//	中心位置からの幅
+	gmk_work->ene_com.col_work.obj_col.height = (u16)gm_gmk_breakland_col_rect_tbl[GME_GMK_COL_DATA_HEIGHT];	//	中心位置からの高さ
+	gmk_work->ene_com.col_work.obj_col.ofst_x = gm_gmk_breakland_col_rect_tbl[GME_GMK_COL_DATA_OFST_X];	//	中心位置から地形あたりの発生する場所までのオフセット
+	gmk_work->ene_com.col_work.obj_col.ofst_y = gm_gmk_breakland_col_rect_tbl[GME_GMK_COL_DATA_OFST_Y];	//	中心位置から地形あたりの発生する場所までのオフセット
+	pwork->colrect_left  = GMD_GMK_BREAKLAND_COLRECT_LEFT*FX32_ONE;
+	pwork->colrect_right = GMD_GMK_BREAKLAND_COLRECT_RIGHT*FX32_ONE;
+	if( vect == 0x8000 )
+	{
+		gmk_work->ene_com.col_work.obj_col.ofst_x = (s16)(-gmk_work->ene_com.col_work.obj_col.ofst_x-gmk_work->ene_com.col_work.obj_col.width);
+		pwork->colrect_right = -GMD_GMK_BREAKLAND_COLRECT_LEFT*FX32_ONE;
+		pwork->colrect_left  = -GMD_GMK_BREAKLAND_COLRECT_RIGHT*FX32_ONE;
+	}
+
+	gmk_work->ene_com.col_work.obj_col.flag |= OBD_COLOBJ_NOFREE_DIFF_DATA;	// diff_dataを開放しない
+	gmk_work->ene_com.col_work.obj_col.flag |= OBD_COLOBJ_NOFREE_DIR_DATA;
+	gmk_work->ene_com.col_work.obj_col.dir = (u16)(0x0000);
+		// すり抜け属性
+		if (!(eve_rec->flag & GMD_GMK_LAND_EVE_FLAG_NO_THROUGH) ) {
+			// すり抜け属性設定
+			gmk_work->ene_com.col_work.obj_col.attr = OBD_COL_DATA_ATTR_THROUGH;
+		}
+
+	// 優先設定
+	obj_work->pos.z = GMD_OBJ_GIMMICK_POS_Z - FX32_ONE;
+
+	// フラグ
+	obj_work->move_flag |= OBD_MOVE_NOMOVE|OBD_MOVE_NOCOL;			// 移動無し 地形あたり無し
+#if _IPHONE
+	obj_work->disp_flag |= OBD_DISP_NODIRFLIP | OBD_DISP_NOCLIP;
+#else
+	obj_work->disp_flag |= OBD_DISP_NODIRFLIP;
+#endif // _IPHONE
+	obj_work->flag |= OBD_OBJECT_NOHIT;							// 矩形あたり無し◆
+
+
+	// 終了処理差し替え(ワークにOBJデータを持った際に変更する)
+//	mtTaskChangeTcbDestructor(obj_work->tcb, gmGmkNeedleExit);
+
+	obj_work->ppFunc = gmGmkBreakLandStay;
+	pwork->vect = vect;
+
+	return obj_work;
+}
+// ---------------------------------------------------------------------------
+OBS_OBJECT_WORK* GmGmkBreakLandRInit(GMS_EVE_RECORD_EVENT *eve_rec ,fx32 pos_x, fx32 pos_y, u8 type)
+{
+	return gmGmkBreakLandInit(eve_rec ,pos_x, pos_y, type, 0x0000);
+}
+// ---------------------------------------------------------------------------
+OBS_OBJECT_WORK* GmGmkBreakLandLInit(GMS_EVE_RECORD_EVENT *eve_rec ,fx32 pos_x, fx32 pos_y, u8 type)
+{
+	return gmGmkBreakLandInit(eve_rec ,pos_x, pos_y, type, 0x8000);
+}
+// ===========================================================================
+
+
+
+// ===========================================================================
+// GmGmkBreakLandBuild
+/*!
+	ギミック 崩壊足場 データロード
+	
+	
+	@note
+
+ */
+// ===========================================================================
+void GmGmkBreakLandBuild(void)
+{
+	gm_gmk_breakland_obj_3d_list =
+			GmGameDBuildRegBuildModel((AMS_AMB_HEADER*)GmGameDatGetGimmickData(GMD_DWORK_NO_GMK_B_LAND1_MODEL),
+								(AMS_AMB_HEADER*)GmGameDatGetGimmickData(GMD_DWORK_NO_GMK_B_LAND1_TEX),
+								0 );
+								//NND_DRAWOBJ_SHADER_USER_PROFILE_TOON/*draw_flag*/);
+
+//	add_dir = -0x0080;
+}
+// ===========================================================================
+
+
+// ===========================================================================
+// GmGmkBreakLandFlush
+/*!
+	ギミック 崩壊足場 データ破棄
+	
+	
+	@note
+
+ */
+// ===========================================================================
+void GmGmkBreakLandFlush(void)
+{
+	AMS_AMB_HEADER	*amb = (AMS_AMB_HEADER*)GmGameDatGetGimmickData(GMD_DWORK_NO_GMK_B_LAND1_MODEL);
+	GmGameDBuildRegFlushModel(gm_gmk_breakland_obj_3d_list, amb->file_num);
+}
+// ===========================================================================
+
+
+
+
+// ==========================================================================
+// GmGmkBreakLandSetLight
+/*!
+ *	ギミック 崩壊足場 ライト設定
+ */
+// ==========================================================================
+void GmGmkBreakLandSetLight(void)
+{
+	NNS_RGBA	light_col;
+	NNS_VECTOR	light_vec;
+	
+	// 右出っ張り
+#if _WII
+	if (g_gs_main_sys_info.stage_id == GSD_MAIN_STAGE_ID_1_1 ||
+			g_gs_main_sys_info.stage_id == GSD_MAIN_STAGE_ID_1_2) {
+		light_vec.x = -0.5f;
+		light_vec.y = 0.0f;
+		light_vec.z = -1.0f;
+		light_col.r = 1.0f;
+		light_col.g = 1.0f;
+		light_col.b = 1.0f;
+	}
+	else {
+		light_vec.x = -0.5f;
+		light_vec.y = -0.05f;
+		light_vec.z = -1.0f;
+		light_col.r = 0.65f;
+		light_col.g = 0.65f;
+		light_col.b = 0.65f;
+	}
+#else
+	light_vec.x = -0.5f;
+	light_vec.y = -0.05f;
+	light_vec.z = -1.0f;
+	light_col.r = 0.65f;
+	light_col.g = 0.65f;
+	light_col.b = 0.65f;
+#endif
+	nnNormalizeVector(&light_vec, &light_vec);
+	ObjDrawSetParallelLight(NNE_LIGHT_1, &light_col, 1.f, &light_vec);
+
+
+	// 左出っ張り
+#if _WII
+	if (g_gs_main_sys_info.stage_id == GSD_MAIN_STAGE_ID_1_1 ||
+			g_gs_main_sys_info.stage_id == GSD_MAIN_STAGE_ID_1_2) {
+		light_vec.x = 0.5f;
+		light_vec.y = 0.0f;
+		light_vec.z = -1.0f;
+		light_col.r = 1.0f;
+		light_col.g = 1.0f;
+		light_col.b = 1.0f;
+	}
+	else {
+		light_vec.x = 0.4f;
+		light_vec.y = -0.05f;
+		light_vec.z = -1.0f;
+		light_col.r = 0.65f;
+		light_col.g = 0.65f;
+		light_col.b = 0.65f;
+	}
+#else
+	light_vec.x = 0.4f;
+	light_vec.y = -0.05f;
+	light_vec.z = -1.0f;
+	light_col.r = 0.65f;
+	light_col.g = 0.65f;
+	light_col.b = 0.65f;
+#endif
+	nnNormalizeVector(&light_vec, &light_vec);
+	ObjDrawSetParallelLight(NNE_LIGHT_2, &light_col, 1.f, &light_vec);
+}

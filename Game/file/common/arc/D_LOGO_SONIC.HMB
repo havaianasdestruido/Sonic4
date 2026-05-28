@@ -1,0 +1,26 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_D_LOGO_SONIC
+#define	_IDB_D_LOGO_SONIC
+
+/* Defined File ID */
+#define	IDB_D_LOGO_SONIC_D_LOGO_SONIC_AMA		0		/*  */
+#define	IDB_D_LOGO_SONIC_D_LOGO_SONIC_AMB		1		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_D_LOGO_SONIC_D_LOGO_SONIC_AMA		0		/*  */
+#define	IDU0_D_LOGO_SONIC_D_LOGO_SONIC_AMB		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_D_LOGO_SONIC_D_LOGO_SONIC_AMA		0		/*  */
+#define	IDU1_D_LOGO_SONIC_D_LOGO_SONIC_AMB		0		/*  */
+
+/* Defined File Name */
+#define	IDS_D_LOGO_SONIC_D_LOGO_SONIC_AMA		"D_LOGO_SONIC.AMA"
+#define	IDS_D_LOGO_SONIC_D_LOGO_SONIC_AMB		"D_LOGO_SONIC.AMB"
+
+#endif	/* _IDB_D_LOGO_SONIC */

@@ -1,0 +1,30 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_MAPFAR_ZONE1_MAT
+#define	_IDB_MAPFAR_ZONE1_MAT
+
+/* Defined File ID */
+#define	IDB_MAPFAR_ZONE1_MAT_Z1_SKYL_T_D_INV		0		/*  */
+#define	IDB_MAPFAR_ZONE1_MAT_Z1_SEA_D_INV		1		/*  */
+#define	IDB_MAPFAR_ZONE1_MAT_Z1_BOSS_IP_FAR_INV		2		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_MAPFAR_ZONE1_MAT_Z1_SKYL_T_D_INV		0		/*  */
+#define	IDU0_MAPFAR_ZONE1_MAT_Z1_SEA_D_INV		0		/*  */
+#define	IDU0_MAPFAR_ZONE1_MAT_Z1_BOSS_IP_FAR_INV		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_MAPFAR_ZONE1_MAT_Z1_SKYL_T_D_INV		0		/*  */
+#define	IDU1_MAPFAR_ZONE1_MAT_Z1_SEA_D_INV		0		/*  */
+#define	IDU1_MAPFAR_ZONE1_MAT_Z1_BOSS_IP_FAR_INV		0		/*  */
+
+/* Defined File Name */
+#define	IDS_MAPFAR_ZONE1_MAT_Z1_SKYL_T_D_INV		"Z1_SKYL_T_D.INV"
+#define	IDS_MAPFAR_ZONE1_MAT_Z1_SEA_D_INV		"Z1_SEA_D.INV"
+#define	IDS_MAPFAR_ZONE1_MAT_Z1_BOSS_IP_FAR_INV		"Z1_BOSS_IP_FAR.INV"
+
+#endif	/* _IDB_MAPFAR_ZONE1_MAT */

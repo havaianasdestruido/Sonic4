@@ -1,0 +1,114 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_DECO_ZONE3_MDL
+#define	_IDB_DECO_ZONE3_MDL
+
+/* Defined File ID */
+#define	IDB_DECO_ZONE3_MDL_Z3_D_PIL_A_ZNO		0		/*  */
+#define	IDB_DECO_ZONE3_MDL_Z3_D_PIL_B_ZNO		1		/*  */
+#define	IDB_DECO_ZONE3_MDL_Z3_D_FISH_ZNO		2		/*  */
+#define	IDB_DECO_ZONE3_MDL_Z3_D_BRI_A_ZNO		3		/*  */
+#define	IDB_DECO_ZONE3_MDL_Z3_D_BRI_B_ZNO		4		/*  */
+#define	IDB_DECO_ZONE3_MDL_Z3_D_HAI_FR_ZNO		5		/*  */
+#define	IDB_DECO_ZONE3_MDL_Z3_D_HAI_FR_EXIT_ZNO		6		/*  */
+#define	IDB_DECO_ZONE3_MDL_D_EAR_RUB_A_A_ZNO		7		/*  */
+#define	IDB_DECO_ZONE3_MDL_D_EAR_RUB_A_B_ZNO		8		/*  */
+#define	IDB_DECO_ZONE3_MDL_D_EAR_RUB_B_A_ZNO		9		/*  */
+#define	IDB_DECO_ZONE3_MDL_D_EAR_RUB_B_B_ZNO		10		/*  */
+#define	IDB_DECO_ZONE3_MDL_D_EAR_RUB_B_C_ZNO		11		/*  */
+#define	IDB_DECO_ZONE3_MDL_D_WAT_RUB_A_ZNO		12		/*  */
+#define	IDB_DECO_ZONE3_MDL_D_WAT_RUB_B_ZNO		13		/*  */
+#define	IDB_DECO_ZONE3_MDL_Z3_D_PLANT_A_ZNO		14		/*  */
+#define	IDB_DECO_ZONE3_MDL_Z3_D_PLANT_B_ZNO		15		/*  */
+#define	IDB_DECO_ZONE3_MDL_Z3_D_PLANT_C_ZNO		16		/*  */
+#define	IDB_DECO_ZONE3_MDL_Z3_D_PLANT_D_ZNO		17		/*  */
+#define	IDB_DECO_ZONE3_MDL_Z3_D_RAIL_EDGE_A_ZNO		18		/*  */
+#define	IDB_DECO_ZONE3_MDL_Z3_D_RAIL_EDGE_B_ZNO		19		/*  */
+#define	IDB_DECO_ZONE3_MDL_Z3_D_FISH_B_ZNO		20		/*  */
+#define	IDB_DECO_ZONE3_MDL_Z3_D_RAIL_J_A_ZNO		21		/*  */
+#define	IDB_DECO_ZONE3_MDL_Z3_D_RAIL_J_B_ZNO		22		/*  */
+#define	IDB_DECO_ZONE3_MDL_Z3_D_RAIL_J_C_ZNO		23		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_DECO_ZONE3_MDL_Z3_D_PIL_A_ZNO		0		/*  */
+#define	IDU0_DECO_ZONE3_MDL_Z3_D_PIL_B_ZNO		0		/*  */
+#define	IDU0_DECO_ZONE3_MDL_Z3_D_FISH_ZNO		0		/*  */
+#define	IDU0_DECO_ZONE3_MDL_Z3_D_BRI_A_ZNO		0		/*  */
+#define	IDU0_DECO_ZONE3_MDL_Z3_D_BRI_B_ZNO		0		/*  */
+#define	IDU0_DECO_ZONE3_MDL_Z3_D_HAI_FR_ZNO		0		/*  */
+#define	IDU0_DECO_ZONE3_MDL_Z3_D_HAI_FR_EXIT_ZNO		0		/*  */
+#define	IDU0_DECO_ZONE3_MDL_D_EAR_RUB_A_A_ZNO		0		/*  */
+#define	IDU0_DECO_ZONE3_MDL_D_EAR_RUB_A_B_ZNO		0		/*  */
+#define	IDU0_DECO_ZONE3_MDL_D_EAR_RUB_B_A_ZNO		0		/*  */
+#define	IDU0_DECO_ZONE3_MDL_D_EAR_RUB_B_B_ZNO		0		/*  */
+#define	IDU0_DECO_ZONE3_MDL_D_EAR_RUB_B_C_ZNO		0		/*  */
+#define	IDU0_DECO_ZONE3_MDL_D_WAT_RUB_A_ZNO		0		/*  */
+#define	IDU0_DECO_ZONE3_MDL_D_WAT_RUB_B_ZNO		0		/*  */
+#define	IDU0_DECO_ZONE3_MDL_Z3_D_PLANT_A_ZNO		0		/*  */
+#define	IDU0_DECO_ZONE3_MDL_Z3_D_PLANT_B_ZNO		0		/*  */
+#define	IDU0_DECO_ZONE3_MDL_Z3_D_PLANT_C_ZNO		0		/*  */
+#define	IDU0_DECO_ZONE3_MDL_Z3_D_PLANT_D_ZNO		0		/*  */
+#define	IDU0_DECO_ZONE3_MDL_Z3_D_RAIL_EDGE_A_ZNO		0		/*  */
+#define	IDU0_DECO_ZONE3_MDL_Z3_D_RAIL_EDGE_B_ZNO		0		/*  */
+#define	IDU0_DECO_ZONE3_MDL_Z3_D_FISH_B_ZNO		0		/*  */
+#define	IDU0_DECO_ZONE3_MDL_Z3_D_RAIL_J_A_ZNO		0		/*  */
+#define	IDU0_DECO_ZONE3_MDL_Z3_D_RAIL_J_B_ZNO		0		/*  */
+#define	IDU0_DECO_ZONE3_MDL_Z3_D_RAIL_J_C_ZNO		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_DECO_ZONE3_MDL_Z3_D_PIL_A_ZNO		0		/*  */
+#define	IDU1_DECO_ZONE3_MDL_Z3_D_PIL_B_ZNO		0		/*  */
+#define	IDU1_DECO_ZONE3_MDL_Z3_D_FISH_ZNO		0		/*  */
+#define	IDU1_DECO_ZONE3_MDL_Z3_D_BRI_A_ZNO		0		/*  */
+#define	IDU1_DECO_ZONE3_MDL_Z3_D_BRI_B_ZNO		0		/*  */
+#define	IDU1_DECO_ZONE3_MDL_Z3_D_HAI_FR_ZNO		0		/*  */
+#define	IDU1_DECO_ZONE3_MDL_Z3_D_HAI_FR_EXIT_ZNO		0		/*  */
+#define	IDU1_DECO_ZONE3_MDL_D_EAR_RUB_A_A_ZNO		0		/*  */
+#define	IDU1_DECO_ZONE3_MDL_D_EAR_RUB_A_B_ZNO		0		/*  */
+#define	IDU1_DECO_ZONE3_MDL_D_EAR_RUB_B_A_ZNO		0		/*  */
+#define	IDU1_DECO_ZONE3_MDL_D_EAR_RUB_B_B_ZNO		0		/*  */
+#define	IDU1_DECO_ZONE3_MDL_D_EAR_RUB_B_C_ZNO		0		/*  */
+#define	IDU1_DECO_ZONE3_MDL_D_WAT_RUB_A_ZNO		0		/*  */
+#define	IDU1_DECO_ZONE3_MDL_D_WAT_RUB_B_ZNO		0		/*  */
+#define	IDU1_DECO_ZONE3_MDL_Z3_D_PLANT_A_ZNO		0		/*  */
+#define	IDU1_DECO_ZONE3_MDL_Z3_D_PLANT_B_ZNO		0		/*  */
+#define	IDU1_DECO_ZONE3_MDL_Z3_D_PLANT_C_ZNO		0		/*  */
+#define	IDU1_DECO_ZONE3_MDL_Z3_D_PLANT_D_ZNO		0		/*  */
+#define	IDU1_DECO_ZONE3_MDL_Z3_D_RAIL_EDGE_A_ZNO		0		/*  */
+#define	IDU1_DECO_ZONE3_MDL_Z3_D_RAIL_EDGE_B_ZNO		0		/*  */
+#define	IDU1_DECO_ZONE3_MDL_Z3_D_FISH_B_ZNO		0		/*  */
+#define	IDU1_DECO_ZONE3_MDL_Z3_D_RAIL_J_A_ZNO		0		/*  */
+#define	IDU1_DECO_ZONE3_MDL_Z3_D_RAIL_J_B_ZNO		0		/*  */
+#define	IDU1_DECO_ZONE3_MDL_Z3_D_RAIL_J_C_ZNO		0		/*  */
+
+/* Defined File Name */
+#define	IDS_DECO_ZONE3_MDL_Z3_D_PIL_A_ZNO		"Z3_D_PIL_A.ZNO"
+#define	IDS_DECO_ZONE3_MDL_Z3_D_PIL_B_ZNO		"Z3_D_PIL_B.ZNO"
+#define	IDS_DECO_ZONE3_MDL_Z3_D_FISH_ZNO		"Z3_D_FISH.ZNO"
+#define	IDS_DECO_ZONE3_MDL_Z3_D_BRI_A_ZNO		"Z3_D_BRI_A.ZNO"
+#define	IDS_DECO_ZONE3_MDL_Z3_D_BRI_B_ZNO		"Z3_D_BRI_B.ZNO"
+#define	IDS_DECO_ZONE3_MDL_Z3_D_HAI_FR_ZNO		"Z3_D_HAI_FR.ZNO"
+#define	IDS_DECO_ZONE3_MDL_Z3_D_HAI_FR_EXIT_ZNO		"Z3_D_HAI_FR_EXIT.ZNO"
+#define	IDS_DECO_ZONE3_MDL_D_EAR_RUB_A_A_ZNO		"D_EAR_RUB_A_A.ZNO"
+#define	IDS_DECO_ZONE3_MDL_D_EAR_RUB_A_B_ZNO		"D_EAR_RUB_A_B.ZNO"
+#define	IDS_DECO_ZONE3_MDL_D_EAR_RUB_B_A_ZNO		"D_EAR_RUB_B_A.ZNO"
+#define	IDS_DECO_ZONE3_MDL_D_EAR_RUB_B_B_ZNO		"D_EAR_RUB_B_B.ZNO"
+#define	IDS_DECO_ZONE3_MDL_D_EAR_RUB_B_C_ZNO		"D_EAR_RUB_B_C.ZNO"
+#define	IDS_DECO_ZONE3_MDL_D_WAT_RUB_A_ZNO		"D_WAT_RUB_A.ZNO"
+#define	IDS_DECO_ZONE3_MDL_D_WAT_RUB_B_ZNO		"D_WAT_RUB_B.ZNO"
+#define	IDS_DECO_ZONE3_MDL_Z3_D_PLANT_A_ZNO		"Z3_D_PLANT_A.ZNO"
+#define	IDS_DECO_ZONE3_MDL_Z3_D_PLANT_B_ZNO		"Z3_D_PLANT_B.ZNO"
+#define	IDS_DECO_ZONE3_MDL_Z3_D_PLANT_C_ZNO		"Z3_D_PLANT_C.ZNO"
+#define	IDS_DECO_ZONE3_MDL_Z3_D_PLANT_D_ZNO		"Z3_D_PLANT_D.ZNO"
+#define	IDS_DECO_ZONE3_MDL_Z3_D_RAIL_EDGE_A_ZNO		"Z3_D_RAIL_EDGE_A.ZNO"
+#define	IDS_DECO_ZONE3_MDL_Z3_D_RAIL_EDGE_B_ZNO		"Z3_D_RAIL_EDGE_B.ZNO"
+#define	IDS_DECO_ZONE3_MDL_Z3_D_FISH_B_ZNO		"Z3_D_FISH_B.ZNO"
+#define	IDS_DECO_ZONE3_MDL_Z3_D_RAIL_J_A_ZNO		"Z3_D_RAIL_J_A.ZNO"
+#define	IDS_DECO_ZONE3_MDL_Z3_D_RAIL_J_B_ZNO		"Z3_D_RAIL_J_B.ZNO"
+#define	IDS_DECO_ZONE3_MDL_Z3_D_RAIL_J_C_ZNO		"Z3_D_RAIL_J_C.ZNO"
+
+#endif	/* _IDB_DECO_ZONE3_MDL */

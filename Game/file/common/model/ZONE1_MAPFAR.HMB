@@ -1,0 +1,34 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_ZONE1_MAPFAR
+#define	_IDB_ZONE1_MAPFAR
+
+/* Defined File ID */
+#define	IDB_ZONE1_MAPFAR_MAPFAR_ZONE1_MDL_AMB		0		/*  */
+#define	IDB_ZONE1_MAPFAR_MAPFAR_TEX_AMB		1		/*  */
+#define	IDB_ZONE1_MAPFAR_MAPFAR_ZONE1_MAT_AMB		2		/*  */
+#define	IDB_ZONE1_MAPFAR_MAPFAR_ZONE1_RENDER_MDL_AMB		3		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_ZONE1_MAPFAR_MAPFAR_ZONE1_MDL_AMB		0		/*  */
+#define	IDU0_ZONE1_MAPFAR_MAPFAR_TEX_AMB		0		/*  */
+#define	IDU0_ZONE1_MAPFAR_MAPFAR_ZONE1_MAT_AMB		0		/*  */
+#define	IDU0_ZONE1_MAPFAR_MAPFAR_ZONE1_RENDER_MDL_AMB		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_ZONE1_MAPFAR_MAPFAR_ZONE1_MDL_AMB		0		/*  */
+#define	IDU1_ZONE1_MAPFAR_MAPFAR_TEX_AMB		0		/*  */
+#define	IDU1_ZONE1_MAPFAR_MAPFAR_ZONE1_MAT_AMB		0		/*  */
+#define	IDU1_ZONE1_MAPFAR_MAPFAR_ZONE1_RENDER_MDL_AMB		0		/*  */
+
+/* Defined File Name */
+#define	IDS_ZONE1_MAPFAR_MAPFAR_ZONE1_MDL_AMB		"MAPFAR_ZONE1_MDL.AMB"
+#define	IDS_ZONE1_MAPFAR_MAPFAR_TEX_AMB		"MAPFAR_TEX.AMB"
+#define	IDS_ZONE1_MAPFAR_MAPFAR_ZONE1_MAT_AMB		"MAPFAR_ZONE1_MAT.AMB"
+#define	IDS_ZONE1_MAPFAR_MAPFAR_ZONE1_RENDER_MDL_AMB		"MAPFAR_ZONE1_RENDER_MDL.AMB"
+
+#endif	/* _IDB_ZONE1_MAPFAR */

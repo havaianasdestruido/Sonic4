@@ -1,0 +1,20 @@
+// root node
+
+// node
+
+// action
+#define IDA_D_CMN_BTN_ACT_BTN_Y               (  0) // btn_y
+#define IDA_D_CMN_BTN_ACT_BACK_BTN            (  1) // back_btn
+#define IDA_D_CMN_BTN_ACT_BTN_X               (  2) // btn_x
+#define IDA_D_CMN_BTN_ACT_BTN_BACK_STGSLCT    (  3) // btn_back_stgslct
+#define IDA_D_CMN_BTN_ACT_BTN_LB_STGSLCT      (  4) // btn_lb_stgslct
+#define IDA_D_CMN_BTN_ACT_BTN_Y_STGSLCT       (  5) // btn_y_stgslct
+#define IDA_D_CMN_BTN_ACT_BTN_BACK_OPT        (  6) // btn_back_opt
+#define IDA_D_CMN_BTN_ACT_BTN_BACK_RANK       (  7) // btn_back_rank
+#define IDA_D_CMN_BTN_ACT_BTN_Y_RANK          (  8) // btn_y_rank
+#define IDA_D_CMN_BTN_ACT_BTN_X_RANK          (  9) // btn_x_rank
+#define IDA_D_CMN_BTN_ACT_BTN_X_TITLE         ( 10) // btn_x_title
+#define IDA_D_CMN_BTN_ACT_BTN_LEFT_LB_STGSLCT ( 11) // btn_left_lb_stgslct
+#define IDA_D_CMN_BTN_ACT_BTN_LEFT_RB_STGSLCT ( 12) // btn_left_rb_stgslct
+#define IDA_D_CMN_BTN_ACT_BUT_DEL             ( 13) // but_del
+#define IDA_D_CMN_BTN_ACT_BTN_BACK_FILESLCT   ( 14) // btn_back_fileslct

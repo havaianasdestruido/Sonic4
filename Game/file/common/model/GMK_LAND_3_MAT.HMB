@@ -1,0 +1,22 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_GMK_LAND_3_MAT
+#define	_IDB_GMK_LAND_3_MAT
+
+/* Defined File ID */
+#define	IDB_GMK_LAND_3_MAT_LAND_3_ROPE_ZNV		0		/*  ロープ */
+
+/* Defined USR0 Data */
+#define	IDU0_GMK_LAND_3_MAT_LAND_3_ROPE_ZNV		0		/*  ロープ */
+
+/* Defined USR1 Data */
+#define	IDU1_GMK_LAND_3_MAT_LAND_3_ROPE_ZNV		0		/*  ロープ */
+
+/* Defined File Name */
+#define	IDS_GMK_LAND_3_MAT_LAND_3_ROPE_ZNV		"LAND_3_ROPE.ZNV"
+
+#endif	/* _IDB_GMK_LAND_3_MAT */

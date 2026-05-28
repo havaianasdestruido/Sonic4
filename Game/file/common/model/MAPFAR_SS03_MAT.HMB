@@ -1,0 +1,22 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_MAPFAR_SS03_MAT
+#define	_IDB_MAPFAR_SS03_MAT
+
+/* Defined File ID */
+#define	IDB_MAPFAR_SS03_MAT_SS_KALEIDO_03_ZNV		0		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_MAPFAR_SS03_MAT_SS_KALEIDO_03_ZNV		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_MAPFAR_SS03_MAT_SS_KALEIDO_03_ZNV		0		/*  */
+
+/* Defined File Name */
+#define	IDS_MAPFAR_SS03_MAT_SS_KALEIDO_03_ZNV		"SS_KALEIDO_03.ZNV"
+
+#endif	/* _IDB_MAPFAR_SS03_MAT */

@@ -1,0 +1,26 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_GMK_BOBBIN_MTN
+#define	_IDB_GMK_BOBBIN_MTN
+
+/* Defined File ID */
+#define	IDB_GMK_BOBBIN_MTN_GMK_BOBBIN_ZNM		0		/* ノードモーション */
+#define	IDB_GMK_BOBBIN_MTN_GMK_BOBBIN_HIT_ZNM		1		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_GMK_BOBBIN_MTN_GMK_BOBBIN_ZNM		0		/* ノードモーション */
+#define	IDU0_GMK_BOBBIN_MTN_GMK_BOBBIN_HIT_ZNM		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_GMK_BOBBIN_MTN_GMK_BOBBIN_ZNM		0		/* ノードモーション */
+#define	IDU1_GMK_BOBBIN_MTN_GMK_BOBBIN_HIT_ZNM		0		/*  */
+
+/* Defined File Name */
+#define	IDS_GMK_BOBBIN_MTN_GMK_BOBBIN_ZNM		"GMK_BOBBIN.ZNM"
+#define	IDS_GMK_BOBBIN_MTN_GMK_BOBBIN_HIT_ZNM		"GMK_BOBBIN_HIT.ZNM"
+
+#endif	/* _IDB_GMK_BOBBIN_MTN */

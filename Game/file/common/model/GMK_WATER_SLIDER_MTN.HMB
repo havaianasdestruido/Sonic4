@@ -1,0 +1,42 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_GMK_WATER_SLIDER_MTN
+#define	_IDB_GMK_WATER_SLIDER_MTN
+
+/* Defined File ID */
+#define	IDB_GMK_WATER_SLIDER_MTN_GMK_WATER_SLDR_30D_N_ZNM		0		/*  */
+#define	IDB_GMK_WATER_SLIDER_MTN_GMK_WATER_SLDR_45D_N_ZNM		1		/*  */
+#define	IDB_GMK_WATER_SLIDER_MTN_GMK_WATER_SLDR_60D_N_ZNM		2		/*  */
+#define	IDB_GMK_WATER_SLIDER_MTN_GMK_WATER_SLDR_J30D_N_ZNM		3		/*  */
+#define	IDB_GMK_WATER_SLIDER_MTN_GMK_WATER_SLDR_J45D_N_ZNM		4		/*  */
+#define	IDB_GMK_WATER_SLIDER_MTN_GMK_WATER_SLDR_J60D_N_ZNM		5		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_GMK_WATER_SLIDER_MTN_GMK_WATER_SLDR_30D_N_ZNM		0		/*  */
+#define	IDU0_GMK_WATER_SLIDER_MTN_GMK_WATER_SLDR_45D_N_ZNM		0		/*  */
+#define	IDU0_GMK_WATER_SLIDER_MTN_GMK_WATER_SLDR_60D_N_ZNM		0		/*  */
+#define	IDU0_GMK_WATER_SLIDER_MTN_GMK_WATER_SLDR_J30D_N_ZNM		0		/*  */
+#define	IDU0_GMK_WATER_SLIDER_MTN_GMK_WATER_SLDR_J45D_N_ZNM		0		/*  */
+#define	IDU0_GMK_WATER_SLIDER_MTN_GMK_WATER_SLDR_J60D_N_ZNM		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_GMK_WATER_SLIDER_MTN_GMK_WATER_SLDR_30D_N_ZNM		0		/*  */
+#define	IDU1_GMK_WATER_SLIDER_MTN_GMK_WATER_SLDR_45D_N_ZNM		0		/*  */
+#define	IDU1_GMK_WATER_SLIDER_MTN_GMK_WATER_SLDR_60D_N_ZNM		0		/*  */
+#define	IDU1_GMK_WATER_SLIDER_MTN_GMK_WATER_SLDR_J30D_N_ZNM		0		/*  */
+#define	IDU1_GMK_WATER_SLIDER_MTN_GMK_WATER_SLDR_J45D_N_ZNM		0		/*  */
+#define	IDU1_GMK_WATER_SLIDER_MTN_GMK_WATER_SLDR_J60D_N_ZNM		0		/*  */
+
+/* Defined File Name */
+#define	IDS_GMK_WATER_SLIDER_MTN_GMK_WATER_SLDR_30D_N_ZNM		"GMK_WATER_SLDR_30D_N.ZNM"
+#define	IDS_GMK_WATER_SLIDER_MTN_GMK_WATER_SLDR_45D_N_ZNM		"GMK_WATER_SLDR_45D_N.ZNM"
+#define	IDS_GMK_WATER_SLIDER_MTN_GMK_WATER_SLDR_60D_N_ZNM		"GMK_WATER_SLDR_60D_N.ZNM"
+#define	IDS_GMK_WATER_SLIDER_MTN_GMK_WATER_SLDR_J30D_N_ZNM		"GMK_WATER_SLDR_J30D_N.ZNM"
+#define	IDS_GMK_WATER_SLIDER_MTN_GMK_WATER_SLDR_J45D_N_ZNM		"GMK_WATER_SLDR_J45D_N.ZNM"
+#define	IDS_GMK_WATER_SLIDER_MTN_GMK_WATER_SLDR_J60D_N_ZNM		"GMK_WATER_SLDR_J60D_N.ZNM"
+
+#endif	/* _IDB_GMK_WATER_SLIDER_MTN */

@@ -1,0 +1,34 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_GMK_B_OBJ_3_MDL
+#define	_IDB_GMK_B_OBJ_3_MDL
+
+/* Defined File ID */
+#define	IDB_GMK_B_OBJ_3_MDL_GMK_B_OBJ_3_ZNO		0		/*  */
+#define	IDB_GMK_B_OBJ_3_MDL_GMK_B_OBJ_3_P1_ZNO		1		/*  */
+#define	IDB_GMK_B_OBJ_3_MDL_GMK_B_OBJ_3_P2_ZNO		2		/*  */
+#define	IDB_GMK_B_OBJ_3_MDL_GMK_B_OBJ_3_P3_ZNO		3		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_GMK_B_OBJ_3_MDL_GMK_B_OBJ_3_ZNO		0		/*  */
+#define	IDU0_GMK_B_OBJ_3_MDL_GMK_B_OBJ_3_P1_ZNO		0		/*  */
+#define	IDU0_GMK_B_OBJ_3_MDL_GMK_B_OBJ_3_P2_ZNO		0		/*  */
+#define	IDU0_GMK_B_OBJ_3_MDL_GMK_B_OBJ_3_P3_ZNO		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_GMK_B_OBJ_3_MDL_GMK_B_OBJ_3_ZNO		0		/*  */
+#define	IDU1_GMK_B_OBJ_3_MDL_GMK_B_OBJ_3_P1_ZNO		0		/*  */
+#define	IDU1_GMK_B_OBJ_3_MDL_GMK_B_OBJ_3_P2_ZNO		0		/*  */
+#define	IDU1_GMK_B_OBJ_3_MDL_GMK_B_OBJ_3_P3_ZNO		0		/*  */
+
+/* Defined File Name */
+#define	IDS_GMK_B_OBJ_3_MDL_GMK_B_OBJ_3_ZNO		"GMK_B_OBJ_3.ZNO"
+#define	IDS_GMK_B_OBJ_3_MDL_GMK_B_OBJ_3_P1_ZNO		"GMK_B_OBJ_3_P1.ZNO"
+#define	IDS_GMK_B_OBJ_3_MDL_GMK_B_OBJ_3_P2_ZNO		"GMK_B_OBJ_3_P2.ZNO"
+#define	IDS_GMK_B_OBJ_3_MDL_GMK_B_OBJ_3_P3_ZNO		"GMK_B_OBJ_3_P3.ZNO"
+
+#endif	/* _IDB_GMK_B_OBJ_3_MDL */

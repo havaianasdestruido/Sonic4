@@ -1,0 +1,50 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_GMK_WATER_SF_MDL
+#define	_IDB_GMK_WATER_SF_MDL
+
+/* Defined File ID */
+#define	IDB_GMK_WATER_SF_MDL_GMK_WATER_SF_INO		0		/*  */
+#define	IDB_GMK_WATER_SF_MDL_GMK_WATER_SF_REF_INO		1		/*  */
+#define	IDB_GMK_WATER_SF_MDL_GMK_WATER_SF_INV		2		/*  */
+#define	IDB_GMK_WATER_SF_MDL_GMK_WATER_SF_REF_INV		3		/*  */
+#define	IDB_GMK_WATER_SF_MDL_WAVE_AA_WII_PVR		4		/*  */
+#define	IDB_GMK_WATER_SF_MDL_WAVE_AB_WII_PVR		5		/*  */
+#define	IDB_GMK_WATER_SF_MDL_Z3_W_GI_REF_WII_PVR		6		/*  */
+#define	IDB_GMK_WATER_SF_MDL_GMK_WATER_BASE_TEX_AMB		7		/*  テクスチャのみで展開するためにTxbを同梱 */
+
+/* Defined USR0 Data */
+#define	IDU0_GMK_WATER_SF_MDL_GMK_WATER_SF_INO		0		/*  */
+#define	IDU0_GMK_WATER_SF_MDL_GMK_WATER_SF_REF_INO		0		/*  */
+#define	IDU0_GMK_WATER_SF_MDL_GMK_WATER_SF_INV		0		/*  */
+#define	IDU0_GMK_WATER_SF_MDL_GMK_WATER_SF_REF_INV		0		/*  */
+#define	IDU0_GMK_WATER_SF_MDL_WAVE_AA_WII_PVR		0		/*  */
+#define	IDU0_GMK_WATER_SF_MDL_WAVE_AB_WII_PVR		0		/*  */
+#define	IDU0_GMK_WATER_SF_MDL_Z3_W_GI_REF_WII_PVR		0		/*  */
+#define	IDU0_GMK_WATER_SF_MDL_GMK_WATER_BASE_TEX_AMB		0		/*  テクスチャのみで展開するためにTxbを同梱 */
+
+/* Defined USR1 Data */
+#define	IDU1_GMK_WATER_SF_MDL_GMK_WATER_SF_INO		0		/*  */
+#define	IDU1_GMK_WATER_SF_MDL_GMK_WATER_SF_REF_INO		0		/*  */
+#define	IDU1_GMK_WATER_SF_MDL_GMK_WATER_SF_INV		0		/*  */
+#define	IDU1_GMK_WATER_SF_MDL_GMK_WATER_SF_REF_INV		0		/*  */
+#define	IDU1_GMK_WATER_SF_MDL_WAVE_AA_WII_PVR		0		/*  */
+#define	IDU1_GMK_WATER_SF_MDL_WAVE_AB_WII_PVR		0		/*  */
+#define	IDU1_GMK_WATER_SF_MDL_Z3_W_GI_REF_WII_PVR		0		/*  */
+#define	IDU1_GMK_WATER_SF_MDL_GMK_WATER_BASE_TEX_AMB		0		/*  テクスチャのみで展開するためにTxbを同梱 */
+
+/* Defined File Name */
+#define	IDS_GMK_WATER_SF_MDL_GMK_WATER_SF_INO		"GMK_WATER_SF.INO"
+#define	IDS_GMK_WATER_SF_MDL_GMK_WATER_SF_REF_INO		"GMK_WATER_SF_REF.INO"
+#define	IDS_GMK_WATER_SF_MDL_GMK_WATER_SF_INV		"GMK_WATER_SF.INV"
+#define	IDS_GMK_WATER_SF_MDL_GMK_WATER_SF_REF_INV		"GMK_WATER_SF_REF.INV"
+#define	IDS_GMK_WATER_SF_MDL_WAVE_AA_WII_PVR		"WAVE_AA_WII.PVR"
+#define	IDS_GMK_WATER_SF_MDL_WAVE_AB_WII_PVR		"WAVE_AB_WII.PVR"
+#define	IDS_GMK_WATER_SF_MDL_Z3_W_GI_REF_WII_PVR		"Z3_W_GI_REF_WII.PVR"
+#define	IDS_GMK_WATER_SF_MDL_GMK_WATER_BASE_TEX_AMB		"GMK_WATER_BASE_TEX.AMB"
+
+#endif	/* _IDB_GMK_WATER_SF_MDL */

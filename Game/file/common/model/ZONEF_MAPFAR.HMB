@@ -1,0 +1,30 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_ZONEF_MAPFAR
+#define	_IDB_ZONEF_MAPFAR
+
+/* Defined File ID */
+#define	IDB_ZONEF_MAPFAR_MAPFAR_ZONEF_MDL_AMB		0		/*  */
+#define	IDB_ZONEF_MAPFAR_MAPFAR_TEX_AMB		1		/*  */
+#define	IDB_ZONEF_MAPFAR_MAPFAR_ZONEF_MAT_AMB		2		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_ZONEF_MAPFAR_MAPFAR_ZONEF_MDL_AMB		0		/*  */
+#define	IDU0_ZONEF_MAPFAR_MAPFAR_TEX_AMB		0		/*  */
+#define	IDU0_ZONEF_MAPFAR_MAPFAR_ZONEF_MAT_AMB		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_ZONEF_MAPFAR_MAPFAR_ZONEF_MDL_AMB		0		/*  */
+#define	IDU1_ZONEF_MAPFAR_MAPFAR_TEX_AMB		0		/*  */
+#define	IDU1_ZONEF_MAPFAR_MAPFAR_ZONEF_MAT_AMB		0		/*  */
+
+/* Defined File Name */
+#define	IDS_ZONEF_MAPFAR_MAPFAR_ZONEF_MDL_AMB		"MAPFAR_ZONEF_MDL.AMB"
+#define	IDS_ZONEF_MAPFAR_MAPFAR_TEX_AMB		"MAPFAR_TEX.AMB"
+#define	IDS_ZONEF_MAPFAR_MAPFAR_ZONEF_MAT_AMB		"MAPFAR_ZONEF_MAT.AMB"
+
+#endif	/* _IDB_ZONEF_MAPFAR */

@@ -1,0 +1,26 @@
+// root node
+
+// node
+
+// action
+#define IDA_G_RSLT_JP_ACT_TEX_MADE     (  0) // tex_made
+#define IDA_G_RSLT_JP_ACT_TEX_DEF      (  1) // tex_def
+#define IDA_G_RSLT_JP_ACT_TEX_CLEAR    (  2) // tex_clear
+#define IDA_G_RSLT_JP_ACT_TEX_THRO     (  3) // tex_thro
+#define IDA_G_RSLT_JP_ACT_TEX_ACT      (  4) // tex_act
+#define IDA_G_RSLT_JP_ACT_TEX_BOS      (  5) // tex_bos
+#define IDA_G_RSLT_JP_ACT_TEX_FINA     (  6) // tex_fina
+#define IDA_G_RSLT_JP_ACT_TEX_TIME     (  7) // tex_time
+#define IDA_G_RSLT_JP_ACT_TEX_RING     (  8) // tex_ring
+#define IDA_G_RSLT_JP_ACT_TEX_TOTAL    (  9) // tex_total
+#define IDA_G_RSLT_JP_ACT_TEX_EXTE     ( 10) // tex_exte
+#define IDA_G_RSLT_JP_ACT_TEX_SPST     ( 11) // tex_spst
+#define IDA_G_RSLT_JP_ACT_TEX_SONIC2   ( 12) // tex_sonic2
+#define IDA_G_RSLT_JP_ACT_TEX_SP_CLEAR ( 13) // tex_sp_clear
+#define IDA_G_RSLT_JP_ACT_TA_TEX_NEW   ( 14) // ta_tex_new
+#define IDA_G_RSLT_JP_ACT_TA_TEX_TIME  ( 15) // ta_tex_time
+#define IDA_G_RSLT_JP_ACT_RE_TEX_RETRY ( 16) // re_tex_retry
+#define IDA_G_RSLT_JP_ACT_RE_TEX_ACT   ( 17) // re_tex_act
+#define IDA_G_RSLT_JP_ACT_SP_TEX_TIME  ( 18) // sp_tex_time
+#define IDA_G_RSLT_JP_ACT_SP_TEX_RING  ( 19) // sp_tex_ring
+#define IDA_G_RSLT_JP_ACT_SP_TEX_TOTAL ( 20) // sp_tex_total

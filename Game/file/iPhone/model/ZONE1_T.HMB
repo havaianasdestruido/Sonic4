@@ -1,0 +1,46 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_ZONE1_T_PC
+#define	_IDB_ZONE1_T_PC
+
+/* Defined File ID */
+#define	IDB_ZONE1_T_PC_ZONE1_T_PC_TXB		0		/*  */
+#define	IDB_ZONE1_T_PC_Z1_TEX01_DDS		1		/*  */
+#define	IDB_ZONE1_T_PC_Z1_TEX02_DDS		2		/*  */
+#define	IDB_ZONE1_T_PC_Z1_TEX03_DDS		3		/*  */
+#define	IDB_ZONE1_T_PC_Z1_TEXN_DDS		4		/*  */
+#define	IDB_ZONE1_T_PC_Z1_TEXD01_DDS		5		/*  */
+#define	IDB_ZONE1_T_PC_Z1_TEXD02_DDS		6		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_ZONE1_T_PC_ZONE1_T_PC_TXB		0		/*  */
+#define	IDU0_ZONE1_T_PC_Z1_TEX01_DDS		0		/*  */
+#define	IDU0_ZONE1_T_PC_Z1_TEX02_DDS		0		/*  */
+#define	IDU0_ZONE1_T_PC_Z1_TEX03_DDS		0		/*  */
+#define	IDU0_ZONE1_T_PC_Z1_TEXN_DDS		0		/*  */
+#define	IDU0_ZONE1_T_PC_Z1_TEXD01_DDS		0		/*  */
+#define	IDU0_ZONE1_T_PC_Z1_TEXD02_DDS		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_ZONE1_T_PC_ZONE1_T_PC_TXB		0		/*  */
+#define	IDU1_ZONE1_T_PC_Z1_TEX01_DDS		0		/*  */
+#define	IDU1_ZONE1_T_PC_Z1_TEX02_DDS		0		/*  */
+#define	IDU1_ZONE1_T_PC_Z1_TEX03_DDS		0		/*  */
+#define	IDU1_ZONE1_T_PC_Z1_TEXN_DDS		0		/*  */
+#define	IDU1_ZONE1_T_PC_Z1_TEXD01_DDS		0		/*  */
+#define	IDU1_ZONE1_T_PC_Z1_TEXD02_DDS		0		/*  */
+
+/* Defined File Name */
+#define	IDS_ZONE1_T_PC_ZONE1_T_PC_TXB		"ZONE1_T_PC.TXB"
+#define	IDS_ZONE1_T_PC_Z1_TEX01_DDS		"Z1_TEX01.DDS"
+#define	IDS_ZONE1_T_PC_Z1_TEX02_DDS		"Z1_TEX02.DDS"
+#define	IDS_ZONE1_T_PC_Z1_TEX03_DDS		"Z1_TEX03.DDS"
+#define	IDS_ZONE1_T_PC_Z1_TEXN_DDS		"Z1_TEXN.DDS"
+#define	IDS_ZONE1_T_PC_Z1_TEXD01_DDS		"Z1_TEXD01.DDS"
+#define	IDS_ZONE1_T_PC_Z1_TEXD02_DDS		"Z1_TEXD02.DDS"
+
+#endif	/* _IDB_ZONE1_T_PC */

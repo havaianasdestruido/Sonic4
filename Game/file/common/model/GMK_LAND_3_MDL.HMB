@@ -1,0 +1,34 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_GMK_LAND_3_MDL
+#define	_IDB_GMK_LAND_3_MDL
+
+/* Defined File ID */
+#define	IDB_GMK_LAND_3_MDL_GMK_LAND_3_ZNO		0		/*  */
+#define	IDB_GMK_LAND_3_MDL_GMK_LAND_R_3_ZNO		1		/*  */
+#define	IDB_GMK_LAND_3_MDL_LAND_3_GEAR_ZNO		2		/*  滑車 */
+#define	IDB_GMK_LAND_3_MDL_LAND_3_ROPE_ZNO		3		/*  ロープ */
+
+/* Defined USR0 Data */
+#define	IDU0_GMK_LAND_3_MDL_GMK_LAND_3_ZNO		0		/*  */
+#define	IDU0_GMK_LAND_3_MDL_GMK_LAND_R_3_ZNO		0		/*  */
+#define	IDU0_GMK_LAND_3_MDL_LAND_3_GEAR_ZNO		0		/*  滑車 */
+#define	IDU0_GMK_LAND_3_MDL_LAND_3_ROPE_ZNO		0		/*  ロープ */
+
+/* Defined USR1 Data */
+#define	IDU1_GMK_LAND_3_MDL_GMK_LAND_3_ZNO		0		/*  */
+#define	IDU1_GMK_LAND_3_MDL_GMK_LAND_R_3_ZNO		0		/*  */
+#define	IDU1_GMK_LAND_3_MDL_LAND_3_GEAR_ZNO		0		/*  滑車 */
+#define	IDU1_GMK_LAND_3_MDL_LAND_3_ROPE_ZNO		0		/*  ロープ */
+
+/* Defined File Name */
+#define	IDS_GMK_LAND_3_MDL_GMK_LAND_3_ZNO		"GMK_LAND_3.ZNO"
+#define	IDS_GMK_LAND_3_MDL_GMK_LAND_R_3_ZNO		"GMK_LAND_R_3.ZNO"
+#define	IDS_GMK_LAND_3_MDL_LAND_3_GEAR_ZNO		"LAND_3_GEAR.ZNO"
+#define	IDS_GMK_LAND_3_MDL_LAND_3_ROPE_ZNO		"LAND_3_ROPE.ZNO"
+
+#endif	/* _IDB_GMK_LAND_3_MDL */

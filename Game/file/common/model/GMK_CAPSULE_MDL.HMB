@@ -1,0 +1,30 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_GMK_CAPSULE_MDL
+#define	_IDB_GMK_CAPSULE_MDL
+
+/* Defined File ID */
+#define	IDB_GMK_CAPSULE_MDL_GMK_CAPSULE_ZNO		0		/*  カプセル本体 */
+#define	IDB_GMK_CAPSULE_MDL_GMK_CAPSULE_KEY_ZNO		1		/*  カプセル鍵 */
+#define	IDB_GMK_CAPSULE_MDL_GMK_CAPSULE_SWITCH_ZNO		2		/*  カプセルスイッチ */
+
+/* Defined USR0 Data */
+#define	IDU0_GMK_CAPSULE_MDL_GMK_CAPSULE_ZNO		0		/*  カプセル本体 */
+#define	IDU0_GMK_CAPSULE_MDL_GMK_CAPSULE_KEY_ZNO		0		/*  カプセル鍵 */
+#define	IDU0_GMK_CAPSULE_MDL_GMK_CAPSULE_SWITCH_ZNO		0		/*  カプセルスイッチ */
+
+/* Defined USR1 Data */
+#define	IDU1_GMK_CAPSULE_MDL_GMK_CAPSULE_ZNO		0		/*  カプセル本体 */
+#define	IDU1_GMK_CAPSULE_MDL_GMK_CAPSULE_KEY_ZNO		0		/*  カプセル鍵 */
+#define	IDU1_GMK_CAPSULE_MDL_GMK_CAPSULE_SWITCH_ZNO		0		/*  カプセルスイッチ */
+
+/* Defined File Name */
+#define	IDS_GMK_CAPSULE_MDL_GMK_CAPSULE_ZNO		"GMK_CAPSULE.ZNO"
+#define	IDS_GMK_CAPSULE_MDL_GMK_CAPSULE_KEY_ZNO		"GMK_CAPSULE_KEY.ZNO"
+#define	IDS_GMK_CAPSULE_MDL_GMK_CAPSULE_SWITCH_ZNO		"GMK_CAPSULE_SWITCH.ZNO"
+
+#endif	/* _IDB_GMK_CAPSULE_MDL */

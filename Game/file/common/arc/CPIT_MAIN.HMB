@@ -1,0 +1,250 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_CPIT_MAIN
+#define	_IDB_CPIT_MAIN
+
+/* Defined File ID */
+#define	IDB_CPIT_MAIN_G_FIX_AMA		0		/*  */
+#define	IDB_CPIT_MAIN_G_FIX_AMB		1		/*  */
+#define	IDB_CPIT_MAIN_SPST_AMA		2		/*  */
+#define	IDB_CPIT_MAIN_SPST_AMB		3		/*  */
+#define	IDB_CPIT_MAIN_SPST_FR_AMA		4		/*  */
+#define	IDB_CPIT_MAIN_SPST_FR_AMB		5		/*  */
+#define	IDB_CPIT_MAIN_SPST_GE_AMA		6		/*  */
+#define	IDB_CPIT_MAIN_SPST_GE_AMB		7		/*  */
+#define	IDB_CPIT_MAIN_SPST_IT_AMA		8		/*  */
+#define	IDB_CPIT_MAIN_SPST_IT_AMB		9		/*  */
+#define	IDB_CPIT_MAIN_SPST_JP_AMA		10		/*  */
+#define	IDB_CPIT_MAIN_SPST_JP_AMB		11		/*  */
+#define	IDB_CPIT_MAIN_SPST_SP_AMA		12		/*  */
+#define	IDB_CPIT_MAIN_SPST_SP_AMB		13		/*  */
+#define	IDB_CPIT_MAIN_SPST_US_AMA		14		/*  */
+#define	IDB_CPIT_MAIN_SPST_US_AMB		15		/*  */
+#define	IDB_CPIT_MAIN_G_OVER_AMA		16		/*  */
+#define	IDB_CPIT_MAIN_G_OVER_AMB		17		/*  */
+#define	IDB_CPIT_MAIN_G_OVER_FR_AMA		18		/*  */
+#define	IDB_CPIT_MAIN_G_OVER_FR_AMB		19		/*  */
+#define	IDB_CPIT_MAIN_G_OVER_GE_AMA		20		/*  */
+#define	IDB_CPIT_MAIN_G_OVER_GE_AMB		21		/*  */
+#define	IDB_CPIT_MAIN_G_OVER_IT_AMA		22		/*  */
+#define	IDB_CPIT_MAIN_G_OVER_IT_AMB		23		/*  */
+#define	IDB_CPIT_MAIN_G_OVER_JP_AMA		24		/*  */
+#define	IDB_CPIT_MAIN_G_OVER_JP_AMB		25		/*  */
+#define	IDB_CPIT_MAIN_G_OVER_SP_AMA		26		/*  */
+#define	IDB_CPIT_MAIN_G_OVER_SP_AMB		27		/*  */
+#define	IDB_CPIT_MAIN_G_OVER_US_AMA		28		/*  */
+#define	IDB_CPIT_MAIN_G_OVER_US_AMB		29		/*  */
+#define	IDB_CPIT_MAIN_G_RSLT_AMA		30		/*  */
+#define	IDB_CPIT_MAIN_G_RSLT_AMB		31		/*  */
+#define	IDB_CPIT_MAIN_G_RSLT_JP_AMA		32		/*  */
+#define	IDB_CPIT_MAIN_G_RSLT_JP_AMB		33		/*  */
+#define	IDB_CPIT_MAIN_G_RSLT_US_AMA		34		/*  */
+#define	IDB_CPIT_MAIN_G_RSLT_US_AMB		35		/*  */
+#define	IDB_CPIT_MAIN_G_RSLT_FR_AMA		36		/*  */
+#define	IDB_CPIT_MAIN_G_RSLT_FR_AMB		37		/*  */
+#define	IDB_CPIT_MAIN_G_RSLT_IT_AMA		38		/*  */
+#define	IDB_CPIT_MAIN_G_RSLT_IT_AMB		39		/*  */
+#define	IDB_CPIT_MAIN_G_RSLT_GE_AMA		40		/*  */
+#define	IDB_CPIT_MAIN_G_RSLT_GE_AMB		41		/*  */
+#define	IDB_CPIT_MAIN_G_RSLT_SP_AMA		42		/*  */
+#define	IDB_CPIT_MAIN_G_RSLT_SP_AMB		43		/*  */
+#define	IDB_CPIT_MAIN_G_START_AMA		44		/*  */
+#define	IDB_CPIT_MAIN_G_START_AMB		45		/*  */
+#define	IDB_CPIT_MAIN_G_START_FR_AMA		46		/*  */
+#define	IDB_CPIT_MAIN_G_START_FR_AMB		47		/*  */
+#define	IDB_CPIT_MAIN_G_START_GE_AMA		48		/*  */
+#define	IDB_CPIT_MAIN_G_START_GE_AMB		49		/*  */
+#define	IDB_CPIT_MAIN_G_START_IT_AMA		50		/*  */
+#define	IDB_CPIT_MAIN_G_START_IT_AMB		51		/*  */
+#define	IDB_CPIT_MAIN_G_START_JP_AMA		52		/*  */
+#define	IDB_CPIT_MAIN_G_START_JP_AMB		53		/*  */
+#define	IDB_CPIT_MAIN_G_START_SP_AMA		54		/*  */
+#define	IDB_CPIT_MAIN_G_START_SP_AMB		55		/*  */
+#define	IDB_CPIT_MAIN_G_START_US_AMA		56		/*  */
+#define	IDB_CPIT_MAIN_G_START_US_AMB		57		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_CPIT_MAIN_G_FIX_AMA		0		/*  */
+#define	IDU0_CPIT_MAIN_G_FIX_AMB		0		/*  */
+#define	IDU0_CPIT_MAIN_SPST_AMA		0		/*  */
+#define	IDU0_CPIT_MAIN_SPST_AMB		0		/*  */
+#define	IDU0_CPIT_MAIN_SPST_FR_AMA		0		/*  */
+#define	IDU0_CPIT_MAIN_SPST_FR_AMB		0		/*  */
+#define	IDU0_CPIT_MAIN_SPST_GE_AMA		0		/*  */
+#define	IDU0_CPIT_MAIN_SPST_GE_AMB		0		/*  */
+#define	IDU0_CPIT_MAIN_SPST_IT_AMA		0		/*  */
+#define	IDU0_CPIT_MAIN_SPST_IT_AMB		0		/*  */
+#define	IDU0_CPIT_MAIN_SPST_JP_AMA		0		/*  */
+#define	IDU0_CPIT_MAIN_SPST_JP_AMB		0		/*  */
+#define	IDU0_CPIT_MAIN_SPST_SP_AMA		0		/*  */
+#define	IDU0_CPIT_MAIN_SPST_SP_AMB		0		/*  */
+#define	IDU0_CPIT_MAIN_SPST_US_AMA		0		/*  */
+#define	IDU0_CPIT_MAIN_SPST_US_AMB		0		/*  */
+#define	IDU0_CPIT_MAIN_G_OVER_AMA		0		/*  */
+#define	IDU0_CPIT_MAIN_G_OVER_AMB		0		/*  */
+#define	IDU0_CPIT_MAIN_G_OVER_FR_AMA		0		/*  */
+#define	IDU0_CPIT_MAIN_G_OVER_FR_AMB		0		/*  */
+#define	IDU0_CPIT_MAIN_G_OVER_GE_AMA		0		/*  */
+#define	IDU0_CPIT_MAIN_G_OVER_GE_AMB		0		/*  */
+#define	IDU0_CPIT_MAIN_G_OVER_IT_AMA		0		/*  */
+#define	IDU0_CPIT_MAIN_G_OVER_IT_AMB		0		/*  */
+#define	IDU0_CPIT_MAIN_G_OVER_JP_AMA		0		/*  */
+#define	IDU0_CPIT_MAIN_G_OVER_JP_AMB		0		/*  */
+#define	IDU0_CPIT_MAIN_G_OVER_SP_AMA		0		/*  */
+#define	IDU0_CPIT_MAIN_G_OVER_SP_AMB		0		/*  */
+#define	IDU0_CPIT_MAIN_G_OVER_US_AMA		0		/*  */
+#define	IDU0_CPIT_MAIN_G_OVER_US_AMB		0		/*  */
+#define	IDU0_CPIT_MAIN_G_RSLT_AMA		0		/*  */
+#define	IDU0_CPIT_MAIN_G_RSLT_AMB		0		/*  */
+#define	IDU0_CPIT_MAIN_G_RSLT_JP_AMA		0		/*  */
+#define	IDU0_CPIT_MAIN_G_RSLT_JP_AMB		0		/*  */
+#define	IDU0_CPIT_MAIN_G_RSLT_US_AMA		0		/*  */
+#define	IDU0_CPIT_MAIN_G_RSLT_US_AMB		0		/*  */
+#define	IDU0_CPIT_MAIN_G_RSLT_FR_AMA		0		/*  */
+#define	IDU0_CPIT_MAIN_G_RSLT_FR_AMB		0		/*  */
+#define	IDU0_CPIT_MAIN_G_RSLT_IT_AMA		0		/*  */
+#define	IDU0_CPIT_MAIN_G_RSLT_IT_AMB		0		/*  */
+#define	IDU0_CPIT_MAIN_G_RSLT_GE_AMA		0		/*  */
+#define	IDU0_CPIT_MAIN_G_RSLT_GE_AMB		0		/*  */
+#define	IDU0_CPIT_MAIN_G_RSLT_SP_AMA		0		/*  */
+#define	IDU0_CPIT_MAIN_G_RSLT_SP_AMB		0		/*  */
+#define	IDU0_CPIT_MAIN_G_START_AMA		0		/*  */
+#define	IDU0_CPIT_MAIN_G_START_AMB		0		/*  */
+#define	IDU0_CPIT_MAIN_G_START_FR_AMA		0		/*  */
+#define	IDU0_CPIT_MAIN_G_START_FR_AMB		0		/*  */
+#define	IDU0_CPIT_MAIN_G_START_GE_AMA		0		/*  */
+#define	IDU0_CPIT_MAIN_G_START_GE_AMB		0		/*  */
+#define	IDU0_CPIT_MAIN_G_START_IT_AMA		0		/*  */
+#define	IDU0_CPIT_MAIN_G_START_IT_AMB		0		/*  */
+#define	IDU0_CPIT_MAIN_G_START_JP_AMA		0		/*  */
+#define	IDU0_CPIT_MAIN_G_START_JP_AMB		0		/*  */
+#define	IDU0_CPIT_MAIN_G_START_SP_AMA		0		/*  */
+#define	IDU0_CPIT_MAIN_G_START_SP_AMB		0		/*  */
+#define	IDU0_CPIT_MAIN_G_START_US_AMA		0		/*  */
+#define	IDU0_CPIT_MAIN_G_START_US_AMB		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_CPIT_MAIN_G_FIX_AMA		0		/*  */
+#define	IDU1_CPIT_MAIN_G_FIX_AMB		0		/*  */
+#define	IDU1_CPIT_MAIN_SPST_AMA		0		/*  */
+#define	IDU1_CPIT_MAIN_SPST_AMB		0		/*  */
+#define	IDU1_CPIT_MAIN_SPST_FR_AMA		0		/*  */
+#define	IDU1_CPIT_MAIN_SPST_FR_AMB		0		/*  */
+#define	IDU1_CPIT_MAIN_SPST_GE_AMA		0		/*  */
+#define	IDU1_CPIT_MAIN_SPST_GE_AMB		0		/*  */
+#define	IDU1_CPIT_MAIN_SPST_IT_AMA		0		/*  */
+#define	IDU1_CPIT_MAIN_SPST_IT_AMB		0		/*  */
+#define	IDU1_CPIT_MAIN_SPST_JP_AMA		0		/*  */
+#define	IDU1_CPIT_MAIN_SPST_JP_AMB		0		/*  */
+#define	IDU1_CPIT_MAIN_SPST_SP_AMA		0		/*  */
+#define	IDU1_CPIT_MAIN_SPST_SP_AMB		0		/*  */
+#define	IDU1_CPIT_MAIN_SPST_US_AMA		0		/*  */
+#define	IDU1_CPIT_MAIN_SPST_US_AMB		0		/*  */
+#define	IDU1_CPIT_MAIN_G_OVER_AMA		0		/*  */
+#define	IDU1_CPIT_MAIN_G_OVER_AMB		0		/*  */
+#define	IDU1_CPIT_MAIN_G_OVER_FR_AMA		0		/*  */
+#define	IDU1_CPIT_MAIN_G_OVER_FR_AMB		0		/*  */
+#define	IDU1_CPIT_MAIN_G_OVER_GE_AMA		0		/*  */
+#define	IDU1_CPIT_MAIN_G_OVER_GE_AMB		0		/*  */
+#define	IDU1_CPIT_MAIN_G_OVER_IT_AMA		0		/*  */
+#define	IDU1_CPIT_MAIN_G_OVER_IT_AMB		0		/*  */
+#define	IDU1_CPIT_MAIN_G_OVER_JP_AMA		0		/*  */
+#define	IDU1_CPIT_MAIN_G_OVER_JP_AMB		0		/*  */
+#define	IDU1_CPIT_MAIN_G_OVER_SP_AMA		0		/*  */
+#define	IDU1_CPIT_MAIN_G_OVER_SP_AMB		0		/*  */
+#define	IDU1_CPIT_MAIN_G_OVER_US_AMA		0		/*  */
+#define	IDU1_CPIT_MAIN_G_OVER_US_AMB		0		/*  */
+#define	IDU1_CPIT_MAIN_G_RSLT_AMA		0		/*  */
+#define	IDU1_CPIT_MAIN_G_RSLT_AMB		0		/*  */
+#define	IDU1_CPIT_MAIN_G_RSLT_JP_AMA		0		/*  */
+#define	IDU1_CPIT_MAIN_G_RSLT_JP_AMB		0		/*  */
+#define	IDU1_CPIT_MAIN_G_RSLT_US_AMA		0		/*  */
+#define	IDU1_CPIT_MAIN_G_RSLT_US_AMB		0		/*  */
+#define	IDU1_CPIT_MAIN_G_RSLT_FR_AMA		0		/*  */
+#define	IDU1_CPIT_MAIN_G_RSLT_FR_AMB		0		/*  */
+#define	IDU1_CPIT_MAIN_G_RSLT_IT_AMA		0		/*  */
+#define	IDU1_CPIT_MAIN_G_RSLT_IT_AMB		0		/*  */
+#define	IDU1_CPIT_MAIN_G_RSLT_GE_AMA		0		/*  */
+#define	IDU1_CPIT_MAIN_G_RSLT_GE_AMB		0		/*  */
+#define	IDU1_CPIT_MAIN_G_RSLT_SP_AMA		0		/*  */
+#define	IDU1_CPIT_MAIN_G_RSLT_SP_AMB		0		/*  */
+#define	IDU1_CPIT_MAIN_G_START_AMA		0		/*  */
+#define	IDU1_CPIT_MAIN_G_START_AMB		0		/*  */
+#define	IDU1_CPIT_MAIN_G_START_FR_AMA		0		/*  */
+#define	IDU1_CPIT_MAIN_G_START_FR_AMB		0		/*  */
+#define	IDU1_CPIT_MAIN_G_START_GE_AMA		0		/*  */
+#define	IDU1_CPIT_MAIN_G_START_GE_AMB		0		/*  */
+#define	IDU1_CPIT_MAIN_G_START_IT_AMA		0		/*  */
+#define	IDU1_CPIT_MAIN_G_START_IT_AMB		0		/*  */
+#define	IDU1_CPIT_MAIN_G_START_JP_AMA		0		/*  */
+#define	IDU1_CPIT_MAIN_G_START_JP_AMB		0		/*  */
+#define	IDU1_CPIT_MAIN_G_START_SP_AMA		0		/*  */
+#define	IDU1_CPIT_MAIN_G_START_SP_AMB		0		/*  */
+#define	IDU1_CPIT_MAIN_G_START_US_AMA		0		/*  */
+#define	IDU1_CPIT_MAIN_G_START_US_AMB		0		/*  */
+
+/* Defined File Name */
+#define	IDS_CPIT_MAIN_G_FIX_AMA		"G_FIX.AMA"
+#define	IDS_CPIT_MAIN_G_FIX_AMB		"G_FIX.AMB"
+#define	IDS_CPIT_MAIN_SPST_AMA		"SPST.AMA"
+#define	IDS_CPIT_MAIN_SPST_AMB		"SPST.AMB"
+#define	IDS_CPIT_MAIN_SPST_FR_AMA		"SPST_FR.AMA"
+#define	IDS_CPIT_MAIN_SPST_FR_AMB		"SPST_FR.AMB"
+#define	IDS_CPIT_MAIN_SPST_GE_AMA		"SPST_GE.AMA"
+#define	IDS_CPIT_MAIN_SPST_GE_AMB		"SPST_GE.AMB"
+#define	IDS_CPIT_MAIN_SPST_IT_AMA		"SPST_IT.AMA"
+#define	IDS_CPIT_MAIN_SPST_IT_AMB		"SPST_IT.AMB"
+#define	IDS_CPIT_MAIN_SPST_JP_AMA		"SPST_JP.AMA"
+#define	IDS_CPIT_MAIN_SPST_JP_AMB		"SPST_JP.AMB"
+#define	IDS_CPIT_MAIN_SPST_SP_AMA		"SPST_SP.AMA"
+#define	IDS_CPIT_MAIN_SPST_SP_AMB		"SPST_SP.AMB"
+#define	IDS_CPIT_MAIN_SPST_US_AMA		"SPST_US.AMA"
+#define	IDS_CPIT_MAIN_SPST_US_AMB		"SPST_US.AMB"
+#define	IDS_CPIT_MAIN_G_OVER_AMA		"G_OVER.AMA"
+#define	IDS_CPIT_MAIN_G_OVER_AMB		"G_OVER.AMB"
+#define	IDS_CPIT_MAIN_G_OVER_FR_AMA		"G_OVER_FR.AMA"
+#define	IDS_CPIT_MAIN_G_OVER_FR_AMB		"G_OVER_FR.AMB"
+#define	IDS_CPIT_MAIN_G_OVER_GE_AMA		"G_OVER_GE.AMA"
+#define	IDS_CPIT_MAIN_G_OVER_GE_AMB		"G_OVER_GE.AMB"
+#define	IDS_CPIT_MAIN_G_OVER_IT_AMA		"G_OVER_IT.AMA"
+#define	IDS_CPIT_MAIN_G_OVER_IT_AMB		"G_OVER_IT.AMB"
+#define	IDS_CPIT_MAIN_G_OVER_JP_AMA		"G_OVER_JP.AMA"
+#define	IDS_CPIT_MAIN_G_OVER_JP_AMB		"G_OVER_JP.AMB"
+#define	IDS_CPIT_MAIN_G_OVER_SP_AMA		"G_OVER_SP.AMA"
+#define	IDS_CPIT_MAIN_G_OVER_SP_AMB		"G_OVER_SP.AMB"
+#define	IDS_CPIT_MAIN_G_OVER_US_AMA		"G_OVER_US.AMA"
+#define	IDS_CPIT_MAIN_G_OVER_US_AMB		"G_OVER_US.AMB"
+#define	IDS_CPIT_MAIN_G_RSLT_AMA		"G_RSLT.AMA"
+#define	IDS_CPIT_MAIN_G_RSLT_AMB		"G_RSLT.AMB"
+#define	IDS_CPIT_MAIN_G_RSLT_JP_AMA		"G_RSLT_JP.AMA"
+#define	IDS_CPIT_MAIN_G_RSLT_JP_AMB		"G_RSLT_JP.AMB"
+#define	IDS_CPIT_MAIN_G_RSLT_US_AMA		"G_RSLT_US.AMA"
+#define	IDS_CPIT_MAIN_G_RSLT_US_AMB		"G_RSLT_US.AMB"
+#define	IDS_CPIT_MAIN_G_RSLT_FR_AMA		"G_RSLT_FR.AMA"
+#define	IDS_CPIT_MAIN_G_RSLT_FR_AMB		"G_RSLT_FR.AMB"
+#define	IDS_CPIT_MAIN_G_RSLT_IT_AMA		"G_RSLT_IT.AMA"
+#define	IDS_CPIT_MAIN_G_RSLT_IT_AMB		"G_RSLT_IT.AMB"
+#define	IDS_CPIT_MAIN_G_RSLT_GE_AMA		"G_RSLT_GE.AMA"
+#define	IDS_CPIT_MAIN_G_RSLT_GE_AMB		"G_RSLT_GE.AMB"
+#define	IDS_CPIT_MAIN_G_RSLT_SP_AMA		"G_RSLT_SP.AMA"
+#define	IDS_CPIT_MAIN_G_RSLT_SP_AMB		"G_RSLT_SP.AMB"
+#define	IDS_CPIT_MAIN_G_START_AMA		"G_START.AMA"
+#define	IDS_CPIT_MAIN_G_START_AMB		"G_START.AMB"
+#define	IDS_CPIT_MAIN_G_START_FR_AMA		"G_START_FR.AMA"
+#define	IDS_CPIT_MAIN_G_START_FR_AMB		"G_START_FR.AMB"
+#define	IDS_CPIT_MAIN_G_START_GE_AMA		"G_START_GE.AMA"
+#define	IDS_CPIT_MAIN_G_START_GE_AMB		"G_START_GE.AMB"
+#define	IDS_CPIT_MAIN_G_START_IT_AMA		"G_START_IT.AMA"
+#define	IDS_CPIT_MAIN_G_START_IT_AMB		"G_START_IT.AMB"
+#define	IDS_CPIT_MAIN_G_START_JP_AMA		"G_START_JP.AMA"
+#define	IDS_CPIT_MAIN_G_START_JP_AMB		"G_START_JP.AMB"
+#define	IDS_CPIT_MAIN_G_START_SP_AMA		"G_START_SP.AMA"
+#define	IDS_CPIT_MAIN_G_START_SP_AMB		"G_START_SP.AMB"
+#define	IDS_CPIT_MAIN_G_START_US_AMA		"G_START_US.AMA"
+#define	IDS_CPIT_MAIN_G_START_US_AMB		"G_START_US.AMB"
+
+#endif	/* _IDB_CPIT_MAIN */

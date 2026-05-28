@@ -1,0 +1,26 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_D_LOGO_ESRB_US
+#define	_IDB_D_LOGO_ESRB_US
+
+/* Defined File ID */
+#define	IDB_D_LOGO_ESRB_US_D_LOGO_ESRB_AMA		0		/*  */
+#define	IDB_D_LOGO_ESRB_US_D_LOGO_ESRB_US_AMB		1		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_D_LOGO_ESRB_US_D_LOGO_ESRB_AMA		0		/*  */
+#define	IDU0_D_LOGO_ESRB_US_D_LOGO_ESRB_US_AMB		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_D_LOGO_ESRB_US_D_LOGO_ESRB_AMA		0		/*  */
+#define	IDU1_D_LOGO_ESRB_US_D_LOGO_ESRB_US_AMB		0		/*  */
+
+/* Defined File Name */
+#define	IDS_D_LOGO_ESRB_US_D_LOGO_ESRB_AMA		"D_LOGO_ESRB.AMA"
+#define	IDS_D_LOGO_ESRB_US_D_LOGO_ESRB_US_AMB		"D_LOGO_ESRB_US.AMB"
+
+#endif	/* _IDB_D_LOGO_ESRB_US */

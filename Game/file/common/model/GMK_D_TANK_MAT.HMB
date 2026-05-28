@@ -1,0 +1,22 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_GMK_D_TANK_MAT
+#define	_IDB_GMK_D_TANK_MAT
+
+/* Defined File ID */
+#define	IDB_GMK_D_TANK_MAT_GMK_D_TANK_SP_ZNV		0		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_GMK_D_TANK_MAT_GMK_D_TANK_SP_ZNV		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_GMK_D_TANK_MAT_GMK_D_TANK_SP_ZNV		0		/*  */
+
+/* Defined File Name */
+#define	IDS_GMK_D_TANK_MAT_GMK_D_TANK_SP_ZNV		"GMK_D_TANK_SP.ZNV"
+
+#endif	/* _IDB_GMK_D_TANK_MAT */

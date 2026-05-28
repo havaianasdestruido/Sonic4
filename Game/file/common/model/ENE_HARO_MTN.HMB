@@ -1,0 +1,26 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_ENE_HARO_MTN
+#define	_IDB_ENE_HARO_MTN
+
+/* Defined File ID */
+#define	IDB_ENE_HARO_MTN_ENE_HARO_ST_ZNM		0		/*  */
+#define	IDB_ENE_HARO_MTN_ENE_HARO_MOVE_ZNM		1		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_ENE_HARO_MTN_ENE_HARO_ST_ZNM		0		/*  */
+#define	IDU0_ENE_HARO_MTN_ENE_HARO_MOVE_ZNM		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_ENE_HARO_MTN_ENE_HARO_ST_ZNM		0		/*  */
+#define	IDU1_ENE_HARO_MTN_ENE_HARO_MOVE_ZNM		0		/*  */
+
+/* Defined File Name */
+#define	IDS_ENE_HARO_MTN_ENE_HARO_ST_ZNM		"ENE_HARO_ST.ZNM"
+#define	IDS_ENE_HARO_MTN_ENE_HARO_MOVE_ZNM		"ENE_HARO_MOVE.ZNM"
+
+#endif	/* _IDB_ENE_HARO_MTN */

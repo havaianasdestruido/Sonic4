@@ -1,0 +1,46 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_GMK_BUMPER_MDL
+#define	_IDB_GMK_BUMPER_MDL
+
+/* Defined File ID */
+#define	IDB_GMK_BUMPER_MDL_GMK_BUMPER_ZNO		0		/*  */
+#define	IDB_GMK_BUMPER_MDL_GMK_BUMPER_SQ_ZNO		1		/*  */
+#define	IDB_GMK_BUMPER_MDL_GMK_BUMPER_TRI_ZNO		2		/*  */
+#define	IDB_GMK_BUMPER_MDL_GMK_EN_BMPR_ZNO		3		/*  */
+#define	IDB_GMK_BUMPER_MDL_GMK_BUMPER_GLARE_ZNO		4		/*  */
+#define	IDB_GMK_BUMPER_MDL_GMK_BUMPER_SQ_GLARE_ZNO		5		/*  */
+#define	IDB_GMK_BUMPER_MDL_GMK_BUMPER_TRI_GLARE_ZNO		6		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_GMK_BUMPER_MDL_GMK_BUMPER_ZNO		0		/*  */
+#define	IDU0_GMK_BUMPER_MDL_GMK_BUMPER_SQ_ZNO		0		/*  */
+#define	IDU0_GMK_BUMPER_MDL_GMK_BUMPER_TRI_ZNO		0		/*  */
+#define	IDU0_GMK_BUMPER_MDL_GMK_EN_BMPR_ZNO		0		/*  */
+#define	IDU0_GMK_BUMPER_MDL_GMK_BUMPER_GLARE_ZNO		0		/*  */
+#define	IDU0_GMK_BUMPER_MDL_GMK_BUMPER_SQ_GLARE_ZNO		0		/*  */
+#define	IDU0_GMK_BUMPER_MDL_GMK_BUMPER_TRI_GLARE_ZNO		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_GMK_BUMPER_MDL_GMK_BUMPER_ZNO		0		/*  */
+#define	IDU1_GMK_BUMPER_MDL_GMK_BUMPER_SQ_ZNO		0		/*  */
+#define	IDU1_GMK_BUMPER_MDL_GMK_BUMPER_TRI_ZNO		0		/*  */
+#define	IDU1_GMK_BUMPER_MDL_GMK_EN_BMPR_ZNO		0		/*  */
+#define	IDU1_GMK_BUMPER_MDL_GMK_BUMPER_GLARE_ZNO		0		/*  */
+#define	IDU1_GMK_BUMPER_MDL_GMK_BUMPER_SQ_GLARE_ZNO		0		/*  */
+#define	IDU1_GMK_BUMPER_MDL_GMK_BUMPER_TRI_GLARE_ZNO		0		/*  */
+
+/* Defined File Name */
+#define	IDS_GMK_BUMPER_MDL_GMK_BUMPER_ZNO		"GMK_BUMPER.ZNO"
+#define	IDS_GMK_BUMPER_MDL_GMK_BUMPER_SQ_ZNO		"GMK_BUMPER_SQ.ZNO"
+#define	IDS_GMK_BUMPER_MDL_GMK_BUMPER_TRI_ZNO		"GMK_BUMPER_TRI.ZNO"
+#define	IDS_GMK_BUMPER_MDL_GMK_EN_BMPR_ZNO		"GMK_EN_BMPR.ZNO"
+#define	IDS_GMK_BUMPER_MDL_GMK_BUMPER_GLARE_ZNO		"GMK_BUMPER_GLARE.ZNO"
+#define	IDS_GMK_BUMPER_MDL_GMK_BUMPER_SQ_GLARE_ZNO		"GMK_BUMPER_SQ_GLARE.ZNO"
+#define	IDS_GMK_BUMPER_MDL_GMK_BUMPER_TRI_GLARE_ZNO		"GMK_BUMPER_TRI_GLARE.ZNO"
+
+#endif	/* _IDB_GMK_BUMPER_MDL */

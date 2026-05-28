@@ -1,0 +1,72 @@
+// ================================================================
+/*!
+  @file gmGmkSsEndurance.h
+  @brief SpecialStage ëœãvíå
+
+  @author Kuramoto
+				Copyright(c) 2009 Dimps
+  $Id: gmGmkSsEndurance.h 2 2011-04-11 05:21:26Z thamada $
+  $Date: 2011-04-11 14:21:26 +0900 (Êúà, 11 4 2011) $
+ */
+// ================================================================
+/*
+ * $Log: $
+ */
+
+#ifndef GM_GMK_SSENDURANCE_H_
+#define GM_GMK_SSENDURANCE_H_
+
+#if	defined(__cplusplus)
+extern "C" {
+#endif
+
+
+//----- Include Files -------------------------------------------------------
+
+//----- Definitions ---------------------------------------------------------
+
+//----- Macros --------------------------------------------------------------
+
+//----- Macros Functions ----------------------------------------------------
+
+//----- External Variables --------------------------------------------------
+
+//----- External Declarations -----------------------------------------------
+
+// ==========================================================================
+// GmGmkSsEnduranceBuild
+/*!
+ *	ÉMÉ~ÉbÉN SpecialStage ëœãvíå ÉfÅ[É^ç\íz
+ */
+// ==========================================================================
+extern void GmGmkSsEnduranceBuild(void);
+
+// ==========================================================================
+// GmGmkSsEnduranceFlush
+/*!
+ *	ÉMÉ~ÉbÉN SpecialStage ëœãvíå ÉfÅ[É^ï–ïtÇØ
+ */
+// ==========================================================================
+extern void GmGmkSsEnduranceFlush(void);
+
+// ==========================================================================
+// GmGmkSsEnduranceInit
+/*!
+ *	ÉMÉ~ÉbÉN SpecialStage ëœãvíå èâä˙âªä÷êî
+ *
+ *	@param	eve_rec	[inout]	ÉåÉRÅ[ÉhÉ|ÉCÉìÉ^
+ *	@param	pos_x	[in]	èoåªç¿ïW
+ *	@param	pos_y	[in]
+ *	@param	type	[in]	èàóùì‡óeÉ^ÉCÉv í èÌÇÕ0
+ *
+ *	@note
+ */
+// ==========================================================================
+extern OBS_OBJECT_WORK* GmGmkSsEnduranceInit(GMS_EVE_RECORD_EVENT *eve_rec, fx32 pos_x, fx32 pos_y, u8 type);
+
+#if	defined(__cplusplus)
+} /* extern "C" */
+#endif
+
+#endif // GM_GMK_SSENDURANCE_H_
+

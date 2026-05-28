@@ -1,0 +1,54 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_BOSS03_BODY_MTN
+#define	_IDB_BOSS03_BODY_MTN
+
+/* Defined File ID */
+#define	IDB_BOSS03_BODY_MTN_B03_1_ATT01_01B_ZNM		0		/*  */
+#define	IDB_BOSS03_BODY_MTN_B03_1_ATT02_01B_ZNM		1		/*  */
+#define	IDB_BOSS03_BODY_MTN_B03_1_ATT03_01B_ZNM		2		/*  */
+#define	IDB_BOSS03_BODY_MTN_B03_1_STA_01B_ZNM		3		/*  */
+#define	IDB_BOSS03_BODY_MTN_B03_2_LOOK_01B_ZNM		4		/*  */
+#define	IDB_BOSS03_BODY_MTN_B03_2_LOOK_02B_ZNM		5		/*  */
+#define	IDB_BOSS03_BODY_MTN_B03_2_SIGN_01B_ZNM		6		/*  */
+#define	IDB_BOSS03_BODY_MTN_B03_2_STA_01B_ZNM		7		/*  */
+#define	IDB_BOSS03_BODY_MTN_B03_DMG02_01B_ZNM		8		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_BOSS03_BODY_MTN_B03_1_ATT01_01B_ZNM		0		/*  */
+#define	IDU0_BOSS03_BODY_MTN_B03_1_ATT02_01B_ZNM		0		/*  */
+#define	IDU0_BOSS03_BODY_MTN_B03_1_ATT03_01B_ZNM		0		/*  */
+#define	IDU0_BOSS03_BODY_MTN_B03_1_STA_01B_ZNM		0		/*  */
+#define	IDU0_BOSS03_BODY_MTN_B03_2_LOOK_01B_ZNM		0		/*  */
+#define	IDU0_BOSS03_BODY_MTN_B03_2_LOOK_02B_ZNM		0		/*  */
+#define	IDU0_BOSS03_BODY_MTN_B03_2_SIGN_01B_ZNM		0		/*  */
+#define	IDU0_BOSS03_BODY_MTN_B03_2_STA_01B_ZNM		0		/*  */
+#define	IDU0_BOSS03_BODY_MTN_B03_DMG02_01B_ZNM		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_BOSS03_BODY_MTN_B03_1_ATT01_01B_ZNM		0		/*  */
+#define	IDU1_BOSS03_BODY_MTN_B03_1_ATT02_01B_ZNM		0		/*  */
+#define	IDU1_BOSS03_BODY_MTN_B03_1_ATT03_01B_ZNM		0		/*  */
+#define	IDU1_BOSS03_BODY_MTN_B03_1_STA_01B_ZNM		0		/*  */
+#define	IDU1_BOSS03_BODY_MTN_B03_2_LOOK_01B_ZNM		0		/*  */
+#define	IDU1_BOSS03_BODY_MTN_B03_2_LOOK_02B_ZNM		0		/*  */
+#define	IDU1_BOSS03_BODY_MTN_B03_2_SIGN_01B_ZNM		0		/*  */
+#define	IDU1_BOSS03_BODY_MTN_B03_2_STA_01B_ZNM		0		/*  */
+#define	IDU1_BOSS03_BODY_MTN_B03_DMG02_01B_ZNM		0		/*  */
+
+/* Defined File Name */
+#define	IDS_BOSS03_BODY_MTN_B03_1_ATT01_01B_ZNM		"B03_1_ATT01_01B.ZNM"
+#define	IDS_BOSS03_BODY_MTN_B03_1_ATT02_01B_ZNM		"B03_1_ATT02_01B.ZNM"
+#define	IDS_BOSS03_BODY_MTN_B03_1_ATT03_01B_ZNM		"B03_1_ATT03_01B.ZNM"
+#define	IDS_BOSS03_BODY_MTN_B03_1_STA_01B_ZNM		"B03_1_STA_01B.ZNM"
+#define	IDS_BOSS03_BODY_MTN_B03_2_LOOK_01B_ZNM		"B03_2_LOOK_01B.ZNM"
+#define	IDS_BOSS03_BODY_MTN_B03_2_LOOK_02B_ZNM		"B03_2_LOOK_02B.ZNM"
+#define	IDS_BOSS03_BODY_MTN_B03_2_SIGN_01B_ZNM		"B03_2_SIGN_01B.ZNM"
+#define	IDS_BOSS03_BODY_MTN_B03_2_STA_01B_ZNM		"B03_2_STA_01B.ZNM"
+#define	IDS_BOSS03_BODY_MTN_B03_DMG02_01B_ZNM		"B03_DMG02_01B.ZNM"
+
+#endif	/* _IDB_BOSS03_BODY_MTN */

@@ -1,0 +1,94 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_EFF_ZONESS
+#define	_IDB_EFF_ZONESS
+
+/* Defined File ID */
+#define	IDB_EFF_ZONESS_EFF_1UP_AME		0		/*  */
+#define	IDB_EFF_ZONESS_EFF_CHAOS_E_1_AME		1		/*  */
+#define	IDB_EFF_ZONESS_EFF_CHAOS_E_2_AME		2		/*  */
+#define	IDB_EFF_ZONESS_EFF_CHAOS_E_3_AME		3		/*  */
+#define	IDB_EFF_ZONESS_EFF_CHAOS_E_4_AME		4		/*  */
+#define	IDB_EFF_ZONESS_EFF_CHAOS_E_5_AME		5		/*  */
+#define	IDB_EFF_ZONESS_EFF_CHAOS_E_6_AME		6		/*  */
+#define	IDB_EFF_ZONESS_EFF_CHAOS_E_7_AME		7		/*  */
+#define	IDB_EFF_ZONESS_EFF_LOST_AME		8		/*  */
+#define	IDB_EFF_ZONESS_EFF_RING_GATE_AME		9		/*  */
+#define	IDB_EFF_ZONESS_EFF_TIME_DE_AME		10		/*  */
+#define	IDB_EFF_ZONESS_EFF_TIME_DOWN_AME		11		/*  */
+#define	IDB_EFF_ZONESS_EFF_TIME_EN_AME		12		/*  */
+#define	IDB_EFF_ZONESS_EFF_TIME_ES_AME		13		/*  */
+#define	IDB_EFF_ZONESS_EFF_TIME_FR_AME		14		/*  */
+#define	IDB_EFF_ZONESS_EFF_TIME_IT_AME		15		/*  */
+#define	IDB_EFF_ZONESS_EFF_TIME_JP_AME		16		/*  */
+#define	IDB_EFF_ZONESS_EFF_TIME_UP_AME		17		/*  */
+#define	IDB_EFF_ZONESS_EFF_ZONESS_TEX_AMB		18		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_EFF_ZONESS_EFF_1UP_AME		0		/*  */
+#define	IDU0_EFF_ZONESS_EFF_CHAOS_E_1_AME		0		/*  */
+#define	IDU0_EFF_ZONESS_EFF_CHAOS_E_2_AME		0		/*  */
+#define	IDU0_EFF_ZONESS_EFF_CHAOS_E_3_AME		0		/*  */
+#define	IDU0_EFF_ZONESS_EFF_CHAOS_E_4_AME		0		/*  */
+#define	IDU0_EFF_ZONESS_EFF_CHAOS_E_5_AME		0		/*  */
+#define	IDU0_EFF_ZONESS_EFF_CHAOS_E_6_AME		0		/*  */
+#define	IDU0_EFF_ZONESS_EFF_CHAOS_E_7_AME		0		/*  */
+#define	IDU0_EFF_ZONESS_EFF_LOST_AME		0		/*  */
+#define	IDU0_EFF_ZONESS_EFF_RING_GATE_AME		0		/*  */
+#define	IDU0_EFF_ZONESS_EFF_TIME_DE_AME		0		/*  */
+#define	IDU0_EFF_ZONESS_EFF_TIME_DOWN_AME		0		/*  */
+#define	IDU0_EFF_ZONESS_EFF_TIME_EN_AME		0		/*  */
+#define	IDU0_EFF_ZONESS_EFF_TIME_ES_AME		0		/*  */
+#define	IDU0_EFF_ZONESS_EFF_TIME_FR_AME		0		/*  */
+#define	IDU0_EFF_ZONESS_EFF_TIME_IT_AME		0		/*  */
+#define	IDU0_EFF_ZONESS_EFF_TIME_JP_AME		0		/*  */
+#define	IDU0_EFF_ZONESS_EFF_TIME_UP_AME		0		/*  */
+#define	IDU0_EFF_ZONESS_EFF_ZONESS_TEX_AMB		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_EFF_ZONESS_EFF_1UP_AME		0		/*  */
+#define	IDU1_EFF_ZONESS_EFF_CHAOS_E_1_AME		0		/*  */
+#define	IDU1_EFF_ZONESS_EFF_CHAOS_E_2_AME		0		/*  */
+#define	IDU1_EFF_ZONESS_EFF_CHAOS_E_3_AME		0		/*  */
+#define	IDU1_EFF_ZONESS_EFF_CHAOS_E_4_AME		0		/*  */
+#define	IDU1_EFF_ZONESS_EFF_CHAOS_E_5_AME		0		/*  */
+#define	IDU1_EFF_ZONESS_EFF_CHAOS_E_6_AME		0		/*  */
+#define	IDU1_EFF_ZONESS_EFF_CHAOS_E_7_AME		0		/*  */
+#define	IDU1_EFF_ZONESS_EFF_LOST_AME		0		/*  */
+#define	IDU1_EFF_ZONESS_EFF_RING_GATE_AME		0		/*  */
+#define	IDU1_EFF_ZONESS_EFF_TIME_DE_AME		0		/*  */
+#define	IDU1_EFF_ZONESS_EFF_TIME_DOWN_AME		0		/*  */
+#define	IDU1_EFF_ZONESS_EFF_TIME_EN_AME		0		/*  */
+#define	IDU1_EFF_ZONESS_EFF_TIME_ES_AME		0		/*  */
+#define	IDU1_EFF_ZONESS_EFF_TIME_FR_AME		0		/*  */
+#define	IDU1_EFF_ZONESS_EFF_TIME_IT_AME		0		/*  */
+#define	IDU1_EFF_ZONESS_EFF_TIME_JP_AME		0		/*  */
+#define	IDU1_EFF_ZONESS_EFF_TIME_UP_AME		0		/*  */
+#define	IDU1_EFF_ZONESS_EFF_ZONESS_TEX_AMB		0		/*  */
+
+/* Defined File Name */
+#define	IDS_EFF_ZONESS_EFF_1UP_AME		"EFF_1UP.AME"
+#define	IDS_EFF_ZONESS_EFF_CHAOS_E_1_AME		"EFF_CHAOS_E_1.AME"
+#define	IDS_EFF_ZONESS_EFF_CHAOS_E_2_AME		"EFF_CHAOS_E_2.AME"
+#define	IDS_EFF_ZONESS_EFF_CHAOS_E_3_AME		"EFF_CHAOS_E_3.AME"
+#define	IDS_EFF_ZONESS_EFF_CHAOS_E_4_AME		"EFF_CHAOS_E_4.AME"
+#define	IDS_EFF_ZONESS_EFF_CHAOS_E_5_AME		"EFF_CHAOS_E_5.AME"
+#define	IDS_EFF_ZONESS_EFF_CHAOS_E_6_AME		"EFF_CHAOS_E_6.AME"
+#define	IDS_EFF_ZONESS_EFF_CHAOS_E_7_AME		"EFF_CHAOS_E_7.AME"
+#define	IDS_EFF_ZONESS_EFF_LOST_AME		"EFF_LOST.AME"
+#define	IDS_EFF_ZONESS_EFF_RING_GATE_AME		"EFF_RING_GATE.AME"
+#define	IDS_EFF_ZONESS_EFF_TIME_DE_AME		"EFF_TIME_DE.AME"
+#define	IDS_EFF_ZONESS_EFF_TIME_DOWN_AME		"EFF_TIME_DOWN.AME"
+#define	IDS_EFF_ZONESS_EFF_TIME_EN_AME		"EFF_TIME_EN.AME"
+#define	IDS_EFF_ZONESS_EFF_TIME_ES_AME		"EFF_TIME_ES.AME"
+#define	IDS_EFF_ZONESS_EFF_TIME_FR_AME		"EFF_TIME_FR.AME"
+#define	IDS_EFF_ZONESS_EFF_TIME_IT_AME		"EFF_TIME_IT.AME"
+#define	IDS_EFF_ZONESS_EFF_TIME_JP_AME		"EFF_TIME_JP.AME"
+#define	IDS_EFF_ZONESS_EFF_TIME_UP_AME		"EFF_TIME_UP.AME"
+#define	IDS_EFF_ZONESS_EFF_ZONESS_TEX_AMB		"EFF_ZONESS_TEX.AMB"
+
+#endif	/* _IDB_EFF_ZONESS */

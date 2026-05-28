@@ -1,0 +1,13 @@
+// root node
+
+// node
+
+// action
+#define IDA_G_PAUSE_P_L_ACT_BTN_RETRY     (  0) // btn_retry
+#define IDA_G_PAUSE_P_L_ACT_BTN_RETRY_S   (  1) // btn_retry_s
+#define IDA_G_PAUSE_P_L_ACT_BTN_WORLD     (  2) // btn_world
+#define IDA_G_PAUSE_P_L_ACT_BTN_WORLD_S   (  3) // btn_world_s
+#define IDA_G_PAUSE_P_L_ACT_BTN_RETRY_D   (  4) // btn_retry_d
+#define IDA_G_PAUSE_P_L_ACT_BTN_RETRY_D_S (  5) // btn_retry_d_s
+#define IDA_G_PAUSE_P_L_ACT_BTN_MMENU     (  6) // btn_mmenu
+#define IDA_G_PAUSE_P_L_ACT_BTN_MMENU_S   (  7) // btn_mmenu_s

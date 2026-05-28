@@ -1,0 +1,46 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_GMK_SS_EMERALD_MDL
+#define	_IDB_GMK_SS_EMERALD_MDL
+
+/* Defined File ID */
+#define	IDB_GMK_SS_EMERALD_MDL_SS_CAOS_RED_ZNO		0		/*  */
+#define	IDB_GMK_SS_EMERALD_MDL_SS_CAOS_BLUE_ZNO		1		/*  */
+#define	IDB_GMK_SS_EMERALD_MDL_SS_CAOS_YELLOW_ZNO		2		/*  */
+#define	IDB_GMK_SS_EMERALD_MDL_SS_CAOS_GREEN_ZNO		3		/*  */
+#define	IDB_GMK_SS_EMERALD_MDL_SS_CAOS_WHITE_ZNO		4		/*  */
+#define	IDB_GMK_SS_EMERALD_MDL_SS_CAOS_CYAN_ZNO		5		/*  */
+#define	IDB_GMK_SS_EMERALD_MDL_SS_CAOS_PINK_ZNO		6		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_GMK_SS_EMERALD_MDL_SS_CAOS_RED_ZNO		0		/*  */
+#define	IDU0_GMK_SS_EMERALD_MDL_SS_CAOS_BLUE_ZNO		0		/*  */
+#define	IDU0_GMK_SS_EMERALD_MDL_SS_CAOS_YELLOW_ZNO		0		/*  */
+#define	IDU0_GMK_SS_EMERALD_MDL_SS_CAOS_GREEN_ZNO		0		/*  */
+#define	IDU0_GMK_SS_EMERALD_MDL_SS_CAOS_WHITE_ZNO		0		/*  */
+#define	IDU0_GMK_SS_EMERALD_MDL_SS_CAOS_CYAN_ZNO		0		/*  */
+#define	IDU0_GMK_SS_EMERALD_MDL_SS_CAOS_PINK_ZNO		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_GMK_SS_EMERALD_MDL_SS_CAOS_RED_ZNO		0		/*  */
+#define	IDU1_GMK_SS_EMERALD_MDL_SS_CAOS_BLUE_ZNO		0		/*  */
+#define	IDU1_GMK_SS_EMERALD_MDL_SS_CAOS_YELLOW_ZNO		0		/*  */
+#define	IDU1_GMK_SS_EMERALD_MDL_SS_CAOS_GREEN_ZNO		0		/*  */
+#define	IDU1_GMK_SS_EMERALD_MDL_SS_CAOS_WHITE_ZNO		0		/*  */
+#define	IDU1_GMK_SS_EMERALD_MDL_SS_CAOS_CYAN_ZNO		0		/*  */
+#define	IDU1_GMK_SS_EMERALD_MDL_SS_CAOS_PINK_ZNO		0		/*  */
+
+/* Defined File Name */
+#define	IDS_GMK_SS_EMERALD_MDL_SS_CAOS_RED_ZNO		"SS_CAOS_RED.ZNO"
+#define	IDS_GMK_SS_EMERALD_MDL_SS_CAOS_BLUE_ZNO		"SS_CAOS_BLUE.ZNO"
+#define	IDS_GMK_SS_EMERALD_MDL_SS_CAOS_YELLOW_ZNO		"SS_CAOS_YELLOW.ZNO"
+#define	IDS_GMK_SS_EMERALD_MDL_SS_CAOS_GREEN_ZNO		"SS_CAOS_GREEN.ZNO"
+#define	IDS_GMK_SS_EMERALD_MDL_SS_CAOS_WHITE_ZNO		"SS_CAOS_WHITE.ZNO"
+#define	IDS_GMK_SS_EMERALD_MDL_SS_CAOS_CYAN_ZNO		"SS_CAOS_CYAN.ZNO"
+#define	IDS_GMK_SS_EMERALD_MDL_SS_CAOS_PINK_ZNO		"SS_CAOS_PINK.ZNO"
+
+#endif	/* _IDB_GMK_SS_EMERALD_MDL */

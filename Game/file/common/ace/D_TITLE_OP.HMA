@@ -1,0 +1,10 @@
+// root node
+
+// node
+
+// action
+#define IDA_D_TITLE_OP_ACT_LOGO01      (  0) // logo01
+#define IDA_D_TITLE_OP_ACT_LOGO02_YUBI (  1) // logo02_yubi
+#define IDA_D_TITLE_OP_ACT_LOGO03      (  2) // logo03
+#define IDA_D_TITLE_OP_ACT_LOGO04      (  3) // logo04
+#define IDA_D_TITLE_OP_ACT_SEGALOGO    (  4) // segalogo

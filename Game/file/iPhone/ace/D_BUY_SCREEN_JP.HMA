@@ -1,0 +1,8 @@
+// root node
+
+// node
+
+// action
+#define IDA_D_COMP_JP_ACT_BG         (  0) // bg
+#define IDA_D_COMP_JP_ACT_TEX_BUY    (  1) // tex_buy
+#define IDA_D_COMP_JP_ACT_TEX_RETURN (  2) // tex_return

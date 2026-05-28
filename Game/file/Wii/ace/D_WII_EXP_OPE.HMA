@@ -1,0 +1,8 @@
+// root node
+
+// node
+
+// action
+#define IDA_D_WII_EXP_OPE_ACT_BG_WHITE (  0) // bg_white
+#define IDA_D_WII_EXP_OPE_ACT_TEXT     (  1) // text
+#define IDA_D_WII_EXP_OPE_ACT_HAND     (  2) // hand

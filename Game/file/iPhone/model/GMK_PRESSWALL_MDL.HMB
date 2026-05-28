@@ -1,0 +1,30 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_GMK_PRESSWALL_MDL
+#define	_IDB_GMK_PRESSWALL_MDL
+
+/* Defined File ID */
+#define	IDB_GMK_PRESSWALL_MDL_GMK_P_WALL_3_INO		0		/*  */
+#define	IDB_GMK_PRESSWALL_MDL_GMK_P_RAIL_BTM_3_INO		1		/*  */
+#define	IDB_GMK_PRESSWALL_MDL_GMK_P_RAIL_TOP_3_INO		2		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_GMK_PRESSWALL_MDL_GMK_P_WALL_3_INO		0		/*  */
+#define	IDU0_GMK_PRESSWALL_MDL_GMK_P_RAIL_BTM_3_INO		0		/*  */
+#define	IDU0_GMK_PRESSWALL_MDL_GMK_P_RAIL_TOP_3_INO		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_GMK_PRESSWALL_MDL_GMK_P_WALL_3_INO		0		/*  */
+#define	IDU1_GMK_PRESSWALL_MDL_GMK_P_RAIL_BTM_3_INO		0		/*  */
+#define	IDU1_GMK_PRESSWALL_MDL_GMK_P_RAIL_TOP_3_INO		0		/*  */
+
+/* Defined File Name */
+#define	IDS_GMK_PRESSWALL_MDL_GMK_P_WALL_3_INO		"GMK_P_WALL_3.INO"
+#define	IDS_GMK_PRESSWALL_MDL_GMK_P_RAIL_BTM_3_INO		"GMK_P_RAIL_BTM_3.INO"
+#define	IDS_GMK_PRESSWALL_MDL_GMK_P_RAIL_TOP_3_INO		"GMK_P_RAIL_TOP_3.INO"
+
+#endif	/* _IDB_GMK_PRESSWALL_MDL */

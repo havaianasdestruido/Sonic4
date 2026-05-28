@@ -1,0 +1,9 @@
+// root node
+
+// node
+
+// action
+#define IDA_G_OVER_FR_ACT_T_TEX_TIME (  0) // t_tex_time
+#define IDA_G_OVER_FR_ACT_T_TEX_OVER (  1) // t_tex_over
+#define IDA_G_OVER_FR_ACT_G_TEX_GAME (  2) // g_tex_game
+#define IDA_G_OVER_FR_ACT_G_TEX_OVER (  3) // g_tex_over

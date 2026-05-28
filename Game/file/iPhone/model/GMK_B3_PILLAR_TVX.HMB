@@ -1,0 +1,50 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_MODEL
+#define	_IDB_MODEL
+
+/* Defined File ID */
+#define	IDB_MODEL_GMK_B_PILLAR_2A_TVX		0		/*  */
+#define	IDB_MODEL_GMK_B_PILLAR_2B_TVX		1		/*  */
+#define	IDB_MODEL_GMK_B_PILLAR_2C_TVX		2		/*  */
+#define	IDB_MODEL_GMK_B_PILLAR_2D_TVX		3		/*  */
+#define	IDB_MODEL_GMK_B_PILLAR_A_TVX		4		/*  */
+#define	IDB_MODEL_GMK_B_PILLAR_B_TVX		5		/*  */
+#define	IDB_MODEL_GMK_B_PILLAR_C_TVX		6		/*  */
+#define	IDB_MODEL_GMK_B_PILLAR_D_TVX		7		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_MODEL_GMK_B_PILLAR_2A_TVX		0		/*  */
+#define	IDU0_MODEL_GMK_B_PILLAR_2B_TVX		0		/*  */
+#define	IDU0_MODEL_GMK_B_PILLAR_2C_TVX		0		/*  */
+#define	IDU0_MODEL_GMK_B_PILLAR_2D_TVX		0		/*  */
+#define	IDU0_MODEL_GMK_B_PILLAR_A_TVX		0		/*  */
+#define	IDU0_MODEL_GMK_B_PILLAR_B_TVX		0		/*  */
+#define	IDU0_MODEL_GMK_B_PILLAR_C_TVX		0		/*  */
+#define	IDU0_MODEL_GMK_B_PILLAR_D_TVX		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_MODEL_GMK_B_PILLAR_2A_TVX		0		/*  */
+#define	IDU1_MODEL_GMK_B_PILLAR_2B_TVX		0		/*  */
+#define	IDU1_MODEL_GMK_B_PILLAR_2C_TVX		0		/*  */
+#define	IDU1_MODEL_GMK_B_PILLAR_2D_TVX		0		/*  */
+#define	IDU1_MODEL_GMK_B_PILLAR_A_TVX		0		/*  */
+#define	IDU1_MODEL_GMK_B_PILLAR_B_TVX		0		/*  */
+#define	IDU1_MODEL_GMK_B_PILLAR_C_TVX		0		/*  */
+#define	IDU1_MODEL_GMK_B_PILLAR_D_TVX		0		/*  */
+
+/* Defined File Name */
+#define	IDS_MODEL_GMK_B_PILLAR_2A_TVX		"GMK_B_PILLAR_2A.TVX"
+#define	IDS_MODEL_GMK_B_PILLAR_2B_TVX		"GMK_B_PILLAR_2B.TVX"
+#define	IDS_MODEL_GMK_B_PILLAR_2C_TVX		"GMK_B_PILLAR_2C.TVX"
+#define	IDS_MODEL_GMK_B_PILLAR_2D_TVX		"GMK_B_PILLAR_2D.TVX"
+#define	IDS_MODEL_GMK_B_PILLAR_A_TVX		"GMK_B_PILLAR_A.TVX"
+#define	IDS_MODEL_GMK_B_PILLAR_B_TVX		"GMK_B_PILLAR_B.TVX"
+#define	IDS_MODEL_GMK_B_PILLAR_C_TVX		"GMK_B_PILLAR_C.TVX"
+#define	IDS_MODEL_GMK_B_PILLAR_D_TVX		"GMK_B_PILLAR_D.TVX"
+
+#endif	/* _IDB_MODEL */

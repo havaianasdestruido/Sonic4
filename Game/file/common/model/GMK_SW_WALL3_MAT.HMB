@@ -1,0 +1,22 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_GMK_SW_WALL3_MAT
+#define	_IDB_GMK_SW_WALL3_MAT
+
+/* Defined File ID */
+#define	IDB_GMK_SW_WALL3_MAT_GMK_SW_WALL_G_3_ZNV		0		/*   */
+
+/* Defined USR0 Data */
+#define	IDU0_GMK_SW_WALL3_MAT_GMK_SW_WALL_G_3_ZNV		0		/*   */
+
+/* Defined USR1 Data */
+#define	IDU1_GMK_SW_WALL3_MAT_GMK_SW_WALL_G_3_ZNV		0		/*   */
+
+/* Defined File Name */
+#define	IDS_GMK_SW_WALL3_MAT_GMK_SW_WALL_G_3_ZNV		"GMK_SW_WALL_G_3.ZNV"
+
+#endif	/* _IDB_GMK_SW_WALL3_MAT */

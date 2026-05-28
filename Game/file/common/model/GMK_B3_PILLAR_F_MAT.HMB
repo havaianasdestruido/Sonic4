@@ -1,0 +1,34 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_GMK_B3_PILLAR_F_MAT
+#define	_IDB_GMK_B3_PILLAR_F_MAT
+
+/* Defined File ID */
+#define	IDB_GMK_B3_PILLAR_F_MAT_GMK_B_PILLAR_F_2V_ZNV		0		/*  */
+#define	IDB_GMK_B3_PILLAR_F_MAT_GMK_B_PILLAR_F_4V_ZNV		1		/*  */
+#define	IDB_GMK_B3_PILLAR_F_MAT_GMK_B_PILLAR_F_2H_ZNV		2		/*  */
+#define	IDB_GMK_B3_PILLAR_F_MAT_GMK_B_PILLAR_F_4H_ZNV		3		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_GMK_B3_PILLAR_F_MAT_GMK_B_PILLAR_F_2V_ZNV		0		/*  */
+#define	IDU0_GMK_B3_PILLAR_F_MAT_GMK_B_PILLAR_F_4V_ZNV		0		/*  */
+#define	IDU0_GMK_B3_PILLAR_F_MAT_GMK_B_PILLAR_F_2H_ZNV		0		/*  */
+#define	IDU0_GMK_B3_PILLAR_F_MAT_GMK_B_PILLAR_F_4H_ZNV		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_GMK_B3_PILLAR_F_MAT_GMK_B_PILLAR_F_2V_ZNV		0		/*  */
+#define	IDU1_GMK_B3_PILLAR_F_MAT_GMK_B_PILLAR_F_4V_ZNV		0		/*  */
+#define	IDU1_GMK_B3_PILLAR_F_MAT_GMK_B_PILLAR_F_2H_ZNV		0		/*  */
+#define	IDU1_GMK_B3_PILLAR_F_MAT_GMK_B_PILLAR_F_4H_ZNV		0		/*  */
+
+/* Defined File Name */
+#define	IDS_GMK_B3_PILLAR_F_MAT_GMK_B_PILLAR_F_2V_ZNV		"GMK_B_PILLAR_F_2V.ZNV"
+#define	IDS_GMK_B3_PILLAR_F_MAT_GMK_B_PILLAR_F_4V_ZNV		"GMK_B_PILLAR_F_4V.ZNV"
+#define	IDS_GMK_B3_PILLAR_F_MAT_GMK_B_PILLAR_F_2H_ZNV		"GMK_B_PILLAR_F_2H.ZNV"
+#define	IDS_GMK_B3_PILLAR_F_MAT_GMK_B_PILLAR_F_4H_ZNV		"GMK_B_PILLAR_F_4H.ZNV"
+
+#endif	/* _IDB_GMK_B3_PILLAR_F_MAT */

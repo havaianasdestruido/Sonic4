@@ -1,0 +1,26 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_ENE_T_STAR_MDL
+#define	_IDB_ENE_T_STAR_MDL
+
+/* Defined File ID */
+#define	IDB_ENE_T_STAR_MDL_ENE_T_STAR_M_ZNO		0		/*  */
+#define	IDB_ENE_T_STAR_MDL_ENE_T_STAR_N_ZNO		1		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_ENE_T_STAR_MDL_ENE_T_STAR_M_ZNO		0		/*  */
+#define	IDU0_ENE_T_STAR_MDL_ENE_T_STAR_N_ZNO		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_ENE_T_STAR_MDL_ENE_T_STAR_M_ZNO		0		/*  */
+#define	IDU1_ENE_T_STAR_MDL_ENE_T_STAR_N_ZNO		0		/*  */
+
+/* Defined File Name */
+#define	IDS_ENE_T_STAR_MDL_ENE_T_STAR_M_ZNO		"ENE_T_STAR_M.ZNO"
+#define	IDS_ENE_T_STAR_MDL_ENE_T_STAR_N_ZNO		"ENE_T_STAR_N.ZNO"
+
+#endif	/* _IDB_ENE_T_STAR_MDL */

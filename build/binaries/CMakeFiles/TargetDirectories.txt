@@ -1,0 +1,3 @@
+C:/Users/Alory/Documents/SEGA LOT/Sonic 20th Source Codes/Sonic4/build/binaries/CMakeFiles/app.dir
+C:/Users/Alory/Documents/SEGA LOT/Sonic 20th Source Codes/Sonic4/build/binaries/CMakeFiles/ALL_BUILD.dir
+C:/Users/Alory/Documents/SEGA LOT/Sonic 20th Source Codes/Sonic4/build/binaries/CMakeFiles/ZERO_CHECK.dir

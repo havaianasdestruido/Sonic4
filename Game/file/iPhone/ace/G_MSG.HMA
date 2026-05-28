@@ -1,0 +1,13 @@
+// root node
+
+// node
+
+// action
+#define IDA_G_MSG_ACT_IPHONE     (  0) // iphone
+#define IDA_G_MSG_ACT_ARROW      (  1) // arrow
+#define IDA_G_MSG_ACT_YUBI_FLICK (  2) // yubi_flick
+#define IDA_G_MSG_ACT_FLIC_LINE  (  3) // flic_line
+#define IDA_G_MSG_ACT_YUBI_TAP   (  4) // yubi_tap
+#define IDA_G_MSG_ACT_TAP_LINE   (  5) // tap_line
+#define IDA_G_MSG_ACT_A_BTN      (  6) // a_btn
+#define IDA_G_MSG_ACT_IPHONE_2   (  7) // iphone_2

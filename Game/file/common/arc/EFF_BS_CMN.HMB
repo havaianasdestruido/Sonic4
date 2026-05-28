@@ -1,0 +1,46 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_EFF_BS_CMN
+#define	_IDB_EFF_BS_CMN
+
+/* Defined File ID */
+#define	IDB_EFF_BS_CMN_EFF_BOSS_DM_AME		0		/*  */
+#define	IDB_EFF_BS_CMN_EFF_BOSS_PARTS_AME		1		/*  */
+#define	IDB_EFF_BS_CMN_EFF_BOSS_SMOKE02_AME		2		/*  */
+#define	IDB_EFF_BS_CMN_EFF_BOSS_SMORK_AME		3		/*  */
+#define	IDB_EFF_BS_CMN_EFF_JET_B_AME		4		/*  */
+#define	IDB_EFF_BS_CMN_EFF_JET_B_SMORK_AME		5		/*  */
+#define	IDB_EFF_BS_CMN_EFF_BS_TEX_AMB		6		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_EFF_BS_CMN_EFF_BOSS_DM_AME		0		/*  */
+#define	IDU0_EFF_BS_CMN_EFF_BOSS_PARTS_AME		0		/*  */
+#define	IDU0_EFF_BS_CMN_EFF_BOSS_SMOKE02_AME		0		/*  */
+#define	IDU0_EFF_BS_CMN_EFF_BOSS_SMORK_AME		0		/*  */
+#define	IDU0_EFF_BS_CMN_EFF_JET_B_AME		0		/*  */
+#define	IDU0_EFF_BS_CMN_EFF_JET_B_SMORK_AME		0		/*  */
+#define	IDU0_EFF_BS_CMN_EFF_BS_TEX_AMB		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_EFF_BS_CMN_EFF_BOSS_DM_AME		0		/*  */
+#define	IDU1_EFF_BS_CMN_EFF_BOSS_PARTS_AME		0		/*  */
+#define	IDU1_EFF_BS_CMN_EFF_BOSS_SMOKE02_AME		0		/*  */
+#define	IDU1_EFF_BS_CMN_EFF_BOSS_SMORK_AME		0		/*  */
+#define	IDU1_EFF_BS_CMN_EFF_JET_B_AME		0		/*  */
+#define	IDU1_EFF_BS_CMN_EFF_JET_B_SMORK_AME		0		/*  */
+#define	IDU1_EFF_BS_CMN_EFF_BS_TEX_AMB		0		/*  */
+
+/* Defined File Name */
+#define	IDS_EFF_BS_CMN_EFF_BOSS_DM_AME		"EFF_BOSS_DM.AME"
+#define	IDS_EFF_BS_CMN_EFF_BOSS_PARTS_AME		"EFF_BOSS_PARTS.AME"
+#define	IDS_EFF_BS_CMN_EFF_BOSS_SMOKE02_AME		"EFF_BOSS_SMOKE02.AME"
+#define	IDS_EFF_BS_CMN_EFF_BOSS_SMORK_AME		"EFF_BOSS_SMORK.AME"
+#define	IDS_EFF_BS_CMN_EFF_JET_B_AME		"EFF_JET_B.AME"
+#define	IDS_EFF_BS_CMN_EFF_JET_B_SMORK_AME		"EFF_JET_B_SMORK.AME"
+#define	IDS_EFF_BS_CMN_EFF_BS_TEX_AMB		"EFF_BS_TEX.AMB"
+
+#endif	/* _IDB_EFF_BS_CMN */

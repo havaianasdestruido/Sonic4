@@ -1,0 +1,26 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_DECO_ZONE2_MDL
+#define	_IDB_DECO_ZONE2_MDL
+
+/* Defined File ID */
+#define	IDB_DECO_ZONE2_MDL_Z2_DECO_W_PLANTA_ZNO		0		/*  */
+#define	IDB_DECO_ZONE2_MDL_Z2_DECO_W_PLANTB_ZNO		1		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_DECO_ZONE2_MDL_Z2_DECO_W_PLANTA_ZNO		0		/*  */
+#define	IDU0_DECO_ZONE2_MDL_Z2_DECO_W_PLANTB_ZNO		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_DECO_ZONE2_MDL_Z2_DECO_W_PLANTA_ZNO		0		/*  */
+#define	IDU1_DECO_ZONE2_MDL_Z2_DECO_W_PLANTB_ZNO		0		/*  */
+
+/* Defined File Name */
+#define	IDS_DECO_ZONE2_MDL_Z2_DECO_W_PLANTA_ZNO		"Z2_DECO_W_PLANTA.ZNO"
+#define	IDS_DECO_ZONE2_MDL_Z2_DECO_W_PLANTB_ZNO		"Z2_DECO_W_PLANTB.ZNO"
+
+#endif	/* _IDB_DECO_ZONE2_MDL */

@@ -1,0 +1,78 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_GMK_ANIMAL_MTN
+#define	_IDB_GMK_ANIMAL_MTN
+
+/* Defined File ID */
+#define	IDB_GMK_ANIMAL_MTN_GMK_ANML_PIG_ST_ZNM		0		/*  ìÿ ÇeÇv */
+#define	IDB_GMK_ANIMAL_MTN_GMK_ANML_PIG_UP_ZNM		1		/*  ìÿ è„è∏ */
+#define	IDB_GMK_ANIMAL_MTN_GMK_ANML_PIG_DOWN_ZNM		2		/*  ìÿ â∫ç~ */
+#define	IDB_GMK_ANIMAL_MTN_GMK_ANML_BIRD_ST_ZNM		3		/*  íπ ÇeÇv */
+#define	IDB_GMK_ANIMAL_MTN_GMK_ANML_BIRD_UP_ZNM		4		/*  íπ è„è∏ */
+#define	IDB_GMK_ANIMAL_MTN_GMK_ANML_BIRD_DOWN_ZNM		5		/*  íπ â∫ç~ */
+#define	IDB_GMK_ANIMAL_MTN_GMK_ANML_COCK_ST_ZNM		6		/*  å{ ÇeÇv */
+#define	IDB_GMK_ANIMAL_MTN_GMK_ANML_COCK_UP_ZNM		7		/*  å{ è„è∏ */
+#define	IDB_GMK_ANIMAL_MTN_GMK_ANML_COCK_DOWN_ZNM		8		/*  å{ â∫ç~ */
+#define	IDB_GMK_ANIMAL_MTN_GMK_ANML_RABBIT_ST_ZNM		9		/*  ìe ÇeÇv */
+#define	IDB_GMK_ANIMAL_MTN_GMK_ANML_RABBIT_UP_ZNM		10		/*  ìe è„è∏ */
+#define	IDB_GMK_ANIMAL_MTN_GMK_ANML_RABBIT_DOWN_ZNM		11		/*  ìe â∫ç~ */
+#define	IDB_GMK_ANIMAL_MTN_GMK_ANML_PEN_ST_ZNM		12		/*  ÉyÉìÉMÉì ÇeÇv */
+#define	IDB_GMK_ANIMAL_MTN_GMK_ANML_PEN_UP_ZNM		13		/*  ÉyÉìÉMÉì è„è∏ */
+#define	IDB_GMK_ANIMAL_MTN_GMK_ANML_PEN_DOWN_ZNM		14		/*  ÉyÉìÉMÉì â∫ç~ */
+
+/* Defined USR0 Data */
+#define	IDU0_GMK_ANIMAL_MTN_GMK_ANML_PIG_ST_ZNM		0		/*  ìÿ ÇeÇv */
+#define	IDU0_GMK_ANIMAL_MTN_GMK_ANML_PIG_UP_ZNM		0		/*  ìÿ è„è∏ */
+#define	IDU0_GMK_ANIMAL_MTN_GMK_ANML_PIG_DOWN_ZNM		0		/*  ìÿ â∫ç~ */
+#define	IDU0_GMK_ANIMAL_MTN_GMK_ANML_BIRD_ST_ZNM		0		/*  íπ ÇeÇv */
+#define	IDU0_GMK_ANIMAL_MTN_GMK_ANML_BIRD_UP_ZNM		0		/*  íπ è„è∏ */
+#define	IDU0_GMK_ANIMAL_MTN_GMK_ANML_BIRD_DOWN_ZNM		0		/*  íπ â∫ç~ */
+#define	IDU0_GMK_ANIMAL_MTN_GMK_ANML_COCK_ST_ZNM		0		/*  å{ ÇeÇv */
+#define	IDU0_GMK_ANIMAL_MTN_GMK_ANML_COCK_UP_ZNM		0		/*  å{ è„è∏ */
+#define	IDU0_GMK_ANIMAL_MTN_GMK_ANML_COCK_DOWN_ZNM		0		/*  å{ â∫ç~ */
+#define	IDU0_GMK_ANIMAL_MTN_GMK_ANML_RABBIT_ST_ZNM		0		/*  ìe ÇeÇv */
+#define	IDU0_GMK_ANIMAL_MTN_GMK_ANML_RABBIT_UP_ZNM		0		/*  ìe è„è∏ */
+#define	IDU0_GMK_ANIMAL_MTN_GMK_ANML_RABBIT_DOWN_ZNM		0		/*  ìe â∫ç~ */
+#define	IDU0_GMK_ANIMAL_MTN_GMK_ANML_PEN_ST_ZNM		0		/*  ÉyÉìÉMÉì ÇeÇv */
+#define	IDU0_GMK_ANIMAL_MTN_GMK_ANML_PEN_UP_ZNM		0		/*  ÉyÉìÉMÉì è„è∏ */
+#define	IDU0_GMK_ANIMAL_MTN_GMK_ANML_PEN_DOWN_ZNM		0		/*  ÉyÉìÉMÉì â∫ç~ */
+
+/* Defined USR1 Data */
+#define	IDU1_GMK_ANIMAL_MTN_GMK_ANML_PIG_ST_ZNM		0		/*  ìÿ ÇeÇv */
+#define	IDU1_GMK_ANIMAL_MTN_GMK_ANML_PIG_UP_ZNM		0		/*  ìÿ è„è∏ */
+#define	IDU1_GMK_ANIMAL_MTN_GMK_ANML_PIG_DOWN_ZNM		0		/*  ìÿ â∫ç~ */
+#define	IDU1_GMK_ANIMAL_MTN_GMK_ANML_BIRD_ST_ZNM		0		/*  íπ ÇeÇv */
+#define	IDU1_GMK_ANIMAL_MTN_GMK_ANML_BIRD_UP_ZNM		0		/*  íπ è„è∏ */
+#define	IDU1_GMK_ANIMAL_MTN_GMK_ANML_BIRD_DOWN_ZNM		0		/*  íπ â∫ç~ */
+#define	IDU1_GMK_ANIMAL_MTN_GMK_ANML_COCK_ST_ZNM		0		/*  å{ ÇeÇv */
+#define	IDU1_GMK_ANIMAL_MTN_GMK_ANML_COCK_UP_ZNM		0		/*  å{ è„è∏ */
+#define	IDU1_GMK_ANIMAL_MTN_GMK_ANML_COCK_DOWN_ZNM		0		/*  å{ â∫ç~ */
+#define	IDU1_GMK_ANIMAL_MTN_GMK_ANML_RABBIT_ST_ZNM		0		/*  ìe ÇeÇv */
+#define	IDU1_GMK_ANIMAL_MTN_GMK_ANML_RABBIT_UP_ZNM		0		/*  ìe è„è∏ */
+#define	IDU1_GMK_ANIMAL_MTN_GMK_ANML_RABBIT_DOWN_ZNM		0		/*  ìe â∫ç~ */
+#define	IDU1_GMK_ANIMAL_MTN_GMK_ANML_PEN_ST_ZNM		0		/*  ÉyÉìÉMÉì ÇeÇv */
+#define	IDU1_GMK_ANIMAL_MTN_GMK_ANML_PEN_UP_ZNM		0		/*  ÉyÉìÉMÉì è„è∏ */
+#define	IDU1_GMK_ANIMAL_MTN_GMK_ANML_PEN_DOWN_ZNM		0		/*  ÉyÉìÉMÉì â∫ç~ */
+
+/* Defined File Name */
+#define	IDS_GMK_ANIMAL_MTN_GMK_ANML_PIG_ST_ZNM		"GMK_ANML_PIG_ST.ZNM"
+#define	IDS_GMK_ANIMAL_MTN_GMK_ANML_PIG_UP_ZNM		"GMK_ANML_PIG_UP.ZNM"
+#define	IDS_GMK_ANIMAL_MTN_GMK_ANML_PIG_DOWN_ZNM		"GMK_ANML_PIG_DOWN.ZNM"
+#define	IDS_GMK_ANIMAL_MTN_GMK_ANML_BIRD_ST_ZNM		"GMK_ANML_BIRD_ST.ZNM"
+#define	IDS_GMK_ANIMAL_MTN_GMK_ANML_BIRD_UP_ZNM		"GMK_ANML_BIRD_UP.ZNM"
+#define	IDS_GMK_ANIMAL_MTN_GMK_ANML_BIRD_DOWN_ZNM		"GMK_ANML_BIRD_DOWN.ZNM"
+#define	IDS_GMK_ANIMAL_MTN_GMK_ANML_COCK_ST_ZNM		"GMK_ANML_COCK_ST.ZNM"
+#define	IDS_GMK_ANIMAL_MTN_GMK_ANML_COCK_UP_ZNM		"GMK_ANML_COCK_UP.ZNM"
+#define	IDS_GMK_ANIMAL_MTN_GMK_ANML_COCK_DOWN_ZNM		"GMK_ANML_COCK_DOWN.ZNM"
+#define	IDS_GMK_ANIMAL_MTN_GMK_ANML_RABBIT_ST_ZNM		"GMK_ANML_RABBIT_ST.ZNM"
+#define	IDS_GMK_ANIMAL_MTN_GMK_ANML_RABBIT_UP_ZNM		"GMK_ANML_RABBIT_UP.ZNM"
+#define	IDS_GMK_ANIMAL_MTN_GMK_ANML_RABBIT_DOWN_ZNM		"GMK_ANML_RABBIT_DOWN.ZNM"
+#define	IDS_GMK_ANIMAL_MTN_GMK_ANML_PEN_ST_ZNM		"GMK_ANML_PEN_ST.ZNM"
+#define	IDS_GMK_ANIMAL_MTN_GMK_ANML_PEN_UP_ZNM		"GMK_ANML_PEN_UP.ZNM"
+#define	IDS_GMK_ANIMAL_MTN_GMK_ANML_PEN_DOWN_ZNM		"GMK_ANML_PEN_DOWN.ZNM"
+
+#endif	/* _IDB_GMK_ANIMAL_MTN */

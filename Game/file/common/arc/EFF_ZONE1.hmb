@@ -1,0 +1,58 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_EFF_ZONE1
+#define	_IDB_EFF_ZONE1
+
+/* Defined File ID */
+#define	IDB_EFF_ZONE1_EFF_ASHIBA_AME		0		/*  */
+#define	IDB_EFF_ZONE1_EFF_ITEM_Z1_AME		1		/*  */
+#define	IDB_EFF_ZONE1_EFF_OBJECT_Z1_AME		2		/*  */
+#define	IDB_EFF_ZONE1_EFF_OBJECT_Z1_A3_AME		3		/*  */
+#define	IDB_EFF_ZONE1_EFF_SMORK_B_Z1_AME		4		/*  */
+#define	IDB_EFF_ZONE1_EFF_SMORK_S_Z1_AME		5		/*  */
+#define	IDB_EFF_ZONE1_EFF_SPARK_K_AME		6		/*  */
+#define	IDB_EFF_ZONE1_EFF_TAKI_Z1_AME		7		/*  */
+#define	IDB_EFF_ZONE1_EFF_WALL_Z1_AME		8		/*  */
+#define	IDB_EFF_ZONE1_EFF_ZONE1_TEX_AMB		9		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_EFF_ZONE1_EFF_ASHIBA_AME		0		/*  */
+#define	IDU0_EFF_ZONE1_EFF_ITEM_Z1_AME		0		/*  */
+#define	IDU0_EFF_ZONE1_EFF_OBJECT_Z1_AME		0		/*  */
+#define	IDU0_EFF_ZONE1_EFF_OBJECT_Z1_A3_AME		0		/*  */
+#define	IDU0_EFF_ZONE1_EFF_SMORK_B_Z1_AME		0		/*  */
+#define	IDU0_EFF_ZONE1_EFF_SMORK_S_Z1_AME		0		/*  */
+#define	IDU0_EFF_ZONE1_EFF_SPARK_K_AME		0		/*  */
+#define	IDU0_EFF_ZONE1_EFF_TAKI_Z1_AME		0		/*  */
+#define	IDU0_EFF_ZONE1_EFF_WALL_Z1_AME		0		/*  */
+#define	IDU0_EFF_ZONE1_EFF_ZONE1_TEX_AMB		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_EFF_ZONE1_EFF_ASHIBA_AME		0		/*  */
+#define	IDU1_EFF_ZONE1_EFF_ITEM_Z1_AME		0		/*  */
+#define	IDU1_EFF_ZONE1_EFF_OBJECT_Z1_AME		0		/*  */
+#define	IDU1_EFF_ZONE1_EFF_OBJECT_Z1_A3_AME		0		/*  */
+#define	IDU1_EFF_ZONE1_EFF_SMORK_B_Z1_AME		0		/*  */
+#define	IDU1_EFF_ZONE1_EFF_SMORK_S_Z1_AME		0		/*  */
+#define	IDU1_EFF_ZONE1_EFF_SPARK_K_AME		0		/*  */
+#define	IDU1_EFF_ZONE1_EFF_TAKI_Z1_AME		0		/*  */
+#define	IDU1_EFF_ZONE1_EFF_WALL_Z1_AME		0		/*  */
+#define	IDU1_EFF_ZONE1_EFF_ZONE1_TEX_AMB		0		/*  */
+
+/* Defined File Name */
+#define	IDS_EFF_ZONE1_EFF_ASHIBA_AME		"EFF_ASHIBA.AME"
+#define	IDS_EFF_ZONE1_EFF_ITEM_Z1_AME		"EFF_ITEM_Z1.AME"
+#define	IDS_EFF_ZONE1_EFF_OBJECT_Z1_AME		"EFF_OBJECT_Z1.AME"
+#define	IDS_EFF_ZONE1_EFF_OBJECT_Z1_A3_AME		"EFF_OBJECT_Z1_A3.AME"
+#define	IDS_EFF_ZONE1_EFF_SMORK_B_Z1_AME		"EFF_SMORK_B_Z1.AME"
+#define	IDS_EFF_ZONE1_EFF_SMORK_S_Z1_AME		"EFF_SMORK_S_Z1.AME"
+#define	IDS_EFF_ZONE1_EFF_SPARK_K_AME		"EFF_SPARK_K.AME"
+#define	IDS_EFF_ZONE1_EFF_TAKI_Z1_AME		"EFF_TAKI_Z1.AME"
+#define	IDS_EFF_ZONE1_EFF_WALL_Z1_AME		"EFF_WALL_Z1.AME"
+#define	IDS_EFF_ZONE1_EFF_ZONE1_TEX_AMB		"EFF_ZONE1_TEX.AMB"
+
+#endif	/* _IDB_EFF_ZONE1 */

@@ -1,0 +1,26 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_DECO_ZONE1_MTN
+#define	_IDB_DECO_ZONE1_MTN
+
+/* Defined File ID */
+#define	IDB_DECO_ZONE1_MTN_DECO_Z1_HIMAWARI_ZNM		0		/*  */
+#define	IDB_DECO_ZONE1_MTN_DECO_Z1_WOODA_ZNM		1		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_DECO_ZONE1_MTN_DECO_Z1_HIMAWARI_ZNM		0		/*  */
+#define	IDU0_DECO_ZONE1_MTN_DECO_Z1_WOODA_ZNM		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_DECO_ZONE1_MTN_DECO_Z1_HIMAWARI_ZNM		0		/*  */
+#define	IDU1_DECO_ZONE1_MTN_DECO_Z1_WOODA_ZNM		0		/*  */
+
+/* Defined File Name */
+#define	IDS_DECO_ZONE1_MTN_DECO_Z1_HIMAWARI_ZNM		"DECO_Z1_HIMAWARI.ZNM"
+#define	IDS_DECO_ZONE1_MTN_DECO_Z1_WOODA_ZNM		"DECO_Z1_WOODA.ZNM"
+
+#endif	/* _IDB_DECO_ZONE1_MTN */

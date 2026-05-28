@@ -1,0 +1,54 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_ZONEF_T_PC
+#define	_IDB_ZONEF_T_PC
+
+/* Defined File ID */
+#define	IDB_ZONEF_T_PC_ZONEF_T_PC_TXB		0		/*  */
+#define	IDB_ZONEF_T_PC_ZF_MAP_IPHONE_TEX01_DDS		1		/*  */
+#define	IDB_ZONEF_T_PC_ZF_MAP_IPHONE_TEXANIM03_DDS		2		/*  */
+#define	IDB_ZONEF_T_PC_ZF_MAP_IPHONE_TEXANIM04_DDS		3		/*  */
+#define	IDB_ZONEF_T_PC_ZF_MAP_IPHONE_TEXANIM05_DDS		4		/*  */
+#define	IDB_ZONEF_T_PC_ZF_MAP_IPHONE_TEXANIM06_DDS		5		/*  */
+#define	IDB_ZONEF_T_PC_ZF_MAP_IPHONE_TEXANIM01_DDS		6		/*  */
+#define	IDB_ZONEF_T_PC_ZF_MAP_IPHONE_TEXANIM07_DDS		7		/*  */
+#define	IDB_ZONEF_T_PC_ZF_MAP_IPHONE_TEXANIM08_DDS		8		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_ZONEF_T_PC_ZONEF_T_PC_TXB		0		/*  */
+#define	IDU0_ZONEF_T_PC_ZF_MAP_IPHONE_TEX01_DDS		0		/*  */
+#define	IDU0_ZONEF_T_PC_ZF_MAP_IPHONE_TEXANIM03_DDS		0		/*  */
+#define	IDU0_ZONEF_T_PC_ZF_MAP_IPHONE_TEXANIM04_DDS		0		/*  */
+#define	IDU0_ZONEF_T_PC_ZF_MAP_IPHONE_TEXANIM05_DDS		0		/*  */
+#define	IDU0_ZONEF_T_PC_ZF_MAP_IPHONE_TEXANIM06_DDS		0		/*  */
+#define	IDU0_ZONEF_T_PC_ZF_MAP_IPHONE_TEXANIM01_DDS		0		/*  */
+#define	IDU0_ZONEF_T_PC_ZF_MAP_IPHONE_TEXANIM07_DDS		0		/*  */
+#define	IDU0_ZONEF_T_PC_ZF_MAP_IPHONE_TEXANIM08_DDS		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_ZONEF_T_PC_ZONEF_T_PC_TXB		0		/*  */
+#define	IDU1_ZONEF_T_PC_ZF_MAP_IPHONE_TEX01_DDS		0		/*  */
+#define	IDU1_ZONEF_T_PC_ZF_MAP_IPHONE_TEXANIM03_DDS		0		/*  */
+#define	IDU1_ZONEF_T_PC_ZF_MAP_IPHONE_TEXANIM04_DDS		0		/*  */
+#define	IDU1_ZONEF_T_PC_ZF_MAP_IPHONE_TEXANIM05_DDS		0		/*  */
+#define	IDU1_ZONEF_T_PC_ZF_MAP_IPHONE_TEXANIM06_DDS		0		/*  */
+#define	IDU1_ZONEF_T_PC_ZF_MAP_IPHONE_TEXANIM01_DDS		0		/*  */
+#define	IDU1_ZONEF_T_PC_ZF_MAP_IPHONE_TEXANIM07_DDS		0		/*  */
+#define	IDU1_ZONEF_T_PC_ZF_MAP_IPHONE_TEXANIM08_DDS		0		/*  */
+
+/* Defined File Name */
+#define	IDS_ZONEF_T_PC_ZONEF_T_PC_TXB		"ZONEF_T_PC.TXB"
+#define	IDS_ZONEF_T_PC_ZF_MAP_IPHONE_TEX01_DDS		"ZF_MAP_IPHONE_TEX01.DDS"
+#define	IDS_ZONEF_T_PC_ZF_MAP_IPHONE_TEXANIM03_DDS		"ZF_MAP_IPHONE_TEXANIM03.DDS"
+#define	IDS_ZONEF_T_PC_ZF_MAP_IPHONE_TEXANIM04_DDS		"ZF_MAP_IPHONE_TEXANIM04.DDS"
+#define	IDS_ZONEF_T_PC_ZF_MAP_IPHONE_TEXANIM05_DDS		"ZF_MAP_IPHONE_TEXANIM05.DDS"
+#define	IDS_ZONEF_T_PC_ZF_MAP_IPHONE_TEXANIM06_DDS		"ZF_MAP_IPHONE_TEXANIM06.DDS"
+#define	IDS_ZONEF_T_PC_ZF_MAP_IPHONE_TEXANIM01_DDS		"ZF_MAP_IPHONE_TEXANIM01.DDS"
+#define	IDS_ZONEF_T_PC_ZF_MAP_IPHONE_TEXANIM07_DDS		"ZF_MAP_IPHONE_TEXANIM07.DDS"
+#define	IDS_ZONEF_T_PC_ZF_MAP_IPHONE_TEXANIM08_DDS		"ZF_MAP_IPHONE_TEXANIM08.DDS"
+
+#endif	/* _IDB_ZONEF_T_PC */

@@ -1,0 +1,62 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_GMK_WATER_SF_MDL
+#define	_IDB_GMK_WATER_SF_MDL
+
+/* Defined File ID */
+#define	IDB_GMK_WATER_SF_MDL_GMK_WATER_SF_ZNO		0		/*  */
+#define	IDB_GMK_WATER_SF_MDL_GMK_WATER_SF_REF_ZNO		1		/*  */
+#define	IDB_GMK_WATER_SF_MDL_GMK_WATER_SF_ZNV		2		/*  */
+#define	IDB_GMK_WATER_SF_MDL_GMK_WATER_SF_REF_ZNV		3		/*  */
+#define	IDB_GMK_WATER_SF_MDL_WATER_A_DDS		4		/*  */
+#define	IDB_GMK_WATER_SF_MDL_WATERCOLOR_DDS		5		/*  */
+#define	IDB_GMK_WATER_SF_MDL_WAVE_AA_DDS		6		/*  */
+#define	IDB_GMK_WATER_SF_MDL_WAVE_AB_DDS		7		/*  */
+#define	IDB_GMK_WATER_SF_MDL_WAVE_AC_DDS		8		/*  */
+#define	IDB_GMK_WATER_SF_MDL_Z3_W_GI_REF_DDS		9		/*  */
+#define	IDB_GMK_WATER_SF_MDL_Z3_W_GI_REFAL_DDS		10		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_GMK_WATER_SF_MDL_GMK_WATER_SF_ZNO		0		/*  */
+#define	IDU0_GMK_WATER_SF_MDL_GMK_WATER_SF_REF_ZNO		0		/*  */
+#define	IDU0_GMK_WATER_SF_MDL_GMK_WATER_SF_ZNV		0		/*  */
+#define	IDU0_GMK_WATER_SF_MDL_GMK_WATER_SF_REF_ZNV		0		/*  */
+#define	IDU0_GMK_WATER_SF_MDL_WATER_A_DDS		0		/*  */
+#define	IDU0_GMK_WATER_SF_MDL_WATERCOLOR_DDS		0		/*  */
+#define	IDU0_GMK_WATER_SF_MDL_WAVE_AA_DDS		0		/*  */
+#define	IDU0_GMK_WATER_SF_MDL_WAVE_AB_DDS		0		/*  */
+#define	IDU0_GMK_WATER_SF_MDL_WAVE_AC_DDS		0		/*  */
+#define	IDU0_GMK_WATER_SF_MDL_Z3_W_GI_REF_DDS		0		/*  */
+#define	IDU0_GMK_WATER_SF_MDL_Z3_W_GI_REFAL_DDS		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_GMK_WATER_SF_MDL_GMK_WATER_SF_ZNO		0		/*  */
+#define	IDU1_GMK_WATER_SF_MDL_GMK_WATER_SF_REF_ZNO		0		/*  */
+#define	IDU1_GMK_WATER_SF_MDL_GMK_WATER_SF_ZNV		0		/*  */
+#define	IDU1_GMK_WATER_SF_MDL_GMK_WATER_SF_REF_ZNV		0		/*  */
+#define	IDU1_GMK_WATER_SF_MDL_WATER_A_DDS		0		/*  */
+#define	IDU1_GMK_WATER_SF_MDL_WATERCOLOR_DDS		0		/*  */
+#define	IDU1_GMK_WATER_SF_MDL_WAVE_AA_DDS		0		/*  */
+#define	IDU1_GMK_WATER_SF_MDL_WAVE_AB_DDS		0		/*  */
+#define	IDU1_GMK_WATER_SF_MDL_WAVE_AC_DDS		0		/*  */
+#define	IDU1_GMK_WATER_SF_MDL_Z3_W_GI_REF_DDS		0		/*  */
+#define	IDU1_GMK_WATER_SF_MDL_Z3_W_GI_REFAL_DDS		0		/*  */
+
+/* Defined File Name */
+#define	IDS_GMK_WATER_SF_MDL_GMK_WATER_SF_ZNO		"GMK_WATER_SF.ZNO"
+#define	IDS_GMK_WATER_SF_MDL_GMK_WATER_SF_REF_ZNO		"GMK_WATER_SF_REF.ZNO"
+#define	IDS_GMK_WATER_SF_MDL_GMK_WATER_SF_ZNV		"GMK_WATER_SF.ZNV"
+#define	IDS_GMK_WATER_SF_MDL_GMK_WATER_SF_REF_ZNV		"GMK_WATER_SF_REF.ZNV"
+#define	IDS_GMK_WATER_SF_MDL_WATER_A_DDS		"WATER_A.DDS"
+#define	IDS_GMK_WATER_SF_MDL_WATERCOLOR_DDS		"WATERCOLOR.DDS"
+#define	IDS_GMK_WATER_SF_MDL_WAVE_AA_DDS		"WAVE_AA.DDS"
+#define	IDS_GMK_WATER_SF_MDL_WAVE_AB_DDS		"WAVE_AB.DDS"
+#define	IDS_GMK_WATER_SF_MDL_WAVE_AC_DDS		"WAVE_AC.DDS"
+#define	IDS_GMK_WATER_SF_MDL_Z3_W_GI_REF_DDS		"Z3_W_GI_REF.DDS"
+#define	IDS_GMK_WATER_SF_MDL_Z3_W_GI_REFAL_DDS		"Z3_W_GI_REFAL.DDS"
+
+#endif	/* _IDB_GMK_WATER_SF_MDL */

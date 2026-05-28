@@ -1,0 +1,26 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_GMK_PISTON_MDL
+#define	_IDB_GMK_PISTON_MDL
+
+/* Defined File ID */
+#define	IDB_GMK_PISTON_MDL_GMK_PISTON_TOP_ZNO		0		/*  */
+#define	IDB_GMK_PISTON_MDL_GMK_PISTON_POLE_ZNO		1		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_GMK_PISTON_MDL_GMK_PISTON_TOP_ZNO		0		/*  */
+#define	IDU0_GMK_PISTON_MDL_GMK_PISTON_POLE_ZNO		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_GMK_PISTON_MDL_GMK_PISTON_TOP_ZNO		0		/*  */
+#define	IDU1_GMK_PISTON_MDL_GMK_PISTON_POLE_ZNO		0		/*  */
+
+/* Defined File Name */
+#define	IDS_GMK_PISTON_MDL_GMK_PISTON_TOP_ZNO		"GMK_PISTON_TOP.ZNO"
+#define	IDS_GMK_PISTON_MDL_GMK_PISTON_POLE_ZNO		"GMK_PISTON_POLE.ZNO"
+
+#endif	/* _IDB_GMK_PISTON_MDL */

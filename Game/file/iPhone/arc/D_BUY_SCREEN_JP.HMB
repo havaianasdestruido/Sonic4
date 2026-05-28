@@ -1,0 +1,26 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_D_BUY_SCREEN_JP
+#define	_IDB_D_BUY_SCREEN_JP
+
+/* Defined File ID */
+#define	IDB_D_BUY_SCREEN_JP_D_COMP_JP_AMA		0		/*  */
+#define	IDB_D_BUY_SCREEN_JP_D_COMP_JP_AMB		1		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_D_BUY_SCREEN_JP_D_COMP_JP_AMA		0		/*  */
+#define	IDU0_D_BUY_SCREEN_JP_D_COMP_JP_AMB		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_D_BUY_SCREEN_JP_D_COMP_JP_AMA		0		/*  */
+#define	IDU1_D_BUY_SCREEN_JP_D_COMP_JP_AMB		0		/*  */
+
+/* Defined File Name */
+#define	IDS_D_BUY_SCREEN_JP_D_COMP_JP_AMA		"D_COMP_JP.AMA"
+#define	IDS_D_BUY_SCREEN_JP_D_COMP_JP_AMB		"D_COMP_JP.AMB"
+
+#endif	/* _IDB_D_BUY_SCREEN_JP */

@@ -1,0 +1,25 @@
+// root node
+
+// node
+
+// action
+#define IDA_D_OPTION_JP_ACT_TEX_TITLE        (  0) // tex_title
+#define IDA_D_OPTION_JP_ACT_TEX_OBI1         (  1) // tex_obi1
+#define IDA_D_OPTION_JP_ACT_TEX_ITEM_BGM     (  2) // tex_item_bgm
+#define IDA_D_OPTION_JP_ACT_TEX_ITEM_SE      (  3) // tex_item_se
+#define IDA_D_OPTION_JP_ACT_TEX_ITEM_VBRT    (  4) // tex_item_vbrt
+#define IDA_D_OPTION_JP_ACT_TEX_ON           (  5) // tex_on
+#define IDA_D_OPTION_JP_ACT_TEX_OFF          (  6) // tex_off
+#define IDA_D_OPTION_JP_ACT_TEX_DEFAULT      (  7) // tex_default
+#define IDA_D_OPTION_JP_ACT_TEX_TOP_PLAY     (  8) // tex_top_play
+#define IDA_D_OPTION_JP_ACT_TEX_TOP_CONTROL  (  9) // tex_top_control
+#define IDA_D_OPTION_JP_ACT_TEX_TOP_SETTING  ( 10) // tex_top_setting
+#define IDA_D_OPTION_JP_ACT_TEX_TOP_CREDIT   ( 11) // tex_top_credit
+#define IDA_D_OPTION_JP_ACT_TEX_TOP_USER     ( 12) // tex_top_user
+#define IDA_D_OPTION_JP_ACT_SOUSA_TEX_EX_A   ( 13) // sousa_tex_ex_a
+#define IDA_D_OPTION_JP_ACT_SOUSA_TEX_EX_B   ( 14) // sousa_tex_ex_b
+#define IDA_D_OPTION_JP_ACT_SOUSA_TEX_HOM01  ( 15) // sousa_tex_hom01
+#define IDA_D_OPTION_JP_ACT_SOUSA_TEX_SPIN01 ( 16) // sousa_tex_spin01
+#define IDA_D_OPTION_JP_ACT_SOUSA_TEX_SUPER  ( 17) // sousa_tex_super
+#define IDA_D_OPTION_JP_ACT_SOUSA_TEX_JUMP   ( 18) // sousa_tex_jump
+#define IDA_D_OPTION_JP_ACT_SOUSA_TEX_MOVE   ( 19) // sousa_tex_move

@@ -1,0 +1,13 @@
+// root node
+
+// node
+
+// action
+#define IDA_D_CMN_WIN_ACT_BTN01_L        (  0) // btn01_l
+#define IDA_D_CMN_WIN_ACT_BTN01_C        (  1) // btn01_c
+#define IDA_D_CMN_WIN_ACT_BTN01_R        (  2) // btn01_r
+#define IDA_D_CMN_WIN_ACT_BACK_BTN_L     (  3) // back_btn_l
+#define IDA_D_CMN_WIN_ACT_BACK_BTN_C     (  4) // back_btn_c
+#define IDA_D_CMN_WIN_ACT_BACK_BTN_R     (  5) // back_btn_r
+#define IDA_D_CMN_WIN_ACT_STGSLCT_BACK_L (  6) // stgslct_back_l
+#define IDA_D_CMN_WIN_ACT_STGSLCT_BACK_C (  7) // stgslct_back_c

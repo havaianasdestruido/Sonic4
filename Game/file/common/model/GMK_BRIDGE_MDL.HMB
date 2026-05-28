@@ -1,0 +1,30 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_GMK_BRIDGE_MDL
+#define	_IDB_GMK_BRIDGE_MDL
+
+/* Defined File ID */
+#define	IDB_GMK_BRIDGE_MDL_GMK_BRIDGE_ZNO		0		/*  丸太 */
+#define	IDB_GMK_BRIDGE_MDL_GMK_BRIDGE_CUT_ZNO		1		/*  丸太（切欠付き） */
+#define	IDB_GMK_BRIDGE_MDL_GMK_BRIDGE_DECO_ZNO		2		/*  杭 */
+
+/* Defined USR0 Data */
+#define	IDU0_GMK_BRIDGE_MDL_GMK_BRIDGE_ZNO		0		/*  丸太 */
+#define	IDU0_GMK_BRIDGE_MDL_GMK_BRIDGE_CUT_ZNO		0		/*  丸太（切欠付き） */
+#define	IDU0_GMK_BRIDGE_MDL_GMK_BRIDGE_DECO_ZNO		0		/*  杭 */
+
+/* Defined USR1 Data */
+#define	IDU1_GMK_BRIDGE_MDL_GMK_BRIDGE_ZNO		0		/*  丸太 */
+#define	IDU1_GMK_BRIDGE_MDL_GMK_BRIDGE_CUT_ZNO		0		/*  丸太（切欠付き） */
+#define	IDU1_GMK_BRIDGE_MDL_GMK_BRIDGE_DECO_ZNO		0		/*  杭 */
+
+/* Defined File Name */
+#define	IDS_GMK_BRIDGE_MDL_GMK_BRIDGE_ZNO		"GMK_BRIDGE.ZNO"
+#define	IDS_GMK_BRIDGE_MDL_GMK_BRIDGE_CUT_ZNO		"GMK_BRIDGE_CUT.ZNO"
+#define	IDS_GMK_BRIDGE_MDL_GMK_BRIDGE_DECO_ZNO		"GMK_BRIDGE_DECO.ZNO"
+
+#endif	/* _IDB_GMK_BRIDGE_MDL */

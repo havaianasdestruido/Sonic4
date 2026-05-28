@@ -1,0 +1,26 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_SON_MDL
+#define	_IDB_SON_MDL
+
+/* Defined File ID */
+#define	IDB_SON_MDL_SON_MODEL_ZNO		0		/*  */
+#define	IDB_SON_MDL_SON_SPINMODEL_ZNO		1		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_SON_MDL_SON_MODEL_ZNO		0		/*  */
+#define	IDU0_SON_MDL_SON_SPINMODEL_ZNO		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_SON_MDL_SON_MODEL_ZNO		0		/*  */
+#define	IDU1_SON_MDL_SON_SPINMODEL_ZNO		0		/*  */
+
+/* Defined File Name */
+#define	IDS_SON_MDL_SON_MODEL_ZNO		"SON_MODEL.ZNO"
+#define	IDS_SON_MDL_SON_SPINMODEL_ZNO		"SON_SPINMODEL.ZNO"
+
+#endif	/* _IDB_SON_MDL */

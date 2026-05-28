@@ -1,0 +1,30 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_GMK_SW_WALL4_MDL
+#define	_IDB_GMK_SW_WALL4_MDL
+
+/* Defined File ID */
+#define	IDB_GMK_SW_WALL4_MDL_GMK_SW_WALL_4_ZNO		0		/*  ベースブロック */
+#define	IDB_GMK_SW_WALL4_MDL_GMK_SW_WALL_GEAR_ZNO		1		/*  追加パーツ */
+#define	IDB_GMK_SW_WALL4_MDL_GMK_SW_WALL_GEAR_BASE_ZNO		2		/*  追加パーツ */
+
+/* Defined USR0 Data */
+#define	IDU0_GMK_SW_WALL4_MDL_GMK_SW_WALL_4_ZNO		0		/*  ベースブロック */
+#define	IDU0_GMK_SW_WALL4_MDL_GMK_SW_WALL_GEAR_ZNO		0		/*  追加パーツ */
+#define	IDU0_GMK_SW_WALL4_MDL_GMK_SW_WALL_GEAR_BASE_ZNO		0		/*  追加パーツ */
+
+/* Defined USR1 Data */
+#define	IDU1_GMK_SW_WALL4_MDL_GMK_SW_WALL_4_ZNO		0		/*  ベースブロック */
+#define	IDU1_GMK_SW_WALL4_MDL_GMK_SW_WALL_GEAR_ZNO		0		/*  追加パーツ */
+#define	IDU1_GMK_SW_WALL4_MDL_GMK_SW_WALL_GEAR_BASE_ZNO		0		/*  追加パーツ */
+
+/* Defined File Name */
+#define	IDS_GMK_SW_WALL4_MDL_GMK_SW_WALL_4_ZNO		"GMK_SW_WALL_4.ZNO"
+#define	IDS_GMK_SW_WALL4_MDL_GMK_SW_WALL_GEAR_ZNO		"GMK_SW_WALL_GEAR.ZNO"
+#define	IDS_GMK_SW_WALL4_MDL_GMK_SW_WALL_GEAR_BASE_ZNO		"GMK_SW_WALL_GEAR_BASE.ZNO"
+
+#endif	/* _IDB_GMK_SW_WALL4_MDL */

@@ -1,0 +1,30 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_ENE_GABU_MTN
+#define	_IDB_ENE_GABU_MTN
+
+/* Defined File ID */
+#define	IDB_ENE_GABU_MTN_ENE_GABU_DOWN_ZNM		0		/*  */
+#define	IDB_ENE_GABU_MTN_ENE_GABU_UP_ZNM		1		/*  */
+#define	IDB_ENE_GABU_MTN_ENE_GABU_ATK_ZNM		2		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_ENE_GABU_MTN_ENE_GABU_DOWN_ZNM		0		/*  */
+#define	IDU0_ENE_GABU_MTN_ENE_GABU_UP_ZNM		0		/*  */
+#define	IDU0_ENE_GABU_MTN_ENE_GABU_ATK_ZNM		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_ENE_GABU_MTN_ENE_GABU_DOWN_ZNM		0		/*  */
+#define	IDU1_ENE_GABU_MTN_ENE_GABU_UP_ZNM		0		/*  */
+#define	IDU1_ENE_GABU_MTN_ENE_GABU_ATK_ZNM		0		/*  */
+
+/* Defined File Name */
+#define	IDS_ENE_GABU_MTN_ENE_GABU_DOWN_ZNM		"ENE_GABU_DOWN.ZNM"
+#define	IDS_ENE_GABU_MTN_ENE_GABU_UP_ZNM		"ENE_GABU_UP.ZNM"
+#define	IDS_ENE_GABU_MTN_ENE_GABU_ATK_ZNM		"ENE_GABU_ATK.ZNM"
+
+#endif	/* _IDB_ENE_GABU_MTN */

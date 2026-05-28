@@ -1,0 +1,30 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_GMK_SPRING_MDL
+#define	_IDB_GMK_SPRING_MDL
+
+/* Defined File ID */
+#define	IDB_GMK_SPRING_MDL_GMK_SPRING_ZNO		0		/*  */
+#define	IDB_GMK_SPRING_MDL_GMK_SPRING_TILT_ZNO		1		/*  */
+#define	IDB_GMK_SPRING_MDL_GMK_SPRING_TILT_L_ZNO		2		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_GMK_SPRING_MDL_GMK_SPRING_ZNO		0		/*  */
+#define	IDU0_GMK_SPRING_MDL_GMK_SPRING_TILT_ZNO		0		/*  */
+#define	IDU0_GMK_SPRING_MDL_GMK_SPRING_TILT_L_ZNO		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_GMK_SPRING_MDL_GMK_SPRING_ZNO		0		/*  */
+#define	IDU1_GMK_SPRING_MDL_GMK_SPRING_TILT_ZNO		0		/*  */
+#define	IDU1_GMK_SPRING_MDL_GMK_SPRING_TILT_L_ZNO		0		/*  */
+
+/* Defined File Name */
+#define	IDS_GMK_SPRING_MDL_GMK_SPRING_ZNO		"GMK_SPRING.ZNO"
+#define	IDS_GMK_SPRING_MDL_GMK_SPRING_TILT_ZNO		"GMK_SPRING_TILT.ZNO"
+#define	IDS_GMK_SPRING_MDL_GMK_SPRING_TILT_L_ZNO		"GMK_SPRING_TILT_L.ZNO"
+
+#endif	/* _IDB_GMK_SPRING_MDL */

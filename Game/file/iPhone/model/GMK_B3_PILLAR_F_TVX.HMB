@@ -1,0 +1,66 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_GMK_B3_PILLAR_F_TVX
+#define	_IDB_GMK_B3_PILLAR_F_TVX
+
+/* Defined File ID */
+#define	IDB_GMK_B3_PILLAR_F_TVX_GMK_B_PILLAR_F_1V_TVX		0		/*  */
+#define	IDB_GMK_B3_PILLAR_F_TVX_GMK_B_PILLAR_F_2V_TVX		1		/*  */
+#define	IDB_GMK_B3_PILLAR_F_TVX_GMK_B_PILLAR_F_3V_TVX		2		/*  */
+#define	IDB_GMK_B3_PILLAR_F_TVX_GMK_B_PILLAR_F_4V_TVX		3		/*  */
+#define	IDB_GMK_B3_PILLAR_F_TVX_GMK_B_PILLAR_F_1H_TVX		4		/*  */
+#define	IDB_GMK_B3_PILLAR_F_TVX_GMK_B_PILLAR_F_2H_TVX		5		/*  */
+#define	IDB_GMK_B3_PILLAR_F_TVX_GMK_B_PILLAR_F_3H_TVX		6		/*  */
+#define	IDB_GMK_B3_PILLAR_F_TVX_GMK_B_PILLAR_F_4H_TVX		7		/*  */
+#define	IDB_GMK_B3_PILLAR_F_TVX_GMK_B_PILLAR_F_2V_P_TVX		8		/*  */
+#define	IDB_GMK_B3_PILLAR_F_TVX_GMK_B_PILLAR_F_4V_P_TVX		9		/*  */
+#define	IDB_GMK_B3_PILLAR_F_TVX_GMK_B_PILLAR_F_2H_P_TVX		10		/*  */
+#define	IDB_GMK_B3_PILLAR_F_TVX_GMK_B_PILLAR_F_4H_P_TVX		11		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_GMK_B3_PILLAR_F_TVX_GMK_B_PILLAR_F_1V_TVX		0		/*  */
+#define	IDU0_GMK_B3_PILLAR_F_TVX_GMK_B_PILLAR_F_2V_TVX		0		/*  */
+#define	IDU0_GMK_B3_PILLAR_F_TVX_GMK_B_PILLAR_F_3V_TVX		0		/*  */
+#define	IDU0_GMK_B3_PILLAR_F_TVX_GMK_B_PILLAR_F_4V_TVX		0		/*  */
+#define	IDU0_GMK_B3_PILLAR_F_TVX_GMK_B_PILLAR_F_1H_TVX		0		/*  */
+#define	IDU0_GMK_B3_PILLAR_F_TVX_GMK_B_PILLAR_F_2H_TVX		0		/*  */
+#define	IDU0_GMK_B3_PILLAR_F_TVX_GMK_B_PILLAR_F_3H_TVX		0		/*  */
+#define	IDU0_GMK_B3_PILLAR_F_TVX_GMK_B_PILLAR_F_4H_TVX		0		/*  */
+#define	IDU0_GMK_B3_PILLAR_F_TVX_GMK_B_PILLAR_F_2V_P_TVX		0		/*  */
+#define	IDU0_GMK_B3_PILLAR_F_TVX_GMK_B_PILLAR_F_4V_P_TVX		0		/*  */
+#define	IDU0_GMK_B3_PILLAR_F_TVX_GMK_B_PILLAR_F_2H_P_TVX		0		/*  */
+#define	IDU0_GMK_B3_PILLAR_F_TVX_GMK_B_PILLAR_F_4H_P_TVX		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_GMK_B3_PILLAR_F_TVX_GMK_B_PILLAR_F_1V_TVX		0		/*  */
+#define	IDU1_GMK_B3_PILLAR_F_TVX_GMK_B_PILLAR_F_2V_TVX		0		/*  */
+#define	IDU1_GMK_B3_PILLAR_F_TVX_GMK_B_PILLAR_F_3V_TVX		0		/*  */
+#define	IDU1_GMK_B3_PILLAR_F_TVX_GMK_B_PILLAR_F_4V_TVX		0		/*  */
+#define	IDU1_GMK_B3_PILLAR_F_TVX_GMK_B_PILLAR_F_1H_TVX		0		/*  */
+#define	IDU1_GMK_B3_PILLAR_F_TVX_GMK_B_PILLAR_F_2H_TVX		0		/*  */
+#define	IDU1_GMK_B3_PILLAR_F_TVX_GMK_B_PILLAR_F_3H_TVX		0		/*  */
+#define	IDU1_GMK_B3_PILLAR_F_TVX_GMK_B_PILLAR_F_4H_TVX		0		/*  */
+#define	IDU1_GMK_B3_PILLAR_F_TVX_GMK_B_PILLAR_F_2V_P_TVX		0		/*  */
+#define	IDU1_GMK_B3_PILLAR_F_TVX_GMK_B_PILLAR_F_4V_P_TVX		0		/*  */
+#define	IDU1_GMK_B3_PILLAR_F_TVX_GMK_B_PILLAR_F_2H_P_TVX		0		/*  */
+#define	IDU1_GMK_B3_PILLAR_F_TVX_GMK_B_PILLAR_F_4H_P_TVX		0		/*  */
+
+/* Defined File Name */
+#define	IDS_GMK_B3_PILLAR_F_TVX_GMK_B_PILLAR_F_1V_TVX		"GMK_B_PILLAR_F_1V.TVX"
+#define	IDS_GMK_B3_PILLAR_F_TVX_GMK_B_PILLAR_F_2V_TVX		"GMK_B_PILLAR_F_2V.TVX"
+#define	IDS_GMK_B3_PILLAR_F_TVX_GMK_B_PILLAR_F_3V_TVX		"GMK_B_PILLAR_F_3V.TVX"
+#define	IDS_GMK_B3_PILLAR_F_TVX_GMK_B_PILLAR_F_4V_TVX		"GMK_B_PILLAR_F_4V.TVX"
+#define	IDS_GMK_B3_PILLAR_F_TVX_GMK_B_PILLAR_F_1H_TVX		"GMK_B_PILLAR_F_1H.TVX"
+#define	IDS_GMK_B3_PILLAR_F_TVX_GMK_B_PILLAR_F_2H_TVX		"GMK_B_PILLAR_F_2H.TVX"
+#define	IDS_GMK_B3_PILLAR_F_TVX_GMK_B_PILLAR_F_3H_TVX		"GMK_B_PILLAR_F_3H.TVX"
+#define	IDS_GMK_B3_PILLAR_F_TVX_GMK_B_PILLAR_F_4H_TVX		"GMK_B_PILLAR_F_4H.TVX"
+#define	IDS_GMK_B3_PILLAR_F_TVX_GMK_B_PILLAR_F_2V_P_TVX		"GMK_B_PILLAR_F_2V_P.TVX"
+#define	IDS_GMK_B3_PILLAR_F_TVX_GMK_B_PILLAR_F_4V_P_TVX		"GMK_B_PILLAR_F_4V_P.TVX"
+#define	IDS_GMK_B3_PILLAR_F_TVX_GMK_B_PILLAR_F_2H_P_TVX		"GMK_B_PILLAR_F_2H_P.TVX"
+#define	IDS_GMK_B3_PILLAR_F_TVX_GMK_B_PILLAR_F_4H_P_TVX		"GMK_B_PILLAR_F_4H_P.TVX"
+
+#endif	/* _IDB_GMK_B3_PILLAR_F_TVX */

@@ -1,0 +1,38 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_GMK_B_WALL2_MDL
+#define	_IDB_GMK_B_WALL2_MDL
+
+/* Defined File ID */
+#define	IDB_GMK_B_WALL2_MDL_GMK_B_WALL2_H_ZNO		0		/*  */
+#define	IDB_GMK_B_WALL2_MDL_GMK_B_WALL2_V_ZNO		1		/*  */
+#define	IDB_GMK_B_WALL2_MDL_GMK_B_WALL2_P00_ZNO		2		/*  */
+#define	IDB_GMK_B_WALL2_MDL_GMK_B_WALL2_P01_ZNO		3		/*  */
+#define	IDB_GMK_B_WALL2_MDL_GMK_B_WALL2_P02_ZNO		4		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_GMK_B_WALL2_MDL_GMK_B_WALL2_H_ZNO		0		/*  */
+#define	IDU0_GMK_B_WALL2_MDL_GMK_B_WALL2_V_ZNO		0		/*  */
+#define	IDU0_GMK_B_WALL2_MDL_GMK_B_WALL2_P00_ZNO		0		/*  */
+#define	IDU0_GMK_B_WALL2_MDL_GMK_B_WALL2_P01_ZNO		0		/*  */
+#define	IDU0_GMK_B_WALL2_MDL_GMK_B_WALL2_P02_ZNO		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_GMK_B_WALL2_MDL_GMK_B_WALL2_H_ZNO		0		/*  */
+#define	IDU1_GMK_B_WALL2_MDL_GMK_B_WALL2_V_ZNO		0		/*  */
+#define	IDU1_GMK_B_WALL2_MDL_GMK_B_WALL2_P00_ZNO		0		/*  */
+#define	IDU1_GMK_B_WALL2_MDL_GMK_B_WALL2_P01_ZNO		0		/*  */
+#define	IDU1_GMK_B_WALL2_MDL_GMK_B_WALL2_P02_ZNO		0		/*  */
+
+/* Defined File Name */
+#define	IDS_GMK_B_WALL2_MDL_GMK_B_WALL2_H_ZNO		"GMK_B_WALL2_H.ZNO"
+#define	IDS_GMK_B_WALL2_MDL_GMK_B_WALL2_V_ZNO		"GMK_B_WALL2_V.ZNO"
+#define	IDS_GMK_B_WALL2_MDL_GMK_B_WALL2_P00_ZNO		"GMK_B_WALL2_P00.ZNO"
+#define	IDS_GMK_B_WALL2_MDL_GMK_B_WALL2_P01_ZNO		"GMK_B_WALL2_P01.ZNO"
+#define	IDS_GMK_B_WALL2_MDL_GMK_B_WALL2_P02_ZNO		"GMK_B_WALL2_P02.ZNO"
+
+#endif	/* _IDB_GMK_B_WALL2_MDL */

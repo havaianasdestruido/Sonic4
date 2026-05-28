@@ -1,0 +1,22 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_MAPFAR_ZONE2_MAT
+#define	_IDB_MAPFAR_ZONE2_MAT
+
+/* Defined File ID */
+#define	IDB_MAPFAR_ZONE2_MAT_BG_02_WHEEL_INV		0		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_MAPFAR_ZONE2_MAT_BG_02_WHEEL_INV		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_MAPFAR_ZONE2_MAT_BG_02_WHEEL_INV		0		/*  */
+
+/* Defined File Name */
+#define	IDS_MAPFAR_ZONE2_MAT_BG_02_WHEEL_INV		"BG_02_WHEEL.INV"
+
+#endif	/* _IDB_MAPFAR_ZONE2_MAT */

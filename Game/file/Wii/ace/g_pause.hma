@@ -1,0 +1,11 @@
+// root node
+
+// node
+
+// action
+#define IDA_G_PAUSE_ACT_TITLE_BASE   (  0) // title_base
+#define IDA_G_PAUSE_ACT_BTN_BASE     (  1) // btn_base
+#define IDA_G_PAUSE_ACT_BTN_BASE_S   (  2) // btn_base_s
+#define IDA_G_PAUSE_ACT_BTN_BASE_D   (  3) // btn_base_d
+#define IDA_G_PAUSE_ACT_BTN_BASE_D_S (  4) // btn_base_d_s
+#define IDA_G_PAUSE_ACT_BACK         (  5) // back

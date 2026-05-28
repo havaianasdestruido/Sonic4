@@ -1,0 +1,42 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_GMK_PULLEY_MDL
+#define	_IDB_GMK_PULLEY_MDL
+
+/* Defined File ID */
+#define	IDB_GMK_PULLEY_MDL_GMK_PULLEY_ZNO		0		/*  滑車本体 */
+#define	IDB_GMK_PULLEY_MDL_GMK_PULLEY_ROT_ZNO		1		/*  滑車プーリー */
+#define	IDB_GMK_PULLEY_MDL_GMK_PULLEY_L_ZNO		2		/*  ポール右 */
+#define	IDB_GMK_PULLEY_MDL_GMK_PULLEY_R_ZNO		3		/*  ポール左 */
+#define	IDB_GMK_PULLEY_MDL_GMK_PULLEY_ROPE_ZNO		4		/*  ロープ並行 */
+#define	IDB_GMK_PULLEY_MDL_GMK_PULLEY_ROPE_SL_ZNO		5		/*  ロープ斜め */
+
+/* Defined USR0 Data */
+#define	IDU0_GMK_PULLEY_MDL_GMK_PULLEY_ZNO		0		/*  滑車本体 */
+#define	IDU0_GMK_PULLEY_MDL_GMK_PULLEY_ROT_ZNO		0		/*  滑車プーリー */
+#define	IDU0_GMK_PULLEY_MDL_GMK_PULLEY_L_ZNO		0		/*  ポール右 */
+#define	IDU0_GMK_PULLEY_MDL_GMK_PULLEY_R_ZNO		0		/*  ポール左 */
+#define	IDU0_GMK_PULLEY_MDL_GMK_PULLEY_ROPE_ZNO		0		/*  ロープ並行 */
+#define	IDU0_GMK_PULLEY_MDL_GMK_PULLEY_ROPE_SL_ZNO		0		/*  ロープ斜め */
+
+/* Defined USR1 Data */
+#define	IDU1_GMK_PULLEY_MDL_GMK_PULLEY_ZNO		0		/*  滑車本体 */
+#define	IDU1_GMK_PULLEY_MDL_GMK_PULLEY_ROT_ZNO		0		/*  滑車プーリー */
+#define	IDU1_GMK_PULLEY_MDL_GMK_PULLEY_L_ZNO		0		/*  ポール右 */
+#define	IDU1_GMK_PULLEY_MDL_GMK_PULLEY_R_ZNO		0		/*  ポール左 */
+#define	IDU1_GMK_PULLEY_MDL_GMK_PULLEY_ROPE_ZNO		0		/*  ロープ並行 */
+#define	IDU1_GMK_PULLEY_MDL_GMK_PULLEY_ROPE_SL_ZNO		0		/*  ロープ斜め */
+
+/* Defined File Name */
+#define	IDS_GMK_PULLEY_MDL_GMK_PULLEY_ZNO		"GMK_PULLEY.ZNO"
+#define	IDS_GMK_PULLEY_MDL_GMK_PULLEY_ROT_ZNO		"GMK_PULLEY_ROT.ZNO"
+#define	IDS_GMK_PULLEY_MDL_GMK_PULLEY_L_ZNO		"GMK_PULLEY_L.ZNO"
+#define	IDS_GMK_PULLEY_MDL_GMK_PULLEY_R_ZNO		"GMK_PULLEY_R.ZNO"
+#define	IDS_GMK_PULLEY_MDL_GMK_PULLEY_ROPE_ZNO		"GMK_PULLEY_ROPE.ZNO"
+#define	IDS_GMK_PULLEY_MDL_GMK_PULLEY_ROPE_SL_ZNO		"GMK_PULLEY_ROPE_SL.ZNO"
+
+#endif	/* _IDB_GMK_PULLEY_MDL */

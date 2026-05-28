@@ -1,0 +1,12 @@
+// root node
+
+// node
+
+// action
+#define IDA_D_TITLE_JP_ACT_TEX_GAME     (  0) // tex_game
+#define IDA_D_TITLE_JP_ACT_TEX_GAME2    (  1) // tex_game2
+#define IDA_D_TITLE_JP_ACT_TEX_OPTION   (  2) // tex_option
+#define IDA_D_TITLE_JP_ACT_TEX_OPTION2  (  3) // tex_option2
+#define IDA_D_TITLE_JP_ACT_TEX_RANKING  (  4) // tex_ranking
+#define IDA_D_TITLE_JP_ACT_TEX_RANKING2 (  5) // tex_ranking2
+#define IDA_D_TITLE_JP_ACT_TEX_START    (  6) // tex_start

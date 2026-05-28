@@ -1,0 +1,11 @@
+// root node
+
+// node
+
+// action
+#define IDA_D_COMP_ACT_BTN_BUY_L    (  0) // btn_buy_l
+#define IDA_D_COMP_ACT_BTN_BUY_C    (  1) // btn_buy_c
+#define IDA_D_COMP_ACT_BTN_BUY_R    (  2) // btn_buy_r
+#define IDA_D_COMP_ACT_BTN_RETURN_L (  3) // btn_return_l
+#define IDA_D_COMP_ACT_BTN_RETURN_C (  4) // btn_return_c
+#define IDA_D_COMP_ACT_BTN_RETURN_R (  5) // btn_return_r

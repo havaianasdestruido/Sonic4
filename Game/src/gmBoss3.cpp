@@ -1,0 +1,4389 @@
+// ==========================================================================
+/*!
+  @file gmBoss3.cpp
+  @brief É{ÉX3
+
+  @author Hanaoka
+				Copyright(c) 2009 Dimps
+
+  $Id: gmBoss3.cpp 2 2011-04-11 05:21:26Z thamada $
+  $Date: 2011-04-11 14:21:26 +0900 (Êúà, 11 4 2011) $
+ */
+// ==========================================================================
+/*
+ * Memo
+ */
+
+
+//----- Include Files -------------------------------------------------------
+#include "pch.h"
+#include "akMath.h"
+#include "gs.h"
+#include "gmMain.h"
+#include "gmGameDBuild.h"
+#include "gmGamedat.h"
+#include "gmEventTbl.h"
+#include "gmCamera.h"
+#include "gmSound.h"
+#include "gmEnemy.h"
+#include "gmEffect.h"
+#include "gmEffectCmn.h"
+#include "gmEffectBoss.h"
+#include "gmBossCommon.h"
+#include "gmPlySeq.h"
+#include "gmPlySeqGmk.h"
+#include "gmPlyScoreDef.h"
+#include "hgTrophy.h"
+#include "gmPadVib.h"
+#include "gmMap.h"
+#if _IPHONE
+#include "gmWaterSurface.h"
+#endif //_IPHONE
+#include "gmGmkCamScrLim.h"
+#include "gmGmkBoss3Pillar.h"
+
+#include "gmBoss3.h"
+
+// ÉfÅ[É^ÉwÉbÉ_
+#include "../file/common/arc/BOSS03.hmb"
+#include "../file/common/model/BOSS03_MDL.hmb"
+#include "../file/common/model/BOSS03_BODY_MTN.hmb"
+#include "../file/common/model/BOSS03_EGG_MTN.hmb"
+
+
+//----- Definitions ---------------------------------------------------------
+
+#define _BOSS3_TEST_STOP_MOVE	(0)	//ÉeÉXÉgópÉ{ÉXà⁄ìÆí‚é~
+#define _BOSS3_TEST_DEFEAT		(0)	//ÉeÉXÉgópÉ{ÉXëÃóÕ1
+
+
+
+// =======================================================================
+//ã§í 
+// =======================================================================
+#define GMD_BOSS3_BLEND_SPD					((Float)0.125f)		//ÉÇÅ[ÉVÉáÉìÉuÉåÉìÉhë¨ìx
+
+//ÉpÅ[ÉcÉCÉìÉfÉbÉNÉX
+enum GME_BOSS3_PART_IDX{
+	GMD_BOSS3_PART_IDX_BODY	= 0,	//ñ{ëÃ
+	GMD_BOSS3_PART_IDX_EGG,			//ÉGÉbÉOÉ}Éì
+	
+	GMD_BOSS3_PART_IDX_MAX
+};
+
+//ÉAÉNÉVÉáÉìID
+enum GME_BOSS3_ACT_ID{
+	GMD_BOSS3_ACT_ID_START	= 0,		//äJénââèoÅiìoèÍÅj
+	GMD_BOSS3_ACT_ID_MOVE,				//à⁄ìÆ
+
+	GMD_BOSS3_ACT_ID_PRE_BATTLE,		//ÉoÉgÉãëOââèo
+
+	GMD_BOSS3_ACT_ID_SEARCH_L,			//íTÇ∑
+	GMD_BOSS3_ACT_ID_SEARCH_R,			//íTÇ∑
+	GMD_BOSS3_ACT_ID_SIGN,				//çáê}
+	GMD_BOSS3_ACT_ID_LAUGH_L,			//èŒÇ¢
+	GMD_BOSS3_ACT_ID_LAUGH_R,			//èŒÇ¢
+
+	GMD_BOSS3_ACT_ID_ESCAPE,			//ì¶ñS
+
+	GMD_BOSS3_ACT_ID_MAX
+};
+enum GME_BOSS3_EGG_ACT_ID{
+	GMD_BOSS3_EGG_ACT_ID_LAUGH_L = 0,	//èŒÇ¢
+	GMD_BOSS3_EGG_ACT_ID_LAUGH_R,		//èŒÇ¢
+	GMD_BOSS3_EGG_ACT_ID_DAMAGE,		//É_ÉÅÅ[ÉW
+	
+	GMD_BOSS3_EGG_ACT_ID_MAX
+};
+
+// =======================================================================
+//ä«óù
+// =======================================================================
+#define GMD_BOSS3_MGR_LIFE_CHASE	( 6 )				//É{ÉXëÃóÕÅií«ê’Åj
+#define GMD_BOSS3_MGR_LIFE_BATTLE	( 2 )				//É{ÉXëÃóÕÅiÉoÉgÉãÅj
+#if	_BOSS3_TEST_DEFEAT
+	#define GMD_BOSS3_MGR_LIFE			( 1 )
+#else
+	#define GMD_BOSS3_MGR_LIFE			( GMD_BOSS3_MGR_LIFE_CHASE + GMD_BOSS3_MGR_LIFE_BATTLE )	//É{ÉXëÃóÕ
+	#define GMD_BOSS3_MGR_LIFE_FINAL	( 4 )	//É{ÉXëÃóÕÅiÉtÉ@ÉCÉiÉãÉ]Å[ÉìÅj
+#endif	//_BOSS3_TEST_DEFEAT
+
+//ÉtÉâÉO
+#define GMD_BOSS3_MGR_FLAG_SETUP_COMPLETE	(1 << 0)	//ê∂ê¨äÆóπ
+#define GMD_BOSS3_MGR_FLAG_CLEAR_BOSS		(1 << 1)	//çÌèúÉtÉâÉO
+
+// =======================================================================
+//ñ{ëÃ
+// =======================================================================
+#define GMD_BOSS3_ANGLE_LEFT						(AKM_DEGtoA16(300.f))	//ç∂å¸Ç´äpìx
+#define GMD_BOSS3_ANGLE_RIGHT						(AKM_DEGtoA16(60.f))	//âEå¸Ç´äpìx
+#define GMD_BOSS3_BODY_MOVE_AREA_LIMIT_WIDTH		((fx32)80*FX32_ONE)		//à⁄ìÆîÕàÕ
+#define GMD_BOSS3_BODY_FIELD_RECT_SIZE				(24)					//ínå`ï”ÇË
+#define GMD_BOSS3_EFFECT_CLIP_OFFSET				(64)					//âÊñ äOîªíËÉIÉtÉZÉbÉg 
+
+//ÉmÅ[ÉhÉ}ÉgÉäÉNÉX
+enum GME_BOSS3_BODY_SNM_INDEX{				
+	GMD_BOSS3_BODY_SNM_INDEX_BODY = 0,		//ñ{ëÃê⁄ë±ÅiÉGÉbÉOÉ}ÉìÅAÉAÉtÉ^ÉoÅ[ÉiÅj
+	GMD_BOSS3_BODY_SNM_INDEX_MAX,
+};
+#define GMD_BOSS3_BODY_NODE_CNM_NUM			(0)	//ÉmÅ[ÉhÉ}ÉgÉäÉNÉXëÄçÏèàóùÇ…ìoò^Ç∑ÇÈÉmÅ[Éhêî
+
+//à⁄ìÆíl
+#if _BOSS3_TEST_STOP_MOVE
+	#define GMD_BOSS3_BODY_CHASE_MOVE_SPEED			((fx32)(0*FX32_ONE))	//ÉXÉsÅ[Éh
+	#define GMD_BOSS3_BODY_CHASE_MOVE_SPEED_ESCAPE	((fx32)(0*FX32_ONE))	//ÉXÉsÅ[Éh
+	#define GMD_BOSS3_BODY_BATTLE_MOVE_SPEED_MOVE	((fx32)0*FX32_ONE)		//í èÌèÛë‘ÇÃà⁄ìÆó 
+#else
+	#define GMD_BOSS3_BODY_CHASE_MOVE_SPEED			((fx32)(1.6f*FX32_ONE))	//ÉXÉsÅ[Éh
+	#define GMD_BOSS3_BODY_CHASE_MOVE_SPEED_ESCAPE	((fx32)(1.6f*FX32_ONE))	//ÉXÉsÅ[Éh
+	#define GMD_BOSS3_BODY_BATTLE_MOVE_SPEED_MOVE	((fx32)1.6f*FX32_ONE)		//í èÌèÛë‘ÇÃà⁄ìÆó 
+#endif	//_BOSS3_TEST_STOP_MOVE
+
+//äJén
+#define GMD_BOSS3_BODY_START_TIME_WAIT_END			(180)				//èIóπë“ã@éûä‘
+#define GMD_BOSS3_BODY_START_WAIT_OUT_OFFSET		(64)				//âÊñ äOîªíËóp
+
+//à⁄ìÆ
+#define GMD_BOSS3_BODY_FRAME_TURN				(60.0f)					//ï˚å¸ì]ä∑ÉtÉåÅ[ÉÄêî
+#define GMD_BOSS3_BODY_FRAME_DRIFT				(60.0f)					//ÉhÉäÉtÉgÉtÉåÅ[ÉÄêî
+//í«ê’
+#define GMD_BOSS3_CHASE_ADJUST_SPEED			(0.2f)					//É_ÉÅÅ[ÉWéÛÇØÇΩç€ÇÃà⁄ìÆílï‚ê≥
+
+//ÉoÉgÉã
+#define GMD_BOSS3_BATTLE_MOVE_NUM				(2)						//ÉoÉgÉãÇ…Ç®ÇØÇÈç≈ëÂà⁄ìÆâÒêî
+
+#if _IPHONE
+#define GMD_BOSS3_BODY_BATTLE_CAMERA_SCALE		(0.85f)					//ÉJÉÅÉâÉXÉPÅ[Éã
+#else
+#define GMD_BOSS3_BODY_BATTLE_CAMERA_SCALE		(0.73f)					//ÉJÉÅÉâÉXÉPÅ[Éã
+#endif //_IPHONE
+#define GMD_BOSS3_BODY_BATTLE_CAMERA_FRAME		(60.0f)					//ÉJÉÅÉâÉXÉPÅ[ÉãÉtÉåÅ[ÉÄ
+
+#define GMD_BOSS3_BATTLE_FRAME_WAIT_START			(120)					//äJénë“Çø
+#define GMD_BOSS3_BATTLE_FRAME_WAIT_ACTIVE			(240)					//íåÇ™èoÇÈéûÇÃë“Çø
+#define GMD_BOSS3_BATTLE_FRAME_WAIT_ACTIVE_FINAL	(150)					//íåÇ™èoÇÈéûÇÃë“Çø
+#define GMD_BOSS3_BATTLE_FRAME_WAIT					(120)					//í‚é~éûÇÃë“Çø
+#define GMD_BOSS3_BATTLE_FRAME_WAIT_RETURN			(30)					//íåÇ™ñﬂÇÈÇÃë“Çø
+
+
+//É_ÉÅÅ[ÉW
+#define GMD_BOSS3_BODY_DEF_PLAYER_MOVE_X_HOMING		((fx32)3*FX32_ONE)	//Ç≠ÇÁÇ¢éûÉvÉåÉCÉÑà⁄ìÆó 
+#define GMD_BOSS3_BODY_DEF_PLAYER_MOVE_Y_HOMING		((fx32)3*FX32_ONE)	//Ç≠ÇÁÇ¢éûÉvÉåÉCÉÑà⁄ìÆó 
+#define GMD_BOSS3_BODY_DEF_PLAYER_MOVE_X_NORMAL		((fx32)(0.5f*FX32_ONE))	//Ç≠ÇÁÇ¢éûÉvÉåÉCÉÑà⁄ìÆó 
+#define GMD_BOSS3_BODY_DEF_PLAYER_MOVE_Y_NORMAL		((fx32)(0.3f*FX32_ONE))	//Ç≠ÇÁÇ¢éûÉvÉåÉCÉÑà⁄ìÆó 
+#define GMD_BOSS3_BODY_DEF_PLAYER_NO_JUMP_MOVE_TIME	((fx32)25*FX32_ONE)	//Ç≠ÇÁÇ¢éûÉvÉåÉCÉÑÇ™ÉWÉÉÉìÉvà⁄ìÆÇ≈Ç´Ç»Ç¢éûä‘
+#define GMD_BOSS3_BODY_DEF_NO_HIT_TIME				((u32)10)			//Ç≠ÇÁÇ¢éûÉqÉbÉgñ≥å¯éûä‘
+#define GMD_BOSS3_BODY_INVINVIBLE_TIME				((u32)120)			//ñ≥ìGéûä‘
+#define GMD_BOSS3_BODY_DMG_FLICKER_RADIUS			((Float)32.0f)		//ì_ñ≈èàóùîºåa
+
+//åÇîj
+#define GMD_BOSS3_BODY_DEFEAT_TIME_WAIT_START		((s32)40)				//äJénë“Çøéûä‘
+#define GMD_BOSS3_BODY_DEFEAT_TIME_WAIT_BOMB		((s32)120)				//îöî≠ë“Çøéûä‘
+#define GMD_BOSS3_BODY_DEFEAT_TIME_WAIT_SCATTER		((s32)40)				//ÇŒÇÁéTÇ´ë“Çøéûä‘
+#define GMD_BOSS3_BODY_DEFEAT_TIME_WAIT_END			((s32)120)				//èIóπë“Çøéûä‘
+#define GMD_BOSS3_BODY_DEFEAT_FALL_POS_Y			((fx32)450*FX32_ONE)	//óéâ∫ç¿ïW
+
+//ëÂîöî≠
+#define GMD_BOSS3_BODY_DEFEAT_FLASH_INTO_TIME		(4)						// åÇîjÇÃÉtÉâÉbÉVÉÖäÆëSÇ…îíÇ…Ç»ÇÈÇ‹Ç≈ÇÃÉtÉåÅ[ÉÄ
+#define GMD_BOSS3_BODY_DEFEAT_FLASH_KEEP_TIME		(5)						// åÇîjÇÃÉtÉâÉbÉVÉÖäÆëSÇ…îíÇÃä‘ÇÃÉtÉåÅ[ÉÄ
+#define GMD_BOSS3_BODY_DEFEAT_FLASH_RETURN_TIME		(30)	
+
+//ì¶ñS
+#define GMD_BOSS3_BODY_ESCAPE_SCROLL_UNLOCK_DISTANCE	((fx32)(-32.0f*FX32_ONE))	//ÉXÉNÉçÅ[ÉãÉçÉbÉNâèúÇ∑ÇÈãóó£ÅiâÊñ âEÇ©ÇÁÅj
+#define GMD_BOSS3_BODY_ESCAPE_SPD_X_ADD					((fx32)(0.08f*FX32_ONE))		//ÉXÉsÅ[Éhç≈ëÂíl
+#define GMD_BOSS3_BODY_ESCAPE_SPD_Y_ADD					((fx32)(-0.01f*FX32_ONE))	//ÉXÉsÅ[Éhç≈ëÂíl
+#define GMD_BOSS3_BODY_ESCAPE_SPD_X_MAX					((fx32)(1.5f*FX32_ONE))	//ÉXÉsÅ[Éhç≈ëÂíl
+#define GMD_BOSS3_BODY_ESCAPE_SPD_Y_MAX					((fx32)(-0.3f*FX32_ONE))	//ÉXÉsÅ[Éhç≈ëÂíl
+#define GMD_BOSS3_BODY_ESCAPE_SCREEN_OUT_LENGTH			((s32)(64))		//âÊñ äOîªíËãóó£
+
+//ÉtÉâÉO
+#define GMD_BOSS3_BODY_FLAG_INVINCIBLE				(1 << 0)	//ñ≥ìGèÛë‘ÅiìñÇΩÇËÇÕÇ†ÇÈÇ™ÅAÉâÉCÉtÇÕå∏ÇÁÇ»Ç¢Åj
+#define GMD_BOSS3_BODY_FLAG_AFTERBURNER_ACTIVE		(1 << 1)	//ÉAÉtÉ^ÉoÅ[ÉiÉGÉtÉFÉNÉgóLå¯íÜ
+#define GMD_BOSS3_BODY_FLAG_NOATTACK				(1 << 4)	//çUåÇÇµÇ»Ç¢
+
+//ÉVÉOÉiÉã
+#define GMD_BOSS3_BODY_FLAG_SIGNAL_B2E_ESCAPE		(1 << 23)	//ì¶ñSí ím
+#define GMD_BOSS3_BODY_FLAG_SIGNAL_B2E_BURNT		(1 << 24)	//çïÇ±Ç∞ÉeÉNÉXÉ`ÉÉÇ÷ÇÃïœçXí ím
+#define GMD_BOSS3_BODY_FLAG_SIGNAL_B2B_AFTERBURNER	(1 << 25)	//ÉAÉtÉ^ÉoÅ[ÉiÉGÉtÉFÉNÉgê∂ê¨í ím
+#define GMD_BOSS3_BODY_FLAG_SIGNAL_B2B_SCATTER		(1 << 27)	//ÉpÅ[ÉcîÚéUí ím
+#define GMD_BOSS3_BODY_FLAG_SIGNAL_B2E_HIT			(1 << 28)	//ÉqÉbÉgí ím
+#define GMD_BOSS3_BODY_FLAG_SIGNAL_B2E_DAMAGE		(1 << 29)	//É_ÉÅÅ[ÉWí ím
+#define GMD_BOSS3_BODY_FLAG_SIGNAL_B2B_DAMAGE		(1 << 30)	//É_ÉÅÅ[ÉWí ím
+#define GMD_BOSS3_BODY_FLAG_SIGNAL_B2B_DEFEAT		(1 << 31)	//åÇîjí ím
+
+
+
+//èÛë‘
+enum GME_BOSS3_BODY_STATE{
+	GMD_BOSS3_BODY_STATE_NO_OPERATION = 0,		//âΩÇ‡ÇµÇ»Ç¢
+	GMD_BOSS3_BODY_STATE_START,					//äJén
+
+	GMD_BOSS3_BODY_STATE_CHASE_MOVE,			//í«ê’à⁄ìÆ
+
+	GMD_BOSS3_BODY_STATE_PRE_BATTLE,			//ÉoÉgÉãëOââèo
+	GMD_BOSS3_BODY_STATE_BATTLE,				//ÉoÉgÉãà⁄ìÆ
+
+	GMD_BOSS3_BODY_STATE_DEFEAT,				//åÇîj
+	GMD_BOSS3_BODY_STATE_ESCAPE,				//ì¶ñS
+	
+	GMD_BOSS3_BODY_STATE_MAX
+};
+
+// =======================================================================
+//ÉGÉbÉOÉ}Éì
+// =======================================================================
+//ÉtÉâÉO
+#define GMD_BOSS3_EGG_FLAG_EGG_ACT_ACTIVE	(1 << 0)	//êÍópÉAÉNÉVÉáÉìíÜÉtÉâÉO
+#define GMD_BOSS3_EGG_FLAG_SWEAT_ACTIVE		(1 << 1)	//äæÉGÉtÉFÉNÉgóLå¯íÜÉtÉâÉO
+
+//ÉVÅ[ÉPÉìÉX
+enum GME_BOSS3_EGGMAN_SEQ{
+	GMD_BOSS3_EGGMAN_SEQ_IDLE = 0,	//ë“ã@
+
+	GMD_BOSS3_EGGMAN_SEQ_MAX
+};
+
+// =======================================================================
+//ÉGÉtÉFÉNÉg
+// =======================================================================
+#define GMD_BOSS3_EFFECT_BOMB_OFFSET_Z						((fx32)(FX32_ONE * 32))	//îöî≠ÉGÉtÉFÉNÉgç¿ïW
+
+#define GMD_BOSS3_EFFECT_SWEAT_DIST_OFFSET_Y				((Float)32.f)	//äæÉGÉtÉFÉNÉgï\é¶ç¿ïW
+#define GMD_BOSS3_EFFECT_AFTERBURNER_DIST_OFFSET_Z			((Float)-30.f)	//ÉAÉtÉ^ÉoÅ[ÉiÉGÉtÉFÉNÉgï\é¶ç¿ïW
+#define GMD_BOSS3_EFFECT_AFTERBURNER_SMOKE_DIST_OFFSET_Z	((Float)-32.f)	//ÉAÉtÉ^ÉoÅ[ÉiâåÉGÉtÉFÉNÉgï\é¶ç¿ïW
+#define GMD_BOSS3_EFFECT_BODY_SMOKE_DIST_OFFSET_Z			((Float)-32.f)	//ñ{ëÃâåÉGÉtÉFÉNÉgï\é¶ç¿ïW
+
+#define	GMD_BOSS3_SCATTER_SPEED								(1.0f)			//îÚéUÉGÉtÉFÉNÉgë¨ìx
+
+// =======================================================================
+//ç\ë¢ëÃ
+// =======================================================================
+//ÉpÅ[ÉcÉAÉNÉVÉáÉìèÓïÒç\ë¢ëÃ
+typedef struct tag_GMS_BOSS3_PART_ACT_INFO
+{
+	Uint16 mtn_id;			///< ÉÇÅ[ÉVÉáÉìî‘çÜ
+	Uint8 is_maintain;		///< ëOÇÃÉAÉNÉVÉáÉìåpë±
+	Uint8 is_repeat;		///< ÉäÉsÅ[Ég
+	Float mtn_spd;			///< ÉÇÅ[ÉVÉáÉìçƒê∂ë¨ìx
+	BOOL is_blend;			///< ÉuÉåÉìÉhóLñ≥
+	Float blend_spd;		///< ÉuÉåÉìÉhë¨ìx
+	BOOL is_merge_manual;	///< É}ÉjÉÖÉAÉãÉ}Å[ÉWóLñ≥Åiñ¢é¿ëïÅj
+}GMS_BOSS3_PART_ACT_INFO;
+
+typedef struct tag_GMS_BOSS3_EFF_BOMB_WORK GMS_BOSS3_EFF_BOMB_WORK;
+typedef struct tag_GMS_BOSS3_MGR_WORK GMS_BOSS3_MGR_WORK;
+typedef struct tag_GMS_BOSS3_BODY_WORK GMS_BOSS3_BODY_WORK;
+typedef struct tag_GMS_BOSS3_EGG_WORK GMS_BOSS3_EGG_WORK;
+
+//èÛë‘ópä÷êî
+typedef void (*GMF_BOSS3_BODY_STATE_FUNC)(GMS_BOSS3_BODY_WORK* body_work);		
+typedef void (*GMF_BOSS3_EGG_STATE_FUNC)(GMS_BOSS3_EGG_WORK* egg_work);	
+
+//îöî≠ÉGÉtÉFÉNÉgÉèÅ[ÉN
+struct tag_GMS_BOSS3_EFF_BOMB_WORK
+{
+	OBS_OBJECT_WORK* parent_obj;
+	Uint32 interval_timer;
+	Uint32 interval_min;
+	Uint32 interval_max;
+	fx32 pos[MTD_XY];
+	fx32 area[MTD_WH];
+};
+
+//ä«óùÉèÅ[ÉN
+struct tag_GMS_BOSS3_MGR_WORK
+{
+	GMS_ENEMY_3D_WORK ene_3d;		///< ÉGÉlÉ~Å[ÉèÅ[ÉN
+	Sint32 life;					///< ÉâÉCÉt	
+	Uint32 flag;					///< ÉtÉâÉO
+	GMS_BOSS3_BODY_WORK* body_work;	///< ñ{ëÃÉèÅ[ÉN
+
+	s32 obj_create_count;			///< ÉIÉuÉWÉFÉNÉgê∂ê¨êî
+};
+
+//ñ{ëÃÉèÅ[ÉN
+struct tag_GMS_BOSS3_BODY_WORK
+{
+	GMS_ENEMY_3D_WORK ene_3d;				///< ÉGÉlÉ~Å[ÉèÅ[ÉN
+
+	OBS_OBJECT_WORK* parts_objs[GMD_BOSS3_PART_IDX_MAX];	///< éqÉIÉuÉWÉFÉèÅ[ÉN
+
+	GME_BOSS3_BODY_STATE state;				///< èÛë‘
+	GME_BOSS3_BODY_STATE prev_state;		///< ëOâÒÇÃèÛë‘
+	GMF_BOSS3_BODY_STATE_FUNC proc_update;	///< çXêVä÷êî
+	u32 flag;								///< ÉtÉâÉO
+	GME_BOSS3_ACT_ID action_id;				///< ÉAÉNÉVÉáÉìID
+
+	s32 pattern_no;							///< ÉoÉgÉãÉpÉ^Å[Éìî‘çÜ
+
+	//å¸Ç´
+	Angle16 angle_current;					///< åªç›ÇÃå¸Ç´
+
+	//à⁄ìÆópèÓïÒ
+	VecFx32 start_pos;						///< à⁄ìÆäJénç¿ïW
+	VecFx32 end_pos;						///< à⁄ìÆèIóπç¿ïW
+	Float move_counter;						///< à⁄ìÆópÉJÉEÉìÉ^
+	Float move_frame;						///< à⁄ìÆÇÃÉtÉåÅ[ÉÄêî
+
+	//ï˚å¸ì]ä∑ópèÓïÒ
+	Angle16 turn_start;						///< ï˚å¸ì]ä∑äJénéûÇÃäpìx
+	Angle32 turn_amount;					///< ï˚å¸ì]ä∑Ç∑ÇÈëçó 
+	Float turn_counter;						///< ï˚å¸ì]ä∑ópÉJÉEÉìÉ^
+	Float turn_frame;						///< ï˚å¸ì]ä∑ÇÃÉtÉåÅ[ÉÄêî
+#if _IPHONE
+	BOOL is_move;							///< à⁄ìÆÇ∑ÇÈÇ©î€Ç©
+#endif // _IPHONE
+
+	//ÉmÅ[ÉhÉ}ÉgÉäÉNÉXån
+	GMS_BS_CMN_BMCB_MGR bmcb_mgr;			///< É{ÉXÉÇÅ[ÉVÉáÉìÉRÅ[ÉãÉoÉbÉNä«óù
+	GMS_BS_CMN_SNM_WORK snm_work;			///< ÉmÅ[ÉhÉ}ÉgÉäÉNÉXéÊìæèàóùÉèÅ[ÉN
+	s32 snm_reg_id[GMD_BOSS3_BODY_SNM_INDEX_MAX];	///< ê⁄ë±ÉmÅ[ÉhID
+
+	//É_ÉÅÅ[ÉWån
+	GMS_BS_CMN_DMG_FLICKER_WORK flk_work;	///< É_ÉÅÅ[ÉWì_ñ≈ÉèÅ[ÉN
+	u32 counter_no_hit;						///< HITñ≥å¯éûä‘ÉJÉEÉìÉ^
+	u32 counter_invincible;					///< ñ≥ìGéûä‘ÉJÉEÉìÉ^
+	
+	GMS_CMN_FLASH_SCR_WORK flash_work;		///< ÉtÉâÉbÉVÉÖÉèÅ[ÉN
+
+	//ÉGÉtÉFÉNÉg
+	GMS_BOSS3_EFF_BOMB_WORK bomb_work;		//!< îöî≠èàóùÉèÅ[ÉN
+};
+
+//ÉGÉbÉOÉ}ÉìÉèÅ[ÉN
+struct tag_GMS_BOSS3_EGG_WORK
+{
+	GMS_ENEMY_3D_WORK ene_3d;				///< ÉGÉlÉ~Å[ÉèÅ[ÉN
+	GME_BOSS3_EGG_ACT_ID egg_action_id;		///< êÍópÉAÉNÉVÉáÉì
+	Uint32 flag;							///< ÉtÉâÉO
+
+	GMF_BOSS3_EGG_STATE_FUNC proc_update;	///< çXêVä÷êî
+};
+
+//----- Macros --------------------------------------------------------------
+
+//----- Macros Functions ----------------------------------------------------
+
+//----- External Declarations -----------------------------------------------
+
+
+// =======================================================================
+//É{ÉX
+// =======================================================================
+static void* GmBoss3GetGameDatEnemyArc( void );
+static void gmBoss3ChangeTextureBurnt( OBS_OBJECT_WORK *obj_work );
+
+static void gmBoss3ExitFunc( MTS_TASK_TCB *tcb );
+
+// =======================================================================
+//ä«óù
+// =======================================================================
+static BOOL gmBoss3MgrCheckSetupComplete( GMS_BOSS3_MGR_WORK* mgr_work );
+static GMS_BOSS3_MGR_WORK* gmBoss3MgrGetMgrWork( OBS_OBJECT_WORK* obj_work_parts );
+static void gmBoss3MgrAddObject( GMS_BOSS3_MGR_WORK* mgr_work, OBS_OBJECT_WORK* obj_work_parts );
+static void gmBoss3MgrDeleteObject( OBS_OBJECT_WORK* obj_work_parts );
+static void gmBoss3MgrMainFuncWaitLoad( OBS_OBJECT_WORK* obj_work );
+static void gmBoss3MgrMainFuncWaitSetup( OBS_OBJECT_WORK* obj_work );
+static void gmBoss3MgrMainFunc( OBS_OBJECT_WORK* obj_work );
+static void gmBoss3MgrMainFuncWaitRelease( OBS_OBJECT_WORK* obj_work );
+
+// =======================================================================
+//ñ{ëÃ
+// =======================================================================
+static void gmBoss3BodyExit( MTS_TASK_TCB* tcb );
+static void gmBoss3BodyReactionPlayer( OBS_OBJECT_WORK* obj_work_player, const OBS_OBJECT_WORK* obj_work_body );
+static void gmBoss3BodySetRectNormal( GMS_BOSS3_BODY_WORK* body_work );
+extern void gmBoss3BodySetActionAllParts(
+								  GMS_BOSS3_BODY_WORK* body_work,
+								  GME_BOSS3_ACT_ID action_id,
+								  BOOL force_change	= FALSE );
+static void gmBoss3BodyOutFunc( OBS_OBJECT_WORK* obj_work );
+static void gmBoss3BodyChaseMoveFunc( OBS_OBJECT_WORK* obj_work );
+static void gmBoss3BodyDefFunc( OBS_RECT_WORK* own_rect, OBS_RECT_WORK* target_rect );
+
+//çUåÇñ≥å¯
+static void gmBoss3BodySetNoHitTime( GMS_BOSS3_BODY_WORK *body_work, u32 time );
+static void gmBoss3BodyUpdateNoHitTime( GMS_BOSS3_BODY_WORK* body_work );
+static void gmBoss3BodySetInvincibleTime( GMS_BOSS3_BODY_WORK *body_work, u32 time );
+static void gmBoss3BodyUpdateInvincibleTime( GMS_BOSS3_BODY_WORK* body_work );
+
+
+//å¸Ç´
+static void gmBoss3BodySetDirection( GMS_BOSS3_BODY_WORK* body_work, Angle16 deg );
+static void gmBoss3BodySetDirectionNormal( GMS_BOSS3_BODY_WORK* body_work );
+static void gmBoss3BodyUpdateDirection( GMS_BOSS3_BODY_WORK* body_work );
+
+//ç¿ïWà⁄ìÆ
+static Float gmBoss3BodyCalcMoveXNormalFrame( 
+									const GMS_BOSS3_BODY_WORK* body_work,
+									fx32 x,
+									fx32 speed );
+static void gmBoss3BodyInitMoveNormal(
+						 GMS_BOSS3_BODY_WORK* body_work, 
+						 const VecFx32* dest_pos,
+						 Float frame );
+static Float gmBoss3BodyUpdateMoveNormal( GMS_BOSS3_BODY_WORK* body_work );
+
+//ï˚å¸ì]ä∑
+static void gmBoss3BodyInitTurn(
+						 GMS_BOSS3_BODY_WORK* body_work, 
+						 Angle16 dest_angle,
+						 Float frame, 
+						 BOOL flag_positive );
+static Float gmBoss3BodyUpdateTurn( GMS_BOSS3_BODY_WORK* body_work );
+
+//í«ê’
+static BOOL gmBoss3BodyChaseCheckTurn( const GMS_BOSS3_BODY_WORK* body_work );
+static void gmBoss3BodyChaseAdjustMoveSpeed( GMS_BOSS3_BODY_WORK* body_work );
+
+//ÉoÉgÉã
+static s32 gmBoss3BodyBattleCalcPattern( GMS_BOSS3_BODY_WORK* body_work );
+static BOOL gmBoss3BodyBattleInitMovePattern( 
+											 GMS_BOSS3_BODY_WORK* body_work,
+											 s32 pattern_no,
+											 s32 pos_index,
+											 fx32 move_speed);
+static BOOL gmBoss3BodyBattleCheckTurn( const GMS_BOSS3_BODY_WORK* body_work );
+static OBS_OBJECT_WORK* gmBoss3BodyBattleSearchPillar( void );
+
+//É_ÉÅÅ[ÉW
+static void gmBoss3BodyDamage( GMS_BOSS3_BODY_WORK* body_work );
+
+//ì¶ñS
+static BOOL gmBoss3BodyEscapeCheckScreenOut( const GMS_BOSS3_BODY_WORK* body_work );
+static void gmBoss3BodyEscapeAddjustSpeed( GMS_BOSS3_BODY_WORK* body_work );
+
+//èÛë‘
+static void gmBoss3BodyChangeState(
+							GMS_BOSS3_BODY_WORK* body_work,
+							GME_BOSS3_BODY_STATE state );
+static void gmBoss3BodyMainFuncWaitSetup( OBS_OBJECT_WORK* obj_work );
+static void gmBoss3BodyMainFunc( OBS_OBJECT_WORK* obj_work );
+
+//äJén
+static void gmBoss3BodyStateStartEnter( GMS_BOSS3_BODY_WORK* body_work );
+static void gmBoss3BodyStateStartLeave( GMS_BOSS3_BODY_WORK* body_work );
+static void gmBoss3BodyStateStartUpdateWaitScrLimit( GMS_BOSS3_BODY_WORK* body_work );
+static void gmBoss3BodyStateStartUpdateWait( GMS_BOSS3_BODY_WORK* body_work );
+static void gmBoss3BodyStateStartUpdateEnd( GMS_BOSS3_BODY_WORK* body_work );
+
+//í«ê’à⁄ìÆ
+static void gmBoss3BodyStateChaseMoveEnter( GMS_BOSS3_BODY_WORK* body_work );
+static void gmBoss3BodyStateChaseMoveLeave( GMS_BOSS3_BODY_WORK* body_work );
+static void gmBoss3BodyStateChaseMoveUpdate( GMS_BOSS3_BODY_WORK* body_work );
+
+//ÉoÉgÉãëOââèo
+static void gmBoss3BodyStatePreBattleEnter( GMS_BOSS3_BODY_WORK* body_work );
+static void gmBoss3BodyStatePreBattleLeave( GMS_BOSS3_BODY_WORK* body_work );
+static void gmBoss3BodyStatePreBattleUpdateStart( GMS_BOSS3_BODY_WORK* body_work );
+static void gmBoss3BodyStatePreBattleUpdateTurn( GMS_BOSS3_BODY_WORK* body_work );
+static void gmBoss3BodyStatePreBattleUpdateLaugh( GMS_BOSS3_BODY_WORK* body_work );
+
+//ÉoÉgÉãà⁄ìÆ
+static void gmBoss3BodyStateBattleEnter( GMS_BOSS3_BODY_WORK* body_work );
+static void gmBoss3BodyStateBattleLeave( GMS_BOSS3_BODY_WORK* body_work );
+static void gmBoss3BodyStateBattleUpdateMoveCenter( GMS_BOSS3_BODY_WORK* body_work );
+static void gmBoss3BodyStateBattleUpdateSearch( GMS_BOSS3_BODY_WORK* body_work );
+static void gmBoss3BodyStateBattleUpdateMoveFirst( GMS_BOSS3_BODY_WORK* body_work );
+static void gmBoss3BodyStateBattleUpdateSign( GMS_BOSS3_BODY_WORK* body_work );
+static void gmBoss3BodyStateBattleUpdateWaitPillar( GMS_BOSS3_BODY_WORK* body_work );
+static void gmBoss3BodyStateBattleUpdateMoveSecond( GMS_BOSS3_BODY_WORK* body_work );
+static void gmBoss3BodyStateBattleUpdateWaitActive( GMS_BOSS3_BODY_WORK* body_work );
+static void gmBoss3BodyStateBattleUpdateWaitReturn( GMS_BOSS3_BODY_WORK* body_work );
+
+//åÇîj
+static void gmBoss3BodyStateDefeatEnter( GMS_BOSS3_BODY_WORK* body_work );
+static void gmBoss3BodyStateDefeatLeave( GMS_BOSS3_BODY_WORK* body_work );
+static void gmBoss3BodyStateDefeatUpdateStart( GMS_BOSS3_BODY_WORK* body_work );
+static void gmBoss3BodyStateDefeatUpdateFall( GMS_BOSS3_BODY_WORK* body_work );
+static void gmBoss3BodyStateDefeatUpdateExplode( GMS_BOSS3_BODY_WORK* body_work );
+static void gmBoss3BodyStateDefeatUpdateScatter( GMS_BOSS3_BODY_WORK* body_work );
+static void gmBoss3BodyStateDefeatUpdateEnd( GMS_BOSS3_BODY_WORK* body_work );
+
+//ì¶ñS
+static void gmBoss3BodyStateEscapeEnter( GMS_BOSS3_BODY_WORK* body_work );
+static void gmBoss3BodyStateEscapeLeave( GMS_BOSS3_BODY_WORK* body_work );
+static void gmBoss3BodyStateEscapeUpdateScrollLock( GMS_BOSS3_BODY_WORK* body_work );
+static void gmBoss3BodyStateEscapeUpdateWaitScreenOut( GMS_BOSS3_BODY_WORK* body_work );
+static void gmBoss3BodyStateEscapeUpdateFinalZone( GMS_BOSS3_BODY_WORK* body_work );
+
+// =======================================================================
+//ÉGÉbÉOÉ}Éì
+// =======================================================================
+static void gmBoss3EggChangeAction( 
+							GMS_BOSS3_EGG_WORK* egg_work,
+							GME_BOSS3_EGG_ACT_ID action_id,
+							BOOL force_change = FALSE );
+static void gmBoss3EggRevertAction( GMS_BOSS3_EGG_WORK* egg_work );
+
+static void gmBoss3EggStateIdleInit( GMS_BOSS3_EGG_WORK* egg_work );
+static void gmBoss3EggStateIdleUpdate( GMS_BOSS3_EGG_WORK* egg_work );
+static void gmBoss3EggStateLaughInit( GMS_BOSS3_EGG_WORK* egg_work );
+static void gmBoss3EggStateLaughUpdate( GMS_BOSS3_EGG_WORK* egg_work );
+static void gmBoss3EggStateDamageInit( GMS_BOSS3_EGG_WORK* egg_work );
+static void gmBoss3EggStateDamageUpdate( GMS_BOSS3_EGG_WORK* egg_work );
+static void gmBoss3EggStateEscapeInit( GMS_BOSS3_EGG_WORK* egg_work );
+static void gmBoss3EggStateEscapeUpdate( GMS_BOSS3_EGG_WORK* egg_work );
+
+static void gmBoss3EggmanMainFuncWaitSetup( OBS_OBJECT_WORK* obj_work );
+static void gmBoss3EggmanMainFunc( OBS_OBJECT_WORK* obj_work );
+
+
+// =======================================================================
+//ÉGÉtÉFÉNÉg
+// =======================================================================
+static void gmBoss3EffDamageInit( GMS_BOSS3_BODY_WORK* body_work );
+static void gmBoss3EffBombsInit( 
+						 GMS_BOSS3_EFF_BOMB_WORK* bomb_work,
+						 OBS_OBJECT_WORK* parent_obj,
+						 fx32 pos_x,
+						 fx32 pos_y,
+						 fx32 width,
+						 fx32 height,
+						 Uint32 interval_min,
+						 Uint32 interval_max );
+static void gmBoss3EffBombsUpdate( GMS_BOSS3_EFF_BOMB_WORK* bomb_work );
+
+static void gmBoss3EffAfterburnerRequestCreate( GMS_BOSS3_BODY_WORK* body_work );
+static void gmBoss3EffAfterburnerRequestDelete( GMS_BOSS3_BODY_WORK* body_work );
+static void gmBoss3EffAfterburnerInit( GMS_BOSS3_BODY_WORK* body_work );
+static void gmBoss3EffAfterburnerMainFunc( OBS_OBJECT_WORK* obj_work );
+
+static void gmBoss3EffAfterburnerSmokeInit( GMS_BOSS3_BODY_WORK* body_work );
+static void gmBoss3EffAfterburnerSmokeMainFunc( OBS_OBJECT_WORK* obj_work );
+
+static void gmBoss3EffBodySmokeInit( GMS_BOSS3_BODY_WORK* body_work );
+static void gmBoss3EffBodySmokeMainFunc( OBS_OBJECT_WORK* obj_work );
+
+static void gmBoss3EffSweatInit( GMS_BOSS3_EGG_WORK* egg_work );
+static void gmBoss3EffSweatMainFunc( OBS_OBJECT_WORK* obj_work );
+
+//----- Static Declarations -------------------------------------------------
+
+//----- Global Variables ----------------------------------------------------
+
+//----- Local Variables -----------------------------------------------------
+
+static OBS_ACTION3D_NN_WORK* gm_boss3_obj_3d_list = NULL;	//ÉIÉuÉWÉFÉNÉgÉäÉXÉg
+
+//ÉAÉNÉVÉáÉìèÓïÒ
+static const GMS_BOSS3_PART_ACT_INFO gm_boss3_act_info_tbl[GMD_BOSS3_ACT_ID_MAX][GMD_BOSS3_PART_IDX_MAX] = {
+		//MTN_ID									IS_MAINTAIN	IS_REPEAT	MTN_SPD	IS_BLEND	BLEND_SPD
+
+	//GMD_BOSS3_ACT_ID_START
+	{
+		{IDB_BOSS03_BODY_MTN_B03_1_STA_01B_ZNM,		FALSE,		TRUE,		1.f,	FALSE,		GMD_BOSS3_BLEND_SPD,	FALSE},		// BODY
+		{IDB_BOSS03_EGG_MTN_B03_1_STA_01E_ZNM,		FALSE,		TRUE,		1.f,	FALSE,		GMD_BOSS3_BLEND_SPD,	FALSE},		// EGG
+	},
+
+	//GMD_BOSS3_ACT_ID_MOVE
+	{
+		{IDB_BOSS03_BODY_MTN_B03_1_ATT01_01B_ZNM,	FALSE,		TRUE,		1.f,	TRUE,		GMD_BOSS3_BLEND_SPD,	FALSE},		// BODY
+		{IDB_BOSS03_EGG_MTN_B03_1_ATT01_01E_ZNM,	FALSE,		TRUE,		1.f,	TRUE,		GMD_BOSS3_BLEND_SPD,	FALSE},		// EGG
+	},
+
+	//GMD_BOSS3_ACT_ID_PRE_BATTLE
+	{
+		{IDB_BOSS03_BODY_MTN_B03_2_STA_01B_ZNM,		FALSE,		TRUE,		1.f,	FALSE,		GMD_BOSS3_BLEND_SPD,	FALSE},		// BODY
+		{IDB_BOSS03_EGG_MTN_B03_2_STA_01E_ZNM,		FALSE,		TRUE,		1.f,	FALSE,		GMD_BOSS3_BLEND_SPD,	FALSE},		// EGG
+	},
+
+	//GMD_BOSS3_ACT_ID_SEARCH_L
+	{
+		{IDB_BOSS03_BODY_MTN_B03_2_LOOK_01B_ZNM,	FALSE,		TRUE,		1.f,	FALSE,		GMD_BOSS3_BLEND_SPD,	FALSE},		// BODY
+		{IDB_BOSS03_EGG_MTN_B03_2_LOOK_01E_ZNM,		FALSE,		TRUE,		1.f,	FALSE,		GMD_BOSS3_BLEND_SPD,	FALSE},		// EGG
+	},
+
+	//GMD_BOSS3_ACT_ID_SEARCH_R
+	{
+		{IDB_BOSS03_BODY_MTN_B03_2_LOOK_02B_ZNM,	FALSE,		TRUE,		1.f,	FALSE,		GMD_BOSS3_BLEND_SPD,	FALSE},		// BODY
+		{IDB_BOSS03_EGG_MTN_B03_2_LOOK_02E_ZNM,		FALSE,		TRUE,		1.f,	FALSE,		GMD_BOSS3_BLEND_SPD,	FALSE},		// EGG
+	},
+
+	//GMD_BOSS3_ACT_ID_SIGN
+	{
+		{IDB_BOSS03_BODY_MTN_B03_2_SIGN_01B_ZNM,	FALSE,		FALSE,		1.f,	FALSE,		GMD_BOSS3_BLEND_SPD,	FALSE},		// BODY
+		{IDB_BOSS03_EGG_MTN_B03_2_SIGN_01E_ZNM,		FALSE,		FALSE,		1.f,	FALSE,		GMD_BOSS3_BLEND_SPD,	FALSE},		// EGG
+	},
+
+	//GMD_BOSS3_ACT_ID_LAUGH_L
+	{
+		{IDB_BOSS03_BODY_MTN_B03_1_ATT01_01B_ZNM,	FALSE,		TRUE,		1.f,	TRUE,		GMD_BOSS3_BLEND_SPD,	FALSE},		// BODY
+		{IDB_BOSS03_EGG_MTN_B03_2_ATT01_01E_ZNM,		FALSE,		TRUE,		1.f,	TRUE,		GMD_BOSS3_BLEND_SPD,	FALSE},		// EGG
+	},
+
+	//GMD_BOSS3_ACT_ID_LAUGH_R
+	{
+		{IDB_BOSS03_BODY_MTN_B03_1_ATT01_01B_ZNM,	FALSE,		TRUE,		1.f,	TRUE,		GMD_BOSS3_BLEND_SPD,	FALSE},		// BODY
+		{IDB_BOSS03_EGG_MTN_B03_2_ATT01_02E_ZNM,		FALSE,		TRUE,		1.f,	TRUE,		GMD_BOSS3_BLEND_SPD,	FALSE},		// EGG
+	},
+	
+	//GMD_BOSS3_ACT_ID_ESCAPE
+	{
+		{IDB_BOSS03_BODY_MTN_B03_DMG02_01B_ZNM,		FALSE,		TRUE,		1.f,	TRUE,		GMD_BOSS3_BLEND_SPD,	FALSE},		// BODY
+		{IDB_BOSS03_EGG_MTN_B03_DMG02_01E_ZNM,		FALSE,		TRUE,		1.f,	TRUE,		GMD_BOSS3_BLEND_SPD,	FALSE},		// EGG
+	},
+};
+
+//ÉGÉbÉOÉ}ÉìópÉAÉNÉVÉáÉìèÓïÒ
+static const GMS_BOSS3_PART_ACT_INFO gm_boss3_egg_act_info_tbl[GMD_BOSS3_EGG_ACT_ID_MAX] = {
+	//MTN_ID									IS_MAINTAIN	IS_REPEAT	MTN_SPD	IS_BLEND	BLEND_SPD
+
+	//GMD_BOSS3_EGG_ACT_ID_LAUGH_L
+	{IDB_BOSS03_EGG_MTN_B03_1_STA_01E_ZNM,		FALSE,		FALSE,		1.f,	TRUE,		GMD_BOSS3_BLEND_SPD,	FALSE},		// EGG
+
+	//GMD_BOSS3_EGG_ACT_ID_LAUGH_R
+	{IDB_BOSS03_EGG_MTN_B03_1_STA_02E_ZNM,		FALSE,		FALSE,		1.f,	TRUE,		GMD_BOSS3_BLEND_SPD,	FALSE},		// EGG
+
+	//GMD_BOSS3_EGG_ACT_ID_DAMAGE
+	{IDB_BOSS03_EGG_MTN_B03_DMG01_01E_ZNM,		FALSE,		FALSE,		1.f,	TRUE,		GMD_BOSS3_BLEND_SPD,	FALSE},		// EGG
+
+};
+
+//èâä˙âªä÷êîÉeÅ[ÉuÉã
+const static GMF_BOSS3_BODY_STATE_FUNC gm_boss3_body_state_func_tbl_enter[GMD_BOSS3_BODY_STATE_MAX]	= {
+	NULL,
+	gmBoss3BodyStateStartEnter,
+
+	gmBoss3BodyStateChaseMoveEnter,
+
+	gmBoss3BodyStatePreBattleEnter,
+	gmBoss3BodyStateBattleEnter,
+
+	gmBoss3BodyStateDefeatEnter,
+	gmBoss3BodyStateEscapeEnter,
+};
+
+//èIóπä÷êîÉeÅ[ÉuÉã
+const static GMF_BOSS3_BODY_STATE_FUNC gm_boss3_body_state_func_tbl_leave[GMD_BOSS3_BODY_STATE_MAX]	= {
+	NULL,
+	gmBoss3BodyStateStartLeave,
+
+	gmBoss3BodyStateChaseMoveLeave,
+
+	gmBoss3BodyStatePreBattleLeave,
+	gmBoss3BodyStateBattleLeave,
+
+	gmBoss3BodyStateDefeatLeave,
+	gmBoss3BodyStateEscapeLeave,
+};
+
+//ÉmÅ[ÉhÉCÉìÉfÉNÉXÉäÉXÉg
+static const s32 g_boss3_node_index_list[GMD_BOSS3_BODY_SNM_INDEX_MAX] = {
+	2,	//ñ{ëÃê⁄ë±ÅiÉGÉbÉOÉ}ÉìÅAÉAÉtÉ^ÉoÅ[ÉiÅj
+};
+
+//ÉoÉgÉãÉpÉ^Å[Éìï à⁄ìÆó 
+static const fx32 g_gm_boss3_battle_move_x[GMD_GMK_BOSS3_PILLAR_PATTERN_NUM][GMD_BOSS3_BATTLE_MOVE_NUM] = {
+	{ 0,	0},
+	{ 0,	0},
+	{ 0,	3*40},
+	{-3*40,	0},
+	{-3*40,	0},
+	{ 3*40,	0},
+	{-3*40,	0},
+};
+
+//ëÃóÕï ÉoÉgÉãÉpÉ^Å[ÉìëIëó¶
+static const s32 g_gm_boss3_battle_pattern_per[GMD_BOSS3_MGR_LIFE][GMD_GMK_BOSS3_PILLAR_PATTERN_NUM] = {
+	{10, 10, 20, 10, 20, 15, 15},
+	{10, 10, 20, 10, 20, 15, 15},
+	{10, 10, 30, 10, 30,  5,  5},
+	{10, 10, 30, 10, 30,  5,  5},
+	{30, 30, 10, 20, 10,  0,  0},
+	{30, 30, 10, 20, 10,  0,  0},
+	{40, 40,  0, 20,  0,  0,  0},
+	{40, 40,  0, 20,  0,  0,  0},
+};
+
+
+//----- Global Functions ----------------------------------------------------
+// =======================================================================
+// GmBoss3Build
+/*!
+ *	É{ÉX3ç\íz
+ */
+// =======================================================================
+void GmBoss3Build(void)
+{
+	void* amb_data = GmBoss3GetGameDatEnemyArc();
+
+	AMS_AMB_HEADER* amb_model = (AMS_AMB_HEADER*)ObjDataLoadAmbIndex(
+			NULL, 
+			IDB_BOSS03_BOSS03_MDL_AMB, 
+			amb_data );
+	AMS_AMB_HEADER* amb_texture = (AMS_AMB_HEADER*)ObjDataLoadAmbIndex(
+			NULL, 
+			IDB_BOSS03_BOSS03_TEX_AMB,
+			amb_data );
+	
+	//ÉÇÉfÉã
+	gm_boss3_obj_3d_list = GmGameDBuildRegBuildModel(
+			amb_model, 
+			amb_texture,
+			NND_DRAWOBJ_SHADER_USER_PROFILE_TOON );
+	
+	//ÉÇÅ[ÉVÉáÉì
+	ObjDataLoadAmbIndex(
+			ObjDataGet(GMD_DWORK_NO_BOSS_03_BODY_MTN),
+			IDB_BOSS03_BOSS03_BODY_MTN_AMB,
+			amb_data );
+	ObjDataLoadAmbIndex(
+			ObjDataGet(GMD_DWORK_NO_BOSS_03_EGG_MTN),
+			IDB_BOSS03_BOSS03_EGG_MTN_AMB, 
+			amb_data );
+}
+
+// =======================================================================
+// GmBoss3Flush
+/*!
+ *	É{ÉX3âï˙
+ */
+// =======================================================================
+void GmBoss3Flush( void )
+{
+	//ÉGÉtÉFÉNÉgâï˙
+	GmEfctBossFlushSingleDataInit();	//É{ÉXêÍópEFFÉtÉâÉbÉVÉÖäJén
+	
+	//ÉÇÅ[ÉVÉáÉì
+	ObjDataRelease( ObjDataGet(GMD_DWORK_NO_BOSS_03_EGG_MTN) );
+	ObjDataRelease( ObjDataGet(GMD_DWORK_NO_BOSS_03_BODY_MTN) );
+
+	//ÉÇÉfÉãâï˙
+	void* amb_data = GmBoss3GetGameDatEnemyArc();
+	AMS_AMB_HEADER* amb_model = (AMS_AMB_HEADER*)ObjDataLoadAmbIndex(
+			NULL, 
+			IDB_BOSS03_BOSS03_MDL_AMB, 
+			amb_data );	
+	GmGameDBuildRegFlushModel( gm_boss3_obj_3d_list, amb_model->file_num );	
+	gm_boss3_obj_3d_list = NULL;
+}
+
+// =======================================================================
+// GmBoss3GetGameDatEnemyArc
+/*!
+ *	ÉAÅ[ÉJÉCÉuéÊìæ
+ *
+ *	@return ÉAÅ[ÉJÉCÉu
+ */
+// =======================================================================
+void* GmBoss3GetGameDatEnemyArc( void )
+{
+	return g_gm_gamedat_enemy_arc;
+}
+
+// ==========================================================================
+// GmBoss3Init
+/*!
+ *	É{ÉX3ä«óùèâä˙âªä÷êî
+ *
+ *	@param eve_rec	[io] ÉåÉRÅ[ÉhÉ|ÉCÉìÉ^
+ *	@param pos_x	[in] èoåªç¿ïW
+ *	@param pos_y	[in] 
+ *	@param type		[in] èàóùì‡óeÉ^ÉCÉv í èÌÇÕ0
+ */
+// ==========================================================================
+OBS_OBJECT_WORK* GmBoss3Init(
+							 GMS_EVE_RECORD_EVENT *eve_rec,
+							 fx32 pos_x, 
+							 fx32 pos_y, 
+							 u8 type)
+{	
+	UNREFERENCED_PARAMETER( type );
+
+	//-----------------------------------------
+	//ä«óù
+	//-----------------------------------------
+	//ÉIÉuÉWÉFÉNÉgçÏê¨
+	GMS_BOSS3_MGR_WORK* mgr_work = (GMS_BOSS3_MGR_WORK*)GMM_ENEMY_CREATE_WORK(
+			eve_rec,
+			pos_x, 
+			pos_y,
+			sizeof(GMS_BOSS3_MGR_WORK),
+			"BOSS3_MGR");
+	amAssert( mgr_work );
+
+	OBS_OBJECT_WORK* mgr_obj_work = &mgr_work->ene_3d.ene_com.obj_work;
+	
+	//ÉèÅ[ÉN
+	mgr_obj_work->flag |= OBD_OBJECT_NOCLIP;
+	mgr_obj_work->disp_flag |= OBD_DISP_NODISP;
+	mgr_obj_work->move_flag	|= (OBD_MOVE_NOMOVE | OBD_MOVE_NOCOL);
+
+	//ÉzÅ[É~ÉìÉOñ≥å¯
+	mgr_work->ene_3d.ene_com.enemy_flag |= GMD_ENEMY_FLAG_NOHOMING;
+	
+	//èàóùä÷êî
+	mgr_obj_work->ppFunc = gmBoss3MgrMainFuncWaitLoad;
+	
+	//ÉâÉCÉt
+	if ( GmBsCmnIsFinalZoneType(mgr_obj_work) ){
+		mgr_work->life = GMD_BOSS3_MGR_LIFE_FINAL;
+	}
+	else{
+		mgr_work->life = GMD_BOSS3_MGR_LIFE;
+	}
+	
+#ifdef MPPDEBUG_INFINITE_LIFE
+	mgr_work->life = 1;
+#endif
+	
+	return mgr_obj_work;
+}
+
+// ==========================================================================
+// GmBoss3BodyInit
+/*!
+ *	É{ÉX3ñ{ëÃèâä˙âªä÷êî
+ *
+ *	@param eve_rec	[io] ÉåÉRÅ[ÉhÉ|ÉCÉìÉ^
+ *	@param pos_x	[in] èoåªç¿ïW
+ *	@param pos_y	[in] 
+ *	@param type		[in] èàóùì‡óeÉ^ÉCÉv í èÌÇÕ0
+ */
+// ==========================================================================
+OBS_OBJECT_WORK* GmBoss3BodyInit(
+								 GMS_EVE_RECORD_EVENT *eve_rec,
+								 fx32 pos_x, 
+								 fx32 pos_y, 
+								 u8 type)
+{	
+	UNREFERENCED_PARAMETER( type );
+
+	//-----------------------------------------
+	//ÉIÉuÉWÉFÉNÉgÉèÅ[ÉN
+	//-----------------------------------------
+	//ÉIÉuÉWÉFÉNÉgçÏê¨
+	GMS_BOSS3_BODY_WORK* body_work = (GMS_BOSS3_BODY_WORK*)GMM_ENEMY_CREATE_WORK(
+			eve_rec,
+			pos_x, 
+			pos_y,
+			sizeof(GMS_BOSS3_BODY_WORK),
+			"BOSS3_BODY");
+	amAssert( body_work );
+
+	GMS_ENEMY_3D_WORK* ene_3d = &body_work->ene_3d;
+	OBS_OBJECT_WORK* obj_work = &ene_3d->ene_com.obj_work;
+
+	//-----------------------------------------
+	//ÉÇÉfÉãÅAÉÇÅ[ÉVÉáÉì
+	//-----------------------------------------
+	//ÉÇÉfÉã
+	ObjObjectCopyAction3dNNModel(
+			obj_work,
+			&gm_boss3_obj_3d_list[IDB_BOSS03_MDL_B03_BODY_ZNO],
+			&ene_3d->obj_3d);
+	
+	//ÉÇÅ[ÉVÉáÉì
+	ObjObjectAction3dNNMotionLoad(
+			obj_work,
+			0,
+			TRUE,
+			ObjDataGet(GMD_DWORK_NO_BOSS_03_BODY_MTN),
+			NULL,
+			0,
+			NULL);
+
+	//-----------------------------------------
+	//ãÈå`
+	//-----------------------------------------
+	//ÉâÉCÉt
+	ene_3d->ene_com.vit = 1;
+
+	//ñ{ëÃ
+	ObjRectWorkSet(
+			&ene_3d->ene_com.rect_work[GMD_ENEMY_RECT_BODY],
+			-24, -24, 24, 24);
+	ObjRectGroupSet(
+			&ene_3d->ene_com.rect_work[GMD_ENEMY_RECT_BODY], 
+			GMD_OBJ_RECT_GROUP_ENEMY, 
+			GMD_OBJ_RECT_TARGET_GROUPFLAG_PLAYER | GMD_OBJ_RECT_TARGET_GROUPFLAG_ENEMY );
+	ene_3d->ene_com.rect_work[GMD_ENEMY_RECT_BODY].flag &= ~OBD_RECT_ENABLE;
+	ene_3d->ene_com.rect_work[GMD_ENEMY_RECT_BODY].flag |= OBD_RECT_OUT;
+
+	//çUåÇ
+	body_work->ene_3d.ene_com.rect_work[GMD_ENEMY_RECT_ATK].flag |= OBD_RECT_OUT;
+
+	//Ç≠ÇÁÇ¢
+	ObjRectWorkSet(
+			&ene_3d->ene_com.rect_work[GMD_ENEMY_RECT_DEF],
+			-28, -28, 28, 24 );
+	ene_3d->ene_com.rect_work[GMD_ENEMY_RECT_DEF].ppDef	= gmBoss3BodyDefFunc;
+	ene_3d->ene_com.rect_work[GMD_ENEMY_RECT_DEF].flag |= OBD_RECT_OUT;
+
+	//ãÈå`êÿÇËë÷Ç¶
+	gmBoss3BodySetRectNormal( body_work );
+
+	//-----------------------------------------
+	//ÉèÅ[ÉN
+	//-----------------------------------------
+	//ç¿ïW
+	obj_work->pos.z	= GMD_OBJ_DEFAULT_POS_Z_A_FRONT;
+
+	//ÉtÉâÉO
+	obj_work->flag |= OBD_OBJECT_NOCLIP;
+	obj_work->disp_flag |= OBD_DISP_HFLIP | OBD_DISP_REPEAT | OBD_DISP_NODIRFLIP;
+	obj_work->move_flag &= ~OBD_MOVE_FALL;
+#if _IPHONE
+	obj_work->move_flag |= OBD_MOVE_NOSPD | OBD_MOVE_NOSPDM | OBD_MOVE_JUMP | OBD_MOVE_NOCOLFIELD | OBD_MOVE_NOCOLOBJ;
+	body_work->is_move = FALSE; // à⁄ìÆÇµÇ»Ç¢
+#else
+	obj_work->move_flag |= OBD_MOVE_NOSPD | OBD_MOVE_NOSPDM | OBD_MOVE_JUMP | OBD_MOVE_NOCOLFIELD | OBD_MOVE_NOCOLOBJ | OBD_MOVE_NOMOVE;
+#endif // _IPHONE
+	
+	//ÉuÉåÉìÉhë¨ìx
+	obj_work->obj_3d->blend_spd	= GMD_BOSS3_BLEND_SPD;
+	
+	//ÉgÉDÅ[Éì
+	ObjDrawObjectSetToon( obj_work );
+	
+	//ÉÜÅ[ÉUï`âÊÉXÉeÅ[Ég
+	obj_work->disp_flag |= OBD_DISP_DRAWSTATE;
+	
+	//èàóù
+	obj_work->ppFunc = gmBoss3BodyMainFuncWaitSetup;
+	obj_work->ppOut = gmBoss3BodyOutFunc;
+	obj_work->ppMove = gmBoss3BodyChaseMoveFunc;	
+	
+	//âΩÇ‡ÇµÇ»Ç¢èÛë‘Ç÷
+	gmBoss3BodyChangeState( body_work, GMD_BOSS3_BODY_STATE_NO_OPERATION );
+
+#if _IPHONE
+	// êÍópÉâÉCÉgê›íË
+	obj_work->obj_3d->use_light_flag &= ~OBD_LIGHT_USE_FLAG_0;
+	obj_work->obj_3d->use_light_flag |= OBD_LIGHT_USE_FLAG_6;
+#endif // _IPHONE
+
+	return obj_work;
+}
+
+// ==========================================================================
+// GmBoss3EggInit
+/*!
+ *	É{ÉX3ÉGÉbÉOÉ}Éìèâä˙âªä÷êî
+ *
+ *	@param eve_rec	[io] ÉåÉRÅ[ÉhÉ|ÉCÉìÉ^
+ *	@param pos_x	[in] èoåªç¿ïW
+ *	@param pos_y	[in] 
+ *	@param type		[in] èàóùì‡óeÉ^ÉCÉv í èÌÇÕ0
+ */
+// ==========================================================================
+OBS_OBJECT_WORK* GmBoss3EggInit(
+								 GMS_EVE_RECORD_EVENT *eve_rec,
+								 fx32 pos_x, 
+								 fx32 pos_y, 
+								 u8 type)
+{	
+	UNREFERENCED_PARAMETER( type );
+
+	//-----------------------------------------
+	//ÉIÉuÉWÉFÉNÉgÉèÅ[ÉN
+	//-----------------------------------------
+	//ÉIÉuÉWÉFÉNÉgçÏê¨
+	GMS_BOSS3_EGG_WORK* eggman_work = (GMS_BOSS3_EGG_WORK*)GMM_ENEMY_CREATE_WORK(
+			eve_rec,
+			pos_x, 
+			pos_y,
+			sizeof(GMS_BOSS3_EGG_WORK),
+			"BOSS3_EGG");
+	amAssert( eggman_work );
+
+	GMS_ENEMY_3D_WORK* ene_3d = &eggman_work->ene_3d;
+	OBS_OBJECT_WORK* obj_work = &ene_3d->ene_com.obj_work;
+
+	//-----------------------------------------
+	//ÉÇÉfÉãÅAÉÇÅ[ÉVÉáÉì
+	//-----------------------------------------
+	//ÉÇÉfÉã
+	ObjObjectCopyAction3dNNModel(
+			obj_work,
+			&gm_boss3_obj_3d_list[IDB_BOSS03_MDL_EGGMAN_ZNO],
+			&ene_3d->obj_3d);
+	
+	//ÉÇÅ[ÉVÉáÉì
+	ObjObjectAction3dNNMotionLoad(
+			obj_work,
+			0,
+			TRUE,
+			ObjDataGet(GMD_DWORK_NO_BOSS_03_EGG_MTN),
+			NULL,
+			0,
+			NULL);
+
+	//-----------------------------------------
+	//ãÈå`
+	//-----------------------------------------
+	ene_3d->ene_com.rect_work[GMD_ENEMY_RECT_ATK].flag |= OBD_RECT_NOHIT | OBD_RECT_OUT;
+	ene_3d->ene_com.rect_work[GMD_ENEMY_RECT_DEF].flag |= OBD_RECT_NOHIT | OBD_RECT_OUT;
+	ene_3d->ene_com.rect_work[GMD_ENEMY_RECT_BODY].flag |= OBD_RECT_NOHIT | OBD_RECT_OUT;
+
+	//-----------------------------------------
+	//ÉèÅ[ÉN
+	//-----------------------------------------
+	//ÉtÉâÉO
+	obj_work->flag |= OBD_OBJECT_NOCLIP;
+	obj_work->disp_flag |= OBD_DISP_HFLIP | OBD_DISP_REPEAT | OBD_DISP_NODIRFLIP;
+	obj_work->move_flag |= OBD_MOVE_NOCOLFIELD | OBD_MOVE_NOCOL;
+	obj_work->move_flag &= ~OBD_MOVE_FALL;
+	
+	//ÉuÉåÉìÉhë¨ìx
+	obj_work->obj_3d->blend_spd	= GMD_BOSS3_BLEND_SPD;
+	
+	//ÉgÉDÅ[Éì
+	ObjDrawObjectSetToon( obj_work );
+	
+	//ÉÜÅ[ÉUï`âÊÉXÉeÅ[Ég
+	obj_work->disp_flag |= OBD_DISP_DRAWSTATE;
+
+	//ÉzÅ[É~ÉìÉOñ≥å¯
+	ene_3d->ene_com.enemy_flag |= GMD_ENEMY_FLAG_NOHOMING;
+	
+	//èàóù
+	obj_work->ppFunc = gmBoss3EggmanMainFuncWaitSetup;
+	
+#if _IPHONE
+	// êÍópÉâÉCÉgê›íË
+	obj_work->obj_3d->use_light_flag &= ~OBD_LIGHT_USE_FLAG_0;
+	obj_work->obj_3d->use_light_flag |= OBD_LIGHT_USE_FLAG_6;
+#endif // _IPHONE
+
+	return obj_work;
+}
+
+//----- Local Functions -----------------------------------------------------
+
+// ==========================================================================
+// gmBoss3ChangeTextureBurnt
+/*!
+ *	ÉeÉNÉXÉ`ÉÉÇçïÇ±Ç∞Ç…ïœçX
+ *
+ *	@param obj_work	[io] ÉIÉuÉWÉFÉNÉgÉèÅ[ÉN
+ *
+ *	@note uvÉXÉNÉçÅ[ÉãÅiuÇ0.5ÉIÉtÉZÉbÉgÅj
+ */
+// ==========================================================================
+void gmBoss3ChangeTextureBurnt( OBS_OBJECT_WORK *obj_work )
+{
+	amAssert( obj_work );
+	amAssert( obj_work->obj_3d );
+	amAssert( obj_work->disp_flag & OBD_DISP_DRAWSTATE );
+	
+	obj_work->obj_3d->drawflag |= NND_DRAWOBJ_MATCTRL_TEXOFFSET;
+	obj_work->obj_3d->draw_state.texoffset[0].mode	= NNE_MATCTRLMODE_ADD;
+	obj_work->obj_3d->draw_state.texoffset[0].u	= 0.5f;
+}
+
+// =======================================================================
+// gmBoss3ExitFunc
+/*!
+ *	èIóπä÷êî
+ *
+ *	@param obj_work	[io] ÉIÉuÉWÉFÉNÉgÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3ExitFunc( MTS_TASK_TCB *tcb )
+{
+	//ä«óùÇ©ÇÁâï˙
+	OBS_OBJECT_WORK* obj_work = (OBS_OBJECT_WORK*)mtTaskGetTcbWork( tcb );
+	gmBoss3MgrDeleteObject( obj_work );
+
+	//ÉGÉlÉ~Å[ã§í èIóπèàóù
+	GmEnemyDefaultExit( tcb );
+}
+
+// ==========================================================================
+//ä«óù
+// ==========================================================================
+
+// =======================================================================
+// gmBoss3MgrCheckSetupComplete
+/*!
+ *	ì«Ç›çûÇ›äÆóπämîF
+ *
+ *	@param obj_work	[io] ÉIÉuÉWÉFÉNÉgÉèÅ[ÉN
+ *
+ *	@retval TRUE ì«Ç›çûÇ›äÆóπ
+ *	@retval FALSE ì«Ç›çûÇ›ë“Çø
+ */
+// =======================================================================
+BOOL gmBoss3MgrCheckSetupComplete( GMS_BOSS3_MGR_WORK* mgr_work )
+{
+	amAssert( mgr_work );
+
+	if ( mgr_work->flag & GMD_BOSS3_MGR_FLAG_SETUP_COMPLETE ){
+		return TRUE;
+	}
+	return FALSE;
+}
+
+// =======================================================================
+// gmBoss3MgrGetMgrWork
+/*!
+ *	É}ÉlÅ[ÉWÉÉÉèÅ[ÉNÇéÊìæ
+ *
+ *	@param obj_work_parts	[io] ÉIÉuÉWÉFÉNÉgÉèÅ[ÉN
+ */
+// =======================================================================
+GMS_BOSS3_MGR_WORK* gmBoss3MgrGetMgrWork( OBS_OBJECT_WORK* obj_work_parts )
+{
+	amAssert( obj_work_parts );
+	amAssert( obj_work_parts->user_work );
+
+	return (GMS_BOSS3_MGR_WORK*)obj_work_parts->user_work;
+}
+
+// =======================================================================
+// gmBoss3MgrAddObject
+/*!
+ *	ÉpÅ[Écí«â¡
+ *
+ *	@note ä«óùÉèÅ[ÉNÇÃÉIÉuÉWÉFÉNÉgê∂ê¨êîÇÉCÉìÉNÉäÉÅÉìÉgÇµÅA
+ *		  í«â¡ÉIÉuÉWÉFÉNÉgÇÃuser_workÇ…ä«óùÉèÅ[ÉNÇê›íËÇ∑ÇÈ
+ *		  ÉIÉuÉWÉFÉNÉgçÌèúéûÇ…ÅAä«óùÉèÅ[ÉNÇÃê∂ê¨êîÇÉfÉNÉäÉÅÉìÉgÇ∑ÇÈ
+ *
+ *	@param obj_work_mgr		[io] ä«óùÉèÅ[ÉN
+ *	@param obj_work_parts	[io] í«â¡Ç∑ÇÈÉIÉuÉWÉFÉNÉgÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3MgrAddObject( GMS_BOSS3_MGR_WORK* mgr_work, OBS_OBJECT_WORK* obj_work_parts )
+{
+	amAssert( mgr_work );
+	amAssert( obj_work_parts );
+
+	++mgr_work->obj_create_count;
+	obj_work_parts->user_work = (u32)mgr_work;
+}
+
+// =======================================================================
+// gmBoss3MgrDeleteObject
+/*!
+ *	ÉpÅ[Écìoò^çÌèú
+ *
+ *	@note ÉIÉuÉWÉFÉNÉgçÌèúéûÇ…ÅAä«óùÉèÅ[ÉNÇÃê∂ê¨êîÇÉfÉNÉäÉÅÉìÉgÇ∑ÇÈ
+ *
+ *	@param obj_work_parts	[io] í«â¡Ç∑ÇÈÉIÉuÉWÉFÉNÉgÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3MgrDeleteObject( OBS_OBJECT_WORK* obj_work_parts )
+{
+	amAssert( obj_work_parts );
+
+	GMS_BOSS3_MGR_WORK* mgr_work = gmBoss3MgrGetMgrWork( obj_work_parts );
+	amAssert( mgr_work );
+	amAssert( mgr_work->obj_create_count > 0 );
+
+	--mgr_work->obj_create_count;
+	obj_work_parts->user_work = 0;
+}
+
+// =======================================================================
+// gmBoss3MgrMainFuncWaitLoad
+/*!
+ *	ÉÅÉCÉìèàóùÅiì«Ç›çûÇ›ë“ÇøÅj
+ *
+ *	@param obj_work	[io] ÉIÉuÉWÉFÉNÉgÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3MgrMainFuncWaitLoad( OBS_OBJECT_WORK* obj_work )
+{
+	amAssert( obj_work );
+
+	//ÉtÉ@ÉCÉiÉãÉ]Å[ÉìÇÃèÍçáÅAÉfÅ[É^ì«Ç›çûÇ›äÆóπîªíË
+	if ( GmBsCmnIsFinalZoneType(obj_work) ){
+		if ( !GmMainDatLoadBossBattleLoadCheck(GMD_GAMEDAT_LOAD_BOSS_TYPE_3) ){
+			return;
+		}
+	}
+
+	GMS_BOSS3_MGR_WORK* mgr_work = (GMS_BOSS3_MGR_WORK*)obj_work;
+
+	//-----------------------------------------
+	//ñ{ëÃ
+	//-----------------------------------------
+	//ÉIÉuÉWÉFÉNÉgçÏê¨
+	GMS_BOSS3_BODY_WORK* body_work = (GMS_BOSS3_BODY_WORK*)GmEventMgrLocalEventBirth(
+			GMD_EVENT_ID_BOSS3_BODY,
+			obj_work->pos.x, obj_work->pos.y,
+			0,
+			0,0,0,0,
+			0 );
+	amAssert( body_work );
+
+	OBS_OBJECT_WORK* body_obj_work = &body_work->ene_3d.ene_com.obj_work;
+
+	//êe
+	body_obj_work->parent_obj = obj_work;
+
+	//ñ{ëÃÉpÅ[Écìoò^
+	body_work->parts_objs[GMD_BOSS3_PART_IDX_BODY] = body_obj_work;
+
+	//ä«óùÇ…ìoò^
+	mgr_work->body_work = body_work;
+	gmBoss3MgrAddObject( mgr_work, body_obj_work );
+
+	//èIóπèàóù
+	mtTaskChangeTcbDestructor( body_obj_work->tcb, gmBoss3BodyExit );
+
+	
+	//-----------------------------------------
+	//ÉGÉbÉOÉ}Éì
+	//-----------------------------------------
+	//ÉIÉuÉWÉFÉNÉgçÏê¨
+	GMS_BOSS3_EGG_WORK* eggman_work = (GMS_BOSS3_EGG_WORK*)GmEventMgrLocalEventBirth(
+			GMD_EVENT_ID_BOSS3_EGG,
+			obj_work->pos.x, obj_work->pos.y,
+			0,
+			0,0,0,0,
+			0 );
+	amAssert( eggman_work );
+
+	OBS_OBJECT_WORK* eggman_obj_work = &eggman_work->ene_3d.ene_com.obj_work;
+
+	//êe
+	eggman_obj_work->parent_obj = body_obj_work;	
+
+	//ä«óù
+	gmBoss3MgrAddObject( mgr_work, eggman_obj_work );
+
+	//èIóπèàóù
+	mtTaskChangeTcbDestructor( eggman_obj_work->tcb, gmBoss3ExitFunc );
+
+	//ñ{ëÃÉpÅ[Écìoò^
+	body_work->parts_objs[GMD_BOSS3_PART_IDX_EGG] = eggman_obj_work;
+
+	obj_work->ppFunc = gmBoss3MgrMainFuncWaitSetup;
+}
+
+// =======================================================================
+// gmBoss3MgrMainFuncWaitSetup
+/*!
+ *	ÉÅÉCÉìèàóùÅiê∂ê¨ë“ÇøÅj
+ *
+ *	@param obj_work	[io] ÉIÉuÉWÉFÉNÉgÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3MgrMainFuncWaitSetup( OBS_OBJECT_WORK* obj_work )
+{
+	GMS_BOSS3_MGR_WORK* mgr_work = (GMS_BOSS3_MGR_WORK*)obj_work;
+	amAssert( mgr_work );
+	GMS_BOSS3_BODY_WORK* body_work = mgr_work->body_work;
+	amAssert( body_work );
+
+	for ( s32 i = 0; GMD_BOSS3_PART_IDX_MAX > i; ++i ){
+		if ( !body_work->parts_objs[i] ) {
+			return;
+		}
+	}
+
+	//ì«Ç›çûÇ›èIóπ
+	mgr_work->flag |= GMD_BOSS3_MGR_FLAG_SETUP_COMPLETE;
+	obj_work->ppFunc = gmBoss3MgrMainFunc;
+}
+
+// =======================================================================
+// gmBoss3MgrMainFunc
+/*!
+ *	ÉÅÉCÉìèàóù
+ *
+ *	@param obj_work	[io] ÉIÉuÉWÉFÉNÉgÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3MgrMainFunc( OBS_OBJECT_WORK* obj_work )
+{
+	GMS_BOSS3_MGR_WORK* mgr_work = (GMS_BOSS3_MGR_WORK*)obj_work;
+	amAssert( mgr_work );
+
+	//ÉIÉuÉWÉFÉNÉgçÌèú
+	if ( mgr_work->flag & GMD_BOSS3_MGR_FLAG_CLEAR_BOSS ){
+		OBS_OBJECT_WORK* body_obj_work = GMM_BS_OBJ(mgr_work->body_work);
+		amAssert( body_obj_work );
+		
+		//çÌèúóvãÅ
+		body_obj_work->flag |= OBD_OBJECT_TASKCLEAR_REQUEST;
+		mgr_work->body_work	= NULL;
+
+		//ÉÅÉCÉìèàóùèIóπ
+		obj_work->ppFunc = gmBoss3MgrMainFuncWaitRelease;
+	}
+}
+
+// =======================================================================
+// gmBoss3MgrMainFuncWaitRelease
+/*!
+ *	ÉÅÉCÉìèàóùÅiâï˙ë“ÇøÅj
+ *
+ *	@param obj_work	[io] ÉIÉuÉWÉFÉNÉgÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3MgrMainFuncWaitRelease( OBS_OBJECT_WORK* obj_work )
+{
+	GMS_BOSS3_MGR_WORK* mgr_work = (GMS_BOSS3_MGR_WORK*)obj_work;
+	amAssert( mgr_work );
+
+	if ( GmBsCmnIsFinalZoneType(obj_work) ){
+		//ÉIÉuÉWÉFÉNÉgçÌèúë“Çø
+		if ( mgr_work->obj_create_count > 0 ){
+			return;
+		}
+
+		//ÉtÉ@ÉCÉiÉãÉ]Å[ÉìÇ≈ÇÕä«óùÇ‡è¡ãé
+		GMS_ENEMY_COM_WORK* ene_com	= (GMS_ENEMY_COM_WORK*)obj_work;
+		ene_com->enemy_flag |= GMD_ENEMY_FLAG_DIE;
+		obj_work->flag |= OBD_OBJECT_TASKCLEAR;
+		
+		//ÉfÅ[É^äJï˙óvãÅ
+		GmGameDatReleaseBossBattleStart( GMD_GAMEDAT_LOAD_BOSS_TYPE_3 );
+
+		//ÉXÉNÉçÅ[ÉãÉçÉbÉNâèú
+		GmGmkCamScrLimitRelease(
+				GMD_GMK_SCR_LMT_RELEASE_TOP | GMD_GMK_SCR_LMT_RELEASE_RIGHT | GMD_GMK_SCR_LMT_RELEASE_BOTTOM );
+
+		//íåÇ…ìÆçÏóvãÅ
+		OBS_OBJECT_WORK* obj_work_pillar = gmBoss3BodyBattleSearchPillar();
+		if ( obj_work_pillar ){
+			GmGmkBoss3PillarWallChangeModeReturn( obj_work_pillar );
+		}
+	}
+	obj_work->ppFunc = NULL;
+}
+
+// ==========================================================================
+//ñ{ëÃ
+// ==========================================================================
+
+// =======================================================================
+// gmBoss3BodyExit
+/*!
+ *	èIóπèàóù
+ *
+ *	@param tcb	[io] TCB
+ *
+ *	@note ÉmÅ[ÉhÉ}ÉgÉäÉNÉXéÊìæä÷òAÇÃâï˙
+ */
+// =======================================================================
+void gmBoss3BodyExit( MTS_TASK_TCB* tcb )
+{
+	GMS_BOSS3_BODY_WORK* body_work = (GMS_BOSS3_BODY_WORK*)mtTaskGetTcbWork( tcb );
+	amAssert( body_work );
+	OBS_OBJECT_WORK* obj_work = &body_work->ene_3d.ene_com.obj_work;
+
+	//É{ÉXÉÇÅ[ÉVÉáÉìÉRÅ[ÉãÉoÉbÉNÉVÉXÉeÉÄÇâï˙
+	GmBsCmnClearBossMotionCBSystem( obj_work );
+
+	//ÉmÅ[ÉhÉ}ÉgÉäÉNÉXéÊìæèàóùÉèÅ[ÉNÇâï˙
+	GmBsCmnDeleteSNMWork( &body_work->snm_work );
+
+	//ÉmÅ[ÉhÉ}ÉgÉäÉNÉXëÄçÏèàóùÉRÅ[ÉãÉoÉbÉNÇâï˙
+	GmBsCmnClearCNMCb( obj_work );
+
+	//É{ÉX3ópèIóπèàóù
+	gmBoss3ExitFunc( tcb );
+}
+
+// =======================================================================
+// gmBoss3BodyReactionPlayer
+/*!
+ *	ÉvÉåÉCÉÑÇÇÕÇ∂Ç≠
+ *
+ *	@param obj_work	[io] ÉIÉuÉWÉFÉNÉgÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3BodyReactionPlayer( OBS_OBJECT_WORK* obj_work_player, const OBS_OBJECT_WORK* obj_work_body )
+{
+	GMS_PLAYER_WORK* player_work = (GMS_PLAYER_WORK*)obj_work_player;
+	amAssert( player_work );
+
+	//íµÇÀï‘ÇËÇ…
+	GmPlySeqAtkReactionInit( player_work );
+
+	//ÉWÉÉÉìÉvê›íË
+	GmPlySeqSetJumpState( 
+			player_work,
+			0,
+			(GMD_PLY_SEQ_SETJUMPSTATE_IGNORE_JUMPBTN | GMD_PLY_SEQ_SETJUMPSTATE_NOHOMING) );
+
+
+	//ÇÕÇ∂Ç≠ó 
+	fx32 ref_x = GMD_BOSS3_BODY_DEF_PLAYER_MOVE_X_NORMAL;
+	fx32 ref_y = GMD_BOSS3_BODY_DEF_PLAYER_MOVE_Y_NORMAL;
+
+	//ÉzÅ[É~ÉìÉOçUåÇÇÃÇ∆Ç´
+	if (player_work->seq_state == GME_PLY_SEQ_STATE_HOMING_REF) {
+		ref_x = GMD_BOSS3_BODY_DEF_PLAYER_MOVE_X_HOMING;
+		ref_y = GMD_BOSS3_BODY_DEF_PLAYER_MOVE_Y_HOMING;
+	}
+
+	//à⁄ìÆíl
+	obj_work_player->spd_m = 0;
+	if ( obj_work_player->move.x >= 0 ){
+		obj_work_player->spd.x = -ref_x;
+	}
+	else {
+		obj_work_player->spd.x = ref_x;
+	}
+
+	if ( obj_work_player->pos.y <= obj_work_body->pos.y ){
+		obj_work_player->spd.y = -ref_y;
+	}
+	else {
+		obj_work_player->spd.y = ref_y;
+	}
+
+	//ÉWÉÉÉìÉvíÜà⁄ìÆÇ≥ÇπÇ»Ç¢éûä‘ÅiòAë±HITÇñhÇÆÇΩÇﬂÅj
+	GmPlySeqSetNoJumpMoveTime( player_work, GMD_BOSS3_BODY_DEF_PLAYER_NO_JUMP_MOVE_TIME );
+}
+
+
+// =======================================================================
+// gmBoss3BodySetRectNormal
+/*!
+ *	ãÈå`ê›íËÅií èÌÅj
+ *
+ *	@param obj_work	[io] ÉIÉuÉWÉFÉNÉgÇÃÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3BodySetRectNormal( GMS_BOSS3_BODY_WORK* body_work )
+{
+	//çUåÇãÈå`îÕàÕÇí èÌÇ…
+	ObjRectWorkSet(
+			&body_work->ene_3d.ene_com.rect_work[GMD_ENEMY_RECT_ATK],
+			-8, -8, 8, 8 );
+
+	//Ç≠ÇÁÇ¢ãÈå`óLå¯
+	body_work->ene_3d.ene_com.rect_work[GMD_ENEMY_RECT_DEF].flag |= OBD_RECT_ENABLE;
+}
+
+// =======================================================================
+// gmBoss3BodySetActionAllParts
+/*!
+ *	ÉAÉNÉVÉáÉìê›íËÅiñ{ëÃÉpÅ[ÉcëSÇƒÅj
+ *
+ *	@param body_work	[io] ñ{ëÃÉèÅ[ÉN
+ *	@param action_id	[in] ÉAÉNÉVÉáÉìID
+ *	@param force_change	[in] ã≠êßïœçXÉtÉâÉO
+ */
+// =======================================================================
+void gmBoss3BodySetActionAllParts(
+								  GMS_BOSS3_BODY_WORK* body_work,
+								  GME_BOSS3_ACT_ID action_id,
+								  BOOL force_change	// = FALSE
+								  )
+{
+	amAssert( body_work );
+
+	//ê›íËçœÇ›
+	if ( !force_change && body_work->action_id == action_id ){
+		return;
+	}
+
+	//ÉAÉNÉVÉáÉìIDÇê›íË
+	body_work->action_id = action_id;
+
+	//ñ{ëÃÉpÅ[ÉcÇÃÉÇÅ[ÉVÉáÉìÇïœçX
+	for ( s32 i = 0; GMD_BOSS3_PART_IDX_MAX > i; ++i ){
+
+		OBS_OBJECT_WORK* part_obj_work = body_work->parts_objs[i];
+		if ( !part_obj_work ){
+			continue;
+		}
+
+		//ÉAÉNÉVÉáÉìèÓïÒ
+		const GMS_BOSS3_PART_ACT_INFO* action_info = &gm_boss3_act_info_tbl[action_id][i];
+
+		//ÉGÉbÉOÉ}ÉìêÍópèàóù
+		if ( i == GMD_BOSS3_PART_IDX_EGG ){
+			GMS_BOSS3_EGG_WORK* egg_work = (GMS_BOSS3_EGG_WORK*)part_obj_work;
+
+			//ÉGÉbÉOÉ}ÉìêÍópÉAÉNÉVÉáÉìíÜÇÃèÍçáÅAïœçXÇµÇ»Ç¢
+			if ( egg_work->flag & GMD_BOSS3_EGG_FLAG_EGG_ACT_ACTIVE ){
+				continue;
+			}
+		}
+
+		//åpë±ÉtÉâÉOóLå¯
+		if ( action_info->is_maintain ){
+			//ÉÇÅ[ÉVÉáÉìÇÕïœçXÇµÇ»Ç¢Ç™ÅAÉäÉsÅ[ÉgÉtÉâÉOÇÃÇ›îΩâfÇ≥ÇπÇÈ
+			if ( action_info->is_repeat ){
+				part_obj_work->disp_flag |= OBD_DISP_REPEAT;
+			}
+		}
+		//åpë±ÉtÉâÉOñ≥å¯
+		else{
+			//ÉÇÅ[ÉVÉáÉìÇïœçXÇ∑ÇÈ
+			GmBsCmnSetAction(
+					part_obj_work,
+					action_info->mtn_id,
+					action_info->is_repeat,
+					action_info->is_blend);
+		}
+
+		//ÉÇÅ[ÉVÉáÉìë¨ìx
+		part_obj_work->obj_3d->speed[0] = action_info->mtn_spd;
+
+		//ÉuÉåÉìÉhë¨ìx
+		part_obj_work->obj_3d->blend_spd = action_info->blend_spd;
+	}
+}
+
+// =======================================================================
+// gmBoss3BodyOutFunc
+/*!
+ *	ï`âÊä÷êî
+ *
+ *	@param obj_work	[io] ÉIÉuÉWÉFÉNÉgÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3BodyOutFunc( OBS_OBJECT_WORK* obj_work )
+{
+	ObjDrawActionSummary( obj_work );
+}
+
+// =======================================================================
+// gmBoss3BodyChaseMoveFunc
+/*!
+ *	à⁄ìÆä÷êî
+ *
+ *	@param obj_work	[io] ÉIÉuÉWÉFÉNÉgÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3BodyChaseMoveFunc( OBS_OBJECT_WORK* obj_work )
+{
+	fx32 speed_x = obj_work->spd.x;
+	fx32 speed_y = obj_work->spd.y;
+
+	//ÉXÉsÅ[Éhí≤êÆ
+	GMS_BOSS3_BODY_WORK* body_work = (GMS_BOSS3_BODY_WORK*)obj_work;
+	gmBoss3BodyChaseAdjustMoveSpeed( body_work );
+
+	//à⁄ìÆ
+	ObjObjectMove( obj_work );
+
+	//ÉXÉsÅ[ÉhñﬂÇ∑
+	obj_work->spd.x = speed_x;
+	obj_work->spd.y = speed_y;
+}
+
+// =======================================================================
+// gmBoss3BodyDefFunc
+/*!
+ *	Ç≠ÇÁÇ¢ä÷êî
+ *
+ *	@param own_rect	[io] é©êgÇÃãÈå`
+ *	@param target_rect	[io] ëäéËÇÃãÈå`
+ */
+// =======================================================================
+void gmBoss3BodyDefFunc( OBS_RECT_WORK* own_rect, OBS_RECT_WORK* target_rect )
+{
+	OBS_OBJECT_WORK* player_obj_work = target_rect->parent_obj;
+	amAssert( player_obj_work );
+
+	OBS_OBJECT_WORK* body_obj_work = own_rect->parent_obj;
+	GMS_BOSS3_BODY_WORK* body_work = (GMS_BOSS3_BODY_WORK*)body_obj_work;
+	amAssert( body_work );
+
+	//ÉvÉåÉCÉÑÇ∂Ç·Ç»Ç¢
+	if ( !player_obj_work || GMD_OBJTYPE_PLAYER != player_obj_work->obj_type ){
+		return;
+	}
+
+	//ÉvÉåÉCÉÑÇíeÇ≠
+	gmBoss3BodyReactionPlayer( player_obj_work, body_obj_work );
+
+	//ÉqÉbÉgñ≥å¯éûä‘
+	gmBoss3BodySetNoHitTime( body_work, GMD_BOSS3_BODY_DEF_NO_HIT_TIME );
+
+	//É_ÉÅÅ[ÉW
+	gmBoss3BodyDamage( body_work );
+}
+
+// =======================================================================
+// gmBoss3BodySetNoHitTime
+/*!
+ *	ÉqÉbÉgñ≥å¯éûä‘Çê›íË
+ *
+ *	@param body_work	[io] ñ{ëÃÉèÅ[ÉN
+ *	@param time			[in] ÉqÉbÉgñ≥å¯éûä‘
+ *
+ *	@note gmBoss3BodyUpdateNoHitTimeä÷êîÇ≈çXêVÅAâèúÇçsÇ§
+ */
+// =======================================================================
+void gmBoss3BodySetNoHitTime( GMS_BOSS3_BODY_WORK *body_work, u32 time )
+{
+	amAssert( body_work );
+
+	GMS_ENEMY_COM_WORK* ene_com = &body_work->ene_3d.ene_com;
+
+	//ÉqÉbÉgñ≥å¯Çê›íË
+	body_work->counter_no_hit = time;
+	ene_com->rect_work[GMD_ENEMY_RECT_DEF].flag |= OBD_RECT_NOHIT;
+}
+
+// =======================================================================
+// gmBoss3BodyUpdateNoHitTime
+/*!
+ *	ÉqÉbÉgñ≥å¯éûä‘ÇçXêV
+ *
+ *	@param body_work	[io] ñ{ëÃÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3BodyUpdateNoHitTime( GMS_BOSS3_BODY_WORK* body_work )
+{
+	amAssert( body_work );
+
+	//ÉJÉEÉìÉgÉ_ÉEÉì
+	if ( body_work->counter_no_hit > 0 ){
+		--body_work->counter_no_hit;
+		return;
+	}
+
+	//ÉqÉbÉgñ≥å¯ÉtÉâÉOÇâèú
+	GMS_ENEMY_COM_WORK* ene_com = &body_work->ene_3d.ene_com;
+	ene_com->rect_work[GMD_ENEMY_RECT_DEF].flag &= ~OBD_RECT_NOHIT;
+}
+
+// =======================================================================
+// gmBoss3BodySetInvincibleTime
+/*!
+ *	ñ≥ìGéûä‘Çê›íË
+ *
+ *	@param body_work	[io] ñ{ëÃÉèÅ[ÉN
+ *	@param time			[in] ÉqÉbÉgñ≥å¯éûä‘
+ *
+ *	@note gmBoss3BodyUpdateNoHitTimeä÷êîÇ≈çXêVÅAâèúÇçsÇ§
+ */
+// =======================================================================
+void gmBoss3BodySetInvincibleTime( GMS_BOSS3_BODY_WORK *body_work, u32 time )
+{
+	amAssert( body_work );
+
+	body_work->counter_invincible = time;
+	body_work->flag |= GMD_BOSS3_BODY_FLAG_INVINCIBLE;
+}
+
+// =======================================================================
+// gmBoss3BodyUpdateInvincibleTime
+/*!
+ *	ñ≥ìGéûä‘ÇçXêV
+ *
+ *	@param body_work	[io] ñ{ëÃÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3BodyUpdateInvincibleTime( GMS_BOSS3_BODY_WORK* body_work )
+{
+	amAssert( body_work );
+
+	//ÉJÉEÉìÉgÉ_ÉEÉì
+	if ( body_work->counter_invincible > 0 ){
+		--body_work->counter_invincible;
+		return;
+	}
+	body_work->flag &= ~GMD_BOSS3_BODY_FLAG_INVINCIBLE;
+}
+
+// =======================================================================
+// gmBoss3BodySetDirection
+/*!
+ *	å¸Ç´Çê›íË
+ *
+ *	@param body_work	[io] ñ{ëÃÉèÅ[ÉN
+ *	@param deg			[in] äpìx
+ */
+// =======================================================================
+void gmBoss3BodySetDirection( GMS_BOSS3_BODY_WORK* body_work, Angle16 deg )
+{
+	body_work->angle_current = deg;
+}
+
+// =======================================================================
+// gmBoss3BodySetDirectionNormal
+/*!
+ *	å¸Ç´Çê›íËÅiê^â°ÇÊÇËê≥ñ å¸Ç´Åj
+ *
+ *	@param body_work	[io] ñ{ëÃÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3BodySetDirectionNormal( GMS_BOSS3_BODY_WORK* body_work )
+{
+	OBS_OBJECT_WORK* obj_work = GMM_BS_OBJ( body_work );
+
+	if ( obj_work->disp_flag & OBD_DISP_HFLIP ){
+		gmBoss3BodySetDirection( body_work, GMD_BOSS3_ANGLE_LEFT );
+	}
+	else {
+		gmBoss3BodySetDirection( body_work, GMD_BOSS3_ANGLE_RIGHT );
+	}
+}
+
+// =======================================================================
+// gmBoss3BodyUpdateDirection
+/*!
+ *	å¸Ç´çXêV
+ *
+ *	@param body_work	[io] ñ{ëÃÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3BodyUpdateDirection( GMS_BOSS3_BODY_WORK* body_work )
+{
+	OBS_OBJECT_WORK* obj_work = GMM_BS_OBJ( body_work );
+
+	obj_work->dir.y	= (Uint16)body_work->angle_current;
+}
+
+// =======================================================================
+// gmBoss3BodyCalcMoveXNormalFrame
+/*!
+ *	ç¿ïWÇ‹Ç≈ÇÃà⁄ìÆÇ…ä|Ç©ÇÈÉtÉåÅ[ÉÄêîÇéZèo
+ *
+ *	@param body_work		[in] ñ{ëÃÉèÅ[ÉN
+ *	@param x				[in] ñ⁄ïWç¿ïW
+ *	@param speed			[in] ïΩãœÉXÉsÅ[Éh
+ *
+ *	@return ÉtÉåÅ[ÉÄêî
+ */
+// =======================================================================
+Float gmBoss3BodyCalcMoveXNormalFrame( 
+									const GMS_BOSS3_BODY_WORK* body_work,
+									fx32 x,
+									fx32 speed )
+{
+	//ñ⁄ìIínÇ‹Ç≈ÇÃãóó£
+	const OBS_OBJECT_WORK* obj_work = GMM_BS_OBJ( body_work );
+	amAssert( obj_work );
+	fx32 dest = MTM_MATH_ABS(x - obj_work->pos.x);
+
+	//à⁄ìÆÇ…ä|Ç©ÇÈÉtÉåÅ[ÉÄêî
+	Float frame = (Float)dest / (Float)speed;
+	return frame;
+}
+
+// =======================================================================
+// gmBoss3BodyInitMoveNormal
+/*!
+ *	ç¿ïWà⁄ìÆèâä˙âª
+ *
+ *	@param body_work		[io] ñ{ëÃÉèÅ[ÉN
+ *	@param dest_pos			[in] ñ⁄ïWç¿ïW
+ *	@param frame			[in] ÉtÉåÅ[ÉÄêî
+ */
+// =======================================================================
+void gmBoss3BodyInitMoveNormal(
+						 GMS_BOSS3_BODY_WORK* body_work, 
+						 const VecFx32* dest_pos,
+						 Float frame )
+{
+	amAssert( dest_pos );
+
+	const OBS_OBJECT_WORK* obj_work = GMM_BS_OBJ( body_work );
+	amAssert( obj_work );
+
+	body_work->start_pos.x = obj_work->pos.x;
+	body_work->start_pos.y = obj_work->pos.y;
+	body_work->start_pos.z = obj_work->pos.z;
+
+	body_work->end_pos.x = dest_pos->x;
+	body_work->end_pos.y = dest_pos->y;
+	body_work->end_pos.z = body_work->start_pos.z;
+
+	body_work->move_counter = 0.0f;
+	if ( frame > 0  ){
+		body_work->move_frame = frame;
+	}
+	else{
+		body_work->move_frame = 1.0f;
+	}
+}
+
+// =======================================================================
+// gmBoss3BodyUpdateMoveNormal
+/*!
+ *	ç¿ïWà⁄ìÆçXêV
+ *
+ *	@param body_work	[io] ñ{ëÃÉèÅ[ÉN
+ *
+ *	@return écÇËÉtÉåÅ[ÉÄêî
+ */
+// =======================================================================
+Float gmBoss3BodyUpdateMoveNormal( GMS_BOSS3_BODY_WORK* body_work )
+{
+	amAssert( body_work );
+
+	VecFx32 dest_pos;
+
+	body_work->move_counter += 1.0f;
+
+	//à⁄ìÆèIóπ
+	if ( body_work->move_counter >= body_work->move_frame ){
+		dest_pos.x = body_work->end_pos.x;
+		dest_pos.y = body_work->end_pos.y;
+		dest_pos.z = body_work->end_pos.z;
+	}
+	//ÉTÉCÉìÉJÅ[ÉuÇ≈à⁄ìÆíÜ
+	else{
+		//ÉTÉCÉìÉJÅ[ÉuópäpìxÇéZèo
+		Float per = body_work->move_counter / body_work->move_frame;
+		Angle32 angle_cos = AKM_DEGtoA32( 180 * per );
+
+		//à⁄ìÆó ÇéZèo
+		Float move_f = 0.5f * (1.0f - nnCos(angle_cos));
+		VecFx32 move;
+		move.x = (fx32)((body_work->end_pos.x - body_work->start_pos.x) * move_f);
+		move.y = (fx32)((body_work->end_pos.y - body_work->start_pos.y) * move_f);
+		move.z = (fx32)((body_work->end_pos.z - body_work->start_pos.z) * move_f);
+		dest_pos.x = body_work->start_pos.x + move.x;
+		dest_pos.y = body_work->start_pos.y + move.y;
+		dest_pos.z = body_work->start_pos.z + move.z;
+	}
+
+	//ç¿ïWê›íË
+	OBS_OBJECT_WORK* obj_work = GMM_BS_OBJ( body_work );
+	obj_work->pos.x = dest_pos.x;
+	obj_work->pos.y = dest_pos.y;
+	obj_work->pos.z = dest_pos.z;
+	
+	return body_work->move_frame - body_work->move_counter;
+}
+
+// =======================================================================
+// gmBoss3BodyInitTurn
+/*!
+ *	êUÇËå¸Ç´èâä˙âª
+ *
+ *	@param body_work		[io] ñ{ëÃÉèÅ[ÉN
+ *	@param dest_angle		[in] ñ⁄ïWäp
+ *	@param frame			[in] ÉtÉåÅ[ÉÄêî
+ *	@param flag_positive	[in] ê≥ï˚å¸âÒì]ÉtÉâÉO(TRUE:ê≥ FALSE:ïâ)
+ */
+// =======================================================================
+void gmBoss3BodyInitTurn(
+						 GMS_BOSS3_BODY_WORK* body_work, 
+						 Angle16 dest_angle,
+						 Float frame, 
+						 BOOL flag_positive )
+{
+	amAssert( frame > 0 );
+
+	body_work->turn_counter = 0.0f;
+	body_work->turn_frame = frame;
+	body_work->turn_start = body_work->angle_current;
+
+	//ê≥ï˚å¸
+	u16 amount_u16 = (u16)((Angle32)dest_angle - (Angle32)body_work->angle_current);
+	body_work->turn_amount = (Angle32)amount_u16;
+
+	//ïâï˚å¸
+	if ( !flag_positive ){
+		u16 amount_u16_neg = (u16)(body_work->turn_amount - AKM_DEGtoA32(360));
+		body_work->turn_amount = amount_u16_neg - AKM_DEGtoA32(360);
+	}
+}
+
+// =======================================================================
+// gmBoss3BodyUpdateTurn
+/*!
+ *	êUÇËå¸Ç´çXêV
+ *
+ *	@param body_work	[io] ñ{ëÃÉèÅ[ÉN
+ *
+ *	@return écÇËÉtÉåÅ[ÉÄêî
+ */
+// =======================================================================
+Float gmBoss3BodyUpdateTurn( GMS_BOSS3_BODY_WORK* body_work )
+{
+	//ê›íËÇ≥ÇÍÇƒÇ¢Ç»Ç¢
+	if ( body_work->turn_frame < 1.0f ){
+		return 0;
+	}
+
+	Angle16 angle_current;
+
+	body_work->turn_counter += 1.0f;
+
+	//êUÇËå¸Ç´èIóπ
+	if ( body_work->turn_counter >= body_work->turn_frame ){
+		angle_current = (Angle16)(body_work->turn_start + body_work->turn_amount);
+	}
+	//ÉTÉCÉìÉJÅ[ÉuÇ≈âÒì]íÜ
+	else{
+		//ÉTÉCÉìÉJÅ[ÉuópäpìxÇéZèo
+		Float per = body_work->turn_counter / body_work->turn_frame;
+		Angle32 angle_cos = AKM_DEGtoA32( 180 * per );
+
+		//êUÇËå¸Ç´äpìxÇéZèo
+		Float angle_f = body_work->turn_amount * 0.5f * (1.0f - nnCos(angle_cos));
+		angle_current = (Angle16)(body_work->turn_start + angle_f);
+	}
+
+	//ê›íË
+	gmBoss3BodySetDirection( body_work, angle_current );
+	
+	return body_work->turn_frame - body_work->turn_counter;
+}
+
+// =======================================================================
+// gmBoss3BodyChaseCheckTurn
+/*!
+ *	É^Å[ÉìÇ∑ÇÈÇ©É`ÉFÉbÉN
+ *
+ *	@param body_work	[in] ñ{ëÃÉèÅ[ÉN
+ *
+ *	@retval TRUE É^Å[ÉìÇ∑ÇÈ
+ *	@retval FALSE É^Å[ÉìÇµÇ»Ç¢
+ */
+// =======================================================================
+BOOL gmBoss3BodyChaseCheckTurn( const GMS_BOSS3_BODY_WORK* body_work )
+{
+	const OBS_OBJECT_WORK* body_obj_work = GMM_BS_OBJ( body_work );
+	amAssert( body_obj_work );
+
+	if ( body_obj_work->disp_flag & OBD_DISP_HFLIP ){
+		if ( body_obj_work->spd.x < 0 ){
+			return FALSE;
+		}
+	}
+	else{
+		if ( body_obj_work->spd.x > 0 ){
+			return FALSE;
+		}
+	}
+	return TRUE;
+}
+
+// =======================================================================
+// gmBoss3BodyChaseAdjustMoveSpeed
+/*!
+ *	à⁄ìÆó í≤êÆ
+ *
+ *	@param body_work	[io] ñ{ëÃÉèÅ[ÉN
+ *	@param speed		[in] à⁄ìÆó 
+ */
+// =======================================================================
+static void gmBoss3BodyChaseAdjustMoveSpeed( GMS_BOSS3_BODY_WORK* body_work )
+{
+	OBS_OBJECT_WORK* body_obj_work = GMM_BS_OBJ( body_work );
+	amAssert( body_obj_work );
+
+	//ÉâÉCÉtÇ…ÇÊÇÈï‚ê≥
+	GMS_BOSS3_MGR_WORK* mgr_work = gmBoss3MgrGetMgrWork( body_obj_work );
+	amAssert( mgr_work );
+	fx32 speed_adjust = FX_F32_TO_FX32(1.0f + (GMD_BOSS3_MGR_LIFE - mgr_work->life) * GMD_BOSS3_CHASE_ADJUST_SPEED);
+
+	//ÉvÉåÉCÉÑÇÃï˚Ç™êÊçsÇµÇƒÇ¢ÇÈèÍçáÇÃï‚ê≥
+	GMS_PLAYER_WORK* player_work = g_gm_main_system.ply_work[GSD_MAIN_PLAYER_1P];
+	if ( player_work->obj_work.pos.y < body_obj_work->pos.y ){
+		//âEÇ…à⁄ìÆíÜ
+		if ( body_obj_work->spd.x > 0 ){
+			if ( body_obj_work->pos.x < player_work->obj_work.pos.x ){
+				speed_adjust = FX_Mul(speed_adjust,FX32_ONE*2);
+			}
+		}
+		//ç∂Ç…à⁄ìÆíÜ
+		if ( body_obj_work->spd.x < 0 ){
+			if ( player_work->obj_work.pos.x < body_obj_work->pos.x ){
+				speed_adjust = FX_Mul(speed_adjust,FX32_ONE*2);
+			}
+		}
+	}
+
+	//í≤êÆílîªíË
+	body_obj_work->spd.x = FX_Mul( body_obj_work->spd.x, speed_adjust );
+	body_obj_work->spd.y = FX_Mul( body_obj_work->spd.y, speed_adjust );
+#if _IPHONE
+	if (!body_work->is_move) {
+		body_obj_work->spd.x = 0;
+		body_obj_work->spd.y = 0;
+	}
+#endif // _IPHONE
+}
+
+// =======================================================================
+// gmBoss3BodyBattleCalcPattern
+/*!
+ *	ÉoÉgÉãÉpÉ^Å[Éìî‘çÜéZèo
+ *
+ *	@param body_work	[io] ñ{ëÃÉèÅ[ÉN
+ *
+ *	@return ÉoÉgÉãÉpÉ^Å[Éìî‘çÜ
+ */
+// =======================================================================
+s32 gmBoss3BodyBattleCalcPattern( GMS_BOSS3_BODY_WORK* body_work )
+{
+	OBS_OBJECT_WORK* obj_work = GMM_BS_OBJ( body_work );
+	GMS_BOSS3_MGR_WORK* mgr_work = gmBoss3MgrGetMgrWork( obj_work );
+	amAssert( mgr_work );
+
+	s32 rand = mtMathRand() % 100;
+	s32 cmp = 0;
+	for ( s32 i = 0; GMD_GMK_BOSS3_PILLAR_PATTERN_NUM > i; ++i ){
+		cmp += g_gm_boss3_battle_pattern_per[mgr_work->life-1][i];
+		if ( rand < cmp ){
+			return i;
+		}
+	}
+
+	amAssert( FALSE );
+	return 0; 
+}
+
+// =======================================================================
+// gmBoss3BodyBattleInitMovePattern
+/*!
+ *	ÉoÉgÉãÉpÉ^Å[ÉìÇ…âàÇ¡Çƒà⁄ìÆç¿ïWÇê›íËÇ∑ÇÈ
+ *
+ *	@param body_work	[io] ñ{ëÃÉèÅ[ÉN
+ *	@param pattern_no	[in] ÉoÉgÉãÉpÉ^Å[Éìî‘çÜ
+ *	@param pos_index	[in] ç¿ïWî‘çÜ
+ *
+ *	@retval TRUE:à⁄ìÆÇ∑ÇÈïKóvÇ†ÇË
+ *	@retval FALSE:à⁄ìÆÇ∑ÇÈïKóvÇ™Ç»Ç¢
+ */
+// =======================================================================
+BOOL gmBoss3BodyBattleInitMovePattern( 
+									  GMS_BOSS3_BODY_WORK* body_work,
+									  s32 pattern_no,
+									  s32 pos_index,
+									  fx32 move_speed)
+{
+	const OBS_OBJECT_WORK* body_obj_work = GMM_BS_OBJ( body_work );
+	amAssert( body_obj_work );
+	amAssert( 0 <= pattern_no && pattern_no < GMD_GMK_BOSS3_PILLAR_PATTERN_NUM );
+	amAssert( 0 <= pos_index && pos_index < GMD_BOSS3_BATTLE_MOVE_NUM );
+
+	if ( g_gm_boss3_battle_move_x[pattern_no][pos_index] == 0 ){
+		return FALSE;
+	}
+
+	VecFx32 dest_pos = {
+		body_obj_work->pos.x + g_gm_boss3_battle_move_x[pattern_no][pos_index]*FX32_ONE,
+		body_obj_work->pos.y,
+		body_obj_work->pos.z
+	};
+
+	//à⁄ìÆÉtÉåÅ[ÉÄêî
+	Float frame = gmBoss3BodyCalcMoveXNormalFrame( 
+			body_work, 
+			dest_pos.x, 
+			move_speed );
+
+	//à⁄ìÆê›íË
+	gmBoss3BodyInitMoveNormal(
+			body_work,
+			&dest_pos,
+			frame );
+
+	return TRUE;
+}
+
+// =======================================================================
+// gmBoss3BodyBattleCheckTurn
+/*!
+ *	É^Å[ÉìÇ∑ÇÈÇ©É`ÉFÉbÉN
+ *
+ *	@param body_work	[in] ñ{ëÃÉèÅ[ÉN
+ *
+ *	@retval TRUE É^Å[ÉìÇ∑ÇÈ
+ *	@retval FALSE É^Å[ÉìÇµÇ»Ç¢
+ */
+// =======================================================================
+BOOL gmBoss3BodyBattleCheckTurn( const GMS_BOSS3_BODY_WORK* body_work )
+{
+	const OBS_OBJECT_WORK* body_obj_work = GMM_BS_OBJ( body_work );
+	amAssert( body_obj_work );
+
+	if ( body_obj_work->disp_flag & OBD_DISP_HFLIP ){
+		if ( body_work->end_pos.x <= body_work->start_pos.x ){
+			return FALSE;
+		}
+	}
+	else{
+		if ( body_work->start_pos.x <= body_work->end_pos.x ){
+			return FALSE;
+		}
+	}
+	return TRUE;
+}
+
+// =======================================================================
+// gmBoss3BodyBattleSearchPillar
+/*!
+ *	é¸àÕÇ©ÇÁíåÉMÉ~ÉbÉNÇíTÇ∑
+ *
+ *	@return íåÉMÉ~ÉbÉNÇÃÉIÉuÉWÉFÉNÉgÉèÅ[ÉN
+ */
+// =======================================================================
+OBS_OBJECT_WORK* gmBoss3BodyBattleSearchPillar( void )
+{
+	OBS_OBJECT_WORK* target_obj_work = ObjObjectSearchRegistObject( NULL, GMD_OBJTYPE_GIMMICK );
+	while ( target_obj_work ){
+		const GMS_ENEMY_3D_WORK* target_gimmick_work = (const GMS_ENEMY_3D_WORK*)target_obj_work;
+		if ( target_gimmick_work->ene_com.eve_rec->id == GMD_EVENT_ID_BOSS3_PILLAR_MANAGER ){
+			break;
+		}
+
+		//éüÇÃÉIÉuÉWÉFÉNÉg
+		target_obj_work = ObjObjectSearchRegistObject( target_obj_work, GMD_OBJTYPE_GIMMICK );
+	}
+	return target_obj_work;
+}
+
+// =======================================================================
+// gmBoss3BodyDamage
+/*!
+ *	É_ÉÅÅ[ÉWèàóù
+ *
+ *	@param body_work	[io] ñ{ëÃÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3BodyDamage( GMS_BOSS3_BODY_WORK* body_work )
+{
+	amAssert( body_work );
+	OBS_OBJECT_WORK* body_obj_work = GMM_BS_OBJ( body_work );
+
+	//ñ≥ìG
+	if ( body_work->flag & GMD_BOSS3_BODY_FLAG_INVINCIBLE ){
+		return;
+	}
+
+	GMS_BOSS3_MGR_WORK* mgr_work = gmBoss3MgrGetMgrWork(body_obj_work);
+	amAssert( mgr_work );
+
+	//ëÃóÕ
+	--mgr_work->life;
+
+	//ê∂ë∂ÇµÇƒÇ¢ÇÈèÍçá
+	if ( mgr_work->life > 0 ){
+		body_work->flag |= GMD_BOSS3_BODY_FLAG_SIGNAL_B2B_DAMAGE;
+	}
+	//åÇîjÇ≥ÇÍÇΩèÍçá
+	else {
+		body_work->flag |= GMD_BOSS3_BODY_FLAG_SIGNAL_B2B_DEFEAT;
+		
+		// É{ÉXåÇîjÉ^ÉCÉ~ÉìÉOÇÃÉgÉçÉtÉBÅ[älìæÉ`ÉFÉbÉN
+		HgTrophyTryAcquisition(HGE_TROPHY_CHECK_TIMING_DEFEAT_BOSS);
+	}
+
+	//å¯â âπÅiÉ_ÉÅÅ[ÉWÅj
+	GmSoundPlaySE( "Boss0_01" );
+
+	//ÉGÉtÉFÉNÉg
+	gmBoss3EffDamageInit( body_work );
+
+	//êUìÆ
+	GmPadVibSet(
+			GMD_PAD_VIB_SMALL_TYPE, 
+			GMD_PAD_VIB_SMALL_TIME,
+			GMD_PAD_VIB_SMALL_LEFT_VIB, 
+			GMD_PAD_VIB_SMALL_RIGHT_VIB,
+			GMD_PAD_VIB_SMALL_ADD_DEC_TIME,
+			GMD_PAD_VIB_SMALL_INT_VIB_TIME, 
+			GMD_PAD_VIB_SMALL_INT_STOP_TIME,
+			GMD_PAD_VIB_SMALL_PRIO - 1);
+
+	//ñ≥ìGéûä‘
+	gmBoss3BodySetInvincibleTime( body_work, GMD_BOSS3_BODY_INVINVIBLE_TIME );
+}
+// =======================================================================
+// gmBoss3BodyEscapeCheckScreenOut
+/*!
+ *	ì¶ñSéûÇÃâÊñ äOîªíË
+ *
+ *	@param body_work	[io] ñ{ëÃÉèÅ[ÉN
+ *
+ *	@retval TRUE âÊñ äOÇ…èoÇΩ
+ *	@retval FALSE âÊñ ì‡Ç…Ç¢ÇÈ
+ */
+// =======================================================================
+BOOL gmBoss3BodyEscapeCheckScreenOut( const GMS_BOSS3_BODY_WORK* body_work )
+{
+	const OBS_OBJECT_WORK* obj_work = GMM_BS_OBJ( body_work );
+	amAssert( obj_work );
+
+	if ( obj_work->pos.x >= (g_gm_main_system.map_fcol.right + GMD_BOSS3_BODY_ESCAPE_SCREEN_OUT_LENGTH)*FX32_ONE ){
+		return TRUE;
+	}	
+	return FALSE;
+}
+
+// =======================================================================
+// gmBoss3BodyEscapeAddjustSpeed
+/*!
+ *	ì¶ñSéûÇÃÉXÉsÅ[Éhí≤êÆ
+ *
+ *	@param body_work	[io] ñ{ëÃÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3BodyEscapeAddjustSpeed( GMS_BOSS3_BODY_WORK* body_work )
+{
+	OBS_OBJECT_WORK* obj_work = GMM_BS_OBJ( body_work );
+	amAssert( obj_work );
+
+	if ( MTM_MATH_ABS(obj_work->spd.x) > GMD_BOSS3_BODY_ESCAPE_SPD_Y_MAX ){
+		obj_work->spd.x = GMD_BOSS3_BODY_ESCAPE_SPD_X_MAX;
+		obj_work->spd.y = GMD_BOSS3_BODY_ESCAPE_SPD_Y_MAX;
+		obj_work->spd_add.x = 0;
+		obj_work->spd_add.y = 0;
+	}
+}
+
+// =======================================================================
+// gmBoss3BodyChangeState
+/*!
+ *	èÛë‘ëJà⁄
+ *
+ *	@param body_work	[io] ñ{ëÃÉèÅ[ÉN
+ *	@param state		[in] ëJà⁄êÊÇÃèÛë‘
+ */
+// =======================================================================
+void gmBoss3BodyChangeState(
+							GMS_BOSS3_BODY_WORK* body_work,
+							GME_BOSS3_BODY_STATE state )
+{
+	//èIóπèàóù
+	GMF_BOSS3_BODY_STATE_FUNC exit_func = gm_boss3_body_state_func_tbl_leave[body_work->state];
+	if ( exit_func ){
+		exit_func( body_work );
+	}
+
+	//èÛë‘ïœçXê›íË
+	body_work->prev_state = body_work->state;
+	body_work->state = state;
+
+	//äJénèàóù
+	GMF_BOSS3_BODY_STATE_FUNC init_func = gm_boss3_body_state_func_tbl_enter[body_work->state];
+	if ( init_func ){
+		init_func( body_work );
+	}
+}
+
+// =======================================================================
+// gmBoss3BodyStateStartEnter
+/*!
+ *	äJénèâä˙âª
+ *
+ *	@param body_work	[io] ñ{ëÃÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3BodyStateStartEnter( GMS_BOSS3_BODY_WORK* body_work )
+{
+	OBS_OBJECT_WORK* obj_work = GMM_BS_OBJ( body_work );
+	amAssert( obj_work );
+
+	//ãÈå`ñ≥å¯
+	obj_work->flag |= OBD_OBJECT_NOHIT;
+	
+	//ÉAÉNÉVÉáÉìÅiã≠êßê›íËÅj
+	gmBoss3BodySetActionAllParts( body_work, GMD_BOSS3_ACT_ID_START, TRUE);
+		
+	//äpìx
+	gmBoss3BodySetDirectionNormal( body_work );
+
+	//èàóùä÷êîïœçX
+	if ( GmBsCmnIsFinalZoneType(obj_work) ){
+		body_work->proc_update = gmBoss3BodyStateStartUpdateWait;
+	}
+	else{
+		body_work->proc_update = gmBoss3BodyStateStartUpdateWaitScrLimit;
+	}
+
+	//ë“Çøéûä‘ê›íË
+	obj_work->user_timer = GMD_BOSS3_BODY_START_TIME_WAIT_END;
+
+	//ÉzÅ[É~ÉìÉOÉAÉ^ÉbÉNÇÃëŒè€Ç©ÇÁÇÕÇ∏Ç∑
+	body_work->ene_3d.ene_com.enemy_flag |= GMD_ENEMY_FLAG_NOHOMING;
+}
+
+// =======================================================================
+// gmBoss3BodyStateStartLeave
+/*!
+ *	äJénèIóπ
+ *
+ *	@param body_work	[io] ñ{ëÃÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3BodyStateStartLeave( GMS_BOSS3_BODY_WORK* body_work )
+{
+	OBS_OBJECT_WORK* obj_work = GMM_BS_OBJ( body_work );
+	amAssert( obj_work );
+
+	//ãÈå`óLå¯
+	obj_work->flag &= ~OBD_OBJECT_NOHIT;
+
+	//çUåÇÇµÇ»Ç¢ÉtÉâÉOÇÇ®ÇÎÇ∑
+	body_work->flag &= ~GMD_BOSS3_BODY_FLAG_NOATTACK;
+
+	//ÉzÅ[É~ÉìÉOÉAÉ^ÉbÉNÇÃëŒè€Ç…Ç∑ÇÈ
+	body_work->ene_3d.ene_com.enemy_flag &= ~GMD_ENEMY_FLAG_NOHOMING;
+}
+
+// =======================================================================
+// gmBoss3BodyStateStartUpdateWaitScrLimit
+/*!
+ *	äJénçXêVÅië“ã@Åj
+ *
+ *	@param body_work	[io] ñ{ëÃÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3BodyStateStartUpdateWaitScrLimit( GMS_BOSS3_BODY_WORK* body_work )
+{
+	//ÉXÉNÉçÅ[ÉãÉçÉbÉNäƒéã
+	if ( !(g_gm_main_system.game_flag & GMD_GAME_FLAG_SCR_LIMIT_BUSY) ){
+		return;
+	}
+
+	//èàóùä÷êîïœçX
+	body_work->proc_update = gmBoss3BodyStateStartUpdateWait;
+}
+
+// =======================================================================
+// gmBoss3BodyStateStartUpdateWait
+/*!
+ *	äJénçXêVÅië“ã@Åj
+ *
+ *	@param body_work	[io] ñ{ëÃÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3BodyStateStartUpdateWait( GMS_BOSS3_BODY_WORK* body_work )
+{
+	OBS_OBJECT_WORK* obj_work = GMM_BS_OBJ( body_work );
+	amAssert( obj_work );
+
+	//å¸Ç´
+	gmBoss3BodySetDirectionNormal( body_work );
+
+	//ë“ã@
+	if ( obj_work->user_timer > 0 ){
+		--obj_work->user_timer;
+		return;
+	}
+	
+	//ÉAÉNÉVÉáÉì
+	gmBoss3BodySetActionAllParts( body_work, GMD_BOSS3_ACT_ID_MOVE );
+
+	//à⁄ìÆäJén
+#if _IPHONE
+	body_work->is_move = TRUE;
+#else
+	obj_work->move_flag &= ~OBD_MOVE_NOMOVE;
+#endif // _IPHONE
+
+	//ÉAÉtÉ^ÉoÅ[ÉióLå¯âª
+	gmBoss3EffAfterburnerRequestCreate( body_work );
+
+	//ï˚å¸ì]ä∑
+	obj_work->disp_flag &= ~OBD_DISP_HFLIP;
+	gmBoss3BodyInitTurn(
+			body_work, 
+			GMD_BOSS3_ANGLE_RIGHT,
+			GMD_BOSS3_BODY_FRAME_TURN, 
+			TRUE );
+
+	//èàóùä÷êîïœçX
+	body_work->proc_update = gmBoss3BodyStateStartUpdateEnd;
+}
+
+// =======================================================================
+// gmBoss3BodyStateStartUpdateEnd
+/*!
+ *	äJénçXêVÅièIóπÅj
+ *
+ *	@param body_work	[io] ñ{ëÃÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3BodyStateStartUpdateEnd( GMS_BOSS3_BODY_WORK* body_work )
+{
+	OBS_OBJECT_WORK* obj_work = GMM_BS_OBJ( body_work );
+	amAssert( obj_work );
+
+	//ï˚å¸ì]ä∑é¿çs
+	gmBoss3BodyUpdateTurn(body_work);
+
+	//âÊñ äOÇ…èoÇÈÇÃë“Çø
+	if ( !ObjViewOutCheck(obj_work->pos.x, obj_work->pos.y, GMD_BOSS3_BODY_START_WAIT_OUT_OFFSET, 0, 0, 0, 0) ){
+		return;
+	}	
+
+	//ÉXÉNÉçÅ[ÉãÉçÉbÉNâèú
+	GmGmkCamScrLimitRelease( GMD_GMK_SCR_LMT_RELEASE_RIGHT );
+
+	//í«ê’èÛë‘Ç÷ïœçX
+	gmBoss3BodyChangeState( body_work, GMD_BOSS3_BODY_STATE_CHASE_MOVE );
+}
+
+// =======================================================================
+// gmBoss3BodyStateChaseMoveEnter
+/*!
+ *	í«ê’à⁄ìÆèâä˙âª
+ *
+ *	@param body_work	[io] ñ{ëÃÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3BodyStateChaseMoveEnter( GMS_BOSS3_BODY_WORK* body_work )
+{	
+	//ÉAÉNÉVÉáÉì
+	gmBoss3BodySetActionAllParts( body_work, GMD_BOSS3_ACT_ID_MOVE );
+
+	//èàóùä÷êîïœçX
+	body_work->proc_update = gmBoss3BodyStateChaseMoveUpdate;
+
+	//ÉAÉtÉ^ÉoÅ[ÉióLå¯âª
+	gmBoss3EffAfterburnerRequestCreate( body_work );
+}
+
+// =======================================================================
+// gmBoss3BodyStateChaseMoveLeave
+/*!
+ *	í«ê’à⁄ìÆèIóπ
+ *
+ *	@param body_work	[io] ñ{ëÃÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3BodyStateChaseMoveLeave( GMS_BOSS3_BODY_WORK* body_work )
+{		
+	//ÉAÉtÉ^ÉoÅ[ÉiÉGÉtÉFÉNÉgí‚é~
+	gmBoss3EffAfterburnerRequestDelete( body_work );
+}
+
+// =======================================================================
+// gmBoss3BodyStateChaseMoveUpdate
+/*!
+ *	í«ê’à⁄ìÆçXêV
+ *
+ *	@param body_work	[io] ñ{ëÃÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3BodyStateChaseMoveUpdate( GMS_BOSS3_BODY_WORK* body_work )
+{
+	OBS_OBJECT_WORK* obj_work = GMM_BS_OBJ( body_work );
+	amAssert( obj_work );
+
+	//ï˚å¸ì]ä∑îªíË
+	if ( gmBoss3BodyChaseCheckTurn(body_work) ){
+		Angle16 dest_angle;
+		BOOL flag_positive;
+
+		//âEÇ…å¸Ç©Ç§
+		if ( obj_work->disp_flag & OBD_DISP_HFLIP ){
+			obj_work->disp_flag &= ~OBD_DISP_HFLIP;
+			dest_angle = GMD_BOSS3_ANGLE_RIGHT;
+			flag_positive = TRUE;
+		}
+		//ç∂Ç…å¸Ç©Ç§
+		else {
+			obj_work->disp_flag |= OBD_DISP_HFLIP;
+			dest_angle = GMD_BOSS3_ANGLE_LEFT;
+			flag_positive = FALSE;
+		}
+
+		//ï˚å¸ì]ä∑
+		gmBoss3BodyInitTurn(
+				body_work, 
+				dest_angle,
+				GMD_BOSS3_BODY_FRAME_TURN, 
+				flag_positive );
+	}
+
+	//ï˚å¸ì]ä∑é¿çs
+	gmBoss3BodyUpdateTurn(body_work);
+
+	//ÉtÉâÉOÉ`ÉFÉbÉN
+	if ( obj_work->user_flag ){
+		//í«ê’èÛë‘Ç÷ïœçX
+		gmBoss3BodyChangeState( body_work, GMD_BOSS3_BODY_STATE_PRE_BATTLE );
+	}
+}
+
+// =======================================================================
+// gmBoss3BodyStatePreBattleEnter
+/*!
+ *	ÉoÉgÉãëOââèoèâä˙âª
+ *
+ *	@param body_work	[io] ñ{ëÃÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3BodyStatePreBattleEnter( GMS_BOSS3_BODY_WORK* body_work )
+{	
+	OBS_OBJECT_WORK* obj_work = GMM_BS_OBJ( body_work );
+	amAssert( obj_work );
+
+	//ÉAÉNÉVÉáÉì
+	gmBoss3BodySetActionAllParts( body_work, GMD_BOSS3_ACT_ID_MOVE );
+
+	//èàóùä÷êîïœçX
+	body_work->proc_update = gmBoss3BodyStatePreBattleUpdateStart;
+
+	//ë“Çøéûä‘ê›íË
+	obj_work->user_timer = GMD_BOSS3_BATTLE_FRAME_WAIT_START;
+
+	//à⁄ìÆä÷êîïœçX
+	obj_work->ppMove = ObjObjectMove;	
+
+	//ÉAÉtÉ^ÉoÅ[ÉiÉGÉtÉFÉNÉgí‚é~
+	gmBoss3EffAfterburnerRequestDelete( body_work );
+}
+
+// =======================================================================
+// gmBoss3BodyStatePreBattleLeave
+/*!
+ *	ÉoÉgÉãëOââèoèIóπ
+ *
+ *	@param body_work	[io] ñ{ëÃÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3BodyStatePreBattleLeave( GMS_BOSS3_BODY_WORK* body_work )
+{		
+	//ÉAÉtÉ^ÉoÅ[ÉiÉGÉtÉFÉNÉgí‚é~
+	gmBoss3EffAfterburnerRequestDelete( body_work );
+}
+
+// =======================================================================
+// gmBoss3BodyStatePreBattleUpdateStart
+/*!
+ *	ÉoÉgÉãëOââèoçXêV
+ *
+ *	@param body_work	[io] ñ{ëÃÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3BodyStatePreBattleUpdateStart( GMS_BOSS3_BODY_WORK* body_work )
+{
+	OBS_OBJECT_WORK* obj_work = GMM_BS_OBJ( body_work );
+	amAssert( obj_work );
+
+	//âÊñ äOîªíË
+	if ( ObjViewOutCheck(obj_work->pos.x, obj_work->pos.y, 0, 0, 0, 0, 0) ){
+		return;
+	}
+
+	//ë“ã@
+	if ( obj_work->user_timer > 0 ){
+		--obj_work->user_timer;
+		return;
+	}
+
+	//ÉJÉÅÉâÉXÉPÅ[Éã
+	if ( !_am_draw_video.wide_screen ){
+		GmCameraScaleSet(GMD_BOSS3_BODY_BATTLE_CAMERA_SCALE, (1.0f-GMD_BOSS3_BODY_BATTLE_CAMERA_SCALE)/GMD_BOSS3_BODY_BATTLE_CAMERA_FRAME);
+		GmMapSetDrawMarginMag();
+	}
+
+
+	//ï˚å¸ì]ä∑
+	obj_work->disp_flag |= OBD_DISP_HFLIP;
+	gmBoss3BodyInitTurn(
+			body_work, 
+			GMD_BOSS3_ANGLE_LEFT,
+			GMD_BOSS3_BODY_FRAME_TURN, 
+			FALSE );
+
+	//ÉAÉNÉVÉáÉì
+	gmBoss3BodySetActionAllParts( body_work, GMD_BOSS3_ACT_ID_MOVE );
+
+	//èàóùä÷êîïœçX
+	body_work->proc_update = gmBoss3BodyStatePreBattleUpdateTurn;
+
+	//BGMïœçX
+	if ( !GmBsCmnIsFinalZoneType(obj_work) ){
+		GmSoundChangeAngryBossBGM();
+	}
+
+}
+
+// =======================================================================
+// gmBoss3BodyStatePreBattleUpdateTurn
+/*!
+ *	ÉoÉgÉãëOââèoçXêVÅiêUÇËå¸Ç´Åj
+ *
+ *	@param body_work	[io] ñ{ëÃÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3BodyStatePreBattleUpdateTurn( GMS_BOSS3_BODY_WORK* body_work )
+{
+	//ï˚å¸ì]ä∑é¿çs
+	Float frame = gmBoss3BodyUpdateTurn(body_work);
+
+	//ï˚å¸ì]ä∑èIóπë“Çø
+	if ( frame > 0 ){
+		return;
+	}
+
+	//ÉAÉNÉVÉáÉì
+	gmBoss3BodySetActionAllParts( body_work, GMD_BOSS3_ACT_ID_PRE_BATTLE );
+
+	//èàóùä÷êîïœçX
+	body_work->proc_update = gmBoss3BodyStatePreBattleUpdateLaugh;
+
+	//íåÇ…ìÆçÏóvãÅ
+	OBS_OBJECT_WORK* obj_work_pillar = gmBoss3BodyBattleSearchPillar();
+	if ( obj_work_pillar ){
+		GmGmkBoss3PillarWallChangeModeActive( obj_work_pillar );
+	}
+	
+#if _IPHONE
+	// É}ÉbÉvÉTÉCÉYêßå¿
+	GmMapSetMapDrawSize(GME_MAP_DRAW_SIZE_ZONE3_BOSS);
+
+	//êÖñ ï`âÊÇêÿÇÈ
+	GmWaterSurfaceSetFlagDraw( FALSE );
+#endif //_IPHONE
+}
+
+// =======================================================================
+// gmBoss3BodyStatePreBattleUpdateLaugh
+/*!
+ *	ÉoÉgÉãëOââèoçXêVÅièŒÇ¢Åj
+ *
+ *	@param body_work	[io] ñ{ëÃÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3BodyStatePreBattleUpdateLaugh( GMS_BOSS3_BODY_WORK* body_work )
+{
+	OBS_OBJECT_WORK* obj_work = GMM_BS_OBJ( body_work );
+	amAssert( obj_work );
+
+	//ÉÇÅ[ÉVÉáÉìèIóπë“Çø
+	if ( !GmBsCmnIsActionEnd(obj_work) ){
+		return;
+	}
+
+	//íåÇ…ÉvÉåÉCÉÑÇà≥éÄÇ≥ÇπÇÈê›íË
+	OBS_OBJECT_WORK* obj_work_pillar = gmBoss3BodyBattleSearchPillar();
+	if ( obj_work_pillar ){
+		GmGmkBoss3PillarWallClearFlagNoPressDie( obj_work_pillar );
+	}
+
+	//ÉoÉgÉãèÛë‘Ç÷ïœçX
+	gmBoss3BodyChangeState( body_work, GMD_BOSS3_BODY_STATE_BATTLE );
+
+	//ÉJÉÅÉâÉXÉPÅ[Éã
+	GmCameraScaleSet(1.0f, (1.0f-GMD_BOSS3_BODY_BATTLE_CAMERA_SCALE)/GMD_BOSS3_BODY_BATTLE_CAMERA_FRAME);
+	GmMapSetDrawMarginNormal();
+}
+
+// =======================================================================
+// gmBoss3BodyStateBattleEnter
+/*!
+ *	ÉoÉgÉãà⁄ìÆèâä˙âª
+ *
+ *	@param body_work	[io] ñ{ëÃÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3BodyStateBattleEnter( GMS_BOSS3_BODY_WORK* body_work )
+{
+	OBS_OBJECT_WORK* obj_work = GMM_BS_OBJ( body_work );
+	amAssert( obj_work );
+	
+	//ÉAÉNÉVÉáÉì
+	gmBoss3BodySetActionAllParts( body_work, GMD_BOSS3_ACT_ID_MOVE );
+
+	//ñ⁄ìIç¿ïWÅià⁄ìÆîÕàÕÇÃíÜêSÅj
+	s32 widht = g_gm_main_system.map_fcol.right - g_gm_main_system.map_fcol.left; 
+	fx32 dest_x = (fx32)(g_gm_main_system.map_fcol.left + widht/2) * FX32_ONE;
+	VecFx32 dest_pos = {
+		dest_x,
+		obj_work->pos.y,
+		obj_work->pos.z
+	};
+
+	//à⁄ìÆÉtÉåÅ[ÉÄêî
+	Float frame = gmBoss3BodyCalcMoveXNormalFrame( 
+			body_work, 
+			dest_pos.x, 
+			GMD_BOSS3_BODY_BATTLE_MOVE_SPEED_MOVE );
+
+	//à⁄ìÆê›íË
+	gmBoss3BodyInitMoveNormal(
+			body_work,
+			&dest_pos,
+			frame );
+
+	//ï˚å¸ì]ä∑îªíË
+	if ( gmBoss3BodyBattleCheckTurn(body_work) ){
+		Angle16 dest_angle;
+		BOOL flag_positive;
+
+		//âEÇ…å¸Ç©Ç§
+		if ( obj_work->disp_flag & OBD_DISP_HFLIP ){
+			obj_work->disp_flag &= ~OBD_DISP_HFLIP;
+			dest_angle = GMD_BOSS3_ANGLE_RIGHT;
+			flag_positive = TRUE;
+		}
+		//ç∂Ç…å¸Ç©Ç§
+		else {
+			obj_work->disp_flag |= OBD_DISP_HFLIP;
+			dest_angle = GMD_BOSS3_ANGLE_LEFT;
+			flag_positive = FALSE;
+		}
+
+		//ï˚å¸ì]ä∑
+		gmBoss3BodyInitTurn(
+				body_work, 
+				dest_angle,
+				GMD_BOSS3_BODY_FRAME_TURN, 
+				flag_positive );
+	}
+
+	//èàóùä÷êîïœçX
+	body_work->proc_update = gmBoss3BodyStateBattleUpdateMoveCenter;
+
+	//ÉAÉtÉ^ÉoÅ[ÉióLå¯âª
+	gmBoss3EffAfterburnerRequestCreate( body_work );
+}
+
+// =======================================================================
+// gmBoss3BodyStateBattleLeave
+/*!
+ *	ÉoÉgÉãà⁄ìÆèIóπ
+ *
+ *	@param body_work	[io] ñ{ëÃÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3BodyStateBattleLeave( GMS_BOSS3_BODY_WORK* body_work )
+{		
+	//ÉAÉtÉ^ÉoÅ[ÉiÉGÉtÉFÉNÉgí‚é~
+	gmBoss3EffAfterburnerRequestDelete( body_work );
+}
+
+// =======================================================================
+// gmBoss3BodyStateBattleUpdateMoveCenter
+/*!
+ *	ÉoÉgÉãà⁄ìÆçXêV
+ *
+ *	@param body_work	[io] ñ{ëÃÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3BodyStateBattleUpdateMoveCenter( GMS_BOSS3_BODY_WORK* body_work )
+{
+	OBS_OBJECT_WORK* obj_work = GMM_BS_OBJ( body_work );
+	amAssert( obj_work );
+
+	//ï˚å¸ì]ä∑é¿çs
+	Float frame_turn = gmBoss3BodyUpdateTurn(body_work);
+
+	//à⁄ìÆé¿çs
+	Float frame_move = gmBoss3BodyUpdateMoveNormal(body_work);
+
+	///à⁄ìÆèIóπë“Çø
+	if ( frame_turn > 0 || frame_move > 0 ){
+		return;
+	}
+	
+	//ÉAÉNÉVÉáÉì
+	if ( obj_work->disp_flag & OBD_DISP_HFLIP ){
+		gmBoss3BodySetActionAllParts( body_work, GMD_BOSS3_ACT_ID_SEARCH_L );
+	}
+	else{
+		gmBoss3BodySetActionAllParts( body_work, GMD_BOSS3_ACT_ID_SEARCH_R );
+	}
+
+	//èàóùä÷êîïœçX
+	body_work->proc_update = gmBoss3BodyStateBattleUpdateSearch;
+
+	//ÉAÉtÉ^ÉoÅ[ÉiÉGÉtÉFÉNÉgí‚é~
+	gmBoss3EffAfterburnerRequestDelete( body_work );
+}
+
+// =======================================================================
+// gmBoss3BodyStateBattleUpdateSearch
+/*!
+ *	ÉoÉgÉãà⁄ìÆçXêV
+ *
+ *	@param body_work	[io] ñ{ëÃÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3BodyStateBattleUpdateSearch( GMS_BOSS3_BODY_WORK* body_work )
+{
+	OBS_OBJECT_WORK* obj_work = GMM_BS_OBJ( body_work );
+	amAssert( obj_work );
+
+	//ÉÇÅ[ÉVÉáÉìèIóπë“Çø
+	if ( !GmBsCmnIsActionEnd(obj_work) ){
+		return;
+	}
+
+	//ÉoÉgÉãÉpÉ^Å[ÉìåàíË
+	body_work->pattern_no = gmBoss3BodyBattleCalcPattern( body_work );
+
+	//à⁄ìÆç¿ïWê›íË
+	if ( gmBoss3BodyBattleInitMovePattern( body_work, body_work->pattern_no, 0, GMD_BOSS3_BODY_BATTLE_MOVE_SPEED_MOVE ) ){
+
+		//ï˚å¸ì]ä∑îªíË
+		if ( gmBoss3BodyBattleCheckTurn(body_work) ){
+			Angle16 dest_angle;
+			BOOL flag_positive;
+
+			//âEÇ…å¸Ç©Ç§
+			if ( obj_work->disp_flag & OBD_DISP_HFLIP ){
+				obj_work->disp_flag &= ~OBD_DISP_HFLIP;
+				dest_angle = GMD_BOSS3_ANGLE_RIGHT;
+				flag_positive = TRUE;
+			}
+			//ç∂Ç…å¸Ç©Ç§
+			else {
+				obj_work->disp_flag |= OBD_DISP_HFLIP;
+				dest_angle = GMD_BOSS3_ANGLE_LEFT;
+				flag_positive = FALSE;
+			}
+
+			//ï˚å¸ì]ä∑
+			gmBoss3BodyInitTurn(
+					body_work, 
+					dest_angle,
+					GMD_BOSS3_BODY_FRAME_TURN, 
+					flag_positive );
+		}
+
+		//èàóùä÷êîïœçX
+		body_work->proc_update = gmBoss3BodyStateBattleUpdateMoveFirst;
+
+		//ÉAÉtÉ^ÉoÅ[ÉióLå¯âª
+		gmBoss3EffAfterburnerRequestCreate( body_work );
+		
+		//ÉAÉNÉVÉáÉì
+		gmBoss3BodySetActionAllParts( body_work, GMD_BOSS3_ACT_ID_MOVE );
+	}
+	else{
+		//ÉAÉNÉVÉáÉì
+		gmBoss3BodySetActionAllParts( body_work, GMD_BOSS3_ACT_ID_SIGN );
+
+		//èàóùä÷êîïœçX
+		body_work->proc_update = gmBoss3BodyStateBattleUpdateSign;
+	}
+}
+
+// =======================================================================
+// gmBoss3BodyStateBattleUpdateMoveFirst
+/*!
+ *	ÉoÉgÉãà⁄ìÆçXêV
+ *
+ *	@param body_work	[io] ñ{ëÃÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3BodyStateBattleUpdateMoveFirst( GMS_BOSS3_BODY_WORK* body_work )
+{
+	//ï˚å¸ì]ä∑é¿çs
+	Float frame_turn = gmBoss3BodyUpdateTurn(body_work);
+
+	//à⁄ìÆé¿çs
+	Float frame_move = gmBoss3BodyUpdateMoveNormal(body_work);
+
+	///à⁄ìÆèIóπë“Çø
+	if ( frame_turn > 0 || frame_move > 0 ){
+		return;
+	}
+	
+	//ÉAÉNÉVÉáÉì
+	gmBoss3BodySetActionAllParts( body_work, GMD_BOSS3_ACT_ID_SIGN );
+
+	//èàóùä÷êîïœçX
+	body_work->proc_update = gmBoss3BodyStateBattleUpdateSign;
+
+	//ÉAÉtÉ^ÉoÅ[ÉiÉGÉtÉFÉNÉgí‚é~
+	gmBoss3EffAfterburnerRequestDelete( body_work );
+}
+
+// =======================================================================
+// gmBoss3BodyStateBattleUpdateSign
+/*!
+ *	ÉoÉgÉãà⁄ìÆçXêVÅiÉTÉCÉìÅj
+ *
+ *	@param body_work	[io] ñ{ëÃÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3BodyStateBattleUpdateSign( GMS_BOSS3_BODY_WORK* body_work )
+{
+	OBS_OBJECT_WORK* obj_work = GMM_BS_OBJ( body_work );
+	amAssert( obj_work );
+
+	//ÉÇÅ[ÉVÉáÉìèIóπë“Çø
+	if ( !GmBsCmnIsActionEnd(obj_work) ){
+		return;
+	}
+
+	//íåÇ…ìÆçÏóvãÅ
+	OBS_OBJECT_WORK* obj_work_pillar = gmBoss3BodyBattleSearchPillar();
+	if ( obj_work_pillar ){
+		GmGmkBoss3PillarChangeModeActive( obj_work_pillar, body_work->pattern_no );
+	}
+
+	//èàóùä÷êîïœçX
+	body_work->proc_update = gmBoss3BodyStateBattleUpdateWaitPillar;
+
+	//ë“Çøéûä‘ê›íË
+	if ( GmBsCmnIsFinalZoneType(obj_work) ){
+		obj_work->user_timer = GMD_BOSS3_BATTLE_FRAME_WAIT_ACTIVE_FINAL;
+	}
+	else{
+		obj_work->user_timer = GMD_BOSS3_BATTLE_FRAME_WAIT_ACTIVE;
+	}	
+	
+	//ÉAÉNÉVÉáÉì
+	if ( obj_work->disp_flag & OBD_DISP_HFLIP ){
+		gmBoss3BodySetActionAllParts( body_work, GMD_BOSS3_ACT_ID_LAUGH_L );
+	}
+	else{
+		gmBoss3BodySetActionAllParts( body_work, GMD_BOSS3_ACT_ID_LAUGH_R );
+	}
+}
+
+// =======================================================================
+// gmBoss3BodyStateBattleUpdateWaitPillar
+/*!
+ *	ÉoÉgÉãà⁄ìÆçXêV
+ *
+ *	@param body_work	[io] ñ{ëÃÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3BodyStateBattleUpdateWaitPillar( GMS_BOSS3_BODY_WORK* body_work )
+{
+	OBS_OBJECT_WORK* obj_work = GMM_BS_OBJ( body_work );
+	amAssert( obj_work );
+
+	//ë“ã@
+	if ( obj_work->user_timer > 0 ){
+		--obj_work->user_timer;
+		return;
+	}
+
+	//à⁄ìÆç¿ïWê›íË
+	fx32 move_speed = GMD_BOSS3_BODY_BATTLE_MOVE_SPEED_MOVE;
+	if ( GmBsCmnIsFinalZoneType(obj_work) ){
+		//move_speed = FX_Mul( move_speed, GMD_BOSS3_BATTLE_ADJUST_SPEED_MOVE_SECOND );
+	}
+	if ( gmBoss3BodyBattleInitMovePattern( body_work, body_work->pattern_no, 1, move_speed ) ){
+		//ï˚å¸ì]ä∑îªíË
+		if ( gmBoss3BodyBattleCheckTurn(body_work) ){
+			Angle16 dest_angle;
+			BOOL flag_positive;
+
+			//âEÇ…å¸Ç©Ç§
+			if ( obj_work->disp_flag & OBD_DISP_HFLIP ){
+				obj_work->disp_flag &= ~OBD_DISP_HFLIP;
+				dest_angle = GMD_BOSS3_ANGLE_RIGHT;
+				flag_positive = TRUE;
+			}
+			//ç∂Ç…å¸Ç©Ç§
+			else {
+				obj_work->disp_flag |= OBD_DISP_HFLIP;
+				dest_angle = GMD_BOSS3_ANGLE_LEFT;
+				flag_positive = FALSE;
+			}
+
+			//ï˚å¸ì]ä∑
+			gmBoss3BodyInitTurn(
+					body_work, 
+					dest_angle,
+					GMD_BOSS3_BODY_FRAME_TURN, 
+					flag_positive );
+		}
+		//ÉAÉtÉ^ÉoÅ[ÉióLå¯âª
+		gmBoss3EffAfterburnerRequestCreate( body_work );
+
+		//èàóùä÷êîïœçX
+		body_work->proc_update = gmBoss3BodyStateBattleUpdateMoveSecond;
+	
+		//ÉAÉNÉVÉáÉì
+		gmBoss3BodySetActionAllParts( body_work, GMD_BOSS3_ACT_ID_MOVE );
+	}
+	else{
+		//èàóùä÷êîïœçX
+		body_work->proc_update = gmBoss3BodyStateBattleUpdateWaitActive;
+
+		//ë“Çøéûä‘ê›íË
+		obj_work->user_timer = GmGmkBoss3PillarGetActiveTime(body_work->pattern_no) - GMD_BOSS3_BATTLE_FRAME_WAIT_ACTIVE + GMD_BOSS3_BATTLE_FRAME_WAIT;
+	
+		//ÉAÉNÉVÉáÉì
+		if ( obj_work->disp_flag & OBD_DISP_HFLIP ){
+			gmBoss3BodySetActionAllParts( body_work, GMD_BOSS3_ACT_ID_LAUGH_L );
+		}
+		else{
+			gmBoss3BodySetActionAllParts( body_work, GMD_BOSS3_ACT_ID_LAUGH_R );
+		}
+	}
+}
+
+// =======================================================================
+// gmBoss3BodyStateBattleUpdateMoveSecond
+/*!
+ *	ÉoÉgÉãà⁄ìÆçXêV
+ *
+ *	@param body_work	[io] ñ{ëÃÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3BodyStateBattleUpdateMoveSecond( GMS_BOSS3_BODY_WORK* body_work )
+{
+	OBS_OBJECT_WORK* obj_work = GMM_BS_OBJ( body_work );
+	amAssert( obj_work );
+
+	//ï˚å¸ì]ä∑é¿çs
+	Float frame_turn = gmBoss3BodyUpdateTurn(body_work);
+
+	//à⁄ìÆé¿çs
+	Float frame_move = gmBoss3BodyUpdateMoveNormal(body_work);
+
+	///à⁄ìÆèIóπë“Çø
+	if ( frame_turn > 0 || frame_move > 0 ){
+		return;
+	}	
+	
+	//ÉAÉNÉVÉáÉì
+	if ( obj_work->disp_flag & OBD_DISP_HFLIP ){
+		gmBoss3BodySetActionAllParts( body_work, GMD_BOSS3_ACT_ID_LAUGH_L );
+	}
+	else{
+		gmBoss3BodySetActionAllParts( body_work, GMD_BOSS3_ACT_ID_LAUGH_R );
+	}
+
+	//èàóùä÷êîïœçX
+	body_work->proc_update = gmBoss3BodyStateBattleUpdateWaitActive;
+
+	//ë“Çøéûä‘ê›íË
+	s32 wait_move = GMD_BOSS3_BATTLE_FRAME_WAIT_ACTIVE;
+	if ( GmBsCmnIsFinalZoneType(obj_work) ){
+		wait_move = GMD_BOSS3_BATTLE_FRAME_WAIT_ACTIVE_FINAL;
+	}
+	obj_work->user_timer = GmGmkBoss3PillarGetActiveTime(body_work->pattern_no) - wait_move - (s32)body_work->move_frame + GMD_BOSS3_BATTLE_FRAME_WAIT;
+
+	//ÉAÉtÉ^ÉoÅ[ÉiÉGÉtÉFÉNÉgí‚é~
+	gmBoss3EffAfterburnerRequestDelete( body_work );
+}
+
+// =======================================================================
+// gmBoss3BodyStateBattleUpdateWaitActive
+/*!
+ *	ÉoÉgÉãà⁄ìÆçXêV
+ *
+ *	@param body_work	[io] ñ{ëÃÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3BodyStateBattleUpdateWaitActive( GMS_BOSS3_BODY_WORK* body_work )
+{
+	OBS_OBJECT_WORK* obj_work = GMM_BS_OBJ( body_work );
+	amAssert( obj_work );
+
+	///èIóπë“Çø
+	if ( obj_work->user_timer > 0 ){
+		--obj_work->user_timer;
+		return;
+	}
+
+	//èàóùä÷êîïœçX
+	body_work->proc_update = gmBoss3BodyStateBattleUpdateWaitReturn;
+
+	//ë“Çøéûä‘ê›íË
+	obj_work->user_timer = GMD_BOSS3_BATTLE_FRAME_WAIT_RETURN;
+
+	//íåÇ…ìÆçÏóvãÅ
+	OBS_OBJECT_WORK* obj_work_pillar = gmBoss3BodyBattleSearchPillar();
+	if ( obj_work_pillar ){
+		GmGmkBoss3PillarChangeModeReturn( obj_work_pillar );
+	}
+}
+
+// =======================================================================
+// gmBoss3BodyStateBattleUpdateWait
+/*!
+ *	ÉoÉgÉãà⁄ìÆçXêV
+ *
+ *	@param body_work	[io] ñ{ëÃÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3BodyStateBattleUpdateWaitReturn( GMS_BOSS3_BODY_WORK* body_work )
+{
+	OBS_OBJECT_WORK* obj_work = GMM_BS_OBJ( body_work );
+	amAssert( obj_work );
+
+	///èIóπë“Çø
+	if ( obj_work->user_timer > 0 ){
+		--obj_work->user_timer;
+		return;
+	}
+
+	//ÉoÉgÉãèÛë‘Ç÷ïœçX
+	gmBoss3BodyChangeState( body_work, GMD_BOSS3_BODY_STATE_BATTLE );
+
+	//íåÇ…ìÆçÏóvãÅ
+	OBS_OBJECT_WORK* obj_work_pillar = gmBoss3BodyBattleSearchPillar();
+	if ( obj_work_pillar ){
+		GmGmkBoss3PillarChangeModeDelete( obj_work_pillar );
+	}
+}
+
+// =======================================================================
+// gmBoss3BodyStateDefeatEnter
+/*!
+ *	åÇîjèâä˙âª
+ *
+ *	@param body_work	[io] ñ{ëÃÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3BodyStateDefeatEnter( GMS_BOSS3_BODY_WORK* body_work )
+{
+	OBS_OBJECT_WORK* obj_work = GMM_BS_OBJ( body_work );
+	amAssert( obj_work );
+
+	//ãÈå`ñ≥å¯
+	obj_work->flag |= OBD_OBJECT_NOHIT;
+
+	//ÉAÉjÉÅÅ[ÉVÉáÉìÉXÉgÉbÉv
+	obj_work->disp_flag |= OBD_DISP_STOP;
+
+	//ÉzÅ[É~ÉìÉOÉAÉ^ÉbÉNÇÃëŒè€Ç©ÇÁÇÕÇ∏Ç∑
+	body_work->ene_3d.ene_com.enemy_flag |= GMD_ENEMY_FLAG_NOHOMING;
+
+	//í‚é~
+	GmBsCmnSetObjSpdZero( obj_work );
+
+	//èàóùä÷êîïœçX
+	body_work->proc_update = gmBoss3BodyStateDefeatUpdateStart;
+
+	//ë“Çøéûä‘ê›íË
+	obj_work->user_timer = GMD_BOSS3_BODY_DEFEAT_TIME_WAIT_START;
+
+	//íåÇ…ìÆçÏóvãÅ
+	OBS_OBJECT_WORK* obj_work_pillar = gmBoss3BodyBattleSearchPillar();
+	if ( obj_work_pillar ){
+		GmGmkBoss3PillarChangeModeReturn( obj_work_pillar );
+	}
+
+	//É{ÉXêÌèüóòBGMÇ÷ïœçX
+	GmSoundChangeWinBossBGM();
+}
+
+// =======================================================================
+// gmBoss3BodyStateDefeatLeave
+/*!
+ *	åÇîjèIóπ
+ *
+ *	@param body_work	[io] ñ{ëÃÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3BodyStateDefeatLeave( GMS_BOSS3_BODY_WORK* body_work )
+{
+	OBS_OBJECT_WORK* obj_work = GMM_BS_OBJ( body_work );
+	amAssert( obj_work );
+
+	//ÉAÉjÉÅÅ[ÉVÉáÉìçƒäJ
+	obj_work->disp_flag &= ~OBD_DISP_STOP;
+
+	//ãÈå`óLå¯
+	obj_work->flag &= ~OBD_OBJECT_NOHIT;
+
+	//íåÇ…ìÆçÏóvãÅ
+	OBS_OBJECT_WORK* obj_work_pillar = gmBoss3BodyBattleSearchPillar();
+	if ( obj_work_pillar ){
+		GmGmkBoss3PillarChangeModeDelete( obj_work_pillar );
+	}
+}
+
+// =======================================================================
+// gmBoss3BodyStateDefeatUpdateStart
+/*!
+ *	åÇîjçXêVÅiäJénÅj
+ *
+ *	@param body_work	[io] ñ{ëÃÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3BodyStateDefeatUpdateStart( GMS_BOSS3_BODY_WORK* body_work )
+{
+	OBS_OBJECT_WORK* obj_work = GMM_BS_OBJ( body_work );
+	amAssert( obj_work );
+
+	///èIóπë“Çø
+	if ( obj_work->user_timer > 0 ){
+		--obj_work->user_timer;
+		return;
+	}
+
+	//è¨îöî≠ÉGÉtÉFÉNÉgèâä˙âª
+	OBS_OBJECT_WORK* body_obj_work = GMM_BS_OBJ(body_work);
+	gmBoss3EffBombsInit( 
+			&body_work->bomb_work,
+			body_obj_work,
+			body_obj_work->pos.x,
+			body_obj_work->pos.y,
+			FX32_ONE * 80,
+			FX32_ONE * 80,
+			10, 
+			30);
+
+	//èàóùä÷êîïœçX
+	body_work->proc_update = gmBoss3BodyStateDefeatUpdateFall;
+
+	//ë“Çøéûä‘ê›íË
+	obj_work->user_timer = GMD_BOSS3_BODY_DEFEAT_TIME_WAIT_BOMB;
+}
+
+// =======================================================================
+// gmBoss3BodyStateDefeatUpdateExplode
+/*!
+ *	åÇîjçXêVÅiîöî≠Åj
+ *
+ *	@param body_work	[io] ñ{ëÃÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3BodyStateDefeatUpdateFall( GMS_BOSS3_BODY_WORK* body_work )
+{
+	OBS_OBJECT_WORK* obj_work = GMM_BS_OBJ( body_work );
+	amAssert( obj_work );
+
+	///èIóπë“Çø
+	if ( obj_work->user_timer > 0 ){
+		--obj_work->user_timer;
+
+		//è¨îöî≠ÉGÉtÉFÉNÉgçXêV
+		gmBoss3EffBombsUpdate( &body_work->bomb_work );
+		return;
+	}
+
+	//èàóùä÷êîïœçX
+	body_work->proc_update = gmBoss3BodyStateDefeatUpdateExplode;
+}
+
+// =======================================================================
+// gmBoss3BodyStateDefeatUpdateExplode
+/*!
+ *	åÇîjçXêVÅiîöî≠Åj
+ *
+ *	@param body_work	[io] ñ{ëÃÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3BodyStateDefeatUpdateExplode( GMS_BOSS3_BODY_WORK* body_work )
+{
+	OBS_OBJECT_WORK* obj_work = GMM_BS_OBJ( body_work );
+	amAssert( obj_work );
+
+	//ÉpÅ[ÉcîÚéUÉVÉOÉiÉã
+	body_work->flag	|= GMD_BOSS3_BODY_FLAG_SIGNAL_B2B_SCATTER;
+	
+	//å¯â âπÅiëÂîöî≠Åj
+	GmSoundPlaySE( "Boss0_03" );
+
+	// ÉRÉìÉgÉçÅ[ÉâÅ[êUìÆ
+	GMM_PAD_VIB_MID_TIME(120);
+
+	// âÊñ ÉtÉâÉbÉVÉÖê›íË
+	GmBsCmnInitFlashScreen( 
+			&body_work->flash_work, 
+			GMD_BOSS3_BODY_DEFEAT_FLASH_INTO_TIME,
+			GMD_BOSS3_BODY_DEFEAT_FLASH_KEEP_TIME,
+			GMD_BOSS3_BODY_DEFEAT_FLASH_RETURN_TIME );
+
+	//ëÂîöî≠ÉGÉtÉFÉNÉgèâä˙âª
+	OBS_OBJECT_WORK* body_obj_work = GMM_BS_OBJ( body_work );
+	amAssert( body_obj_work );
+	OBS_OBJECT_WORK* bomb_obj_work = (OBS_OBJECT_WORK*)GmEfctCmnEsCreate(
+			body_obj_work, 
+			GME_EFCT_CMN_IDX_BOMB_BIG );
+	bomb_obj_work->pos.z = body_obj_work->pos.z + GMD_BOSS3_EFFECT_BOMB_OFFSET_Z;
+
+	//èàóùä÷êîïœçX
+	body_work->proc_update = gmBoss3BodyStateDefeatUpdateScatter;
+		
+	//ÉXÉRÉAâ¡éZ
+	GmPlayerAddScoreNoDisp( (GMS_PLAYER_WORK*)GmBsCmnGetPlayerObj(), GMD_PLY_SCORE_BOSS );
+
+	//ë“Çøéûä‘ê›íË
+	obj_work->user_timer = GMD_BOSS3_BODY_DEFEAT_TIME_WAIT_SCATTER;
+}
+
+// =======================================================================
+// gmBoss3BodyStateDefeatUpdateScatter
+/*!
+ *	åÇîjçXêVÅiÇŒÇÁéTÇ´Åj
+ *
+ *	@param body_work	[io] ñ{ëÃÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3BodyStateDefeatUpdateScatter( GMS_BOSS3_BODY_WORK* body_work )
+{
+	OBS_OBJECT_WORK* obj_work = GMM_BS_OBJ( body_work );
+	amAssert( obj_work );
+
+	//âÊñ ÉtÉâÉbÉVÉÖçXêV
+	GmBsCmnUpdateFlashScreen( &body_work->flash_work );
+
+	///èIóπë“Çø
+	if ( obj_work->user_timer > 0 ){
+		--obj_work->user_timer;
+		return;
+	}
+
+	//çïÇ±Ç∞ÉeÉNÉXÉ`ÉÉÇ…ïœçX
+	gmBoss3ChangeTextureBurnt( obj_work );
+
+	//çïÇ±Ç∞ÉVÉOÉiÉã
+	body_work->flag |= GMD_BOSS3_BODY_FLAG_SIGNAL_B2E_BURNT;
+
+	//ÉAÉtÉ^Å[ÉoÅ[ÉiÅ[âåÉGÉtÉFÉNÉgèâä˙âª
+	gmBoss3EffAfterburnerSmokeInit( body_work );
+
+	//ñ{ëÃâåÉGÉtÉFÉNÉgèâä˙âª
+	gmBoss3EffBodySmokeInit( body_work );
+
+	//èàóùä÷êîïœçX
+	body_work->proc_update = gmBoss3BodyStateDefeatUpdateEnd;
+
+	//ë“Çøéûä‘ê›íË
+	obj_work->user_timer = GMD_BOSS3_BODY_DEFEAT_TIME_WAIT_END;
+}
+
+// =======================================================================
+// gmBoss3BodyStateDefeatUpdateEnd
+/*!
+ *	åÇîjçXêVÅièIóπÅj
+ *
+ *	@param body_work	[io] ñ{ëÃÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3BodyStateDefeatUpdateEnd( GMS_BOSS3_BODY_WORK* body_work )
+{
+	OBS_OBJECT_WORK* obj_work = GMM_BS_OBJ( body_work );
+	amAssert( obj_work );
+
+	///èIóπë“Çø
+	if ( obj_work->user_timer > 0 ){
+		--obj_work->user_timer;
+		return;
+	}
+
+	//ì¶ñSèÛë‘Ç÷ïœçX
+	gmBoss3BodyChangeState( body_work, GMD_BOSS3_BODY_STATE_ESCAPE );
+}
+
+// =======================================================================
+// gmBoss3BodyStateEscapeEnter
+/*!
+ *	ì¶ñSèâä˙âª
+ *
+ *	@param body_work	[io] ñ{ëÃÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3BodyStateEscapeEnter( GMS_BOSS3_BODY_WORK* body_work )
+{
+	OBS_OBJECT_WORK* obj_work = GMM_BS_OBJ( body_work );
+	amAssert( obj_work );
+
+	//à⁄ìÆíl
+	obj_work->spd.x	= 0;
+	obj_work->spd.y	= 0;
+	obj_work->spd_add.x = GMD_BOSS3_BODY_ESCAPE_SPD_X_ADD;
+	obj_work->spd_add.y = -GMD_BOSS3_BODY_ESCAPE_SPD_Y_ADD;
+
+	//ï˚å¸ì]ä∑îªíË
+	if ( obj_work->disp_flag & OBD_DISP_HFLIP ){
+		obj_work->disp_flag &= ~OBD_DISP_HFLIP;
+
+		//ï˚å¸ì]ä∑
+		gmBoss3BodyInitTurn(
+				body_work, 
+				GMD_BOSS3_ANGLE_RIGHT,
+				GMD_BOSS3_BODY_FRAME_TURN, 
+				TRUE );
+	}
+
+	//ãÈå`ñ≥å¯
+	obj_work->flag |= OBD_OBJECT_NOHIT;
+	obj_work->move_flag |= OBD_MOVE_NOCOLFIELD | OBD_MOVE_NOCOL;
+
+	//å¸Ç´
+	gmBoss3BodySetDirectionNormal( body_work );
+
+	//ÉAÉNÉVÉáÉìÅiã≠êßê›íËÅj
+	gmBoss3BodySetActionAllParts( body_work, GMD_BOSS3_ACT_ID_ESCAPE, TRUE );
+	
+	//ì¶ñSÉVÉOÉiÉã
+	body_work->flag |= GMD_BOSS3_BODY_FLAG_SIGNAL_B2E_ESCAPE;
+	
+#if _IPHONE
+	GmMapSetMapDrawSize(GME_MAP_DRAW_SIZE_HORI);
+#endif // _IPHONE
+	
+	//èàóùä÷êîïœçX
+	if ( GmBsCmnIsFinalZoneType(obj_work) ){
+		body_work->proc_update = gmBoss3BodyStateEscapeUpdateFinalZone;
+	}
+	else{
+		body_work->proc_update = gmBoss3BodyStateEscapeUpdateScrollLock;
+	}
+}
+
+// =======================================================================
+// gmBoss3BodyStateEscapeLeave
+/*!
+ *	ì¶ñSèIóπ
+ *
+ *	@param body_work	[io] ñ{ëÃÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3BodyStateEscapeLeave( GMS_BOSS3_BODY_WORK* body_work )
+{
+	OBS_OBJECT_WORK* obj_work = GMM_BS_OBJ( body_work );
+	amAssert( obj_work );
+
+	//ãÈå`óLå¯
+	obj_work->flag &= ~OBD_OBJECT_NOHIT;
+}
+
+// =======================================================================
+// gmBoss3BodyStateEscapeUpdateScrollUnlock
+/*!
+ *	ì¶ñSçXêVÅiÉXÉNÉçÅ[ÉãÉçÉbÉNéûÅj
+ *
+ *	@param body_work	[io] ñ{ëÃÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3BodyStateEscapeUpdateScrollLock( GMS_BOSS3_BODY_WORK* body_work )
+{
+	amAssert( body_work );
+
+	//ÉXÉsÅ[Éhí≤êÆ
+	gmBoss3BodyEscapeAddjustSpeed( body_work );
+
+	//ï˚å¸ì]ä∑é¿çs
+	Float frame_turn = gmBoss3BodyUpdateTurn(body_work);
+	if ( frame_turn > 0 ){
+		return;
+	}
+
+	//ÉXÉNÉçÅ[ÉãÉçÉbÉNâèú
+	GmGmkCamScrLimitRelease( GMD_GMK_SCR_LMT_RELEASE_RIGHT );
+
+	//íåÇ…ìÆçÏóvãÅ
+	OBS_OBJECT_WORK* obj_work_pillar = gmBoss3BodyBattleSearchPillar();
+	if ( obj_work_pillar ){
+		GmGmkBoss3PillarWallChangeModeReturn( obj_work_pillar );
+	}
+
+	//ÉGÉtÉFÉNÉg
+	GmEfctBossCmnEsCreate(
+			GMM_BS_OBJ(body_work),
+			GME_EFCT_BOSS_CMN_IDX_BOSS_PARTS );
+
+	//èàóùä÷êîïœçX
+	body_work->proc_update = gmBoss3BodyStateEscapeUpdateWaitScreenOut;
+}
+
+// =======================================================================
+// gmBoss3BodyStateEscapeUpdateWaitScreenOut
+/*!
+ *	ì¶ñSçXêVÅiÉXÉNÉçÅ[ÉãÉAÉìÉçÉbÉNéûÅj
+ *
+ *	@param body_work	[io] ñ{ëÃÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3BodyStateEscapeUpdateWaitScreenOut( GMS_BOSS3_BODY_WORK* body_work )
+{
+	//ÉXÉsÅ[Éhí≤êÆ
+	gmBoss3BodyEscapeAddjustSpeed( body_work );
+
+	//âÊñ äOîªíË
+	if ( gmBoss3BodyEscapeCheckScreenOut(body_work) ){
+		OBS_OBJECT_WORK* obj_work = GMM_BS_OBJ( body_work );
+		GMS_BOSS3_MGR_WORK* mgr_work = gmBoss3MgrGetMgrWork(obj_work);
+		amAssert( mgr_work );
+		mgr_work->flag |= GMD_BOSS3_MGR_FLAG_CLEAR_BOSS;
+		body_work->proc_update = NULL;
+	}
+}
+
+// =======================================================================
+// gmBoss3BodyStateEscapeUpdateFinalZone
+/*!
+ *	ì¶ñSçXêVÅiÉtÉ@ÉCÉiÉãÉ]Å[ÉìéûÅj
+ *
+ *	@param body_work	[io] ñ{ëÃÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3BodyStateEscapeUpdateFinalZone( GMS_BOSS3_BODY_WORK* body_work )
+{
+	amAssert( body_work );
+
+	//ÉXÉsÅ[Éhí≤êÆ
+	gmBoss3BodyEscapeAddjustSpeed( body_work );
+
+	//ï˚å¸ì]ä∑é¿çs
+	Float frame_turn = gmBoss3BodyUpdateTurn(body_work);
+	if ( frame_turn > 0 ){
+		return;
+	}
+
+	//ÉGÉtÉFÉNÉg
+	GmEfctBossCmnEsCreate(
+			GMM_BS_OBJ(body_work),
+			GME_EFCT_BOSS_CMN_IDX_BOSS_PARTS );
+
+	//èàóùä÷êîïœçX
+	body_work->proc_update = gmBoss3BodyStateEscapeUpdateWaitScreenOut;
+}
+
+// =======================================================================
+// gmBoss3BodyMainFuncWaitSetup
+/*!
+ *	ÉÅÉCÉìèàóùÅiê∂ê¨ë“ÇøÅj
+ *
+ *	@param obj_work	[io] ÉIÉuÉWÉFÉNÉgÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3BodyMainFuncWaitSetup( OBS_OBJECT_WORK* obj_work )
+{
+	GMS_BOSS3_BODY_WORK* body_work = (GMS_BOSS3_BODY_WORK*)obj_work;
+	amAssert( body_work );
+
+	//ì«Ç›çûÇ›ë“Çø
+	GMS_BOSS3_MGR_WORK* mgr_work = gmBoss3MgrGetMgrWork(obj_work);
+	amAssert( mgr_work );
+	if ( !gmBoss3MgrCheckSetupComplete(mgr_work) ){
+		return;
+	}
+
+	//-----------------------------------------
+	//É{ÉXÉÇÅ[ÉVÉáÉìÉRÅ[ÉãÉoÉbÉNÉVÉXÉeÉÄ
+	//-----------------------------------------
+	//èâä˙âª
+	GmBsCmnInitBossMotionCBSystem(
+			obj_work,
+			&body_work->bmcb_mgr );
+
+	//-----------------------------------------
+	//ÉmÅ[ÉhÉ}ÉgÉäÉNÉXéÊìæèàóù
+	//-----------------------------------------
+	//ÉèÅ[ÉNÇèâä˙âª
+	GmBsCmnCreateSNMWork(
+			&body_work->snm_work,
+			obj_work->obj_3d->object,
+			GMD_BOSS3_BODY_SNM_INDEX_MAX );
+
+	//ÉÇÅ[ÉVÉáÉìÉRÅ[ÉãÉoÉbÉNÇé¿çsÉäÉXÉgÇ…í«â¡
+	GmBsCmnAppendBossMotionCallback(
+			&body_work->bmcb_mgr,
+			&body_work->snm_work.bmcb_link );
+
+
+	//ê⁄ë±ÉmÅ[ÉhÇìoò^
+	for ( s32 i = 0; GMD_BOSS3_BODY_SNM_INDEX_MAX > i; ++i ){
+		body_work->snm_reg_id[i] = GmBsCmnRegisterSNMNode(
+				&body_work->snm_work, 
+				g_boss3_node_index_list[i] );	
+	}			
+
+	//-----------------------------------------
+	//ÉÅÉCÉìèàóù
+	//-----------------------------------------
+	//ÉÅÉCÉìèàóù
+	obj_work->ppFunc = gmBoss3BodyMainFunc;
+
+	//äJénèÛë‘Ç÷
+	gmBoss3BodyChangeState( body_work, GMD_BOSS3_BODY_STATE_START );
+}
+
+// =======================================================================
+// gmBoss3BodyMainFunc
+/*!
+ *	ÉÅÉCÉìèàóùÅiì«Ç›çûÇ›ë“ÇøÅj
+ *
+ *	@param obj_work	[io] ÉIÉuÉWÉFÉNÉgÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3BodyMainFunc( OBS_OBJECT_WORK* obj_work )
+{
+	GMS_BOSS3_BODY_WORK* body_work = (GMS_BOSS3_BODY_WORK*)obj_work;
+	amAssert( body_work );
+
+	//ÉqÉbÉgñ≥å¯éûä‘ÇçXêV
+	gmBoss3BodyUpdateNoHitTime( body_work );
+
+	//ñ≥ìGéûä‘ÇçXêV
+	gmBoss3BodyUpdateInvincibleTime( body_work );
+
+	//èÛë‘çXêV
+	if ( body_work->proc_update ){
+		body_work->proc_update( body_work );
+	}
+
+	//-----------------------------------------
+	//ÉVÉOÉiÉãÉ`ÉFÉbÉN
+	//-----------------------------------------
+	//ÉAÉtÉ^ÉoÅ[Éiê∂ê¨
+	if ( body_work->flag & GMD_BOSS3_BODY_FLAG_SIGNAL_B2B_AFTERBURNER ){
+		gmBoss3EffAfterburnerInit( body_work );
+	}
+
+	//åÇîj
+	if ( body_work->flag & GMD_BOSS3_BODY_FLAG_SIGNAL_B2B_DEFEAT ){
+		//É_ÉÅÅ[ÉWèIóπí ím
+		body_work->flag	&= ~(GMD_BOSS3_BODY_FLAG_SIGNAL_B2B_DEFEAT | GMD_BOSS3_BODY_FLAG_SIGNAL_B2B_DAMAGE);
+
+		//èÛë‘ïœçX
+		gmBoss3BodyChangeState( body_work, GMD_BOSS3_BODY_STATE_DEFEAT );
+		return;
+	}
+
+	//É_ÉÅÅ[ÉW
+	if ( body_work->flag & GMD_BOSS3_BODY_FLAG_SIGNAL_B2B_DAMAGE ){
+		body_work->flag	&= ~GMD_BOSS3_BODY_FLAG_SIGNAL_B2B_DAMAGE;
+
+		// ÉGÉbÉOÉ}Éìí ím
+		body_work->flag |= GMD_BOSS3_BODY_FLAG_SIGNAL_B2E_DAMAGE;
+
+		//É_ÉÅÅ[ÉWì_ñ≈Çèâä˙âª
+		GmBsCmnInitObject3DNNDamageFlicker( 
+				obj_work, 
+				&body_work->flk_work,
+				GMD_BOSS3_BODY_DMG_FLICKER_RADIUS );
+	}
+
+	//-----------------------------------------
+	//äeéÌçXêV
+	//-----------------------------------------
+	//É_ÉÅÅ[ÉWì_ñ≈ÇçXêV
+	GmBsCmnUpdateObject3DNNDamageFlicker( obj_work, &body_work->flk_work );
+
+	//äpìxîΩâf
+	gmBoss3BodyUpdateDirection( body_work );
+}
+
+
+// =======================================================================
+//ÉGÉbÉOÉ}Éì
+// =======================================================================
+// =======================================================================
+// gmBoss3EggChangeAction
+/*!
+ *	êÍópÉAÉNÉVÉáÉìïœçX
+ *
+ *	@param egg_work		[io] ÉGÉbÉOÉ}ÉìÉèÅ[ÉN
+ *	@param action_id	[in] ÉAÉNÉVÉáÉìÇhÇc
+ *	@param force_change	[in] ã≠êßÉtÉâÉO
+ */
+// =======================================================================
+void gmBoss3EggChangeAction( 
+							GMS_BOSS3_EGG_WORK* egg_work,
+							GME_BOSS3_EGG_ACT_ID action_id,
+							BOOL force_change	// = FALSE
+							)
+{
+	amAssert( action_id < GMD_BOSS3_EGG_ACT_ID_MAX );
+
+	const GMS_BOSS3_PART_ACT_INFO* action_info = &gm_boss3_egg_act_info_tbl[action_id];
+
+	OBS_OBJECT_WORK* obj_work_egg = GMM_BS_OBJ (egg_work );
+	amAssert( obj_work_egg );
+
+	//ê›íËçœÇ›
+	if ( !force_change && 
+			( (egg_work->egg_action_id == action_id) && (egg_work->flag & GMD_BOSS3_EGG_FLAG_EGG_ACT_ACTIVE) ) 
+	){
+		return;
+	}
+
+	//ÉAÉNÉVÉáÉìIDê›íË
+	egg_work->egg_action_id = action_id;
+
+	//ê›íËíÜÉtÉâÉO
+	egg_work->flag |= GMD_BOSS3_EGG_FLAG_EGG_ACT_ACTIVE;
+
+	//åpë±ÉtÉâÉOóLå¯
+	if ( action_info->is_maintain ){
+		//ÉÇÅ[ÉVÉáÉìÇÕïœçXÇµÇ»Ç¢Ç™ÅAÉäÉsÅ[ÉgÉtÉâÉOÇÃÇ›îΩâfÇ≥ÇπÇÈ
+		if ( action_info->is_repeat ){
+			obj_work_egg->disp_flag |= OBD_DISP_REPEAT;
+		}
+	}
+	//åpë±ÉtÉâÉOñ≥å¯
+	else{
+		//ÉÇÅ[ÉVÉáÉìÇïœçXÇ∑ÇÈ
+		GmBsCmnSetAction(
+				obj_work_egg,
+				action_info->mtn_id,
+				action_info->is_repeat,
+				action_info->is_blend);
+	}
+
+	//ÉÇÅ[ÉVÉáÉìë¨ìx
+	obj_work_egg->obj_3d->speed[0] = action_info->mtn_spd;
+	
+	//ÉuÉåÉìÉhë¨ìxê›íË
+	obj_work_egg->obj_3d->blend_spd = action_info->blend_spd;
+}
+
+// =======================================================================
+// gmBoss3EggRevertAction
+/*!
+ *	êÍópÉAÉNÉVÉáÉìèIóπ
+ *
+ *	@param egg_work		[io] ÉGÉbÉOÉ}ÉìÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3EggRevertAction( GMS_BOSS3_EGG_WORK* egg_work )
+{
+	OBS_OBJECT_WORK* obj_work_egg = GMM_BS_OBJ( egg_work );
+	amAssert( obj_work_egg );
+	
+	GMS_BOSS3_BODY_WORK* body_work = (GMS_BOSS3_BODY_WORK*)obj_work_egg->parent_obj;
+	amAssert( body_work );
+	OBS_OBJECT_WORK* obj_work_body = GMM_BS_OBJ( body_work );
+	amAssert( obj_work_body );
+
+	amAssert( egg_work->flag & GMD_BOSS3_EGG_FLAG_EGG_ACT_ACTIVE );
+	
+	//êÍópÉAÉNÉVÉáÉìâèú
+	egg_work->flag &= ~GMD_BOSS3_EGG_FLAG_EGG_ACT_ACTIVE;
+	
+	//ÉAÉNÉVÉáÉìê›íË
+	const GMS_BOSS3_PART_ACT_INFO* action_info = &gm_boss3_act_info_tbl[body_work->action_id][GMD_BOSS3_PART_IDX_EGG];
+	GmBsCmnSetAction(
+			obj_work_egg,
+			action_info->mtn_id,
+			action_info->is_repeat,
+			TRUE );
+	
+	//ñ{ëÃÇÃåoâﬂÉtÉåÅ[ÉÄÇ…çáÇÌÇπÇÈ
+	obj_work_egg->obj_3d->frame[0] = obj_work_body->obj_3d->frame[0];
+}
+
+// =======================================================================
+// gmBoss3EggStateIdleInit
+/*!
+ *	ë“ã@èâä˙âª
+ *
+ *	@param egg_work	[io] ÉGÉbÉOÉ}ÉìÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3EggStateIdleInit( GMS_BOSS3_EGG_WORK* egg_work )
+{
+	//èàóùä÷êîê›íË
+	egg_work->proc_update = gmBoss3EggStateIdleUpdate;
+}
+
+// =======================================================================
+// gmBoss3EggStateIdleUpdate
+/*!
+ *	ë“ã@çXêV
+ *
+ *	@param egg_work	[io] ÉGÉbÉOÉ}ÉìÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3EggStateIdleUpdate( GMS_BOSS3_EGG_WORK* egg_work )
+{
+	OBS_OBJECT_WORK* obj_work = GMM_BS_OBJ( egg_work );
+	amAssert( obj_work );
+
+	GMS_BOSS3_BODY_WORK* body_work = (GMS_BOSS3_BODY_WORK*)obj_work->parent_obj;
+	amAssert( body_work );
+
+	//ÉqÉbÉgÉVÉOÉiÉãîªíË
+	if ( body_work->flag & GMD_BOSS3_BODY_FLAG_SIGNAL_B2E_HIT ){
+		body_work->flag &= ~GMD_BOSS3_BODY_FLAG_SIGNAL_B2E_HIT;
+
+		//èŒÇ¢ÉVÅ[ÉPÉìÉXèâä˙âª
+		gmBoss3EggStateLaughInit( egg_work );
+	}
+}
+
+// =======================================================================
+// gmBoss3EggStateLaughInit
+/*!
+ *	èŒÇ¢èâä˙âª
+ *
+ *	@param egg_work	[io] ÉGÉbÉOÉ}ÉìÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3EggStateLaughInit( GMS_BOSS3_EGG_WORK* egg_work )
+{
+	OBS_OBJECT_WORK* egg_obj_work = GMM_BS_OBJ( egg_work );
+	amAssert( egg_obj_work );
+	OBS_OBJECT_WORK* body_obj_work = egg_obj_work->parent_obj;
+	amAssert( body_obj_work );
+
+	//êÍópÉAÉNÉVÉáÉì
+	if ( body_obj_work->disp_flag & OBD_DISP_HFLIP ){
+		gmBoss3EggChangeAction( egg_work, GMD_BOSS3_EGG_ACT_ID_LAUGH_L );
+	}
+	else{
+		gmBoss3EggChangeAction( egg_work, GMD_BOSS3_EGG_ACT_ID_LAUGH_R );
+	}
+	
+	//èàóùä÷êîê›íË
+	egg_work->proc_update = gmBoss3EggStateLaughUpdate;
+}
+
+// =======================================================================
+// gmBoss3EggStateLaughUpdate
+/*!
+ *	èŒÇ¢çXêV
+ *
+ *	@param egg_work	[io] ÉGÉbÉOÉ}ÉìÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3EggStateLaughUpdate( GMS_BOSS3_EGG_WORK* egg_work )
+{
+	OBS_OBJECT_WORK* obj_work = GMM_BS_OBJ( egg_work );
+	amAssert( obj_work );
+
+	//ÉÇÅ[ÉVÉáÉìèIóπë“Çø
+	if ( !GmBsCmnIsActionEnd(obj_work) ){
+		return;
+	}
+
+	//ÉAÉNÉVÉáÉìÇå≥Ç…ñﬂÇ∑
+	gmBoss3EggRevertAction( egg_work );
+
+	//ë“ã@Ç÷
+	gmBoss3EggStateIdleInit( egg_work );
+}
+
+// =======================================================================
+// gmBoss3EggStateDamageInit
+/*!
+ *	É_ÉÅÅ[ÉWèâä˙âª
+ *
+ *	@param egg_work	[io] ÉGÉbÉOÉ}ÉìÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3EggStateDamageInit( GMS_BOSS3_EGG_WORK* egg_work )
+{
+	//êÍópÉAÉNÉVÉáÉì
+	gmBoss3EggChangeAction( egg_work, GMD_BOSS3_EGG_ACT_ID_DAMAGE );
+
+	//äæÉGÉtÉFÉNÉgèâä˙âª
+	gmBoss3EffSweatInit( egg_work );
+
+	//èàóùä÷êîïœçX
+	egg_work->proc_update = gmBoss3EggStateDamageUpdate;
+}
+
+
+// =======================================================================
+// gmBoss3EggStateDamageUpdate
+/*!
+ *	É_ÉÅÅ[ÉWçXêV
+ *
+ *	@param egg_work	[io] ÉGÉbÉOÉ}ÉìÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3EggStateDamageUpdate( GMS_BOSS3_EGG_WORK* egg_work )
+{
+	OBS_OBJECT_WORK* obj_work = GMM_BS_OBJ( egg_work );
+	amAssert( obj_work );
+
+	//ÉÇÅ[ÉVÉáÉìèIóπë“Çø
+	if ( !GmBsCmnIsActionEnd(obj_work) ){
+		return;
+	}
+
+	//äæÉGÉtÉFÉNÉgèIóπ
+	egg_work->flag &= ~GMD_BOSS3_EGG_FLAG_SWEAT_ACTIVE;
+
+	//ÉAÉNÉVÉáÉìÇå≥Ç…ñﬂÇ∑
+	gmBoss3EggRevertAction( egg_work );
+
+	//ë“ã@Ç÷
+	gmBoss3EggStateIdleInit( egg_work );
+}
+
+// =======================================================================
+// gmBoss3EggStateEscapeInit
+/*!
+ *	ì¶ñSèâä˙âª
+ *
+ *	@param egg_work	[io] ÉGÉbÉOÉ}ÉìÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3EggStateEscapeInit( GMS_BOSS3_EGG_WORK* egg_work )
+{
+	//äæÉGÉtÉFÉNÉgèâä˙âª
+	if ( !(egg_work->flag & GMD_BOSS3_EGG_FLAG_SWEAT_ACTIVE) ){
+		gmBoss3EffSweatInit( egg_work );
+	}
+	
+	//èàóùä÷êîê›íË
+	egg_work->proc_update = gmBoss3EggStateEscapeUpdate;
+}
+
+// =======================================================================
+// gmBoss3EggStateEscapeUpdate
+/*!
+ *	ì¶ñSçXêV
+ *
+ *	@param egg_work	[io] ÉGÉbÉOÉ}ÉìÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3EggStateEscapeUpdate( GMS_BOSS3_EGG_WORK* egg_work )
+{
+	UNREFERENCED_PARAMETER( egg_work );
+}
+
+// =======================================================================
+// gmBoss3EggmanMainFuncWaitSetup
+/*!
+ *	ÉÅÉCÉìèàóùÅiê∂ê¨ë“ÇøÅj
+ *
+ *	@param obj_work	[io] ÉIÉuÉWÉFÉNÉgÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3EggmanMainFuncWaitSetup( OBS_OBJECT_WORK* obj_work )
+{
+	amAssert( obj_work );
+
+	GMS_BOSS3_BODY_WORK* body_work = (GMS_BOSS3_BODY_WORK*)obj_work->parent_obj;
+	amAssert( body_work );
+	OBS_OBJECT_WORK* body_obj_work = GMM_BS_OBJ( body_work );
+
+	//ê∂ê¨ë“Çø
+	GMS_BOSS3_MGR_WORK* mgr_work = gmBoss3MgrGetMgrWork(body_obj_work);
+	amAssert( mgr_work );
+	if ( !gmBoss3MgrCheckSetupComplete(mgr_work) ){
+		return;
+	}
+
+	//-----------------------------------------
+	//ÉÅÉCÉìèàóù
+	//-----------------------------------------
+	//ÉÅÉCÉìèàóù
+	obj_work->ppFunc = gmBoss3EggmanMainFunc;
+
+	//ë“ã@ÉVÅ[ÉPÉìÉXÇ…
+	GMS_BOSS3_EGG_WORK* egg_work = (GMS_BOSS3_EGG_WORK*)obj_work;
+	amAssert( egg_work );
+	gmBoss3EggStateIdleInit( egg_work );
+}
+
+// =======================================================================
+// gmBoss3EggmanMainFunc
+/*!
+ *	ÉÅÉCÉìèàóù
+ *
+ *	@param obj_work	[io] ÉIÉuÉWÉFÉNÉgÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3EggmanMainFunc( OBS_OBJECT_WORK* obj_work )
+{
+	amAssert( obj_work );
+
+	GMS_BOSS3_BODY_WORK* body_work = (GMS_BOSS3_BODY_WORK*)obj_work->parent_obj;
+	amAssert( body_work );
+	GMS_BOSS3_EGG_WORK* egg_work = (GMS_BOSS3_EGG_WORK*)obj_work;
+	amAssert( egg_work );
+
+	//ê›íuÉmÅ[ÉhÇ÷
+	GmBsCmnUpdateObject3DNNStuckWithNode(
+			obj_work,
+			&body_work->snm_work,
+			body_work->snm_reg_id[GMD_BOSS3_BODY_SNM_INDEX_BODY],
+			TRUE );
+
+	//èÛë‘çXêV
+	if ( egg_work->proc_update ){
+		egg_work->proc_update( egg_work );
+	}
+
+	//-----------------------------------------
+	//ÉVÉOÉiÉãÉ`ÉFÉbÉN
+	//-----------------------------------------
+	//ì¶ñS
+	if ( body_work->flag & GMD_BOSS3_BODY_FLAG_SIGNAL_B2E_ESCAPE ){
+		body_work->flag &= ~GMD_BOSS3_BODY_FLAG_SIGNAL_B2E_ESCAPE;
+
+		gmBoss3EggStateEscapeInit( egg_work );
+	}
+
+	//É_ÉÅÅ[ÉW
+	if ( body_work->flag & GMD_BOSS3_BODY_FLAG_SIGNAL_B2E_DAMAGE ){
+		body_work->flag &= ~GMD_BOSS3_BODY_FLAG_SIGNAL_B2E_DAMAGE;
+
+		gmBoss3EggStateDamageInit( egg_work );
+	}
+
+	//çïÇ±Ç∞
+	if ( body_work->flag & GMD_BOSS3_BODY_FLAG_SIGNAL_B2E_BURNT ){
+		body_work->flag &= ~GMD_BOSS3_BODY_FLAG_SIGNAL_B2E_BURNT;
+		gmBoss3ChangeTextureBurnt( obj_work );
+	}
+
+	//-----------------------------------------
+	//äeéÌçXêV
+	//-----------------------------------------
+	//ï`âÊÉXÉgÉbÉvÉ`ÉFÉbÉN
+	const OBS_OBJECT_WORK* body_obj_work = GMM_BS_OBJ( body_work );
+	if ( body_obj_work->disp_flag & OBD_DISP_STOP ){
+		obj_work->disp_flag	|= OBD_DISP_STOP;
+	}
+	else{
+		obj_work->disp_flag	&= ~OBD_DISP_STOP;
+	}
+}
+
+
+// ==========================================================================
+//ÉGÉtÉFÉNÉg
+// ==========================================================================
+
+// =======================================================================
+// gmBoss3EffDamageInit
+/*!
+ *	É_ÉÅÅ[ÉWÉGÉtÉFÉNÉgèâä˙âª
+ *
+ *	@param body_work	[io] ñ{ëÃÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3EffDamageInit( GMS_BOSS3_BODY_WORK* body_work )
+{
+	OBS_OBJECT_WORK* parent_obj	= GMM_BS_OBJ( body_work );
+	amAssert( parent_obj );
+
+	GMS_EFFECT_3DES_WORK* efct_work = GmEfctBossCmnEsCreate(
+			parent_obj, 
+			GME_EFCT_BOSS_CMN_IDX_BOSS_DM );
+	OBS_OBJECT_WORK* effect_obj_work = GMM_BS_OBJ( efct_work );
+	amAssert( effect_obj_work );
+
+	effect_obj_work->pos.z += GMD_BOSS3_EFFECT_BOMB_OFFSET_Z;
+}
+
+// =======================================================================
+// gmBoss3EffBombInitCreate
+/*!
+ *	îöî≠ÉGÉtÉFÉNÉgåQèâä˙âª
+ *
+ *	@param bomb_work	[io] îöî≠ÉèÅ[ÉN
+ *	@param parent_obj	[io] êeÉIÉuÉWÉFÉNÉgÉèÅ[ÉN
+ *	@param pos_x		[in] ê∂ê¨îÕàÕíÜêSç¿ïWX
+ *	@param pos_y		[in] ê∂ê¨îÕàÕíÜêSç¿ïWY
+ *	@param width		[in] ê∂ê¨îÕàÕïù
+ *	@param height		[in] ê∂ê¨îÕàÕçÇÇ≥
+ *	@param interval_min	[in] ê∂ê¨ä‘äuç≈íZéûä‘
+ *	@param interval_max	[in] ê∂ê¨ä‘äuç≈í∑éûä‘
+ */
+// =======================================================================
+void gmBoss3EffBombsInit( 
+						 GMS_BOSS3_EFF_BOMB_WORK* bomb_work,
+						 OBS_OBJECT_WORK* parent_obj,
+						 fx32 pos_x,
+						 fx32 pos_y,
+						 fx32 width,
+						 fx32 height,
+						 Uint32 interval_min,
+						 Uint32 interval_max )
+{
+	amAssert( bomb_work );
+	amAssert( parent_obj );
+
+	bomb_work->parent_obj = parent_obj;
+	bomb_work->interval_timer = 0;
+	bomb_work->interval_min = interval_min;
+	bomb_work->interval_max = interval_max;
+	bomb_work->pos[MTD_X] = pos_x;
+	bomb_work->pos[MTD_Y] = pos_y;
+	bomb_work->area[MTD_WIDTH] = width;
+	bomb_work->area[MTD_HEIGHT] = height;
+}
+
+// =======================================================================
+// gmBoss3EffBombsUpdate
+/*!
+ *	îöî≠ÉGÉtÉFÉNÉgåQçXêV
+ *
+ *	@param obj_work	[io] ÉIÉuÉWÉFÉNÉgÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3EffBombsUpdate( GMS_BOSS3_EFF_BOMB_WORK* bomb_work )
+{
+	amAssert( bomb_work );
+
+	//ê∂ê¨ä‘äuÉ`ÉFÉbÉN
+	if ( bomb_work->interval_timer > 0 ){	
+		--bomb_work->interval_timer;
+		return;
+	}
+
+	//å¯â âπ
+	GmSoundPlaySE( "Boss0_02" );
+
+	//ê∂ê¨
+	GMS_EFFECT_3DES_WORK* effect_work = GmEfctCmnEsCreate( 
+		NULL, 
+		GME_EFCT_CMN_IDX_BOMB );
+	OBS_OBJECT_WORK* obj_work = GMM_BS_OBJ( effect_work );
+	amAssert( obj_work );
+
+	//ê∂ê¨ç¿ïW
+	OBS_OBJECT_WORK* parent_obj_work = GMM_BS_OBJ( bomb_work->parent_obj );
+
+	fx32 width = bomb_work->area[MTD_WIDTH];
+	fx32 height = bomb_work->area[MTD_HEIGHT];
+	fx32 rand_x = FX_Mul( AkMathRandFx(), width );
+	fx32 rand_y = FX_Mul( AkMathRandFx(), height );
+	obj_work->pos.x	= bomb_work->pos[MTD_X] - (width >> 1) + rand_x;
+	obj_work->pos.y	= bomb_work->pos[MTD_Y] - (height >> 1) + rand_y;
+	obj_work->pos.z	= parent_obj_work->pos.z + GMD_BOSS3_EFFECT_BOMB_OFFSET_Z;	//êeç¿ïWÇ©ÇÁÉIÉtÉZÉbÉg
+
+
+	//ê∂ê¨ä‘äu
+	fx32 interval = (fx32)(bomb_work->interval_max - bomb_work->interval_min);
+	fx32 rand_interval = AkMathRandFx();
+	Uint32 rand_ofst = (Uint32)((rand_interval*interval) >> FX32_SHIFT);
+	bomb_work->interval_timer = bomb_work->interval_min + rand_ofst;
+}
+
+// =======================================================================
+// gmBoss3EffAfterburnerRequestCreate
+/*!
+ *	ÉAÉtÉ^ÉoÅ[ÉiÉGÉtÉFÉNÉgçÏê¨óvãÅ
+ *
+ *	@param body_work	[io] ñ{ëÃÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3EffAfterburnerRequestCreate( GMS_BOSS3_BODY_WORK* body_work )
+{
+	body_work->flag |= GMD_BOSS3_BODY_FLAG_SIGNAL_B2B_AFTERBURNER;
+}
+
+// =======================================================================
+// gmBoss3EffAfterburnerRequestDelete
+/*!
+ *	ÉAÉtÉ^ÉoÅ[ÉiÉGÉtÉFÉNÉgçÌèúóvãÅ
+ *
+ *	@param body_work	[io] ñ{ëÃÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3EffAfterburnerRequestDelete( GMS_BOSS3_BODY_WORK* body_work )
+{
+	body_work->flag &= ~GMD_BOSS3_BODY_FLAG_AFTERBURNER_ACTIVE;
+	body_work->flag &= ~GMD_BOSS3_BODY_FLAG_SIGNAL_B2B_AFTERBURNER;
+}
+
+// =======================================================================
+// gmBoss3EffAfterburnerInit
+/*!
+ *	ÉAÉtÉ^ÉoÅ[ÉiÉGÉtÉFÉNÉgÇèâä˙âª
+ *
+ *	@param body_work	[io] ñ{ëÃÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3EffAfterburnerInit( GMS_BOSS3_BODY_WORK* body_work )
+{
+	//ê∂ê¨çœÇ›
+	if ( body_work->flag & GMD_BOSS3_BODY_FLAG_AFTERBURNER_ACTIVE ){
+		return;
+	}
+
+	//ÉtÉâÉOê›íË
+	body_work->flag &= ~GMD_BOSS3_BODY_FLAG_SIGNAL_B2B_AFTERBURNER;
+	body_work->flag |= GMD_BOSS3_BODY_FLAG_AFTERBURNER_ACTIVE;
+
+	//ÉGÉtÉFÉNÉgê∂ê¨
+	OBS_OBJECT_WORK* body_obj_work = GMM_BS_OBJ(body_work);
+	amAssert( body_obj_work );
+	GMS_EFFECT_3DES_WORK* efct_work = GmEfctBossCmnEsCreate(
+		body_obj_work, 
+		GME_EFCT_BOSS_CMN_IDX_JET_B );
+
+	//ï\é¶ÉIÉtÉZÉbÉgí≤êÆ
+	GmEffect3DESAddDispOffset( 
+		efct_work, 
+		0, 
+		0, 
+		GMD_BOSS3_EFFECT_AFTERBURNER_DIST_OFFSET_Z );
+
+	//ÉÅÉCÉìèàóù
+	OBS_OBJECT_WORK* effct_obj_work = GMM_BS_OBJ( efct_work );
+	amAssert( effct_obj_work );
+	effct_obj_work->ppFunc = gmBoss3EffAfterburnerMainFunc;
+}
+
+// =======================================================================
+// gmBoss3EffAfterburnerInit
+/*!
+ *	ÉAÉtÉ^ÉoÅ[ÉiÉGÉtÉFÉNÉgÇçXêV
+ *
+ *	@param obj_work	[io] ÉIÉuÉWÉFÉNÉgÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3EffAfterburnerMainFunc( OBS_OBJECT_WORK* obj_work )
+{
+	GMS_BOSS3_BODY_WORK* body_work = (GMS_BOSS3_BODY_WORK*)obj_work->parent_obj;
+	amAssert( body_work );
+	MTM_ASSERT( body_work->snm_work.reg_node_max );
+
+
+	//èIóπäƒéã
+	if ( obj_work->disp_flag & OBD_DISP_END ){
+		obj_work->flag |= OBD_OBJECT_TASKCLEAR;
+	}
+
+	//óLå¯ÉtÉâÉOäƒéã
+	if ( !(body_work->flag & GMD_BOSS3_BODY_FLAG_AFTERBURNER_ACTIVE) ){
+		ObjDrawKillAction3DES( obj_work );
+	}
+
+	// ñ{ëÃSNMÉ}ÉgÉäÉNÉXÇ≈Ç≠Ç¡Ç¬ÇØÇÈ
+	GmBsCmnUpdateObject3DESStuckWithNode(
+			obj_work,
+			&body_work->snm_work,
+			body_work->snm_reg_id[GMD_BOSS3_BODY_SNM_INDEX_BODY],
+			TRUE );
+}
+
+// =======================================================================
+// gmBoss3EffAfterburnerSmokeInit
+/*!
+ *	ÉAÉtÉ^ÉoÅ[ÉiâåÉGÉtÉFÉNÉgÇèâä˙âª
+ *
+ *	@param body_work	[io] ñ{ëÃÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3EffAfterburnerSmokeInit( GMS_BOSS3_BODY_WORK* body_work )
+{
+	//ÉGÉtÉFÉNÉgê∂ê¨
+	OBS_OBJECT_WORK* body_obj_work = GMM_BS_OBJ(body_work);
+	amAssert( body_obj_work );
+	GMS_EFFECT_3DES_WORK* efct_work = GmEfctBossCmnEsCreate(
+		body_obj_work, 
+		GME_EFCT_BOSS_CMN_IDX_JET_B_SMORK );
+
+	//ï\é¶ÉIÉtÉZÉbÉgí≤êÆ
+	GmEffect3DESAddDispOffset( 
+		efct_work, 
+		0, 
+		0, 
+		GMD_BOSS3_EFFECT_AFTERBURNER_SMOKE_DIST_OFFSET_Z );
+
+	//ÉÅÉCÉìèàóù
+	OBS_OBJECT_WORK* effct_obj_work = GMM_BS_OBJ( efct_work );
+	amAssert( effct_obj_work );
+	effct_obj_work->ppFunc = gmBoss3EffAfterburnerSmokeMainFunc;
+}
+
+// =======================================================================
+// gmBoss3EffAfterburnerSmokeMainFunc
+/*!
+ *	ÉAÉtÉ^ÉoÅ[ÉiâåÉGÉtÉFÉNÉgÇçXêV
+ *
+ *	@param obj_work	[io] ÉIÉuÉWÉFÉNÉgÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3EffAfterburnerSmokeMainFunc( OBS_OBJECT_WORK* obj_work )
+{
+	GMS_BOSS3_BODY_WORK* body_work = (GMS_BOSS3_BODY_WORK*)obj_work->parent_obj;
+	amAssert( body_work );
+	MTM_ASSERT( body_work->snm_work.reg_node_max );
+
+	// ñ{ëÃSNMÉ}ÉgÉäÉNÉXÇ≈Ç≠Ç¡Ç¬ÇØÇÈ
+	GmBsCmnUpdateObject3DESStuckWithNode(
+			obj_work,
+			&body_work->snm_work,
+			body_work->snm_reg_id[GMD_BOSS3_BODY_SNM_INDEX_BODY],
+			TRUE );
+}
+
+// =======================================================================
+// gmBoss3EffBodySmokeInit
+/*!
+ *	ñ{ëÃâåÉGÉtÉFÉNÉgÇèâä˙âª
+ *
+ *	@param body_work	[io] ñ{ëÃÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3EffBodySmokeInit( GMS_BOSS3_BODY_WORK* body_work )
+{
+	//ÉGÉtÉFÉNÉgê∂ê¨
+	OBS_OBJECT_WORK* body_obj_work = GMM_BS_OBJ(body_work);
+	amAssert( body_obj_work );
+	GMS_EFFECT_3DES_WORK* efct_work = GmEfctBossCmnEsCreate(
+		body_obj_work, 
+		GME_EFCT_BOSS_CMN_IDX_BOSS_SMORK );
+
+	//ï\é¶ÉIÉtÉZÉbÉgí≤êÆ
+	GmEffect3DESAddDispOffset( 
+		efct_work, 
+		0, 
+		0, 
+		GMD_BOSS3_EFFECT_BODY_SMOKE_DIST_OFFSET_Z );
+
+	//ÉÅÉCÉìèàóù
+	OBS_OBJECT_WORK* effct_obj_work = GMM_BS_OBJ( efct_work );
+	amAssert( effct_obj_work );
+	effct_obj_work->ppFunc = gmBoss3EffBodySmokeMainFunc;
+}
+
+// =======================================================================
+// gmBoss3EffBodySmokeMainFunc
+/*!
+ *	ñ{ëÃâåÉGÉtÉFÉNÉgÇçXêV
+ *
+ *	@param obj_work	[io] ÉIÉuÉWÉFÉNÉgÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3EffBodySmokeMainFunc( OBS_OBJECT_WORK* obj_work )
+{
+	GMS_BOSS3_BODY_WORK* body_work = (GMS_BOSS3_BODY_WORK*)obj_work->parent_obj;
+	amAssert( body_work );
+	MTM_ASSERT( body_work->snm_work.reg_node_max );
+
+	// ñ{ëÃSNMÉ}ÉgÉäÉNÉXÇ≈Ç≠Ç¡Ç¬ÇØÇÈÅiÉAÉtÉ^ÉoÅ[ÉiÇ∆ìØÇ∂ç¿ïWÅj
+	GmBsCmnUpdateObject3DESStuckWithNode(
+			obj_work,
+			&body_work->snm_work,
+			body_work->snm_reg_id[GMD_BOSS3_BODY_SNM_INDEX_BODY],
+			TRUE );
+}
+
+// =======================================================================
+// gmBoss3EffSweatInit
+/*!
+ *	äæÉGÉtÉFÉNÉgÇèâä˙âª
+ *
+ *	@param egg_work	[io] ÉGÉbÉOÉ}ÉìÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3EffSweatInit( GMS_BOSS3_EGG_WORK* egg_work )
+{
+	//ÉGÉtÉFÉNÉgê∂ê¨
+	OBS_OBJECT_WORK* egg_obj_work = GMM_BS_OBJ(egg_work);
+	amAssert( egg_obj_work );
+	GMS_EFFECT_3DES_WORK* efct_work = GmEfctCmnEsCreate(
+		egg_obj_work, 
+		GME_EFCT_CMN_IDX_SWEAT );
+	
+	//ï\é¶ÉIÉtÉZÉbÉgí≤êÆ
+	GmEffect3DESAddDispOffset(
+			efct_work, 
+			0, 
+			GMD_BOSS3_EFFECT_SWEAT_DIST_OFFSET_Y, 
+			0 );
+
+	//ÉÅÉCÉìèàóù
+	OBS_OBJECT_WORK* effct_obj_work = GMM_BS_OBJ( efct_work );
+	amAssert( effct_obj_work );
+	effct_obj_work->ppFunc = gmBoss3EffSweatMainFunc;
+
+	//äæé¿çsíÜ
+	egg_work->flag |= GMD_BOSS3_EGG_FLAG_SWEAT_ACTIVE;
+}
+
+// =======================================================================
+// gmBoss3EffSweatMainFunc
+/*!
+ *	äæÉGÉtÉFÉNÉgÇçXêV
+ *
+ *	@param obj_work	[io] ÉIÉuÉWÉFÉNÉgÉèÅ[ÉN
+ */
+// =======================================================================
+void gmBoss3EffSweatMainFunc( OBS_OBJECT_WORK* obj_work )
+{
+	GMS_BOSS3_EGG_WORK* egg_work = (GMS_BOSS3_EGG_WORK*)obj_work->parent_obj;
+	amAssert( egg_work );
+	
+	if ( !(egg_work->flag & GMD_BOSS3_EGG_FLAG_SWEAT_ACTIVE) ){
+		ObjDrawKillAction3DES( obj_work );
+	}
+	
+	if ( obj_work->disp_flag & OBD_DISP_END ){
+		obj_work->flag |= OBD_OBJECT_TASKCLEAR;
+	}
+}
+
+// ==========================================================================
+// _pt
+/*!
+ *	@param	tcb	[in]	TCB
+ */
+// ==========================================================================

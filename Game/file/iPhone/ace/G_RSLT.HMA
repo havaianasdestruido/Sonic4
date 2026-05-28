@@ -1,0 +1,111 @@
+// root node
+
+// node
+
+// action
+#define IDA_G_RSLT_ACT_TEX_SONIC        (  0) // tex_sonic
+#define IDA_G_RSLT_ACT_TEX_1            (  1) // tex_1
+#define IDA_G_RSLT_ACT_TEX_2            (  2) // tex_2
+#define IDA_G_RSLT_ACT_TEX_3            (  3) // tex_3
+#define IDA_G_RSLT_ACT_SCORE_TIME_1     (  4) // score_time_1
+#define IDA_G_RSLT_ACT_SCORE_TIME_2     (  5) // score_time_2
+#define IDA_G_RSLT_ACT_SCORE_TIME_3     (  6) // score_time_3
+#define IDA_G_RSLT_ACT_SCORE_TIME_4     (  7) // score_time_4
+#define IDA_G_RSLT_ACT_SCORE_TIME_5     (  8) // score_time_5
+#define IDA_G_RSLT_ACT_SCORE_RING_1     (  9) // score_ring_1
+#define IDA_G_RSLT_ACT_SCORE_RING_2     ( 10) // score_ring_2
+#define IDA_G_RSLT_ACT_SCORE_RING_3     ( 11) // score_ring_3
+#define IDA_G_RSLT_ACT_SCORE_RING_4     ( 12) // score_ring_4
+#define IDA_G_RSLT_ACT_SCORE_RING_5     ( 13) // score_ring_5
+#define IDA_G_RSLT_ACT_LINE_1           ( 14) // line_1
+#define IDA_G_RSLT_ACT_LINE_2           ( 15) // line_2
+#define IDA_G_RSLT_ACT_LINE_3           ( 16) // line_3
+#define IDA_G_RSLT_ACT_ICON_SONIC       ( 17) // icon_sonic
+#define IDA_G_RSLT_ACT_SCORE_TOTAL_1    ( 18) // score_total_1
+#define IDA_G_RSLT_ACT_SCORE_TOTAL_2    ( 19) // score_total_2
+#define IDA_G_RSLT_ACT_SCORE_TOTAL_3    ( 20) // score_total_3
+#define IDA_G_RSLT_ACT_SCORE_TOTAL_4    ( 21) // score_total_4
+#define IDA_G_RSLT_ACT_SCORE_TOTAL_5    ( 22) // score_total_5
+#define IDA_G_RSLT_ACT_SCORE_TOTAL_6    ( 23) // score_total_6
+#define IDA_G_RSLT_ACT_SCORE_TOTAL_7    ( 24) // score_total_7
+#define IDA_G_RSLT_ACT_SCORE_TOTAL_8    ( 25) // score_total_8
+#define IDA_G_RSLT_ACT_SCORE_TOTAL_9    ( 26) // score_total_9
+#define IDA_G_RSLT_ACT_TA_NUM1          ( 27) // ta_num1
+#define IDA_G_RSLT_ACT_TA_NUM2          ( 28) // ta_num2
+#define IDA_G_RSLT_ACT_TA_NUM3          ( 29) // ta_num3
+#define IDA_G_RSLT_ACT_TA_NUM4          ( 30) // ta_num4
+#define IDA_G_RSLT_ACT_TA_NUM5          ( 31) // ta_num5
+#define IDA_G_RSLT_ACT_TA_NUM6          ( 32) // ta_num6
+#define IDA_G_RSLT_ACT_TA_NUM7          ( 33) // ta_num7
+#define IDA_G_RSLT_ACT_ICON_EME1_1      ( 34) // icon_eme1_1
+#define IDA_G_RSLT_ACT_ICON_EME1_2      ( 35) // icon_eme1_2
+#define IDA_G_RSLT_ACT_ICON_EME1_3      ( 36) // icon_eme1_3
+#define IDA_G_RSLT_ACT_ICON_EME1_4      ( 37) // icon_eme1_4
+#define IDA_G_RSLT_ACT_ICON_EME1_5      ( 38) // icon_eme1_5
+#define IDA_G_RSLT_ACT_ICON_EME1_6      ( 39) // icon_eme1_6
+#define IDA_G_RSLT_ACT_ICON_EME1_7      ( 40) // icon_eme1_7
+#define IDA_G_RSLT_ACT_ICON_EME02       ( 41) // icon_eme02
+#define IDA_G_RSLT_ACT_ICON_EME2_1      ( 42) // icon_eme2_1
+#define IDA_G_RSLT_ACT_ICON_EME2_2      ( 43) // icon_eme2_2
+#define IDA_G_RSLT_ACT_ICON_EME2_3      ( 44) // icon_eme2_3
+#define IDA_G_RSLT_ACT_ICON_EME2_4      ( 45) // icon_eme2_4
+#define IDA_G_RSLT_ACT_ICON_EME2_5      ( 46) // icon_eme2_5
+#define IDA_G_RSLT_ACT_ICON_EME2_6      ( 47) // icon_eme2_6
+#define IDA_G_RSLT_ACT_ICON_EME2_7      ( 48) // icon_eme2_7
+#define IDA_G_RSLT_ACT_TA_TIME1         ( 49) // ta_time1
+#define IDA_G_RSLT_ACT_TA_TIME2         ( 50) // ta_time2
+#define IDA_G_RSLT_ACT_TA_TIME3         ( 51) // ta_time3
+#define IDA_G_RSLT_ACT_TA_TIME5         ( 52) // ta_time5
+#define IDA_G_RSLT_ACT_TA_TIME6         ( 53) // ta_time6
+#define IDA_G_RSLT_ACT_TA_TIME7         ( 54) // ta_time7
+#define IDA_G_RSLT_ACT_TA_TIME8         ( 55) // ta_time8
+#define IDA_G_RSLT_ACT_TA_ICON_SONIC    ( 56) // ta_icon_sonic
+#define IDA_G_RSLT_ACT_SP_SCORE_TIME_1  ( 57) // sp_score_time_1
+#define IDA_G_RSLT_ACT_SP_SCORE_TIME_2  ( 58) // sp_score_time_2
+#define IDA_G_RSLT_ACT_SP_SCORE_TIME_3  ( 59) // sp_score_time_3
+#define IDA_G_RSLT_ACT_SP_SCORE_TIME_4  ( 60) // sp_score_time_4
+#define IDA_G_RSLT_ACT_SP_SCORE_TIME_5  ( 61) // sp_score_time_5
+#define IDA_G_RSLT_ACT_SP_SCORE_RING_1  ( 62) // sp_score_ring_1
+#define IDA_G_RSLT_ACT_SP_SCORE_RING_2  ( 63) // sp_score_ring_2
+#define IDA_G_RSLT_ACT_SP_SCORE_RING_3  ( 64) // sp_score_ring_3
+#define IDA_G_RSLT_ACT_SP_SCORE_RING_4  ( 65) // sp_score_ring_4
+#define IDA_G_RSLT_ACT_SP_SCORE_RING_5  ( 66) // sp_score_ring_5
+#define IDA_G_RSLT_ACT_SP_LINE_1        ( 67) // sp_line_1
+#define IDA_G_RSLT_ACT_SP_LINE_2        ( 68) // sp_line_2
+#define IDA_G_RSLT_ACT_SP_LINE_3        ( 69) // sp_line_3
+#define IDA_G_RSLT_ACT_SP_ICON_SONIC1   ( 70) // sp_icon_sonic1
+#define IDA_G_RSLT_ACT_SP_ICON_SONIC2   ( 71) // sp_icon_sonic2
+#define IDA_G_RSLT_ACT_SP_SCORE_TOTAL_1 ( 72) // sp_score_total_1
+#define IDA_G_RSLT_ACT_SP_SCORE_TOTAL_2 ( 73) // sp_score_total_2
+#define IDA_G_RSLT_ACT_SP_SCORE_TOTAL_3 ( 74) // sp_score_total_3
+#define IDA_G_RSLT_ACT_SP_SCORE_TOTAL_4 ( 75) // sp_score_total_4
+#define IDA_G_RSLT_ACT_SP_SCORE_TOTAL_5 ( 76) // sp_score_total_5
+#define IDA_G_RSLT_ACT_SP_SCORE_TOTAL_6 ( 77) // sp_score_total_6
+#define IDA_G_RSLT_ACT_SP_SCORE_TOTAL_7 ( 78) // sp_score_total_7
+#define IDA_G_RSLT_ACT_SP_SCORE_TOTAL_8 ( 79) // sp_score_total_8
+#define IDA_G_RSLT_ACT_SP_SCORE_TOTAL_9 ( 80) // sp_score_total_9
+#define IDA_G_RSLT_ACT_GE_TEX_1         ( 81) // ge_tex_1
+#define IDA_G_RSLT_ACT_GE_TEX_2         ( 82) // ge_tex_2
+#define IDA_G_RSLT_ACT_GE_TEX_3         ( 83) // ge_tex_3
+#define IDA_G_RSLT_ACT_IT_SONIC         ( 84) // it_sonic
+#define IDA_G_RSLT_ACT_SP_SONIC         ( 85) // sp_sonic
+#define IDA_G_RSLT_ACT_IT_NUM1          ( 86) // it_num1
+#define IDA_G_RSLT_ACT_IT_NUM2          ( 87) // it_num2
+#define IDA_G_RSLT_ACT_IT_NUM3          ( 88) // it_num3
+#define IDA_G_RSLT_ACT_IT_NUM4          ( 89) // it_num4
+#define IDA_G_RSLT_ACT_IT_NUM5          ( 90) // it_num5
+#define IDA_G_RSLT_ACT_IT_NUM6          ( 91) // it_num6
+#define IDA_G_RSLT_ACT_IT_NUM7          ( 92) // it_num7
+#define IDA_G_RSLT_ACT_FR_TEX_1         ( 93) // fr_tex_1
+#define IDA_G_RSLT_ACT_FR_TEX_2         ( 94) // fr_tex_2
+#define IDA_G_RSLT_ACT_FR_TEX_3         ( 95) // fr_tex_3
+#define IDA_G_RSLT_ACT_SP_TEX_1         ( 96) // sp_tex_1
+#define IDA_G_RSLT_ACT_SP_TEX_2         ( 97) // sp_tex_2
+#define IDA_G_RSLT_ACT_SP_TEX_3         ( 98) // sp_tex_3
+#define IDA_G_RSLT_ACT_RETRY_BG         ( 99) // retry_bg
+#define IDA_G_RSLT_ACT_BTN01_L          (100) // btn01_l
+#define IDA_G_RSLT_ACT_BTN01_C          (101) // btn01_c
+#define IDA_G_RSLT_ACT_BTN01_R          (102) // btn01_r
+#define IDA_G_RSLT_ACT_BTN02_L          (103) // btn02_l
+#define IDA_G_RSLT_ACT_BTN02_C          (104) // btn02_c
+#define IDA_G_RSLT_ACT_BTN02_R          (105) // btn02_r

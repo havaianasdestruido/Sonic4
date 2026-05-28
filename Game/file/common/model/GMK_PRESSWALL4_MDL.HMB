@@ -1,0 +1,38 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_GMK_PRESSWALL4_MDL
+#define	_IDB_GMK_PRESSWALL4_MDL
+
+/* Defined File ID */
+#define	IDB_GMK_PRESSWALL4_MDL_GMK_P_WALL_4_ZNO		0		/*  */
+#define	IDB_GMK_PRESSWALL4_MDL_GMK_P_WALL_A_4_ZNO		1		/*  */
+#define	IDB_GMK_PRESSWALL4_MDL_GMK_P_WALL_B_4_ZNO		2		/*  */
+#define	IDB_GMK_PRESSWALL4_MDL_GMK_P_WALL_G_4_ZNO		3		/*  */
+#define	IDB_GMK_PRESSWALL4_MDL_GMK_P_WALL_LIGHT_4_ZNO		4		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_GMK_PRESSWALL4_MDL_GMK_P_WALL_4_ZNO		0		/*  */
+#define	IDU0_GMK_PRESSWALL4_MDL_GMK_P_WALL_A_4_ZNO		0		/*  */
+#define	IDU0_GMK_PRESSWALL4_MDL_GMK_P_WALL_B_4_ZNO		0		/*  */
+#define	IDU0_GMK_PRESSWALL4_MDL_GMK_P_WALL_G_4_ZNO		0		/*  */
+#define	IDU0_GMK_PRESSWALL4_MDL_GMK_P_WALL_LIGHT_4_ZNO		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_GMK_PRESSWALL4_MDL_GMK_P_WALL_4_ZNO		0		/*  */
+#define	IDU1_GMK_PRESSWALL4_MDL_GMK_P_WALL_A_4_ZNO		0		/*  */
+#define	IDU1_GMK_PRESSWALL4_MDL_GMK_P_WALL_B_4_ZNO		0		/*  */
+#define	IDU1_GMK_PRESSWALL4_MDL_GMK_P_WALL_G_4_ZNO		0		/*  */
+#define	IDU1_GMK_PRESSWALL4_MDL_GMK_P_WALL_LIGHT_4_ZNO		0		/*  */
+
+/* Defined File Name */
+#define	IDS_GMK_PRESSWALL4_MDL_GMK_P_WALL_4_ZNO		"GMK_P_WALL_4.ZNO"
+#define	IDS_GMK_PRESSWALL4_MDL_GMK_P_WALL_A_4_ZNO		"GMK_P_WALL_A_4.ZNO"
+#define	IDS_GMK_PRESSWALL4_MDL_GMK_P_WALL_B_4_ZNO		"GMK_P_WALL_B_4.ZNO"
+#define	IDS_GMK_PRESSWALL4_MDL_GMK_P_WALL_G_4_ZNO		"GMK_P_WALL_G_4.ZNO"
+#define	IDS_GMK_PRESSWALL4_MDL_GMK_P_WALL_LIGHT_4_ZNO		"GMK_P_WALL_LIGHT_4.ZNO"
+
+#endif	/* _IDB_GMK_PRESSWALL4_MDL */

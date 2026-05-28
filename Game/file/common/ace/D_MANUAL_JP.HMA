@@ -1,0 +1,62 @@
+// root node
+
+// node
+
+// action
+#define IDA_D_MANUAL_JP_ACT_TEX_MODORU (  0) // tex_modoru
+#define IDA_D_MANUAL_JP_ACT_TEX_PAGE   (  1) // tex_page
+#define IDA_D_MANUAL_JP_ACT_TEX_ASOBI  (  2) // tex_asobi
+#define IDA_D_MANUAL_JP_ACT_TEX_TIT01  (  3) // tex_tit01
+#define IDA_D_MANUAL_JP_ACT_TEX_EX01   (  4) // tex_ex01
+#define IDA_D_MANUAL_JP_ACT_TEX_TIT02  (  5) // tex_tit02
+#define IDA_D_MANUAL_JP_ACT_TEX_EX02A  (  6) // tex_ex02a
+#define IDA_D_MANUAL_JP_ACT_TEX_EX02B  (  7) // tex_ex02b
+#define IDA_D_MANUAL_JP_ACT_TEX_TIT03A (  8) // tex_tit03a
+#define IDA_D_MANUAL_JP_ACT_TEX_TIT03B (  9) // tex_tit03b
+#define IDA_D_MANUAL_JP_ACT_TEX_EX03A  ( 10) // tex_ex03a
+#define IDA_D_MANUAL_JP_ACT_TEX_EX03B  ( 11) // tex_ex03b
+#define IDA_D_MANUAL_JP_ACT_TEX_TIT04  ( 12) // tex_tit04
+#define IDA_D_MANUAL_JP_ACT_TEX_EX04   ( 13) // tex_ex04
+#define IDA_D_MANUAL_JP_ACT_TEX_TIT05A ( 14) // tex_tit05a
+#define IDA_D_MANUAL_JP_ACT_TEX_TIT05B ( 15) // tex_tit05b
+#define IDA_D_MANUAL_JP_ACT_TEX_EX05A  ( 16) // tex_ex05a
+#define IDA_D_MANUAL_JP_ACT_TEX_EX05B  ( 17) // tex_ex05b
+#define IDA_D_MANUAL_JP_ACT_TEX_TIT06  ( 18) // tex_tit06
+#define IDA_D_MANUAL_JP_ACT_TEX_EX06A  ( 19) // tex_ex06a
+#define IDA_D_MANUAL_JP_ACT_TEX_EX06B  ( 20) // tex_ex06b
+#define IDA_D_MANUAL_JP_ACT_TEX_EX06C  ( 21) // tex_ex06c
+#define IDA_D_MANUAL_JP_ACT_TEX_EX06D  ( 22) // tex_ex06d
+#define IDA_D_MANUAL_JP_ACT_TEX_TIT07  ( 23) // tex_tit07
+#define IDA_D_MANUAL_JP_ACT_TEX_EX07A  ( 24) // tex_ex07a
+#define IDA_D_MANUAL_JP_ACT_TEX_EX07B  ( 25) // tex_ex07b
+#define IDA_D_MANUAL_JP_ACT_TEX_TIT08A ( 26) // tex_tit08a
+#define IDA_D_MANUAL_JP_ACT_TEX_TIT08B ( 27) // tex_tit08b
+#define IDA_D_MANUAL_JP_ACT_TEX_EX08A  ( 28) // tex_ex08a
+#define IDA_D_MANUAL_JP_ACT_TEX_EX08B  ( 29) // tex_ex08b
+#define IDA_D_MANUAL_JP_ACT_TEX_TIT09A ( 30) // tex_tit09a
+#define IDA_D_MANUAL_JP_ACT_TEX_TIT09B ( 31) // tex_tit09b
+#define IDA_D_MANUAL_JP_ACT_TEX_EX09A  ( 32) // tex_ex09a
+#define IDA_D_MANUAL_JP_ACT_TEX_EX09B  ( 33) // tex_ex09b
+#define IDA_D_MANUAL_JP_ACT_TEX_EX09C  ( 34) // tex_ex09c
+#define IDA_D_MANUAL_JP_ACT_TEX_TIT10  ( 35) // tex_tit10
+#define IDA_D_MANUAL_JP_ACT_TEX_EX10A  ( 36) // tex_ex10a
+#define IDA_D_MANUAL_JP_ACT_TEX_EX10B  ( 37) // tex_ex10b
+#define IDA_D_MANUAL_JP_ACT_TEX_EX10C  ( 38) // tex_ex10c
+#define IDA_D_MANUAL_JP_ACT_TEX_EX10D  ( 39) // tex_ex10d
+#define IDA_D_MANUAL_JP_ACT_TEX_TIT11  ( 40) // tex_tit11
+#define IDA_D_MANUAL_JP_ACT_TEX_EX11   ( 41) // tex_ex11
+#define IDA_D_MANUAL_JP_ACT_TEX_TIT12  ( 42) // tex_tit12
+#define IDA_D_MANUAL_JP_ACT_TEX_EX12   ( 43) // tex_ex12
+#define IDA_D_MANUAL_JP_ACT_SCR12      ( 44) // scr12
+#define IDA_D_MANUAL_JP_ACT_TEX_TIT13  ( 45) // tex_tit13
+#define IDA_D_MANUAL_JP_ACT_TEX_EX13   ( 46) // tex_ex13
+#define IDA_D_MANUAL_JP_ACT_TEX_CAU01  ( 47) // tex_cau01
+#define IDA_D_MANUAL_JP_ACT_TEX_CAU02  ( 48) // tex_cau02
+#define IDA_D_MANUAL_JP_ACT_TEX_CAU03  ( 49) // tex_cau03
+#define IDA_D_MANUAL_JP_ACT_TEX_CAU04  ( 50) // tex_cau04
+#define IDA_D_MANUAL_JP_ACT_SCR14A     ( 51) // scr14a
+#define IDA_D_MANUAL_JP_ACT_SCR14B     ( 52) // scr14b
+#define IDA_D_MANUAL_JP_ACT_TEX_EX14A  ( 53) // tex_ex14a
+#define IDA_D_MANUAL_JP_ACT_TEX_EX14B  ( 54) // tex_ex14b
+#define IDA_D_MANUAL_JP_ACT_TEX_EX14C  ( 55) // tex_ex14c
+#define IDA_D_MANUAL_JP_ACT_CAU2_2     ( 56) // cau2_2

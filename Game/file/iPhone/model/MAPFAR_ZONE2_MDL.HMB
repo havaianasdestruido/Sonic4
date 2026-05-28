@@ -1,0 +1,30 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_MAPFAR_ZONE2_MDL
+#define	_IDB_MAPFAR_ZONE2_MDL
+
+/* Defined File ID */
+#define	IDB_MAPFAR_ZONE2_MDL_Z2_BOSS_IP_FAR_INO		0		/* 空とビル群 */
+#define	IDB_MAPFAR_ZONE2_MDL_BG_02_WHEEL_INO		1		/* 観覧車 */
+#define	IDB_MAPFAR_ZONE2_MDL_ZONE2_SLIGHT_INO		2		/* サーチライト */
+
+/* Defined USR0 Data */
+#define	IDU0_MAPFAR_ZONE2_MDL_Z2_BOSS_IP_FAR_INO		0		/* 空とビル群 */
+#define	IDU0_MAPFAR_ZONE2_MDL_BG_02_WHEEL_INO		0		/* 観覧車 */
+#define	IDU0_MAPFAR_ZONE2_MDL_ZONE2_SLIGHT_INO		0		/* サーチライト */
+
+/* Defined USR1 Data */
+#define	IDU1_MAPFAR_ZONE2_MDL_Z2_BOSS_IP_FAR_INO		0		/* 空とビル群 */
+#define	IDU1_MAPFAR_ZONE2_MDL_BG_02_WHEEL_INO		0		/* 観覧車 */
+#define	IDU1_MAPFAR_ZONE2_MDL_ZONE2_SLIGHT_INO		0		/* サーチライト */
+
+/* Defined File Name */
+#define	IDS_MAPFAR_ZONE2_MDL_Z2_BOSS_IP_FAR_INO		"Z2_BOSS_IP_FAR.INO"
+#define	IDS_MAPFAR_ZONE2_MDL_BG_02_WHEEL_INO		"BG_02_WHEEL.INO"
+#define	IDS_MAPFAR_ZONE2_MDL_ZONE2_SLIGHT_INO		"ZONE2_SLIGHT.INO"
+
+#endif	/* _IDB_MAPFAR_ZONE2_MDL */

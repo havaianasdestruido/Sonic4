@@ -1,0 +1,42 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_GMK_BUMPER_MAT
+#define	_IDB_GMK_BUMPER_MAT
+
+/* Defined File ID */
+#define	IDB_GMK_BUMPER_MAT_GMK_BUMPER_ZNV		0		/* マテリアルモーション */
+#define	IDB_GMK_BUMPER_MAT_GMK_BUMPER_SQ_ZNV		1		/*  */
+#define	IDB_GMK_BUMPER_MAT_GMK_BUMPER_TRI_ZNV		2		/*  */
+#define	IDB_GMK_BUMPER_MAT_GMK_EN_BMPR_ZNV		3		/*  */
+#define	IDB_GMK_BUMPER_MAT_GMK_EN_BMPR_R_ZNV		4		/*  */
+#define	IDB_GMK_BUMPER_MAT_GMK_EN_BMPR_Y_ZNV		5		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_GMK_BUMPER_MAT_GMK_BUMPER_ZNV		0		/* マテリアルモーション */
+#define	IDU0_GMK_BUMPER_MAT_GMK_BUMPER_SQ_ZNV		0		/*  */
+#define	IDU0_GMK_BUMPER_MAT_GMK_BUMPER_TRI_ZNV		0		/*  */
+#define	IDU0_GMK_BUMPER_MAT_GMK_EN_BMPR_ZNV		0		/*  */
+#define	IDU0_GMK_BUMPER_MAT_GMK_EN_BMPR_R_ZNV		0		/*  */
+#define	IDU0_GMK_BUMPER_MAT_GMK_EN_BMPR_Y_ZNV		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_GMK_BUMPER_MAT_GMK_BUMPER_ZNV		0		/* マテリアルモーション */
+#define	IDU1_GMK_BUMPER_MAT_GMK_BUMPER_SQ_ZNV		0		/*  */
+#define	IDU1_GMK_BUMPER_MAT_GMK_BUMPER_TRI_ZNV		0		/*  */
+#define	IDU1_GMK_BUMPER_MAT_GMK_EN_BMPR_ZNV		0		/*  */
+#define	IDU1_GMK_BUMPER_MAT_GMK_EN_BMPR_R_ZNV		0		/*  */
+#define	IDU1_GMK_BUMPER_MAT_GMK_EN_BMPR_Y_ZNV		0		/*  */
+
+/* Defined File Name */
+#define	IDS_GMK_BUMPER_MAT_GMK_BUMPER_ZNV		"GMK_BUMPER.ZNV"
+#define	IDS_GMK_BUMPER_MAT_GMK_BUMPER_SQ_ZNV		"GMK_BUMPER_SQ.ZNV"
+#define	IDS_GMK_BUMPER_MAT_GMK_BUMPER_TRI_ZNV		"GMK_BUMPER_TRI.ZNV"
+#define	IDS_GMK_BUMPER_MAT_GMK_EN_BMPR_ZNV		"GMK_EN_BMPR.ZNV"
+#define	IDS_GMK_BUMPER_MAT_GMK_EN_BMPR_R_ZNV		"GMK_EN_BMPR_R.ZNV"
+#define	IDS_GMK_BUMPER_MAT_GMK_EN_BMPR_Y_ZNV		"GMK_EN_BMPR_Y.ZNV"
+
+#endif	/* _IDB_GMK_BUMPER_MAT */

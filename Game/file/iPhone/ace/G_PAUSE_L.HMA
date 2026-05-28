@@ -1,0 +1,15 @@
+// root node
+
+// node
+
+// action
+#define IDA_G_PAUSE_JP_ACT_TEX_RETRY  (  0) // tex_retry
+#define IDA_G_PAUSE_JP_ACT_TEX_WORLD  (  1) // tex_world
+#define IDA_G_PAUSE_JP_ACT_TEX_MAIN   (  2) // tex_main
+#define IDA_G_PAUSE_JP_ACT_TEX_MODORU (  3) // tex_modoru
+#define IDA_G_PAUSE_JP_ACT_MSG_RETRY  (  4) // msg_retry
+#define IDA_G_PAUSE_JP_ACT_MSG_WORLD  (  5) // msg_world
+#define IDA_G_PAUSE_JP_ACT_MSG_RETRY2 (  6) // msg_retry2
+#define IDA_G_PAUSE_JP_ACT_MSG_MAIN   (  7) // msg_main
+#define IDA_G_PAUSE_JP_ACT_TEX_HAI    (  8) // tex_hai
+#define IDA_G_PAUSE_JP_ACT_TEX_IIE    (  9) // tex_iie

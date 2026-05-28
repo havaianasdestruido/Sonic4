@@ -1,0 +1,135 @@
+// root node
+
+// node
+
+// action
+#define IDA_D_MANUAL_ACT_BG01B        (  0) // bg01b
+#define IDA_D_MANUAL_ACT_BG02         (  1) // bg02
+#define IDA_D_MANUAL_ACT_BG01A        (  2) // bg01a
+#define IDA_D_MANUAL_ACT_BG04A        (  3) // bg04a
+#define IDA_D_MANUAL_ACT_BG04B        (  4) // bg04b
+#define IDA_D_MANUAL_ACT_OBI          (  5) // obi
+#define IDA_D_MANUAL_ACT_BUT01        (  6) // but01
+#define IDA_D_MANUAL_ACT_ICON_PAGE01  (  7) // icon_page01
+#define IDA_D_MANUAL_ACT_ICON_PAGE02  (  8) // icon_page02
+#define IDA_D_MANUAL_ACT_ICON_PAGE03  (  9) // icon_page03
+#define IDA_D_MANUAL_ACT_NUM1         ( 10) // num1
+#define IDA_D_MANUAL_ACT_NUM2         ( 11) // num2
+#define IDA_D_MANUAL_ACT_NUM4         ( 12) // num4
+#define IDA_D_MANUAL_ACT_NUM3         ( 13) // num3
+#define IDA_D_MANUAL_ACT_NUM5         ( 14) // num5
+#define IDA_D_MANUAL_ACT_ARROW_L      ( 15) // arrow_l
+#define IDA_D_MANUAL_ACT_ARROW_R      ( 16) // arrow_r
+#define IDA_D_MANUAL_ACT_TAB01_L      ( 17) // tab01_l
+#define IDA_D_MANUAL_ACT_TAB01_C      ( 18) // tab01_c
+#define IDA_D_MANUAL_ACT_TAB01_R      ( 19) // tab01_r
+#define IDA_D_MANUAL_ACT_SCR01        ( 20) // scr01
+#define IDA_D_MANUAL_ACT_TAB02_L      ( 21) // tab02_l
+#define IDA_D_MANUAL_ACT_TAB02_C      ( 22) // tab02_c
+#define IDA_D_MANUAL_ACT_TAB02_R      ( 23) // tab02_r
+#define IDA_D_MANUAL_ACT_TAB02_L2     ( 24) // tab02_l2
+#define IDA_D_MANUAL_ACT_TAB02_C2     ( 25) // tab02_c2
+#define IDA_D_MANUAL_ACT_TAB02_R2     ( 26) // tab02_r2
+#define IDA_D_MANUAL_ACT_SONIC        ( 27) // sonic
+#define IDA_D_MANUAL_ACT_EGGMAN       ( 28) // eggman
+#define IDA_D_MANUAL_ACT_TAB03_L      ( 29) // tab03_l
+#define IDA_D_MANUAL_ACT_TAB03_C      ( 30) // tab03_c
+#define IDA_D_MANUAL_ACT_TAB03_R      ( 31) // tab03_r
+#define IDA_D_MANUAL_ACT_TAB03_L2     ( 32) // tab03_l2
+#define IDA_D_MANUAL_ACT_TAB03_C2     ( 33) // tab03_c2
+#define IDA_D_MANUAL_ACT_TAB03_R2     ( 34) // tab03_r2
+#define IDA_D_MANUAL_ACT_CNT01A       ( 35) // cnt01a
+#define IDA_D_MANUAL_ACT_CNT01B       ( 36) // cnt01b
+#define IDA_D_MANUAL_ACT_CNT02A       ( 37) // cnt02a
+#define IDA_D_MANUAL_ACT_CNT02B       ( 38) // cnt02b
+#define IDA_D_MANUAL_ACT_TAB04_L      ( 39) // tab04_l
+#define IDA_D_MANUAL_ACT_TAB04_C      ( 40) // tab04_c
+#define IDA_D_MANUAL_ACT_TAB04_R      ( 41) // tab04_r
+#define IDA_D_MANUAL_ACT_SCR04        ( 42) // scr04
+#define IDA_D_MANUAL_ACT_TAB05_L      ( 43) // tab05_l
+#define IDA_D_MANUAL_ACT_TAB05_C      ( 44) // tab05_c
+#define IDA_D_MANUAL_ACT_TAB05_R      ( 45) // tab05_r
+#define IDA_D_MANUAL_ACT_TAB05_L2     ( 46) // tab05_l2
+#define IDA_D_MANUAL_ACT_TAB05_C2     ( 47) // tab05_c2
+#define IDA_D_MANUAL_ACT_TAB05_R2     ( 48) // tab05_r2
+#define IDA_D_MANUAL_ACT_SCR05A       ( 49) // scr05a
+#define IDA_D_MANUAL_ACT_SCR05B       ( 50) // scr05b
+#define IDA_D_MANUAL_ACT_TAB06A       ( 51) // tab06a
+#define IDA_D_MANUAL_ACT_TAB06B       ( 52) // tab06b
+#define IDA_D_MANUAL_ACT_TAB06C       ( 53) // tab06c
+#define IDA_D_MANUAL_ACT_TAB06D_L     ( 54) // tab06d_l
+#define IDA_D_MANUAL_ACT_TAB06D_C     ( 55) // tab06d_c
+#define IDA_D_MANUAL_ACT_TAB06D_R     ( 56) // tab06d_r
+#define IDA_D_MANUAL_ACT_BOU_A        ( 57) // bou_a
+#define IDA_D_MANUAL_ACT_BOU_B        ( 58) // bou_b
+#define IDA_D_MANUAL_ACT_BOU_C        ( 59) // bou_c
+#define IDA_D_MANUAL_ACT_BOU_D        ( 60) // bou_d
+#define IDA_D_MANUAL_ACT_SCR06        ( 61) // scr06
+#define IDA_D_MANUAL_ACT_TAB07_L      ( 62) // tab07_l
+#define IDA_D_MANUAL_ACT_TAB07_C      ( 63) // tab07_c
+#define IDA_D_MANUAL_ACT_TAB07_R      ( 64) // tab07_r
+#define IDA_D_MANUAL_ACT_TAB07_L2     ( 65) // tab07_l2
+#define IDA_D_MANUAL_ACT_TAB07_C2     ( 66) // tab07_c2
+#define IDA_D_MANUAL_ACT_TAB07_R2     ( 67) // tab07_r2
+#define IDA_D_MANUAL_ACT_SCR07        ( 68) // scr07
+#define IDA_D_MANUAL_ACT_TAB08_L      ( 69) // tab08_l
+#define IDA_D_MANUAL_ACT_TAB08_C      ( 70) // tab08_c
+#define IDA_D_MANUAL_ACT_TAB08_R      ( 71) // tab08_r
+#define IDA_D_MANUAL_ACT_TAB08_L2     ( 72) // tab08_l2
+#define IDA_D_MANUAL_ACT_TAB08_C2     ( 73) // tab08_c2
+#define IDA_D_MANUAL_ACT_TAB08_R2     ( 74) // tab08_r2
+#define IDA_D_MANUAL_ACT_SCR08A       ( 75) // scr08a
+#define IDA_D_MANUAL_ACT_SCR08B       ( 76) // scr08b
+#define IDA_D_MANUAL_ACT_TAB09_L      ( 77) // tab09_l
+#define IDA_D_MANUAL_ACT_TAB09_C      ( 78) // tab09_c
+#define IDA_D_MANUAL_ACT_TAB09_R      ( 79) // tab09_r
+#define IDA_D_MANUAL_ACT_TAB09_L2     ( 80) // tab09_l2
+#define IDA_D_MANUAL_ACT_TAB09_C2     ( 81) // tab09_c2
+#define IDA_D_MANUAL_ACT_TAB09_R2     ( 82) // tab09_r2
+#define IDA_D_MANUAL_ACT_TAB09_L3     ( 83) // tab09_l3
+#define IDA_D_MANUAL_ACT_TAB09_C3     ( 84) // tab09_c3
+#define IDA_D_MANUAL_ACT_TAB09_R3     ( 85) // tab09_r3
+#define IDA_D_MANUAL_ACT_SCR09A       ( 86) // scr09a
+#define IDA_D_MANUAL_ACT_SCR09B       ( 87) // scr09b
+#define IDA_D_MANUAL_ACT_SCR09C       ( 88) // scr09c
+#define IDA_D_MANUAL_ACT_TAB10_L      ( 89) // tab10_l
+#define IDA_D_MANUAL_ACT_TAB10_C      ( 90) // tab10_c
+#define IDA_D_MANUAL_ACT_TAB10_R      ( 91) // tab10_r
+#define IDA_D_MANUAL_ACT_TAB10_L2     ( 92) // tab10_l2
+#define IDA_D_MANUAL_ACT_TAB10_C2     ( 93) // tab10_c2
+#define IDA_D_MANUAL_ACT_TAB10_R2     ( 94) // tab10_r2
+#define IDA_D_MANUAL_ACT_TAB10_L3     ( 95) // tab10_l3
+#define IDA_D_MANUAL_ACT_TAB10_C3     ( 96) // tab10_c3
+#define IDA_D_MANUAL_ACT_TAB10_R3     ( 97) // tab10_r3
+#define IDA_D_MANUAL_ACT_SCR10A       ( 98) // scr10a
+#define IDA_D_MANUAL_ACT_SCR10B       ( 99) // scr10b
+#define IDA_D_MANUAL_ACT_SCR10C       (100) // scr10c
+#define IDA_D_MANUAL_ACT_TAB11_L      (101) // tab11_l
+#define IDA_D_MANUAL_ACT_TAB11_C      (102) // tab11_c
+#define IDA_D_MANUAL_ACT_TAB11_R      (103) // tab11_r
+#define IDA_D_MANUAL_ACT_SCR11        (104) // scr11
+#define IDA_D_MANUAL_ACT_TAB12_L      (105) // tab12_l
+#define IDA_D_MANUAL_ACT_TAB12_C      (106) // tab12_c
+#define IDA_D_MANUAL_ACT_TAB12_R      (107) // tab12_r
+#define IDA_D_MANUAL_ACT_TAB13_L      (108) // tab13_l
+#define IDA_D_MANUAL_ACT_TAB13_C      (109) // tab13_c
+#define IDA_D_MANUAL_ACT_TAB13_R      (110) // tab13_r
+#define IDA_D_MANUAL_ACT_SCR13        (111) // scr13
+#define IDA_D_MANUAL_ACT_CAU01_TAB_L  (112) // cau01_tab_l
+#define IDA_D_MANUAL_ACT_CAU01_TAB_C  (113) // cau01_tab_c
+#define IDA_D_MANUAL_ACT_CAU01_TAB_R  (114) // cau01_tab_r
+#define IDA_D_MANUAL_ACT_TAB00_L      (115) // tab00_l
+#define IDA_D_MANUAL_ACT_TAB00_C      (116) // tab00_c
+#define IDA_D_MANUAL_ACT_TAB00_R      (117) // tab00_r
+#define IDA_D_MANUAL_ACT_TAB00_L2     (118) // tab00_l2
+#define IDA_D_MANUAL_ACT_TAB00_C2     (119) // tab00_c2
+#define IDA_D_MANUAL_ACT_TAB00_R2     (120) // tab00_r2
+#define IDA_D_MANUAL_ACT_TAB00_L3     (121) // tab00_l3
+#define IDA_D_MANUAL_ACT_TAB00_C3     (122) // tab00_c3
+#define IDA_D_MANUAL_ACT_TAB00_R3     (123) // tab00_r3
+#define IDA_D_MANUAL_ACT_CNT03A       (124) // cnt03a
+#define IDA_D_MANUAL_ACT_CNT03B       (125) // cnt03b
+#define IDA_D_MANUAL_ACT_CRILOGO      (126) // crilogo
+#define IDA_D_MANUAL_ACT_TAB_CAU2_2_L (127) // tab_cau2_2_l
+#define IDA_D_MANUAL_ACT_TAB_CAU2_2_C (128) // tab_cau2_2_c
+#define IDA_D_MANUAL_ACT_TAB_CAU2_2_R (129) // tab_cau2_2_r

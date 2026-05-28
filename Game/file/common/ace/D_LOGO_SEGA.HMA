@@ -1,0 +1,13 @@
+// root node
+
+// node
+
+// action
+#define IDA_D_LOGO_SEGA_ACT_BG_WHITE  (  0) // bg_white
+#define IDA_D_LOGO_SEGA_ACT_LOGO_SEGA (  1) // logo_sega
+#define IDA_D_LOGO_SEGA_ACT_COVER     (  2) // cover
+#define IDA_D_LOGO_SEGA_ACT_LINE01    (  3) // line01
+#define IDA_D_LOGO_SEGA_ACT_LINE02    (  4) // line02
+#define IDA_D_LOGO_SEGA_ACT_LINE03    (  5) // line03
+#define IDA_D_LOGO_SEGA_ACT_LINE04    (  6) // line04
+#define IDA_D_LOGO_SEGA_ACT_LINE05    (  7) // line05

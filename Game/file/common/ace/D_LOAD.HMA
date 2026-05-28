@@ -1,0 +1,14 @@
+// root node
+
+// node
+
+// action
+#define IDA_D_LOAD_ACT_BG_WHITE  (  0) // bg_white
+#define IDA_D_LOAD_ACT_BG_BOTTOM (  1) // bg_bottom
+#define IDA_D_LOAD_ACT_OBI       (  2) // obi
+#define IDA_D_LOAD_ACT_RUN       (  3) // run
+#define IDA_D_LOAD_ACT_STOP      (  4) // stop
+#define IDA_D_LOAD_ACT_PERIOD1   (  5) // period1
+#define IDA_D_LOAD_ACT_PERIOD2   (  6) // period2
+#define IDA_D_LOAD_ACT_PERIOD3   (  7) // period3
+#define IDA_D_LOAD_ACT_TEXT_LOAD (  8) // text_load

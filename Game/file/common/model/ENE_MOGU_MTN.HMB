@@ -1,0 +1,50 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_ENE_MOGU_MTN
+#define	_IDB_ENE_MOGU_MTN
+
+/* Defined File ID */
+#define	IDB_ENE_MOGU_MTN_ENE_MOGU_DOWN_ZNM		0		/*  */
+#define	IDB_ENE_MOGU_MTN_ENE_MOGU_DOWN_L_ZNM		1		/*  */
+#define	IDB_ENE_MOGU_MTN_ENE_MOGU_FRIP_ZNM		2		/*  */
+#define	IDB_ENE_MOGU_MTN_ENE_MOGU_FRIP_L_ZNM		3		/*  */
+#define	IDB_ENE_MOGU_MTN_ENE_MOGU_JUMP_01_ZNM		4		/*  */
+#define	IDB_ENE_MOGU_MTN_ENE_MOGU_JUMP_02_ZNM		5		/*  */
+#define	IDB_ENE_MOGU_MTN_ENE_MOGU_MOVE_ZNM		6		/*  */
+#define	IDB_ENE_MOGU_MTN_ENE_MOGU_MOVE_L_ZNM		7		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_ENE_MOGU_MTN_ENE_MOGU_DOWN_ZNM		0		/*  */
+#define	IDU0_ENE_MOGU_MTN_ENE_MOGU_DOWN_L_ZNM		0		/*  */
+#define	IDU0_ENE_MOGU_MTN_ENE_MOGU_FRIP_ZNM		0		/*  */
+#define	IDU0_ENE_MOGU_MTN_ENE_MOGU_FRIP_L_ZNM		0		/*  */
+#define	IDU0_ENE_MOGU_MTN_ENE_MOGU_JUMP_01_ZNM		0		/*  */
+#define	IDU0_ENE_MOGU_MTN_ENE_MOGU_JUMP_02_ZNM		0		/*  */
+#define	IDU0_ENE_MOGU_MTN_ENE_MOGU_MOVE_ZNM		0		/*  */
+#define	IDU0_ENE_MOGU_MTN_ENE_MOGU_MOVE_L_ZNM		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_ENE_MOGU_MTN_ENE_MOGU_DOWN_ZNM		0		/*  */
+#define	IDU1_ENE_MOGU_MTN_ENE_MOGU_DOWN_L_ZNM		0		/*  */
+#define	IDU1_ENE_MOGU_MTN_ENE_MOGU_FRIP_ZNM		0		/*  */
+#define	IDU1_ENE_MOGU_MTN_ENE_MOGU_FRIP_L_ZNM		0		/*  */
+#define	IDU1_ENE_MOGU_MTN_ENE_MOGU_JUMP_01_ZNM		0		/*  */
+#define	IDU1_ENE_MOGU_MTN_ENE_MOGU_JUMP_02_ZNM		0		/*  */
+#define	IDU1_ENE_MOGU_MTN_ENE_MOGU_MOVE_ZNM		0		/*  */
+#define	IDU1_ENE_MOGU_MTN_ENE_MOGU_MOVE_L_ZNM		0		/*  */
+
+/* Defined File Name */
+#define	IDS_ENE_MOGU_MTN_ENE_MOGU_DOWN_ZNM		"ENE_MOGU_DOWN.ZNM"
+#define	IDS_ENE_MOGU_MTN_ENE_MOGU_DOWN_L_ZNM		"ENE_MOGU_DOWN_L.ZNM"
+#define	IDS_ENE_MOGU_MTN_ENE_MOGU_FRIP_ZNM		"ENE_MOGU_FRIP.ZNM"
+#define	IDS_ENE_MOGU_MTN_ENE_MOGU_FRIP_L_ZNM		"ENE_MOGU_FRIP_L.ZNM"
+#define	IDS_ENE_MOGU_MTN_ENE_MOGU_JUMP_01_ZNM		"ENE_MOGU_JUMP_01.ZNM"
+#define	IDS_ENE_MOGU_MTN_ENE_MOGU_JUMP_02_ZNM		"ENE_MOGU_JUMP_02.ZNM"
+#define	IDS_ENE_MOGU_MTN_ENE_MOGU_MOVE_ZNM		"ENE_MOGU_MOVE.ZNM"
+#define	IDS_ENE_MOGU_MTN_ENE_MOGU_MOVE_L_ZNM		"ENE_MOGU_MOVE_L.ZNM"
+
+#endif	/* _IDB_ENE_MOGU_MTN */

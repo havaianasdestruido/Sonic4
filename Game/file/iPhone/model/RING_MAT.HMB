@@ -1,0 +1,22 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_RING_MAT
+#define	_IDB_RING_MAT
+
+/* Defined File ID */
+#define	IDB_RING_MAT_RING_INV		0		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_RING_MAT_RING_INV		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_RING_MAT_RING_INV		0		/*  */
+
+/* Defined File Name */
+#define	IDS_RING_MAT_RING_INV		"RING.INV"
+
+#endif	/* _IDB_RING_MAT */

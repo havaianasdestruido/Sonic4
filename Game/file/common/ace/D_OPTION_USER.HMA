@@ -1,0 +1,180 @@
+// root node
+#define IDA_D_OPTION_USER_ROOT_NODE_TABLE      (  0) // table
+
+// node
+#define IDA_D_OPTION_USER_NODE_TABLE           (  0) // table
+#define IDA_D_OPTION_USER_NODE_1               (  1) // 1
+#define IDA_D_OPTION_USER_NODE_2               (  2) // 2
+#define IDA_D_OPTION_USER_NODE_3               (  3) // 3
+#define IDA_D_OPTION_USER_NODE_4               (  4) // 4
+#define IDA_D_OPTION_USER_NODE_5               (  5) // 5
+#define IDA_D_OPTION_USER_NODE_6               (  6) // 6
+#define IDA_D_OPTION_USER_NODE_7               (  7) // 7
+#define IDA_D_OPTION_USER_NODE_8               (  8) // 8
+#define IDA_D_OPTION_USER_NODE_9               (  9) // 9
+#define IDA_D_OPTION_USER_NODE_0               ( 10) // 0
+#define IDA_D_OPTION_USER_NODE_A               ( 11) // a
+#define IDA_D_OPTION_USER_NODE_B               ( 12) // b
+#define IDA_D_OPTION_USER_NODE_C               ( 13) // c
+#define IDA_D_OPTION_USER_NODE_D               ( 14) // d
+#define IDA_D_OPTION_USER_NODE_E               ( 15) // e
+#define IDA_D_OPTION_USER_NODE_F               ( 16) // f
+#define IDA_D_OPTION_USER_NODE_G               ( 17) // g
+#define IDA_D_OPTION_USER_NODE_H               ( 18) // h
+#define IDA_D_OPTION_USER_NODE_I               ( 19) // i
+#define IDA_D_OPTION_USER_NODE_J               ( 20) // j
+#define IDA_D_OPTION_USER_NODE_K               ( 21) // k
+#define IDA_D_OPTION_USER_NODE_L               ( 22) // l
+#define IDA_D_OPTION_USER_NODE_N               ( 23) // n
+#define IDA_D_OPTION_USER_NODE_M               ( 24) // m
+#define IDA_D_OPTION_USER_NODE_O               ( 25) // o
+#define IDA_D_OPTION_USER_NODE_P               ( 26) // p
+#define IDA_D_OPTION_USER_NODE_Q               ( 27) // q
+#define IDA_D_OPTION_USER_NODE_R               ( 28) // r
+#define IDA_D_OPTION_USER_NODE_S               ( 29) // s
+#define IDA_D_OPTION_USER_NODE_T               ( 30) // t
+#define IDA_D_OPTION_USER_NODE_U               ( 31) // u
+#define IDA_D_OPTION_USER_NODE_V               ( 32) // v
+#define IDA_D_OPTION_USER_NODE_W               ( 33) // w
+#define IDA_D_OPTION_USER_NODE_X               ( 34) // x
+#define IDA_D_OPTION_USER_NODE_Y               ( 35) // y
+#define IDA_D_OPTION_USER_NODE_Z               ( 36) // z
+#define IDA_D_OPTION_USER_NODE_11              ( 37) // 11
+#define IDA_D_OPTION_USER_NODE_12              ( 38) // 12
+#define IDA_D_OPTION_USER_NODE_13              ( 39) // 13
+#define IDA_D_OPTION_USER_NODE_14              ( 40) // 14
+#define IDA_D_OPTION_USER_NODE_15              ( 41) // 15
+#define IDA_D_OPTION_USER_NODE_16              ( 42) // 16
+#define IDA_D_OPTION_USER_NODE_17              ( 43) // 17
+#define IDA_D_OPTION_USER_NODE_18              ( 44) // 18
+#define IDA_D_OPTION_USER_NODE_19              ( 45) // 19
+#define IDA_D_OPTION_USER_NODE_20              ( 46) // 20
+#define IDA_D_OPTION_USER_NODE_21              ( 47) // 21
+#define IDA_D_OPTION_USER_NODE_22              ( 48) // 22
+#define IDA_D_OPTION_USER_NODE_23              ( 49) // 23
+
+// action
+#define IDA_D_OPTION_USER_ACT_TAB04_LEFT       (  0) // tab04_left
+#define IDA_D_OPTION_USER_ACT_TAB04_CENTER     (  1) // tab04_center
+#define IDA_D_OPTION_USER_ACT_TAB04_RIGHT      (  2) // tab04_right
+#define IDA_D_OPTION_USER_ACT_TAB06_UE         (  3) // tab06_ue
+#define IDA_D_OPTION_USER_ACT_TAB06_SHITA01    (  4) // tab06_shita01
+#define IDA_D_OPTION_USER_ACT_TAB06_SHITA02    (  5) // tab06_shita02
+#define IDA_D_OPTION_USER_ACT_1                (  6) // 1
+#define IDA_D_OPTION_USER_ACT_2                (  7) // 2
+#define IDA_D_OPTION_USER_ACT_3                (  8) // 3
+#define IDA_D_OPTION_USER_ACT_4                (  9) // 4
+#define IDA_D_OPTION_USER_ACT_5                ( 10) // 5
+#define IDA_D_OPTION_USER_ACT_6                ( 11) // 6
+#define IDA_D_OPTION_USER_ACT_7                ( 12) // 7
+#define IDA_D_OPTION_USER_ACT_8                ( 13) // 8
+#define IDA_D_OPTION_USER_ACT_9                ( 14) // 9
+#define IDA_D_OPTION_USER_ACT_0                ( 15) // 0
+#define IDA_D_OPTION_USER_ACT_A                ( 16) // a
+#define IDA_D_OPTION_USER_ACT_B                ( 17) // b
+#define IDA_D_OPTION_USER_ACT_C                ( 18) // c
+#define IDA_D_OPTION_USER_ACT_D                ( 19) // d
+#define IDA_D_OPTION_USER_ACT_E                ( 20) // e
+#define IDA_D_OPTION_USER_ACT_F                ( 21) // f
+#define IDA_D_OPTION_USER_ACT_G                ( 22) // g
+#define IDA_D_OPTION_USER_ACT_H                ( 23) // h
+#define IDA_D_OPTION_USER_ACT_I                ( 24) // i
+#define IDA_D_OPTION_USER_ACT_J                ( 25) // j
+#define IDA_D_OPTION_USER_ACT_K                ( 26) // k
+#define IDA_D_OPTION_USER_ACT_L                ( 27) // l
+#define IDA_D_OPTION_USER_ACT_M                ( 28) // m
+#define IDA_D_OPTION_USER_ACT_N                ( 29) // n
+#define IDA_D_OPTION_USER_ACT_O                ( 30) // o
+#define IDA_D_OPTION_USER_ACT_P                ( 31) // p
+#define IDA_D_OPTION_USER_ACT_Q                ( 32) // q
+#define IDA_D_OPTION_USER_ACT_R                ( 33) // r
+#define IDA_D_OPTION_USER_ACT_S                ( 34) // s
+#define IDA_D_OPTION_USER_ACT_T                ( 35) // t
+#define IDA_D_OPTION_USER_ACT_U                ( 36) // u
+#define IDA_D_OPTION_USER_ACT_V                ( 37) // v
+#define IDA_D_OPTION_USER_ACT_W                ( 38) // w
+#define IDA_D_OPTION_USER_ACT_X                ( 39) // x
+#define IDA_D_OPTION_USER_ACT_Y                ( 40) // y
+#define IDA_D_OPTION_USER_ACT_Z                ( 41) // z
+#define IDA_D_OPTION_USER_ACT_KIGO01           ( 42) // kigo01
+#define IDA_D_OPTION_USER_ACT_KIGO02           ( 43) // kigo02
+#define IDA_D_OPTION_USER_ACT_KIGO03           ( 44) // kigo03
+#define IDA_D_OPTION_USER_ACT_KIGO04           ( 45) // kigo04
+#define IDA_D_OPTION_USER_ACT_KIGO05           ( 46) // kigo05
+#define IDA_D_OPTION_USER_ACT_KIGO06           ( 47) // kigo06
+#define IDA_D_OPTION_USER_ACT_KIGO07           ( 48) // kigo07
+#define IDA_D_OPTION_USER_ACT_KIGO08           ( 49) // kigo08
+#define IDA_D_OPTION_USER_ACT_KIGO09           ( 50) // kigo09
+#define IDA_D_OPTION_USER_ACT_KIGO10           ( 51) // kigo10
+#define IDA_D_OPTION_USER_ACT_KIGO11           ( 52) // kigo11
+#define IDA_D_OPTION_USER_ACT_KIGO12           ( 53) // kigo12
+#define IDA_D_OPTION_USER_ACT_KIGO13           ( 54) // kigo13
+#define IDA_D_OPTION_USER_ACT_CUR_ALPHA1       ( 55) // cur_alpha1
+#define IDA_D_OPTION_USER_ACT_CUR_ALPHA2       ( 56) // cur_alpha2
+#define IDA_D_OPTION_USER_ACT_CUR_ALPHA3       ( 57) // cur_alpha3
+#define IDA_D_OPTION_USER_ACT_BUT_BS           ( 58) // but_bs
+#define IDA_D_OPTION_USER_ACT_BUT_CAP          ( 59) // but_cap
+#define IDA_D_OPTION_USER_ACT_BUT_SPACE        ( 60) // but_space
+#define IDA_D_OPTION_USER_ACT_BUT_KETTEI_LEFT  ( 61) // but_kettei_left
+#define IDA_D_OPTION_USER_ACT_BUT_KETTEI_RIGHT ( 62) // but_kettei_right
+#define IDA_D_OPTION_USER_ACT_ALP_1            ( 63) // alp_1
+#define IDA_D_OPTION_USER_ACT_ALP_2            ( 64) // alp_2
+#define IDA_D_OPTION_USER_ACT_ALP_3            ( 65) // alp_3
+#define IDA_D_OPTION_USER_ACT_ALP_4            ( 66) // alp_4
+#define IDA_D_OPTION_USER_ACT_ALP_5            ( 67) // alp_5
+#define IDA_D_OPTION_USER_ACT_ALP_6            ( 68) // alp_6
+#define IDA_D_OPTION_USER_ACT_ALP_7            ( 69) // alp_7
+#define IDA_D_OPTION_USER_ACT_ALP_8            ( 70) // alp_8
+#define IDA_D_OPTION_USER_ACT_ALP_9            ( 71) // alp_9
+#define IDA_D_OPTION_USER_ACT_ALP_10           ( 72) // alp_10
+#define IDA_D_OPTION_USER_ACT_CUR02            ( 73) // cur02
+#define IDA_D_OPTION_USER_ACT_TAB_1            ( 74) // tab_1
+#define IDA_D_OPTION_USER_ACT_TAB_2            ( 75) // tab_2
+#define IDA_D_OPTION_USER_ACT_TAB_3            ( 76) // tab_3
+#define IDA_D_OPTION_USER_ACT_TAB_4            ( 77) // tab_4
+#define IDA_D_OPTION_USER_ACT_TAB_5            ( 78) // tab_5
+#define IDA_D_OPTION_USER_ACT_TAB_6            ( 79) // tab_6
+#define IDA_D_OPTION_USER_ACT_TAB_7            ( 80) // tab_7
+#define IDA_D_OPTION_USER_ACT_TAB_8            ( 81) // tab_8
+#define IDA_D_OPTION_USER_ACT_TAB_9            ( 82) // tab_9
+#define IDA_D_OPTION_USER_ACT_TAB_0            ( 83) // tab_0
+#define IDA_D_OPTION_USER_ACT_TAB_A            ( 84) // tab_a
+#define IDA_D_OPTION_USER_ACT_TAB_B            ( 85) // tab_b
+#define IDA_D_OPTION_USER_ACT_TAB_C            ( 86) // tab_c
+#define IDA_D_OPTION_USER_ACT_TAB_D            ( 87) // tab_d
+#define IDA_D_OPTION_USER_ACT_TAB_E            ( 88) // tab_e
+#define IDA_D_OPTION_USER_ACT_TAB_F            ( 89) // tab_f
+#define IDA_D_OPTION_USER_ACT_TAB_G            ( 90) // tab_g
+#define IDA_D_OPTION_USER_ACT_TAB_H            ( 91) // tab_h
+#define IDA_D_OPTION_USER_ACT_TAB_I            ( 92) // tab_i
+#define IDA_D_OPTION_USER_ACT_TAB_J            ( 93) // tab_j
+#define IDA_D_OPTION_USER_ACT_TAB_K            ( 94) // tab_k
+#define IDA_D_OPTION_USER_ACT_TAB_L            ( 95) // tab_l
+#define IDA_D_OPTION_USER_ACT_TAB_M            ( 96) // tab_m
+#define IDA_D_OPTION_USER_ACT_TAB_N            ( 97) // tab_n
+#define IDA_D_OPTION_USER_ACT_TAB_O            ( 98) // tab_o
+#define IDA_D_OPTION_USER_ACT_TAB_P            ( 99) // tab_p
+#define IDA_D_OPTION_USER_ACT_TAB_Q            (100) // tab_q
+#define IDA_D_OPTION_USER_ACT_TAB_R            (101) // tab_r
+#define IDA_D_OPTION_USER_ACT_TAB_S            (102) // tab_s
+#define IDA_D_OPTION_USER_ACT_TAB_T            (103) // tab_t
+#define IDA_D_OPTION_USER_ACT_TAB_U            (104) // tab_u
+#define IDA_D_OPTION_USER_ACT_TAB_V            (105) // tab_v
+#define IDA_D_OPTION_USER_ACT_TAB_W            (106) // tab_w
+#define IDA_D_OPTION_USER_ACT_TAB_X            (107) // tab_x
+#define IDA_D_OPTION_USER_ACT_TAB_Y            (108) // tab_y
+#define IDA_D_OPTION_USER_ACT_TAB_Z            (109) // tab_z
+#define IDA_D_OPTION_USER_ACT_TAB_11           (110) // tab_11
+#define IDA_D_OPTION_USER_ACT_TAB_12           (111) // tab_12
+#define IDA_D_OPTION_USER_ACT_TAB_13           (112) // tab_13
+#define IDA_D_OPTION_USER_ACT_TAB_14           (113) // tab_14
+#define IDA_D_OPTION_USER_ACT_TAB_15           (114) // tab_15
+#define IDA_D_OPTION_USER_ACT_TAB_16           (115) // tab_16
+#define IDA_D_OPTION_USER_ACT_TAB_17           (116) // tab_17
+#define IDA_D_OPTION_USER_ACT_TAB_18           (117) // tab_18
+#define IDA_D_OPTION_USER_ACT_TAB_19           (118) // tab_19
+#define IDA_D_OPTION_USER_ACT_TAB_20           (119) // tab_20
+#define IDA_D_OPTION_USER_ACT_TAB_21           (120) // tab_21
+#define IDA_D_OPTION_USER_ACT_TAB_22           (121) // tab_22
+#define IDA_D_OPTION_USER_ACT_TAB_23           (122) // tab_23
+#define IDA_D_OPTION_USER_ACT_TAB_ROOT         (123) // tab_root

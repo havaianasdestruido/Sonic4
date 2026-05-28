@@ -1,0 +1,22 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_GMK_SS_CIRCLE_MDL
+#define	_IDB_GMK_SS_CIRCLE_MDL
+
+/* Defined File ID */
+#define	IDB_GMK_SS_CIRCLE_MDL_SS_CIRCLE_ZNO		0		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_GMK_SS_CIRCLE_MDL_SS_CIRCLE_ZNO		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_GMK_SS_CIRCLE_MDL_SS_CIRCLE_ZNO		0		/*  */
+
+/* Defined File Name */
+#define	IDS_GMK_SS_CIRCLE_MDL_SS_CIRCLE_ZNO		"SS_CIRCLE.ZNO"
+
+#endif	/* _IDB_GMK_SS_CIRCLE_MDL */

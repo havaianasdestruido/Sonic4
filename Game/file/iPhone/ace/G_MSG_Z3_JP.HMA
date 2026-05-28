@@ -1,0 +1,8 @@
+// root node
+
+// node
+
+// action
+#define IDA_G_MSG_Z3_JP_ACT_TEX_Z3_1 (  0) // tex_z3_1
+#define IDA_G_MSG_Z3_JP_ACT_TEX_TAP  (  1) // tex_tap
+#define IDA_G_MSG_Z3_JP_ACT_TEX_Z3_2 (  2) // tex_z3_2

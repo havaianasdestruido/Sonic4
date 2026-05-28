@@ -1,0 +1,38 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_GMK_P_PILLAR_MDL
+#define	_IDB_GMK_P_PILLAR_MDL
+
+/* Defined File ID */
+#define	IDB_GMK_P_PILLAR_MDL_GMK_P_PILLAR_BODY_ZNO		0		/*  本体(下) */
+#define	IDB_GMK_P_PILLAR_MDL_GMK_P_PILLAR_BODY_I_ZNO		1		/*  本体(上) */
+#define	IDB_GMK_P_PILLAR_MDL_GMK_P_PILLAR_TOP_ZNO		2		/*  天板(下) */
+#define	IDB_GMK_P_PILLAR_MDL_GMK_P_PILLAR_TOP_I_ZNO		3		/*  天板(上) */
+#define	IDB_GMK_P_PILLAR_MDL_GMK_P_PILLAR_SPRING_ZNO		4		/*  ばね */
+
+/* Defined USR0 Data */
+#define	IDU0_GMK_P_PILLAR_MDL_GMK_P_PILLAR_BODY_ZNO		0		/*  本体(下) */
+#define	IDU0_GMK_P_PILLAR_MDL_GMK_P_PILLAR_BODY_I_ZNO		0		/*  本体(上) */
+#define	IDU0_GMK_P_PILLAR_MDL_GMK_P_PILLAR_TOP_ZNO		0		/*  天板(下) */
+#define	IDU0_GMK_P_PILLAR_MDL_GMK_P_PILLAR_TOP_I_ZNO		0		/*  天板(上) */
+#define	IDU0_GMK_P_PILLAR_MDL_GMK_P_PILLAR_SPRING_ZNO		0		/*  ばね */
+
+/* Defined USR1 Data */
+#define	IDU1_GMK_P_PILLAR_MDL_GMK_P_PILLAR_BODY_ZNO		0		/*  本体(下) */
+#define	IDU1_GMK_P_PILLAR_MDL_GMK_P_PILLAR_BODY_I_ZNO		0		/*  本体(上) */
+#define	IDU1_GMK_P_PILLAR_MDL_GMK_P_PILLAR_TOP_ZNO		0		/*  天板(下) */
+#define	IDU1_GMK_P_PILLAR_MDL_GMK_P_PILLAR_TOP_I_ZNO		0		/*  天板(上) */
+#define	IDU1_GMK_P_PILLAR_MDL_GMK_P_PILLAR_SPRING_ZNO		0		/*  ばね */
+
+/* Defined File Name */
+#define	IDS_GMK_P_PILLAR_MDL_GMK_P_PILLAR_BODY_ZNO		"GMK_P_PILLAR_BODY.ZNO"
+#define	IDS_GMK_P_PILLAR_MDL_GMK_P_PILLAR_BODY_I_ZNO		"GMK_P_PILLAR_BODY_I.ZNO"
+#define	IDS_GMK_P_PILLAR_MDL_GMK_P_PILLAR_TOP_ZNO		"GMK_P_PILLAR_TOP.ZNO"
+#define	IDS_GMK_P_PILLAR_MDL_GMK_P_PILLAR_TOP_I_ZNO		"GMK_P_PILLAR_TOP_I.ZNO"
+#define	IDS_GMK_P_PILLAR_MDL_GMK_P_PILLAR_SPRING_ZNO		"GMK_P_PILLAR_SPRING.ZNO"
+
+#endif	/* _IDB_GMK_P_PILLAR_MDL */

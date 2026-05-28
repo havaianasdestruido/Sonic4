@@ -1,0 +1,30 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_DECO_ZONEF_MDL
+#define	_IDB_DECO_ZONEF_MDL
+
+/* Defined File ID */
+#define	IDB_DECO_ZONEF_MDL_GMK_ZONEF_ST_3A_ZNO		0		/*  */
+#define	IDB_DECO_ZONEF_MDL_GMK_ZONEF_ST_5A_ZNO		1		/*  */
+#define	IDB_DECO_ZONEF_MDL_GMK_ZONEF_ST_B_ZNO		2		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_DECO_ZONEF_MDL_GMK_ZONEF_ST_3A_ZNO		0		/*  */
+#define	IDU0_DECO_ZONEF_MDL_GMK_ZONEF_ST_5A_ZNO		0		/*  */
+#define	IDU0_DECO_ZONEF_MDL_GMK_ZONEF_ST_B_ZNO		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_DECO_ZONEF_MDL_GMK_ZONEF_ST_3A_ZNO		0		/*  */
+#define	IDU1_DECO_ZONEF_MDL_GMK_ZONEF_ST_5A_ZNO		0		/*  */
+#define	IDU1_DECO_ZONEF_MDL_GMK_ZONEF_ST_B_ZNO		0		/*  */
+
+/* Defined File Name */
+#define	IDS_DECO_ZONEF_MDL_GMK_ZONEF_ST_3A_ZNO		"GMK_ZONEF_ST_3A.ZNO"
+#define	IDS_DECO_ZONEF_MDL_GMK_ZONEF_ST_5A_ZNO		"GMK_ZONEF_ST_5A.ZNO"
+#define	IDS_DECO_ZONEF_MDL_GMK_ZONEF_ST_B_ZNO		"GMK_ZONEF_ST_B.ZNO"
+
+#endif	/* _IDB_DECO_ZONEF_MDL */

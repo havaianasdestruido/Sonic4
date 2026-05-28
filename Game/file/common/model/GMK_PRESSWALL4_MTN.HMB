@@ -1,0 +1,22 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_GMK_PRESSWALL4_MTN
+#define	_IDB_GMK_PRESSWALL4_MTN
+
+/* Defined File ID */
+#define	IDB_GMK_PRESSWALL4_MTN_GMK_P_WALL_4_ZNM		0		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_GMK_PRESSWALL4_MTN_GMK_P_WALL_4_ZNM		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_GMK_PRESSWALL4_MTN_GMK_P_WALL_4_ZNM		0		/*  */
+
+/* Defined File Name */
+#define	IDS_GMK_PRESSWALL4_MTN_GMK_P_WALL_4_ZNM		"GMK_P_WALL_4.ZNM"
+
+#endif	/* _IDB_GMK_PRESSWALL4_MTN */

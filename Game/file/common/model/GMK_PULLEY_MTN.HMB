@@ -1,0 +1,42 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_GMK_PULLEY_MTN
+#define	_IDB_GMK_PULLEY_MTN
+
+/* Defined File ID */
+#define	IDB_GMK_PULLEY_MTN_GMK_PULLEY_N_ZNM		0		/*  滑車停止 */
+#define	IDB_GMK_PULLEY_MTN_GMK_PULLEY_F_ZNM		1		/*  滑車前進 */
+#define	IDB_GMK_PULLEY_MTN_GMK_PULLEY_B_ZNM		2		/*  滑車後退 */
+#define	IDB_GMK_PULLEY_MTN_GMK_PULLEY_ST_ZNM		3		/*  滑車スタート */
+#define	IDB_GMK_PULLEY_MTN_GMK_PULLEY_ACT_ZNM		4		/*  滑車リスタート */
+#define	IDB_GMK_PULLEY_MTN_GMK_PULLEY_END_ZNM		5		/*  滑車離脱 */
+
+/* Defined USR0 Data */
+#define	IDU0_GMK_PULLEY_MTN_GMK_PULLEY_N_ZNM		0		/*  滑車停止 */
+#define	IDU0_GMK_PULLEY_MTN_GMK_PULLEY_F_ZNM		0		/*  滑車前進 */
+#define	IDU0_GMK_PULLEY_MTN_GMK_PULLEY_B_ZNM		0		/*  滑車後退 */
+#define	IDU0_GMK_PULLEY_MTN_GMK_PULLEY_ST_ZNM		0		/*  滑車スタート */
+#define	IDU0_GMK_PULLEY_MTN_GMK_PULLEY_ACT_ZNM		0		/*  滑車リスタート */
+#define	IDU0_GMK_PULLEY_MTN_GMK_PULLEY_END_ZNM		0		/*  滑車離脱 */
+
+/* Defined USR1 Data */
+#define	IDU1_GMK_PULLEY_MTN_GMK_PULLEY_N_ZNM		0		/*  滑車停止 */
+#define	IDU1_GMK_PULLEY_MTN_GMK_PULLEY_F_ZNM		0		/*  滑車前進 */
+#define	IDU1_GMK_PULLEY_MTN_GMK_PULLEY_B_ZNM		0		/*  滑車後退 */
+#define	IDU1_GMK_PULLEY_MTN_GMK_PULLEY_ST_ZNM		0		/*  滑車スタート */
+#define	IDU1_GMK_PULLEY_MTN_GMK_PULLEY_ACT_ZNM		0		/*  滑車リスタート */
+#define	IDU1_GMK_PULLEY_MTN_GMK_PULLEY_END_ZNM		0		/*  滑車離脱 */
+
+/* Defined File Name */
+#define	IDS_GMK_PULLEY_MTN_GMK_PULLEY_N_ZNM		"GMK_PULLEY_N.ZNM"
+#define	IDS_GMK_PULLEY_MTN_GMK_PULLEY_F_ZNM		"GMK_PULLEY_F.ZNM"
+#define	IDS_GMK_PULLEY_MTN_GMK_PULLEY_B_ZNM		"GMK_PULLEY_B.ZNM"
+#define	IDS_GMK_PULLEY_MTN_GMK_PULLEY_ST_ZNM		"GMK_PULLEY_ST.ZNM"
+#define	IDS_GMK_PULLEY_MTN_GMK_PULLEY_ACT_ZNM		"GMK_PULLEY_ACT.ZNM"
+#define	IDS_GMK_PULLEY_MTN_GMK_PULLEY_END_ZNM		"GMK_PULLEY_END.ZNM"
+
+#endif	/* _IDB_GMK_PULLEY_MTN */

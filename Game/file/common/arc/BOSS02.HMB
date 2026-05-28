@@ -1,0 +1,82 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_BOSS02
+#define	_IDB_BOSS02
+
+/* Defined File ID */
+#define	IDB_BOSS02_BOSS02_MDL_AMB		0		/*  */
+#define	IDB_BOSS02_BOSS02_TEX_AMB		1		/*  */
+#define	IDB_BOSS02_BOSS02_BODY_MTN_AMB		2		/*  */
+#define	IDB_BOSS02_BOSS02_BODY_MAT_AMB		3		/*  */
+#define	IDB_BOSS02_BOSS02_EGG_MTN_AMB		4		/*  */
+#define	IDB_BOSS02_ROLL_ZNO		5		/*  */
+#define	IDB_BOSS02_EFF_BLITZ_CORA_AME		6		/*  */
+#define	IDB_BOSS02_EFF_BLITZ_AME		7		/*  */
+#define	IDB_BOSS02_EFF_BLITZ_ARM_AME		8		/*  */
+#define	IDB_BOSS02_EFF_BLITZ_BALL_AME		9		/*  */
+#define	IDB_BOSS02_EFF_BALL_AME		10		/*  */
+#define	IDB_BOSS02_EFF_ROLLATTACK01_AME		11		/*  */
+#define	IDB_BOSS02_EFF_ROLLATTACK02_AME		12		/*  */
+#define	IDB_BOSS02_EFF_ROLLATTACK03_AME		13		/*  */
+#define	IDB_BOSS02_EFF_BS2_TEX_AMB		14		/*  */
+#define	IDB_BOSS02_EFF_BS2_TEX_MD_RO_AMB		15		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_BOSS02_BOSS02_MDL_AMB		0		/*  */
+#define	IDU0_BOSS02_BOSS02_TEX_AMB		0		/*  */
+#define	IDU0_BOSS02_BOSS02_BODY_MTN_AMB		0		/*  */
+#define	IDU0_BOSS02_BOSS02_BODY_MAT_AMB		0		/*  */
+#define	IDU0_BOSS02_BOSS02_EGG_MTN_AMB		0		/*  */
+#define	IDU0_BOSS02_ROLL_ZNO		0		/*  */
+#define	IDU0_BOSS02_EFF_BLITZ_CORA_AME		0		/*  */
+#define	IDU0_BOSS02_EFF_BLITZ_AME		0		/*  */
+#define	IDU0_BOSS02_EFF_BLITZ_ARM_AME		0		/*  */
+#define	IDU0_BOSS02_EFF_BLITZ_BALL_AME		0		/*  */
+#define	IDU0_BOSS02_EFF_BALL_AME		0		/*  */
+#define	IDU0_BOSS02_EFF_ROLLATTACK01_AME		0		/*  */
+#define	IDU0_BOSS02_EFF_ROLLATTACK02_AME		0		/*  */
+#define	IDU0_BOSS02_EFF_ROLLATTACK03_AME		0		/*  */
+#define	IDU0_BOSS02_EFF_BS2_TEX_AMB		0		/*  */
+#define	IDU0_BOSS02_EFF_BS2_TEX_MD_RO_AMB		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_BOSS02_BOSS02_MDL_AMB		0		/*  */
+#define	IDU1_BOSS02_BOSS02_TEX_AMB		0		/*  */
+#define	IDU1_BOSS02_BOSS02_BODY_MTN_AMB		0		/*  */
+#define	IDU1_BOSS02_BOSS02_BODY_MAT_AMB		0		/*  */
+#define	IDU1_BOSS02_BOSS02_EGG_MTN_AMB		0		/*  */
+#define	IDU1_BOSS02_ROLL_ZNO		0		/*  */
+#define	IDU1_BOSS02_EFF_BLITZ_CORA_AME		0		/*  */
+#define	IDU1_BOSS02_EFF_BLITZ_AME		0		/*  */
+#define	IDU1_BOSS02_EFF_BLITZ_ARM_AME		0		/*  */
+#define	IDU1_BOSS02_EFF_BLITZ_BALL_AME		0		/*  */
+#define	IDU1_BOSS02_EFF_BALL_AME		0		/*  */
+#define	IDU1_BOSS02_EFF_ROLLATTACK01_AME		0		/*  */
+#define	IDU1_BOSS02_EFF_ROLLATTACK02_AME		0		/*  */
+#define	IDU1_BOSS02_EFF_ROLLATTACK03_AME		0		/*  */
+#define	IDU1_BOSS02_EFF_BS2_TEX_AMB		0		/*  */
+#define	IDU1_BOSS02_EFF_BS2_TEX_MD_RO_AMB		0		/*  */
+
+/* Defined File Name */
+#define	IDS_BOSS02_BOSS02_MDL_AMB		"BOSS02_MDL.AMB"
+#define	IDS_BOSS02_BOSS02_TEX_AMB		"BOSS02_TEX.AMB"
+#define	IDS_BOSS02_BOSS02_BODY_MTN_AMB		"BOSS02_BODY_MTN.AMB"
+#define	IDS_BOSS02_BOSS02_BODY_MAT_AMB		"BOSS02_BODY_MAT.AMB"
+#define	IDS_BOSS02_BOSS02_EGG_MTN_AMB		"BOSS02_EGG_MTN.AMB"
+#define	IDS_BOSS02_ROLL_ZNO		"ROLL.ZNO"
+#define	IDS_BOSS02_EFF_BLITZ_CORA_AME		"EFF_BLITZ_CORA.AME"
+#define	IDS_BOSS02_EFF_BLITZ_AME		"EFF_BLITZ.AME"
+#define	IDS_BOSS02_EFF_BLITZ_ARM_AME		"EFF_BLITZ_ARM.AME"
+#define	IDS_BOSS02_EFF_BLITZ_BALL_AME		"EFF_BLITZ_BALL.AME"
+#define	IDS_BOSS02_EFF_BALL_AME		"EFF_BALL.AME"
+#define	IDS_BOSS02_EFF_ROLLATTACK01_AME		"EFF_ROLLATTACK01.AME"
+#define	IDS_BOSS02_EFF_ROLLATTACK02_AME		"EFF_ROLLATTACK02.AME"
+#define	IDS_BOSS02_EFF_ROLLATTACK03_AME		"EFF_ROLLATTACK03.AME"
+#define	IDS_BOSS02_EFF_BS2_TEX_AMB		"EFF_BS2_TEX.AMB"
+#define	IDS_BOSS02_EFF_BS2_TEX_MD_RO_AMB		"EFF_BS2_TEX_MD_RO.AMB"
+
+#endif	/* _IDB_BOSS02 */

@@ -1,0 +1,38 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_ENE_MOTORA_MTN
+#define	_IDB_ENE_MOTORA_MTN
+
+/* Defined File ID */
+#define	IDB_ENE_MOTORA_MTN_ENE_MOTORA_FW_ZNM		0		/*  */
+#define	IDB_ENE_MOTORA_MTN_ENE_MOTORA_MOVE_ZNM		1		/*  */
+#define	IDB_ENE_MOTORA_MTN_ENE_MOTORA_MOVE_L_ZNM		2		/*  */
+#define	IDB_ENE_MOTORA_MTN_ENE_MOTORA_FRIP_ZNM		3		/*  */
+#define	IDB_ENE_MOTORA_MTN_ENE_MOTORA_FRIP_L_ZNM		4		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_ENE_MOTORA_MTN_ENE_MOTORA_FW_ZNM		0		/*  */
+#define	IDU0_ENE_MOTORA_MTN_ENE_MOTORA_MOVE_ZNM		0		/*  */
+#define	IDU0_ENE_MOTORA_MTN_ENE_MOTORA_MOVE_L_ZNM		0		/*  */
+#define	IDU0_ENE_MOTORA_MTN_ENE_MOTORA_FRIP_ZNM		0		/*  */
+#define	IDU0_ENE_MOTORA_MTN_ENE_MOTORA_FRIP_L_ZNM		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_ENE_MOTORA_MTN_ENE_MOTORA_FW_ZNM		0		/*  */
+#define	IDU1_ENE_MOTORA_MTN_ENE_MOTORA_MOVE_ZNM		0		/*  */
+#define	IDU1_ENE_MOTORA_MTN_ENE_MOTORA_MOVE_L_ZNM		0		/*  */
+#define	IDU1_ENE_MOTORA_MTN_ENE_MOTORA_FRIP_ZNM		0		/*  */
+#define	IDU1_ENE_MOTORA_MTN_ENE_MOTORA_FRIP_L_ZNM		0		/*  */
+
+/* Defined File Name */
+#define	IDS_ENE_MOTORA_MTN_ENE_MOTORA_FW_ZNM		"ENE_MOTORA_FW.ZNM"
+#define	IDS_ENE_MOTORA_MTN_ENE_MOTORA_MOVE_ZNM		"ENE_MOTORA_MOVE.ZNM"
+#define	IDS_ENE_MOTORA_MTN_ENE_MOTORA_MOVE_L_ZNM		"ENE_MOTORA_MOVE_L.ZNM"
+#define	IDS_ENE_MOTORA_MTN_ENE_MOTORA_FRIP_ZNM		"ENE_MOTORA_FRIP.ZNM"
+#define	IDS_ENE_MOTORA_MTN_ENE_MOTORA_FRIP_L_ZNM		"ENE_MOTORA_FRIP_L.ZNM"
+
+#endif	/* _IDB_ENE_MOTORA_MTN */

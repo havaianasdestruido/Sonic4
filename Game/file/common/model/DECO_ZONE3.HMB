@@ -1,0 +1,42 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_DECO_ZONE3
+#define	_IDB_DECO_ZONE3
+
+/* Defined File ID */
+#define	IDB_DECO_ZONE3_DECO_ZONE3_MDL_AMB		0		/*  */
+#define	IDB_DECO_ZONE3_DECO_ZONE3_TEX_AMB		1		/*  */
+#define	IDB_DECO_ZONE3_DECO_ZONE3_MTN_AMB		2		/*  */
+#define	IDB_DECO_ZONE3_DECO_ZONE3_MAT_AMB		3		/*  */
+#define	IDB_DECO_ZONE3_DECO_ZONE3_RENDER_MDL_AMB		4		/*  */
+#define	IDB_DECO_ZONE3_DECO_ZONE3_RENDER_TEX_AMB		5		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_DECO_ZONE3_DECO_ZONE3_MDL_AMB		0		/*  */
+#define	IDU0_DECO_ZONE3_DECO_ZONE3_TEX_AMB		0		/*  */
+#define	IDU0_DECO_ZONE3_DECO_ZONE3_MTN_AMB		0		/*  */
+#define	IDU0_DECO_ZONE3_DECO_ZONE3_MAT_AMB		0		/*  */
+#define	IDU0_DECO_ZONE3_DECO_ZONE3_RENDER_MDL_AMB		0		/*  */
+#define	IDU0_DECO_ZONE3_DECO_ZONE3_RENDER_TEX_AMB		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_DECO_ZONE3_DECO_ZONE3_MDL_AMB		0		/*  */
+#define	IDU1_DECO_ZONE3_DECO_ZONE3_TEX_AMB		0		/*  */
+#define	IDU1_DECO_ZONE3_DECO_ZONE3_MTN_AMB		0		/*  */
+#define	IDU1_DECO_ZONE3_DECO_ZONE3_MAT_AMB		0		/*  */
+#define	IDU1_DECO_ZONE3_DECO_ZONE3_RENDER_MDL_AMB		0		/*  */
+#define	IDU1_DECO_ZONE3_DECO_ZONE3_RENDER_TEX_AMB		0		/*  */
+
+/* Defined File Name */
+#define	IDS_DECO_ZONE3_DECO_ZONE3_MDL_AMB		"DECO_ZONE3_MDL.AMB"
+#define	IDS_DECO_ZONE3_DECO_ZONE3_TEX_AMB		"DECO_ZONE3_TEX.AMB"
+#define	IDS_DECO_ZONE3_DECO_ZONE3_MTN_AMB		"DECO_ZONE3_MTN.AMB"
+#define	IDS_DECO_ZONE3_DECO_ZONE3_MAT_AMB		"DECO_ZONE3_MAT.AMB"
+#define	IDS_DECO_ZONE3_DECO_ZONE3_RENDER_MDL_AMB		"DECO_ZONE3_RENDER_MDL.AMB"
+#define	IDS_DECO_ZONE3_DECO_ZONE3_RENDER_TEX_AMB		"DECO_ZONE3_RENDER_TEX.AMB"
+
+#endif	/* _IDB_DECO_ZONE3 */

@@ -1,0 +1,22 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_GMK_DASH_P_MAT
+#define	_IDB_GMK_DASH_P_MAT
+
+/* Defined File ID */
+#define	IDB_GMK_DASH_P_MAT_GMK_DASH_P_ZNV		0		/*  マテリアルモーション */
+
+/* Defined USR0 Data */
+#define	IDU0_GMK_DASH_P_MAT_GMK_DASH_P_ZNV		0		/*  マテリアルモーション */
+
+/* Defined USR1 Data */
+#define	IDU1_GMK_DASH_P_MAT_GMK_DASH_P_ZNV		0		/*  マテリアルモーション */
+
+/* Defined File Name */
+#define	IDS_GMK_DASH_P_MAT_GMK_DASH_P_ZNV		"GMK_DASH_P.ZNV"
+
+#endif	/* _IDB_GMK_DASH_P_MAT */

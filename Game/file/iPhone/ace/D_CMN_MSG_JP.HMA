@@ -1,0 +1,13 @@
+// root node
+
+// node
+
+// action
+#define IDA_D_CMN_MSG_JP_ACT_TEX_BACK         (  0) // tex_back
+#define IDA_D_CMN_MSG_JP_ACT_TEX_YES          (  1) // tex_yes
+#define IDA_D_CMN_MSG_JP_ACT_TEX_NO           (  2) // tex_no
+#define IDA_D_CMN_MSG_JP_ACT_TEX_BACK_STGSLCT (  3) // tex_back_stgslct
+#define IDA_D_CMN_MSG_JP_ACT_TEX_BACK_OPT     (  4) // tex_back_opt
+#define IDA_D_CMN_MSG_JP_ACT_TEX_MSG01        (  5) // tex_msg01
+#define IDA_D_CMN_MSG_JP_ACT_TEX_MSG02        (  6) // tex_msg02
+#define IDA_D_CMN_MSG_JP_ACT_TEX_MSG03        (  7) // tex_msg03

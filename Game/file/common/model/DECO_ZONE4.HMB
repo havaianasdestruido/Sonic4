@@ -1,0 +1,26 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_DECO_ZONE4
+#define	_IDB_DECO_ZONE4
+
+/* Defined File ID */
+#define	IDB_DECO_ZONE4_DECO_ZONE4_MDL_AMB		0		/*  */
+#define	IDB_DECO_ZONE4_DECO_ZONE4_TEX_AMB		1		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_DECO_ZONE4_DECO_ZONE4_MDL_AMB		0		/*  */
+#define	IDU0_DECO_ZONE4_DECO_ZONE4_TEX_AMB		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_DECO_ZONE4_DECO_ZONE4_MDL_AMB		0		/*  */
+#define	IDU1_DECO_ZONE4_DECO_ZONE4_TEX_AMB		0		/*  */
+
+/* Defined File Name */
+#define	IDS_DECO_ZONE4_DECO_ZONE4_MDL_AMB		"DECO_ZONE4_MDL.AMB"
+#define	IDS_DECO_ZONE4_DECO_ZONE4_TEX_AMB		"DECO_ZONE4_TEX.AMB"
+
+#endif	/* _IDB_DECO_ZONE4 */

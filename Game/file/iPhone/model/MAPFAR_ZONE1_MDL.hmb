@@ -1,0 +1,38 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_MAPFAR_ZONE1_MDL
+#define	_IDB_MAPFAR_ZONE1_MDL
+
+/* Defined File ID */
+#define	IDB_MAPFAR_ZONE1_MDL_Z1_SKYL_T_D_INO		0		/* 空上側 */
+#define	IDB_MAPFAR_ZONE1_MDL_Z1_ROCK_A_T_D_INO		1		/* 上側昼 */
+#define	IDB_MAPFAR_ZONE1_MDL_Z1_ROCK_B_T_D_INO		2		/*  */
+#define	IDB_MAPFAR_ZONE1_MDL_Z1_ROCK_C_T_D_INO		3		/*  */
+#define	IDB_MAPFAR_ZONE1_MDL_Z1_BOSS_FAR_INO		4		/* Zone13用のダミー */
+
+/* Defined USR0 Data */
+#define	IDU0_MAPFAR_ZONE1_MDL_Z1_SKYL_T_D_INO		0		/* 空上側 */
+#define	IDU0_MAPFAR_ZONE1_MDL_Z1_ROCK_A_T_D_INO		0		/* 上側昼 */
+#define	IDU0_MAPFAR_ZONE1_MDL_Z1_ROCK_B_T_D_INO		0		/*  */
+#define	IDU0_MAPFAR_ZONE1_MDL_Z1_ROCK_C_T_D_INO		0		/*  */
+#define	IDU0_MAPFAR_ZONE1_MDL_Z1_BOSS_FAR_INO		0		/* Zone13用のダミー */
+
+/* Defined USR1 Data */
+#define	IDU1_MAPFAR_ZONE1_MDL_Z1_SKYL_T_D_INO		0		/* 空上側 */
+#define	IDU1_MAPFAR_ZONE1_MDL_Z1_ROCK_A_T_D_INO		0		/* 上側昼 */
+#define	IDU1_MAPFAR_ZONE1_MDL_Z1_ROCK_B_T_D_INO		0		/*  */
+#define	IDU1_MAPFAR_ZONE1_MDL_Z1_ROCK_C_T_D_INO		0		/*  */
+#define	IDU1_MAPFAR_ZONE1_MDL_Z1_BOSS_FAR_INO		0		/* Zone13用のダミー */
+
+/* Defined File Name */
+#define	IDS_MAPFAR_ZONE1_MDL_Z1_SKYL_T_D_INO		"Z1_SKYL_T_D.INO"
+#define	IDS_MAPFAR_ZONE1_MDL_Z1_ROCK_A_T_D_INO		"Z1_ROCK_A_T_D.INO"
+#define	IDS_MAPFAR_ZONE1_MDL_Z1_ROCK_B_T_D_INO		"Z1_ROCK_B_T_D.INO"
+#define	IDS_MAPFAR_ZONE1_MDL_Z1_ROCK_C_T_D_INO		"Z1_ROCK_C_T_D.INO"
+#define	IDS_MAPFAR_ZONE1_MDL_Z1_BOSS_FAR_INO		"Z1_BOSS_FAR.INO"
+
+#endif	/* _IDB_MAPFAR_ZONE1_MDL */

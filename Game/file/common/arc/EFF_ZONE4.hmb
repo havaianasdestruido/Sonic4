@@ -1,0 +1,38 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_EFF_ZONE4
+#define	_IDB_EFF_ZONE4
+
+/* Defined File ID */
+#define	IDB_EFF_ZONE4_EFF_LIGHT_Z4_AME		0		/*  */
+#define	IDB_EFF_ZONE4_EFF_PILLAR_Z4_AME		1		/*  */
+#define	IDB_EFF_ZONE4_EFF_WALL_M_Z4_AME		2		/*  */
+#define	IDB_EFF_ZONE4_EFF_WLL_Z4_AME		3		/*  */
+#define	IDB_EFF_ZONE4_EFF_ZONE4_TEX_AMB		4		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_EFF_ZONE4_EFF_LIGHT_Z4_AME		0		/*  */
+#define	IDU0_EFF_ZONE4_EFF_PILLAR_Z4_AME		0		/*  */
+#define	IDU0_EFF_ZONE4_EFF_WALL_M_Z4_AME		0		/*  */
+#define	IDU0_EFF_ZONE4_EFF_WLL_Z4_AME		0		/*  */
+#define	IDU0_EFF_ZONE4_EFF_ZONE4_TEX_AMB		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_EFF_ZONE4_EFF_LIGHT_Z4_AME		0		/*  */
+#define	IDU1_EFF_ZONE4_EFF_PILLAR_Z4_AME		0		/*  */
+#define	IDU1_EFF_ZONE4_EFF_WALL_M_Z4_AME		0		/*  */
+#define	IDU1_EFF_ZONE4_EFF_WLL_Z4_AME		0		/*  */
+#define	IDU1_EFF_ZONE4_EFF_ZONE4_TEX_AMB		0		/*  */
+
+/* Defined File Name */
+#define	IDS_EFF_ZONE4_EFF_LIGHT_Z4_AME		"EFF_LIGHT_Z4.AME"
+#define	IDS_EFF_ZONE4_EFF_PILLAR_Z4_AME		"EFF_PILLAR_Z4.AME"
+#define	IDS_EFF_ZONE4_EFF_WALL_M_Z4_AME		"EFF_WALL_M_Z4.AME"
+#define	IDS_EFF_ZONE4_EFF_WLL_Z4_AME		"EFF_WLL_Z4.AME"
+#define	IDS_EFF_ZONE4_EFF_ZONE4_TEX_AMB		"EFF_ZONE4_TEX.AMB"
+
+#endif	/* _IDB_EFF_ZONE4 */

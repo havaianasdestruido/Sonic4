@@ -1,0 +1,26 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_D_WII_EXP_OPE_JP
+#define	_IDB_D_WII_EXP_OPE_JP
+
+/* Defined File ID */
+#define	IDB_D_WII_EXP_OPE_JP_D_WII_EXP_OPE_AMA		0		/*  */
+#define	IDB_D_WII_EXP_OPE_JP_D_WII_EXP_OPE_JP_AMB		1		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_D_WII_EXP_OPE_JP_D_WII_EXP_OPE_AMA		0		/*  */
+#define	IDU0_D_WII_EXP_OPE_JP_D_WII_EXP_OPE_JP_AMB		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_D_WII_EXP_OPE_JP_D_WII_EXP_OPE_AMA		0		/*  */
+#define	IDU1_D_WII_EXP_OPE_JP_D_WII_EXP_OPE_JP_AMB		0		/*  */
+
+/* Defined File Name */
+#define	IDS_D_WII_EXP_OPE_JP_D_WII_EXP_OPE_AMA		"D_WII_EXP_OPE.AMA"
+#define	IDS_D_WII_EXP_OPE_JP_D_WII_EXP_OPE_JP_AMB		"D_WII_EXP_OPE_JP.AMB"
+
+#endif	/* _IDB_D_WII_EXP_OPE_JP */

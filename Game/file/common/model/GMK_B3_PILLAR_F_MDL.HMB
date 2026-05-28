@@ -1,0 +1,50 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_GMK_B3_PILLAR_F_MDL
+#define	_IDB_GMK_B3_PILLAR_F_MDL
+
+/* Defined File ID */
+#define	IDB_GMK_B3_PILLAR_F_MDL_GMK_B_PILLAR_F_1V_ZNO		0		/*  */
+#define	IDB_GMK_B3_PILLAR_F_MDL_GMK_B_PILLAR_F_2V_ZNO		1		/*  */
+#define	IDB_GMK_B3_PILLAR_F_MDL_GMK_B_PILLAR_F_3V_ZNO		2		/*  */
+#define	IDB_GMK_B3_PILLAR_F_MDL_GMK_B_PILLAR_F_4V_ZNO		3		/*  */
+#define	IDB_GMK_B3_PILLAR_F_MDL_GMK_B_PILLAR_F_1H_ZNO		4		/*  */
+#define	IDB_GMK_B3_PILLAR_F_MDL_GMK_B_PILLAR_F_2H_ZNO		5		/*  */
+#define	IDB_GMK_B3_PILLAR_F_MDL_GMK_B_PILLAR_F_3H_ZNO		6		/*  */
+#define	IDB_GMK_B3_PILLAR_F_MDL_GMK_B_PILLAR_F_4H_ZNO		7		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_GMK_B3_PILLAR_F_MDL_GMK_B_PILLAR_F_1V_ZNO		0		/*  */
+#define	IDU0_GMK_B3_PILLAR_F_MDL_GMK_B_PILLAR_F_2V_ZNO		0		/*  */
+#define	IDU0_GMK_B3_PILLAR_F_MDL_GMK_B_PILLAR_F_3V_ZNO		0		/*  */
+#define	IDU0_GMK_B3_PILLAR_F_MDL_GMK_B_PILLAR_F_4V_ZNO		0		/*  */
+#define	IDU0_GMK_B3_PILLAR_F_MDL_GMK_B_PILLAR_F_1H_ZNO		0		/*  */
+#define	IDU0_GMK_B3_PILLAR_F_MDL_GMK_B_PILLAR_F_2H_ZNO		0		/*  */
+#define	IDU0_GMK_B3_PILLAR_F_MDL_GMK_B_PILLAR_F_3H_ZNO		0		/*  */
+#define	IDU0_GMK_B3_PILLAR_F_MDL_GMK_B_PILLAR_F_4H_ZNO		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_GMK_B3_PILLAR_F_MDL_GMK_B_PILLAR_F_1V_ZNO		0		/*  */
+#define	IDU1_GMK_B3_PILLAR_F_MDL_GMK_B_PILLAR_F_2V_ZNO		0		/*  */
+#define	IDU1_GMK_B3_PILLAR_F_MDL_GMK_B_PILLAR_F_3V_ZNO		0		/*  */
+#define	IDU1_GMK_B3_PILLAR_F_MDL_GMK_B_PILLAR_F_4V_ZNO		0		/*  */
+#define	IDU1_GMK_B3_PILLAR_F_MDL_GMK_B_PILLAR_F_1H_ZNO		0		/*  */
+#define	IDU1_GMK_B3_PILLAR_F_MDL_GMK_B_PILLAR_F_2H_ZNO		0		/*  */
+#define	IDU1_GMK_B3_PILLAR_F_MDL_GMK_B_PILLAR_F_3H_ZNO		0		/*  */
+#define	IDU1_GMK_B3_PILLAR_F_MDL_GMK_B_PILLAR_F_4H_ZNO		0		/*  */
+
+/* Defined File Name */
+#define	IDS_GMK_B3_PILLAR_F_MDL_GMK_B_PILLAR_F_1V_ZNO		"GMK_B_PILLAR_F_1V.ZNO"
+#define	IDS_GMK_B3_PILLAR_F_MDL_GMK_B_PILLAR_F_2V_ZNO		"GMK_B_PILLAR_F_2V.ZNO"
+#define	IDS_GMK_B3_PILLAR_F_MDL_GMK_B_PILLAR_F_3V_ZNO		"GMK_B_PILLAR_F_3V.ZNO"
+#define	IDS_GMK_B3_PILLAR_F_MDL_GMK_B_PILLAR_F_4V_ZNO		"GMK_B_PILLAR_F_4V.ZNO"
+#define	IDS_GMK_B3_PILLAR_F_MDL_GMK_B_PILLAR_F_1H_ZNO		"GMK_B_PILLAR_F_1H.ZNO"
+#define	IDS_GMK_B3_PILLAR_F_MDL_GMK_B_PILLAR_F_2H_ZNO		"GMK_B_PILLAR_F_2H.ZNO"
+#define	IDS_GMK_B3_PILLAR_F_MDL_GMK_B_PILLAR_F_3H_ZNO		"GMK_B_PILLAR_F_3H.ZNO"
+#define	IDS_GMK_B3_PILLAR_F_MDL_GMK_B_PILLAR_F_4H_ZNO		"GMK_B_PILLAR_F_4H.ZNO"
+
+#endif	/* _IDB_GMK_B3_PILLAR_F_MDL */

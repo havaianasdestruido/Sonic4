@@ -1,0 +1,22 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_ENE_T_STAR_MAT
+#define	_IDB_ENE_T_STAR_MAT
+
+/* Defined File ID */
+#define	IDB_ENE_T_STAR_MAT_ENE_T_STAR_M_EYE_ZNV		0		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_ENE_T_STAR_MAT_ENE_T_STAR_M_EYE_ZNV		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_ENE_T_STAR_MAT_ENE_T_STAR_M_EYE_ZNV		0		/*  */
+
+/* Defined File Name */
+#define	IDS_ENE_T_STAR_MAT_ENE_T_STAR_M_EYE_ZNV		"ENE_T_STAR_M_EYE.ZNV"
+
+#endif	/* _IDB_ENE_T_STAR_MAT */

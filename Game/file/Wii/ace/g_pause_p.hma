@@ -1,0 +1,7 @@
+// root node
+
+// node
+
+// action
+#define IDA_G_PAUSE_P_ACT_MARK_BACK_O (  0) // mark_back_o
+#define IDA_G_PAUSE_P_ACT_MARK_BACK_X (  1) // mark_back_x

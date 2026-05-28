@@ -1,0 +1,34 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_ENE_BUKU_MTN
+#define	_IDB_ENE_BUKU_MTN
+
+/* Defined File ID */
+#define	IDB_ENE_BUKU_MTN_ENE_BUKU_MOVE_ZNM		0		/*  */
+#define	IDB_ENE_BUKU_MTN_ENE_BUKU_MOVE_L_ZNM		1		/*  */
+#define	IDB_ENE_BUKU_MTN_ENE_BUKU_FRIP_ZNM		2		/*  */
+#define	IDB_ENE_BUKU_MTN_ENE_BUKU_FRIP_L_ZNM		3		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_ENE_BUKU_MTN_ENE_BUKU_MOVE_ZNM		0		/*  */
+#define	IDU0_ENE_BUKU_MTN_ENE_BUKU_MOVE_L_ZNM		0		/*  */
+#define	IDU0_ENE_BUKU_MTN_ENE_BUKU_FRIP_ZNM		0		/*  */
+#define	IDU0_ENE_BUKU_MTN_ENE_BUKU_FRIP_L_ZNM		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_ENE_BUKU_MTN_ENE_BUKU_MOVE_ZNM		0		/*  */
+#define	IDU1_ENE_BUKU_MTN_ENE_BUKU_MOVE_L_ZNM		0		/*  */
+#define	IDU1_ENE_BUKU_MTN_ENE_BUKU_FRIP_ZNM		0		/*  */
+#define	IDU1_ENE_BUKU_MTN_ENE_BUKU_FRIP_L_ZNM		0		/*  */
+
+/* Defined File Name */
+#define	IDS_ENE_BUKU_MTN_ENE_BUKU_MOVE_ZNM		"ENE_BUKU_MOVE.ZNM"
+#define	IDS_ENE_BUKU_MTN_ENE_BUKU_MOVE_L_ZNM		"ENE_BUKU_MOVE_L.ZNM"
+#define	IDS_ENE_BUKU_MTN_ENE_BUKU_FRIP_ZNM		"ENE_BUKU_FRIP.ZNM"
+#define	IDS_ENE_BUKU_MTN_ENE_BUKU_FRIP_L_ZNM		"ENE_BUKU_FRIP_L.ZNM"
+
+#endif	/* _IDB_ENE_BUKU_MTN */

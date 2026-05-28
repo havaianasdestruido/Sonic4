@@ -1,0 +1,35 @@
+// root node
+
+// node
+
+// action
+#define IDA_D_RANK_JP_ACT_TEX_TITLE      (  0) // tex_title
+#define IDA_D_RANK_JP_ACT_TEX_OBI1       (  1) // tex_obi1
+#define IDA_D_RANK_JP_ACT_TEX_TIMERANK   (  2) // tex_timerank
+#define IDA_D_RANK_JP_ACT_TEX_LIST_STAGE (  3) // tex_list_stage
+#define IDA_D_RANK_JP_ACT_TEXT_LIST_ZONE (  4) // text_list_zone
+#define IDA_D_RANK_JP_ACT_TEX_LIST_ACT   (  5) // tex_list_act
+#define IDA_D_RANK_JP_ACT_TEX_LIST_BOSS  (  6) // tex_list_boss
+#define IDA_D_RANK_JP_ACT_TEX_ALL        (  7) // tex_all
+#define IDA_D_RANK_JP_ACT_TEX_MYSCORE    (  8) // tex_myscore
+#define IDA_D_RANK_JP_ACT_TEX_FRIENDS    (  9) // tex_friends
+#define IDA_D_RANK_JP_ACT_TEX_JUNI       ( 10) // tex_juni
+#define IDA_D_RANK_JP_ACT_TEX_NAMAE      ( 11) // tex_namae
+#define IDA_D_RANK_JP_ACT_TEX_TIME       ( 12) // tex_time
+#define IDA_D_RANK_JP_ACT_TEX_CHIIKI     ( 13) // tex_chiiki
+#define IDA_D_RANK_JP_ACT_TEX_SONIC1     ( 14) // tex_sonic1
+#define IDA_D_RANK_JP_ACT_TEX_SONIC2     ( 15) // tex_sonic2
+#define IDA_D_RANK_JP_ACT_TEX_SONIC3     ( 16) // tex_sonic3
+#define IDA_D_RANK_JP_ACT_TEX_AREA       ( 17) // tex_area
+#define IDA_D_RANK_JP_ACT_TEX_ZONE       ( 18) // tex_zone
+#define IDA_D_RANK_JP_ACT_TEX_ACT        ( 19) // tex_act
+#define IDA_D_RANK_JP_ACT_TEX_BOSS       ( 20) // tex_boss
+#define IDA_D_RANK_JP_ACT_TEX_F_BOSS     ( 21) // tex_f_boss
+#define IDA_D_RANK_JP_ACT_TEX_WIN00      ( 22) // tex_win00
+#define IDA_D_RANK_JP_ACT_TEX_WIN01      ( 23) // tex_win01
+#define IDA_D_RANK_JP_ACT_TEX_WIN02      ( 24) // tex_win02
+#define IDA_D_RANK_JP_ACT_TEX_WIN03      ( 25) // tex_win03
+#define IDA_D_RANK_JP_ACT_TEX_SCTM01A    ( 26) // tex_sctm01a
+#define IDA_D_RANK_JP_ACT_TEX_SCTM01B    ( 27) // tex_sctm01b
+#define IDA_D_RANK_JP_ACT_TEX_SCTM02A    ( 28) // tex_sctm02a
+#define IDA_D_RANK_JP_ACT_TEX_SCTM02B    ( 29) // tex_sctm02b

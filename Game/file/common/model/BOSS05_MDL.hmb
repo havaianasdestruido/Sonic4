@@ -1,0 +1,50 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_BOSS05_MDL
+#define	_IDB_BOSS05_MDL
+
+/* Defined File ID */
+#define	IDB_BOSS05_MDL_B05_BALKAN_ZNO		0		/*  */
+#define	IDB_BOSS05_MDL_B05_BODY_ZNO		1		/*  */
+#define	IDB_BOSS05_MDL_EGGMAN_ZNO		2		/*  */
+#define	IDB_BOSS05_MDL_B05_ROCKET_L_ZNO		3		/*  */
+#define	IDB_BOSS05_MDL_GMK_DEGG_CTPLT_ZNO		4		/*  */
+#define	IDB_BOSS05_MDL_GMK_FINAL_LAND_01_ZNO		5		/*  */
+#define	IDB_BOSS05_MDL_GMK_FINAL_LAND_02_ZNO		6		/*  */
+#define	IDB_BOSS05_MDL_GMK_FINAL_LAND_03_ZNO		7		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_BOSS05_MDL_B05_BALKAN_ZNO		0		/*  */
+#define	IDU0_BOSS05_MDL_B05_BODY_ZNO		0		/*  */
+#define	IDU0_BOSS05_MDL_EGGMAN_ZNO		0		/*  */
+#define	IDU0_BOSS05_MDL_B05_ROCKET_L_ZNO		0		/*  */
+#define	IDU0_BOSS05_MDL_GMK_DEGG_CTPLT_ZNO		0		/*  */
+#define	IDU0_BOSS05_MDL_GMK_FINAL_LAND_01_ZNO		0		/*  */
+#define	IDU0_BOSS05_MDL_GMK_FINAL_LAND_02_ZNO		0		/*  */
+#define	IDU0_BOSS05_MDL_GMK_FINAL_LAND_03_ZNO		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_BOSS05_MDL_B05_BALKAN_ZNO		0		/*  */
+#define	IDU1_BOSS05_MDL_B05_BODY_ZNO		0		/*  */
+#define	IDU1_BOSS05_MDL_EGGMAN_ZNO		0		/*  */
+#define	IDU1_BOSS05_MDL_B05_ROCKET_L_ZNO		0		/*  */
+#define	IDU1_BOSS05_MDL_GMK_DEGG_CTPLT_ZNO		0		/*  */
+#define	IDU1_BOSS05_MDL_GMK_FINAL_LAND_01_ZNO		0		/*  */
+#define	IDU1_BOSS05_MDL_GMK_FINAL_LAND_02_ZNO		0		/*  */
+#define	IDU1_BOSS05_MDL_GMK_FINAL_LAND_03_ZNO		0		/*  */
+
+/* Defined File Name */
+#define	IDS_BOSS05_MDL_B05_BALKAN_ZNO		"B05_BALKAN.ZNO"
+#define	IDS_BOSS05_MDL_B05_BODY_ZNO		"B05_BODY.ZNO"
+#define	IDS_BOSS05_MDL_EGGMAN_ZNO		"EGGMAN.ZNO"
+#define	IDS_BOSS05_MDL_B05_ROCKET_L_ZNO		"B05_ROCKET_L.ZNO"
+#define	IDS_BOSS05_MDL_GMK_DEGG_CTPLT_ZNO		"GMK_DEGG_CTPLT.ZNO"
+#define	IDS_BOSS05_MDL_GMK_FINAL_LAND_01_ZNO		"GMK_FINAL_LAND_01.ZNO"
+#define	IDS_BOSS05_MDL_GMK_FINAL_LAND_02_ZNO		"GMK_FINAL_LAND_02.ZNO"
+#define	IDS_BOSS05_MDL_GMK_FINAL_LAND_03_ZNO		"GMK_FINAL_LAND_03.ZNO"
+
+#endif	/* _IDB_BOSS05_MDL */

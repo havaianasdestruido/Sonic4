@@ -1,0 +1,34 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_GMK_TRUCK_MTN
+#define	_IDB_GMK_TRUCK_MTN
+
+/* Defined File ID */
+#define	IDB_GMK_TRUCK_MTN_GMK_TRUCK_RUN_ZNM		0		/*  */
+#define	IDB_GMK_TRUCK_MTN_GMK_TRUCK_JP_ZNM		1		/*  */
+#define	IDB_GMK_TRUCK_MTN_GMK_TRUCK_DOWN_ZNM		2		/*  */
+#define	IDB_GMK_TRUCK_MTN_GMK_TRUCK_ST_ZNM		3		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_GMK_TRUCK_MTN_GMK_TRUCK_RUN_ZNM		0		/*  */
+#define	IDU0_GMK_TRUCK_MTN_GMK_TRUCK_JP_ZNM		0		/*  */
+#define	IDU0_GMK_TRUCK_MTN_GMK_TRUCK_DOWN_ZNM		0		/*  */
+#define	IDU0_GMK_TRUCK_MTN_GMK_TRUCK_ST_ZNM		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_GMK_TRUCK_MTN_GMK_TRUCK_RUN_ZNM		0		/*  */
+#define	IDU1_GMK_TRUCK_MTN_GMK_TRUCK_JP_ZNM		0		/*  */
+#define	IDU1_GMK_TRUCK_MTN_GMK_TRUCK_DOWN_ZNM		0		/*  */
+#define	IDU1_GMK_TRUCK_MTN_GMK_TRUCK_ST_ZNM		0		/*  */
+
+/* Defined File Name */
+#define	IDS_GMK_TRUCK_MTN_GMK_TRUCK_RUN_ZNM		"GMK_TRUCK_RUN.ZNM"
+#define	IDS_GMK_TRUCK_MTN_GMK_TRUCK_JP_ZNM		"GMK_TRUCK_JP.ZNM"
+#define	IDS_GMK_TRUCK_MTN_GMK_TRUCK_DOWN_ZNM		"GMK_TRUCK_DOWN.ZNM"
+#define	IDS_GMK_TRUCK_MTN_GMK_TRUCK_ST_ZNM		"GMK_TRUCK_ST.ZNM"
+
+#endif	/* _IDB_GMK_TRUCK_MTN */

@@ -1,0 +1,58 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_ZONE4_T_PC
+#define	_IDB_ZONE4_T_PC
+
+/* Defined File ID */
+#define	IDB_ZONE4_T_PC_ZONE4_T_PC_TXB		0		/*  */
+#define	IDB_ZONE4_T_PC_Z4_MAP_IPHONE_TEX01_DDS		1		/*  */
+#define	IDB_ZONE4_T_PC_Z4_MAP_IPHONE_TEX02_DDS		2		/*  */
+#define	IDB_ZONE4_T_PC_Z4_MAP_IPHONE_TEX03_DDS		3		/*  */
+#define	IDB_ZONE4_T_PC_Z4_MAP_IPHONE_TEX05_DDS		4		/*  */
+#define	IDB_ZONE4_T_PC_MID_2_DRM_A_I_DDS		5		/*  */
+#define	IDB_ZONE4_T_PC_MID_2_PIPE_I_DDS		6		/*  */
+#define	IDB_ZONE4_T_PC_MID_2_PISTON_I_DDS		7		/*  */
+#define	IDB_ZONE4_T_PC_Z4_TANK_02_ACT_I_DDS		8		/*  */
+#define	IDB_ZONE4_T_PC_Z4_TANK_02_STOP_I_DDS		9		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_ZONE4_T_PC_ZONE4_T_PC_TXB		0		/*  */
+#define	IDU0_ZONE4_T_PC_Z4_MAP_IPHONE_TEX01_DDS		0		/*  */
+#define	IDU0_ZONE4_T_PC_Z4_MAP_IPHONE_TEX02_DDS		0		/*  */
+#define	IDU0_ZONE4_T_PC_Z4_MAP_IPHONE_TEX03_DDS		0		/*  */
+#define	IDU0_ZONE4_T_PC_Z4_MAP_IPHONE_TEX05_DDS		0		/*  */
+#define	IDU0_ZONE4_T_PC_MID_2_DRM_A_I_DDS		0		/*  */
+#define	IDU0_ZONE4_T_PC_MID_2_PIPE_I_DDS		0		/*  */
+#define	IDU0_ZONE4_T_PC_MID_2_PISTON_I_DDS		0		/*  */
+#define	IDU0_ZONE4_T_PC_Z4_TANK_02_ACT_I_DDS		0		/*  */
+#define	IDU0_ZONE4_T_PC_Z4_TANK_02_STOP_I_DDS		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_ZONE4_T_PC_ZONE4_T_PC_TXB		0		/*  */
+#define	IDU1_ZONE4_T_PC_Z4_MAP_IPHONE_TEX01_DDS		0		/*  */
+#define	IDU1_ZONE4_T_PC_Z4_MAP_IPHONE_TEX02_DDS		0		/*  */
+#define	IDU1_ZONE4_T_PC_Z4_MAP_IPHONE_TEX03_DDS		0		/*  */
+#define	IDU1_ZONE4_T_PC_Z4_MAP_IPHONE_TEX05_DDS		0		/*  */
+#define	IDU1_ZONE4_T_PC_MID_2_DRM_A_I_DDS		0		/*  */
+#define	IDU1_ZONE4_T_PC_MID_2_PIPE_I_DDS		0		/*  */
+#define	IDU1_ZONE4_T_PC_MID_2_PISTON_I_DDS		0		/*  */
+#define	IDU1_ZONE4_T_PC_Z4_TANK_02_ACT_I_DDS		0		/*  */
+#define	IDU1_ZONE4_T_PC_Z4_TANK_02_STOP_I_DDS		0		/*  */
+
+/* Defined File Name */
+#define	IDS_ZONE4_T_PC_ZONE4_T_PC_TXB		"ZONE4_T_PC.TXB"
+#define	IDS_ZONE4_T_PC_Z4_MAP_IPHONE_TEX01_DDS		"Z4_MAP_IPHONE_TEX01.DDS"
+#define	IDS_ZONE4_T_PC_Z4_MAP_IPHONE_TEX02_DDS		"Z4_MAP_IPHONE_TEX02.DDS"
+#define	IDS_ZONE4_T_PC_Z4_MAP_IPHONE_TEX03_DDS		"Z4_MAP_IPHONE_TEX03.DDS"
+#define	IDS_ZONE4_T_PC_Z4_MAP_IPHONE_TEX05_DDS		"Z4_MAP_IPHONE_TEX05.DDS"
+#define	IDS_ZONE4_T_PC_MID_2_DRM_A_I_DDS		"MID_2_DRM_A_I.DDS"
+#define	IDS_ZONE4_T_PC_MID_2_PIPE_I_DDS		"MID_2_PIPE_I.DDS"
+#define	IDS_ZONE4_T_PC_MID_2_PISTON_I_DDS		"MID_2_PISTON_I.DDS"
+#define	IDS_ZONE4_T_PC_Z4_TANK_02_ACT_I_DDS		"Z4_TANK_02_ACT_I.DDS"
+#define	IDS_ZONE4_T_PC_Z4_TANK_02_STOP_I_DDS		"Z4_TANK_02_STOP_I.DDS"
+
+#endif	/* _IDB_ZONE4_T_PC */

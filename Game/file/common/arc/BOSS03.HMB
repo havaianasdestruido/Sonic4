@@ -1,0 +1,34 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_BOSS03
+#define	_IDB_BOSS03
+
+/* Defined File ID */
+#define	IDB_BOSS03_BOSS03_MDL_AMB		0		/*  */
+#define	IDB_BOSS03_BOSS03_TEX_AMB		1		/*  */
+#define	IDB_BOSS03_BOSS03_BODY_MTN_AMB		2		/*  */
+#define	IDB_BOSS03_BOSS03_EGG_MTN_AMB		3		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_BOSS03_BOSS03_MDL_AMB		0		/*  */
+#define	IDU0_BOSS03_BOSS03_TEX_AMB		0		/*  */
+#define	IDU0_BOSS03_BOSS03_BODY_MTN_AMB		0		/*  */
+#define	IDU0_BOSS03_BOSS03_EGG_MTN_AMB		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_BOSS03_BOSS03_MDL_AMB		0		/*  */
+#define	IDU1_BOSS03_BOSS03_TEX_AMB		0		/*  */
+#define	IDU1_BOSS03_BOSS03_BODY_MTN_AMB		0		/*  */
+#define	IDU1_BOSS03_BOSS03_EGG_MTN_AMB		0		/*  */
+
+/* Defined File Name */
+#define	IDS_BOSS03_BOSS03_MDL_AMB		"BOSS03_MDL.AMB"
+#define	IDS_BOSS03_BOSS03_TEX_AMB		"BOSS03_TEX.AMB"
+#define	IDS_BOSS03_BOSS03_BODY_MTN_AMB		"BOSS03_BODY_MTN.AMB"
+#define	IDS_BOSS03_BOSS03_EGG_MTN_AMB		"BOSS03_EGG_MTN.AMB"
+
+#endif	/* _IDB_BOSS03 */

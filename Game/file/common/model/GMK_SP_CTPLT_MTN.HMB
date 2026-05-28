@@ -1,0 +1,34 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_GMK_SP_CTPLT_MTN
+#define	_IDB_GMK_SP_CTPLT_MTN
+
+/* Defined File ID */
+#define	IDB_GMK_SP_CTPLT_MTN_GMK_SP_CTPLT_FW_ZNM		0		/*  */
+#define	IDB_GMK_SP_CTPLT_MTN_GMK_SP_CTPLT_SHRINK_ZNM		1		/*  */
+#define	IDB_GMK_SP_CTPLT_MTN_GMK_SP_CTPLT_RUN_ZNM		2		/*  */
+#define	IDB_GMK_SP_CTPLT_MTN_GMK_SP_CTPLT_GROW_ZNM		3		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_GMK_SP_CTPLT_MTN_GMK_SP_CTPLT_FW_ZNM		0		/*  */
+#define	IDU0_GMK_SP_CTPLT_MTN_GMK_SP_CTPLT_SHRINK_ZNM		0		/*  */
+#define	IDU0_GMK_SP_CTPLT_MTN_GMK_SP_CTPLT_RUN_ZNM		0		/*  */
+#define	IDU0_GMK_SP_CTPLT_MTN_GMK_SP_CTPLT_GROW_ZNM		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_GMK_SP_CTPLT_MTN_GMK_SP_CTPLT_FW_ZNM		0		/*  */
+#define	IDU1_GMK_SP_CTPLT_MTN_GMK_SP_CTPLT_SHRINK_ZNM		0		/*  */
+#define	IDU1_GMK_SP_CTPLT_MTN_GMK_SP_CTPLT_RUN_ZNM		0		/*  */
+#define	IDU1_GMK_SP_CTPLT_MTN_GMK_SP_CTPLT_GROW_ZNM		0		/*  */
+
+/* Defined File Name */
+#define	IDS_GMK_SP_CTPLT_MTN_GMK_SP_CTPLT_FW_ZNM		"GMK_SP_CTPLT_FW.ZNM"
+#define	IDS_GMK_SP_CTPLT_MTN_GMK_SP_CTPLT_SHRINK_ZNM		"GMK_SP_CTPLT_SHRINK.ZNM"
+#define	IDS_GMK_SP_CTPLT_MTN_GMK_SP_CTPLT_RUN_ZNM		"GMK_SP_CTPLT_RUN.ZNM"
+#define	IDS_GMK_SP_CTPLT_MTN_GMK_SP_CTPLT_GROW_ZNM		"GMK_SP_CTPLT_GROW.ZNM"
+
+#endif	/* _IDB_GMK_SP_CTPLT_MTN */

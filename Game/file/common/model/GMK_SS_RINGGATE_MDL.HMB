@@ -1,0 +1,70 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_GMK_SS_RINGGATE_MDL
+#define	_IDB_GMK_SS_RINGGATE_MDL
+
+/* Defined File ID */
+#define	IDB_GMK_SS_RINGGATE_MDL_SS_GATE_ZNO		0		/*  ゲート */
+#define	IDB_GMK_SS_RINGGATE_MDL_SS_GATE_MONO_ZNO		1		/*  ゲート(モノラル) */
+#define	IDB_GMK_SS_RINGGATE_MDL_SS_GATE_0F_ZNO		2		/*  数字0 */
+#define	IDB_GMK_SS_RINGGATE_MDL_SS_GATE_1F_ZNO		3		/*  数字1 */
+#define	IDB_GMK_SS_RINGGATE_MDL_SS_GATE_2F_ZNO		4		/*  数字2 */
+#define	IDB_GMK_SS_RINGGATE_MDL_SS_GATE_3F_ZNO		5		/*  数字3 */
+#define	IDB_GMK_SS_RINGGATE_MDL_SS_GATE_4F_ZNO		6		/*  数字4 */
+#define	IDB_GMK_SS_RINGGATE_MDL_SS_GATE_5F_ZNO		7		/*  数字5 */
+#define	IDB_GMK_SS_RINGGATE_MDL_SS_GATE_6F_ZNO		8		/*  数字6 */
+#define	IDB_GMK_SS_RINGGATE_MDL_SS_GATE_7F_ZNO		9		/*  数字7 */
+#define	IDB_GMK_SS_RINGGATE_MDL_SS_GATE_8F_ZNO		10		/*  数字8 */
+#define	IDB_GMK_SS_RINGGATE_MDL_SS_GATE_9F_ZNO		11		/*  数字9 */
+#define	IDB_GMK_SS_RINGGATE_MDL_SS_GATE_R_ZNO		12		/*  リング */
+
+/* Defined USR0 Data */
+#define	IDU0_GMK_SS_RINGGATE_MDL_SS_GATE_ZNO		0		/*  ゲート */
+#define	IDU0_GMK_SS_RINGGATE_MDL_SS_GATE_MONO_ZNO		0		/*  ゲート(モノラル) */
+#define	IDU0_GMK_SS_RINGGATE_MDL_SS_GATE_0F_ZNO		0		/*  数字0 */
+#define	IDU0_GMK_SS_RINGGATE_MDL_SS_GATE_1F_ZNO		0		/*  数字1 */
+#define	IDU0_GMK_SS_RINGGATE_MDL_SS_GATE_2F_ZNO		0		/*  数字2 */
+#define	IDU0_GMK_SS_RINGGATE_MDL_SS_GATE_3F_ZNO		0		/*  数字3 */
+#define	IDU0_GMK_SS_RINGGATE_MDL_SS_GATE_4F_ZNO		0		/*  数字4 */
+#define	IDU0_GMK_SS_RINGGATE_MDL_SS_GATE_5F_ZNO		0		/*  数字5 */
+#define	IDU0_GMK_SS_RINGGATE_MDL_SS_GATE_6F_ZNO		0		/*  数字6 */
+#define	IDU0_GMK_SS_RINGGATE_MDL_SS_GATE_7F_ZNO		0		/*  数字7 */
+#define	IDU0_GMK_SS_RINGGATE_MDL_SS_GATE_8F_ZNO		0		/*  数字8 */
+#define	IDU0_GMK_SS_RINGGATE_MDL_SS_GATE_9F_ZNO		0		/*  数字9 */
+#define	IDU0_GMK_SS_RINGGATE_MDL_SS_GATE_R_ZNO		0		/*  リング */
+
+/* Defined USR1 Data */
+#define	IDU1_GMK_SS_RINGGATE_MDL_SS_GATE_ZNO		0		/*  ゲート */
+#define	IDU1_GMK_SS_RINGGATE_MDL_SS_GATE_MONO_ZNO		0		/*  ゲート(モノラル) */
+#define	IDU1_GMK_SS_RINGGATE_MDL_SS_GATE_0F_ZNO		0		/*  数字0 */
+#define	IDU1_GMK_SS_RINGGATE_MDL_SS_GATE_1F_ZNO		0		/*  数字1 */
+#define	IDU1_GMK_SS_RINGGATE_MDL_SS_GATE_2F_ZNO		0		/*  数字2 */
+#define	IDU1_GMK_SS_RINGGATE_MDL_SS_GATE_3F_ZNO		0		/*  数字3 */
+#define	IDU1_GMK_SS_RINGGATE_MDL_SS_GATE_4F_ZNO		0		/*  数字4 */
+#define	IDU1_GMK_SS_RINGGATE_MDL_SS_GATE_5F_ZNO		0		/*  数字5 */
+#define	IDU1_GMK_SS_RINGGATE_MDL_SS_GATE_6F_ZNO		0		/*  数字6 */
+#define	IDU1_GMK_SS_RINGGATE_MDL_SS_GATE_7F_ZNO		0		/*  数字7 */
+#define	IDU1_GMK_SS_RINGGATE_MDL_SS_GATE_8F_ZNO		0		/*  数字8 */
+#define	IDU1_GMK_SS_RINGGATE_MDL_SS_GATE_9F_ZNO		0		/*  数字9 */
+#define	IDU1_GMK_SS_RINGGATE_MDL_SS_GATE_R_ZNO		0		/*  リング */
+
+/* Defined File Name */
+#define	IDS_GMK_SS_RINGGATE_MDL_SS_GATE_ZNO		"SS_GATE.ZNO"
+#define	IDS_GMK_SS_RINGGATE_MDL_SS_GATE_MONO_ZNO		"SS_GATE_MONO.ZNO"
+#define	IDS_GMK_SS_RINGGATE_MDL_SS_GATE_0F_ZNO		"SS_GATE_0F.ZNO"
+#define	IDS_GMK_SS_RINGGATE_MDL_SS_GATE_1F_ZNO		"SS_GATE_1F.ZNO"
+#define	IDS_GMK_SS_RINGGATE_MDL_SS_GATE_2F_ZNO		"SS_GATE_2F.ZNO"
+#define	IDS_GMK_SS_RINGGATE_MDL_SS_GATE_3F_ZNO		"SS_GATE_3F.ZNO"
+#define	IDS_GMK_SS_RINGGATE_MDL_SS_GATE_4F_ZNO		"SS_GATE_4F.ZNO"
+#define	IDS_GMK_SS_RINGGATE_MDL_SS_GATE_5F_ZNO		"SS_GATE_5F.ZNO"
+#define	IDS_GMK_SS_RINGGATE_MDL_SS_GATE_6F_ZNO		"SS_GATE_6F.ZNO"
+#define	IDS_GMK_SS_RINGGATE_MDL_SS_GATE_7F_ZNO		"SS_GATE_7F.ZNO"
+#define	IDS_GMK_SS_RINGGATE_MDL_SS_GATE_8F_ZNO		"SS_GATE_8F.ZNO"
+#define	IDS_GMK_SS_RINGGATE_MDL_SS_GATE_9F_ZNO		"SS_GATE_9F.ZNO"
+#define	IDS_GMK_SS_RINGGATE_MDL_SS_GATE_R_ZNO		"SS_GATE_R.ZNO"
+
+#endif	/* _IDB_GMK_SS_RINGGATE_MDL */

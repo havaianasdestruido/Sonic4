@@ -1,0 +1,11 @@
+// root node
+
+// node
+
+// action
+#define IDA_D_OPTION_USER_JP_ACT_TEX_BS       (  0) // tex_bs
+#define IDA_D_OPTION_USER_JP_ACT_TEX_CAP      (  1) // tex_cap
+#define IDA_D_OPTION_USER_JP_ACT_TEX_SPACE    (  2) // tex_space
+#define IDA_D_OPTION_USER_JP_ACT_TEX_KETTEI   (  3) // tex_kettei
+#define IDA_D_OPTION_USER_JP_ACT_TEX_OBI1     (  4) // tex_obi1
+#define IDA_D_OPTION_USER_JP_ACT_TEX_WIN_MSG2 (  5) // tex_win_msg2

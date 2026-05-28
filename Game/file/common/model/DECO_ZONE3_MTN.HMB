@@ -1,0 +1,18 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_DECO_ZONE3_MTN
+#define	_IDB_DECO_ZONE3_MTN
+
+/* Defined File ID */
+
+/* Defined USR0 Data */
+
+/* Defined USR1 Data */
+
+/* Defined File Name */
+
+#endif	/* _IDB_DECO_ZONE3_MTN */

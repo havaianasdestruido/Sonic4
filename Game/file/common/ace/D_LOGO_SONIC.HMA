@@ -1,0 +1,7 @@
+// root node
+
+// node
+
+// action
+#define IDA_D_LOGO_SONIC_ACT_BG_WHITE       (  0) // bg_white
+#define IDA_D_LOGO_SONIC_ACT_LOGO_SONICTEAM (  1) // logo_sonicteam

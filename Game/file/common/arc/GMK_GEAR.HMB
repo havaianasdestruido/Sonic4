@@ -1,0 +1,94 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_GMK_GEAR
+#define	_IDB_GMK_GEAR
+
+/* Defined File ID */
+#define	IDB_GMK_GEAR_GMK_GEAR_00_DF		0		/*  */
+#define	IDB_GMK_GEAR_GMK_GEAR_00_DI		1		/*  */
+#define	IDB_GMK_GEAR_GMK_GEAR_05_625_DF		2		/*  */
+#define	IDB_GMK_GEAR_GMK_GEAR_05_625_DI		3		/*  */
+#define	IDB_GMK_GEAR_GMK_GEAR_11_25_DF		4		/*  */
+#define	IDB_GMK_GEAR_GMK_GEAR_11_25_DI		5		/*  */
+#define	IDB_GMK_GEAR_GMK_GEAR_16_825_DF		6		/*  */
+#define	IDB_GMK_GEAR_GMK_GEAR_16_825_DI		7		/*  */
+#define	IDB_GMK_GEAR_GMK_GEAR_22_5_DF		8		/*  */
+#define	IDB_GMK_GEAR_GMK_GEAR_22_5_DI		9		/*  */
+#define	IDB_GMK_GEAR_GMK_GEAR_28_125_DF		10		/*  */
+#define	IDB_GMK_GEAR_GMK_GEAR_28_125_DI		11		/*  */
+#define	IDB_GMK_GEAR_GMK_GEAR_33_75_DF		12		/*  */
+#define	IDB_GMK_GEAR_GMK_GEAR_33_75_DI		13		/*  */
+#define	IDB_GMK_GEAR_GMK_GEAR_39_375_DF		14		/*  */
+#define	IDB_GMK_GEAR_GMK_GEAR_39_375_DI		15		/*  */
+#define	IDB_GMK_GEAR_GMK_GEAR_C_DF		16		/*  */
+#define	IDB_GMK_GEAR_GMK_GEAR_C_DI		17		/*  */
+#define	IDB_GMK_GEAR_GMK_GEAR2_TXB		18		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_GMK_GEAR_GMK_GEAR_00_DF		0		/*  */
+#define	IDU0_GMK_GEAR_GMK_GEAR_00_DI		0		/*  */
+#define	IDU0_GMK_GEAR_GMK_GEAR_05_625_DF		0		/*  */
+#define	IDU0_GMK_GEAR_GMK_GEAR_05_625_DI		0		/*  */
+#define	IDU0_GMK_GEAR_GMK_GEAR_11_25_DF		0		/*  */
+#define	IDU0_GMK_GEAR_GMK_GEAR_11_25_DI		0		/*  */
+#define	IDU0_GMK_GEAR_GMK_GEAR_16_825_DF		0		/*  */
+#define	IDU0_GMK_GEAR_GMK_GEAR_16_825_DI		0		/*  */
+#define	IDU0_GMK_GEAR_GMK_GEAR_22_5_DF		0		/*  */
+#define	IDU0_GMK_GEAR_GMK_GEAR_22_5_DI		0		/*  */
+#define	IDU0_GMK_GEAR_GMK_GEAR_28_125_DF		0		/*  */
+#define	IDU0_GMK_GEAR_GMK_GEAR_28_125_DI		0		/*  */
+#define	IDU0_GMK_GEAR_GMK_GEAR_33_75_DF		0		/*  */
+#define	IDU0_GMK_GEAR_GMK_GEAR_33_75_DI		0		/*  */
+#define	IDU0_GMK_GEAR_GMK_GEAR_39_375_DF		0		/*  */
+#define	IDU0_GMK_GEAR_GMK_GEAR_39_375_DI		0		/*  */
+#define	IDU0_GMK_GEAR_GMK_GEAR_C_DF		0		/*  */
+#define	IDU0_GMK_GEAR_GMK_GEAR_C_DI		0		/*  */
+#define	IDU0_GMK_GEAR_GMK_GEAR2_TXB		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_GMK_GEAR_GMK_GEAR_00_DF		0		/*  */
+#define	IDU1_GMK_GEAR_GMK_GEAR_00_DI		0		/*  */
+#define	IDU1_GMK_GEAR_GMK_GEAR_05_625_DF		0		/*  */
+#define	IDU1_GMK_GEAR_GMK_GEAR_05_625_DI		0		/*  */
+#define	IDU1_GMK_GEAR_GMK_GEAR_11_25_DF		0		/*  */
+#define	IDU1_GMK_GEAR_GMK_GEAR_11_25_DI		0		/*  */
+#define	IDU1_GMK_GEAR_GMK_GEAR_16_825_DF		0		/*  */
+#define	IDU1_GMK_GEAR_GMK_GEAR_16_825_DI		0		/*  */
+#define	IDU1_GMK_GEAR_GMK_GEAR_22_5_DF		0		/*  */
+#define	IDU1_GMK_GEAR_GMK_GEAR_22_5_DI		0		/*  */
+#define	IDU1_GMK_GEAR_GMK_GEAR_28_125_DF		0		/*  */
+#define	IDU1_GMK_GEAR_GMK_GEAR_28_125_DI		0		/*  */
+#define	IDU1_GMK_GEAR_GMK_GEAR_33_75_DF		0		/*  */
+#define	IDU1_GMK_GEAR_GMK_GEAR_33_75_DI		0		/*  */
+#define	IDU1_GMK_GEAR_GMK_GEAR_39_375_DF		0		/*  */
+#define	IDU1_GMK_GEAR_GMK_GEAR_39_375_DI		0		/*  */
+#define	IDU1_GMK_GEAR_GMK_GEAR_C_DF		0		/*  */
+#define	IDU1_GMK_GEAR_GMK_GEAR_C_DI		0		/*  */
+#define	IDU1_GMK_GEAR_GMK_GEAR2_TXB		0		/*  */
+
+/* Defined File Name */
+#define	IDS_GMK_GEAR_GMK_GEAR_00_DF		"GMK_GEAR_00.DF"
+#define	IDS_GMK_GEAR_GMK_GEAR_00_DI		"GMK_GEAR_00.DI"
+#define	IDS_GMK_GEAR_GMK_GEAR_05_625_DF		"GMK_GEAR_05_625.DF"
+#define	IDS_GMK_GEAR_GMK_GEAR_05_625_DI		"GMK_GEAR_05_625.DI"
+#define	IDS_GMK_GEAR_GMK_GEAR_11_25_DF		"GMK_GEAR_11_25.DF"
+#define	IDS_GMK_GEAR_GMK_GEAR_11_25_DI		"GMK_GEAR_11_25.DI"
+#define	IDS_GMK_GEAR_GMK_GEAR_16_825_DF		"GMK_GEAR_16_825.DF"
+#define	IDS_GMK_GEAR_GMK_GEAR_16_825_DI		"GMK_GEAR_16_825.DI"
+#define	IDS_GMK_GEAR_GMK_GEAR_22_5_DF		"GMK_GEAR_22_5.DF"
+#define	IDS_GMK_GEAR_GMK_GEAR_22_5_DI		"GMK_GEAR_22_5.DI"
+#define	IDS_GMK_GEAR_GMK_GEAR_28_125_DF		"GMK_GEAR_28_125.DF"
+#define	IDS_GMK_GEAR_GMK_GEAR_28_125_DI		"GMK_GEAR_28_125.DI"
+#define	IDS_GMK_GEAR_GMK_GEAR_33_75_DF		"GMK_GEAR_33_75.DF"
+#define	IDS_GMK_GEAR_GMK_GEAR_33_75_DI		"GMK_GEAR_33_75.DI"
+#define	IDS_GMK_GEAR_GMK_GEAR_39_375_DF		"GMK_GEAR_39_375.DF"
+#define	IDS_GMK_GEAR_GMK_GEAR_39_375_DI		"GMK_GEAR_39_375.DI"
+#define	IDS_GMK_GEAR_GMK_GEAR_C_DF		"GMK_GEAR_C.DF"
+#define	IDS_GMK_GEAR_GMK_GEAR_C_DI		"GMK_GEAR_C.DI"
+#define	IDS_GMK_GEAR_GMK_GEAR2_TXB		"GMK_GEAR2.TXB"
+
+#endif	/* _IDB_GMK_GEAR */

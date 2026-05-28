@@ -1,0 +1,22 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_BOSS02_BODY_MAT
+#define	_IDB_BOSS02_BODY_MAT
+
+/* Defined File ID */
+#define	IDB_BOSS02_BODY_MAT_B02_BODY_ZNV		0		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_BOSS02_BODY_MAT_B02_BODY_ZNV		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_BOSS02_BODY_MAT_B02_BODY_ZNV		0		/*  */
+
+/* Defined File Name */
+#define	IDS_BOSS02_BODY_MAT_B02_BODY_ZNV		"B02_BODY.ZNV"
+
+#endif	/* _IDB_BOSS02_BODY_MAT */

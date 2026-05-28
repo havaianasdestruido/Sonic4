@@ -1,0 +1,22 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_ENE_MEREON_R_MDL
+#define	_IDB_ENE_MEREON_R_MDL
+
+/* Defined File ID */
+#define	IDB_ENE_MEREON_R_MDL_ENE_MEREON_R_ZNO		0		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_ENE_MEREON_R_MDL_ENE_MEREON_R_ZNO		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_ENE_MEREON_R_MDL_ENE_MEREON_R_ZNO		0		/*  */
+
+/* Defined File Name */
+#define	IDS_ENE_MEREON_R_MDL_ENE_MEREON_R_ZNO		"ENE_MEREON_R.ZNO"
+
+#endif	/* _IDB_ENE_MEREON_R_MDL */

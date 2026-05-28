@@ -1,0 +1,26 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_GMK_FLIPPER_MAT
+#define	_IDB_GMK_FLIPPER_MAT
+
+/* Defined File ID */
+#define	IDB_GMK_FLIPPER_MAT_GMK_FLIPPER_ZNV		0		/* マテリアルモーション */
+#define	IDB_GMK_FLIPPER_MAT_GMK_FLIPPER_TT_ZNV		1		/* マテリアルモーション */
+
+/* Defined USR0 Data */
+#define	IDU0_GMK_FLIPPER_MAT_GMK_FLIPPER_ZNV		0		/* マテリアルモーション */
+#define	IDU0_GMK_FLIPPER_MAT_GMK_FLIPPER_TT_ZNV		0		/* マテリアルモーション */
+
+/* Defined USR1 Data */
+#define	IDU1_GMK_FLIPPER_MAT_GMK_FLIPPER_ZNV		0		/* マテリアルモーション */
+#define	IDU1_GMK_FLIPPER_MAT_GMK_FLIPPER_TT_ZNV		0		/* マテリアルモーション */
+
+/* Defined File Name */
+#define	IDS_GMK_FLIPPER_MAT_GMK_FLIPPER_ZNV		"GMK_FLIPPER.ZNV"
+#define	IDS_GMK_FLIPPER_MAT_GMK_FLIPPER_TT_ZNV		"GMK_FLIPPER_TT.ZNV"
+
+#endif	/* _IDB_GMK_FLIPPER_MAT */

@@ -1,0 +1,58 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_ENE_STING_MTN
+#define	_IDB_ENE_STING_MTN
+
+/* Defined File ID */
+#define	IDB_ENE_STING_MTN_ENE_STING_MOVE_ZNM		0		/*  */
+#define	IDB_ENE_STING_MTN_ENE_STING_MOVE_L_ZNM		1		/*  */
+#define	IDB_ENE_STING_MTN_ENE_STING_FRIP_ZNM		2		/*  */
+#define	IDB_ENE_STING_MTN_ENE_STING_FRIP_L_ZNM		3		/*  */
+#define	IDB_ENE_STING_MTN_ENE_STING_ATK_01_ZNM		4		/*  */
+#define	IDB_ENE_STING_MTN_ENE_STING_ATK_02_ZNM		5		/*  */
+#define	IDB_ENE_STING_MTN_ENE_STING_ATK_03_ZNM		6		/*  */
+#define	IDB_ENE_STING_MTN_ENE_STING_ATK_L_01_ZNM		7		/*  */
+#define	IDB_ENE_STING_MTN_ENE_STING_ATK_L_02_ZNM		8		/*  */
+#define	IDB_ENE_STING_MTN_ENE_STING_ATK_L_03_ZNM		9		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_ENE_STING_MTN_ENE_STING_MOVE_ZNM		0		/*  */
+#define	IDU0_ENE_STING_MTN_ENE_STING_MOVE_L_ZNM		0		/*  */
+#define	IDU0_ENE_STING_MTN_ENE_STING_FRIP_ZNM		0		/*  */
+#define	IDU0_ENE_STING_MTN_ENE_STING_FRIP_L_ZNM		0		/*  */
+#define	IDU0_ENE_STING_MTN_ENE_STING_ATK_01_ZNM		0		/*  */
+#define	IDU0_ENE_STING_MTN_ENE_STING_ATK_02_ZNM		0		/*  */
+#define	IDU0_ENE_STING_MTN_ENE_STING_ATK_03_ZNM		0		/*  */
+#define	IDU0_ENE_STING_MTN_ENE_STING_ATK_L_01_ZNM		0		/*  */
+#define	IDU0_ENE_STING_MTN_ENE_STING_ATK_L_02_ZNM		0		/*  */
+#define	IDU0_ENE_STING_MTN_ENE_STING_ATK_L_03_ZNM		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_ENE_STING_MTN_ENE_STING_MOVE_ZNM		0		/*  */
+#define	IDU1_ENE_STING_MTN_ENE_STING_MOVE_L_ZNM		0		/*  */
+#define	IDU1_ENE_STING_MTN_ENE_STING_FRIP_ZNM		0		/*  */
+#define	IDU1_ENE_STING_MTN_ENE_STING_FRIP_L_ZNM		0		/*  */
+#define	IDU1_ENE_STING_MTN_ENE_STING_ATK_01_ZNM		0		/*  */
+#define	IDU1_ENE_STING_MTN_ENE_STING_ATK_02_ZNM		0		/*  */
+#define	IDU1_ENE_STING_MTN_ENE_STING_ATK_03_ZNM		0		/*  */
+#define	IDU1_ENE_STING_MTN_ENE_STING_ATK_L_01_ZNM		0		/*  */
+#define	IDU1_ENE_STING_MTN_ENE_STING_ATK_L_02_ZNM		0		/*  */
+#define	IDU1_ENE_STING_MTN_ENE_STING_ATK_L_03_ZNM		0		/*  */
+
+/* Defined File Name */
+#define	IDS_ENE_STING_MTN_ENE_STING_MOVE_ZNM		"ENE_STING_MOVE.ZNM"
+#define	IDS_ENE_STING_MTN_ENE_STING_MOVE_L_ZNM		"ENE_STING_MOVE_L.ZNM"
+#define	IDS_ENE_STING_MTN_ENE_STING_FRIP_ZNM		"ENE_STING_FRIP.ZNM"
+#define	IDS_ENE_STING_MTN_ENE_STING_FRIP_L_ZNM		"ENE_STING_FRIP_L.ZNM"
+#define	IDS_ENE_STING_MTN_ENE_STING_ATK_01_ZNM		"ENE_STING_ATK_01.ZNM"
+#define	IDS_ENE_STING_MTN_ENE_STING_ATK_02_ZNM		"ENE_STING_ATK_02.ZNM"
+#define	IDS_ENE_STING_MTN_ENE_STING_ATK_03_ZNM		"ENE_STING_ATK_03.ZNM"
+#define	IDS_ENE_STING_MTN_ENE_STING_ATK_L_01_ZNM		"ENE_STING_ATK_L_01.ZNM"
+#define	IDS_ENE_STING_MTN_ENE_STING_ATK_L_02_ZNM		"ENE_STING_ATK_L_02.ZNM"
+#define	IDS_ENE_STING_MTN_ENE_STING_ATK_L_03_ZNM		"ENE_STING_ATK_L_03.ZNM"
+
+#endif	/* _IDB_ENE_STING_MTN */

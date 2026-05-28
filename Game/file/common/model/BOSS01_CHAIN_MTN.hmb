@@ -1,0 +1,54 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_BOSS01_CHAIN_MTN
+#define	_IDB_BOSS01_CHAIN_MTN
+
+/* Defined File ID */
+#define	IDB_BOSS01_CHAIN_MTN_B01_ATT01_01C_ZNM		0		/*  */
+#define	IDB_BOSS01_CHAIN_MTN_B01_ATT02_01C_ZNM		1		/*  */
+#define	IDB_BOSS01_CHAIN_MTN_B01_ATT02_02C_ZNM		2		/*  */
+#define	IDB_BOSS01_CHAIN_MTN_B01_ATT02_03C_ZNM		3		/*  */
+#define	IDB_BOSS01_CHAIN_MTN_B01_ATT02_04C_ZNM		4		/*  */
+#define	IDB_BOSS01_CHAIN_MTN_B01_ATT02_05C_ZNM		5		/*  */
+#define	IDB_BOSS01_CHAIN_MTN_B01_PRO01_01C_ZNM		6		/*  */
+#define	IDB_BOSS01_CHAIN_MTN_B01_PRO01_02C_ZNM		7		/*  */
+#define	IDB_BOSS01_CHAIN_MTN_B01_STA01_01C_ZNM		8		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_BOSS01_CHAIN_MTN_B01_ATT01_01C_ZNM		0		/*  */
+#define	IDU0_BOSS01_CHAIN_MTN_B01_ATT02_01C_ZNM		0		/*  */
+#define	IDU0_BOSS01_CHAIN_MTN_B01_ATT02_02C_ZNM		0		/*  */
+#define	IDU0_BOSS01_CHAIN_MTN_B01_ATT02_03C_ZNM		0		/*  */
+#define	IDU0_BOSS01_CHAIN_MTN_B01_ATT02_04C_ZNM		0		/*  */
+#define	IDU0_BOSS01_CHAIN_MTN_B01_ATT02_05C_ZNM		0		/*  */
+#define	IDU0_BOSS01_CHAIN_MTN_B01_PRO01_01C_ZNM		0		/*  */
+#define	IDU0_BOSS01_CHAIN_MTN_B01_PRO01_02C_ZNM		0		/*  */
+#define	IDU0_BOSS01_CHAIN_MTN_B01_STA01_01C_ZNM		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_BOSS01_CHAIN_MTN_B01_ATT01_01C_ZNM		0		/*  */
+#define	IDU1_BOSS01_CHAIN_MTN_B01_ATT02_01C_ZNM		0		/*  */
+#define	IDU1_BOSS01_CHAIN_MTN_B01_ATT02_02C_ZNM		0		/*  */
+#define	IDU1_BOSS01_CHAIN_MTN_B01_ATT02_03C_ZNM		0		/*  */
+#define	IDU1_BOSS01_CHAIN_MTN_B01_ATT02_04C_ZNM		0		/*  */
+#define	IDU1_BOSS01_CHAIN_MTN_B01_ATT02_05C_ZNM		0		/*  */
+#define	IDU1_BOSS01_CHAIN_MTN_B01_PRO01_01C_ZNM		0		/*  */
+#define	IDU1_BOSS01_CHAIN_MTN_B01_PRO01_02C_ZNM		0		/*  */
+#define	IDU1_BOSS01_CHAIN_MTN_B01_STA01_01C_ZNM		0		/*  */
+
+/* Defined File Name */
+#define	IDS_BOSS01_CHAIN_MTN_B01_ATT01_01C_ZNM		"B01_ATT01_01C.ZNM"
+#define	IDS_BOSS01_CHAIN_MTN_B01_ATT02_01C_ZNM		"B01_ATT02_01C.ZNM"
+#define	IDS_BOSS01_CHAIN_MTN_B01_ATT02_02C_ZNM		"B01_ATT02_02C.ZNM"
+#define	IDS_BOSS01_CHAIN_MTN_B01_ATT02_03C_ZNM		"B01_ATT02_03C.ZNM"
+#define	IDS_BOSS01_CHAIN_MTN_B01_ATT02_04C_ZNM		"B01_ATT02_04C.ZNM"
+#define	IDS_BOSS01_CHAIN_MTN_B01_ATT02_05C_ZNM		"B01_ATT02_05C.ZNM"
+#define	IDS_BOSS01_CHAIN_MTN_B01_PRO01_01C_ZNM		"B01_PRO01_01C.ZNM"
+#define	IDS_BOSS01_CHAIN_MTN_B01_PRO01_02C_ZNM		"B01_PRO01_02C.ZNM"
+#define	IDS_BOSS01_CHAIN_MTN_B01_STA01_01C_ZNM		"B01_STA01_01C.ZNM"
+
+#endif	/* _IDB_BOSS01_CHAIN_MTN */

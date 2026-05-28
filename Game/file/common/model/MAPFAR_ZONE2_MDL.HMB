@@ -1,0 +1,38 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_MAPFAR_ZONE2_MDL
+#define	_IDB_MAPFAR_ZONE2_MDL
+
+/* Defined File ID */
+#define	IDB_MAPFAR_ZONE2_MDL_BG_02_SKY_ZNO		0		/* 空 */
+#define	IDB_MAPFAR_ZONE2_MDL_BG_02_GROUND_ZNO		1		/* 地面とビル群 */
+#define	IDB_MAPFAR_ZONE2_MDL_BG_02_WHEEL_ZNO		2		/* 観覧車 */
+#define	IDB_MAPFAR_ZONE2_MDL_BG_02_GLARE_ZNO		3		/* グレア */
+#define	IDB_MAPFAR_ZONE2_MDL_BG_02_SLIGHT_ZNO		4		/* サーチライト */
+
+/* Defined USR0 Data */
+#define	IDU0_MAPFAR_ZONE2_MDL_BG_02_SKY_ZNO		0		/* 空 */
+#define	IDU0_MAPFAR_ZONE2_MDL_BG_02_GROUND_ZNO		0		/* 地面とビル群 */
+#define	IDU0_MAPFAR_ZONE2_MDL_BG_02_WHEEL_ZNO		0		/* 観覧車 */
+#define	IDU0_MAPFAR_ZONE2_MDL_BG_02_GLARE_ZNO		0		/* グレア */
+#define	IDU0_MAPFAR_ZONE2_MDL_BG_02_SLIGHT_ZNO		0		/* サーチライト */
+
+/* Defined USR1 Data */
+#define	IDU1_MAPFAR_ZONE2_MDL_BG_02_SKY_ZNO		0		/* 空 */
+#define	IDU1_MAPFAR_ZONE2_MDL_BG_02_GROUND_ZNO		0		/* 地面とビル群 */
+#define	IDU1_MAPFAR_ZONE2_MDL_BG_02_WHEEL_ZNO		0		/* 観覧車 */
+#define	IDU1_MAPFAR_ZONE2_MDL_BG_02_GLARE_ZNO		0		/* グレア */
+#define	IDU1_MAPFAR_ZONE2_MDL_BG_02_SLIGHT_ZNO		0		/* サーチライト */
+
+/* Defined File Name */
+#define	IDS_MAPFAR_ZONE2_MDL_BG_02_SKY_ZNO		"BG_02_SKY.ZNO"
+#define	IDS_MAPFAR_ZONE2_MDL_BG_02_GROUND_ZNO		"BG_02_GROUND.ZNO"
+#define	IDS_MAPFAR_ZONE2_MDL_BG_02_WHEEL_ZNO		"BG_02_WHEEL.ZNO"
+#define	IDS_MAPFAR_ZONE2_MDL_BG_02_GLARE_ZNO		"BG_02_GLARE.ZNO"
+#define	IDS_MAPFAR_ZONE2_MDL_BG_02_SLIGHT_ZNO		"BG_02_SLIGHT.ZNO"
+
+#endif	/* _IDB_MAPFAR_ZONE2_MDL */

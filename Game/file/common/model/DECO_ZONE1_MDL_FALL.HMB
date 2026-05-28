@@ -1,0 +1,50 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_DECO_ZONE1_MDL_FALL
+#define	_IDB_DECO_ZONE1_MDL_FALL
+
+/* Defined File ID */
+#define	IDB_DECO_ZONE1_MDL_FALL_Z1_FALL_TEST_ZNO		0		/*  */
+#define	IDB_DECO_ZONE1_MDL_FALL_Z1_FALL_LEFT_ZNO		1		/*  */
+#define	IDB_DECO_ZONE1_MDL_FALL_Z1_FALL_RIGHT_ZNO		2		/*  */
+#define	IDB_DECO_ZONE1_MDL_FALL_Z1_FALL_ONE_ZNO		3		/*  */
+#define	IDB_DECO_ZONE1_MDL_FALL_Z1_D_FALL_TEST_A_ZNO		4		/*  */
+#define	IDB_DECO_ZONE1_MDL_FALL_Z1_D_FALL_LEFT_A_ZNO		5		/*  */
+#define	IDB_DECO_ZONE1_MDL_FALL_Z1_D_FALL_RIGHT_A_ZNO		6		/*  */
+#define	IDB_DECO_ZONE1_MDL_FALL_Z1_D_FALL_ONE_A_ZNO		7		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_DECO_ZONE1_MDL_FALL_Z1_FALL_TEST_ZNO		0		/*  */
+#define	IDU0_DECO_ZONE1_MDL_FALL_Z1_FALL_LEFT_ZNO		0		/*  */
+#define	IDU0_DECO_ZONE1_MDL_FALL_Z1_FALL_RIGHT_ZNO		0		/*  */
+#define	IDU0_DECO_ZONE1_MDL_FALL_Z1_FALL_ONE_ZNO		0		/*  */
+#define	IDU0_DECO_ZONE1_MDL_FALL_Z1_D_FALL_TEST_A_ZNO		0		/*  */
+#define	IDU0_DECO_ZONE1_MDL_FALL_Z1_D_FALL_LEFT_A_ZNO		0		/*  */
+#define	IDU0_DECO_ZONE1_MDL_FALL_Z1_D_FALL_RIGHT_A_ZNO		0		/*  */
+#define	IDU0_DECO_ZONE1_MDL_FALL_Z1_D_FALL_ONE_A_ZNO		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_DECO_ZONE1_MDL_FALL_Z1_FALL_TEST_ZNO		0		/*  */
+#define	IDU1_DECO_ZONE1_MDL_FALL_Z1_FALL_LEFT_ZNO		0		/*  */
+#define	IDU1_DECO_ZONE1_MDL_FALL_Z1_FALL_RIGHT_ZNO		0		/*  */
+#define	IDU1_DECO_ZONE1_MDL_FALL_Z1_FALL_ONE_ZNO		0		/*  */
+#define	IDU1_DECO_ZONE1_MDL_FALL_Z1_D_FALL_TEST_A_ZNO		0		/*  */
+#define	IDU1_DECO_ZONE1_MDL_FALL_Z1_D_FALL_LEFT_A_ZNO		0		/*  */
+#define	IDU1_DECO_ZONE1_MDL_FALL_Z1_D_FALL_RIGHT_A_ZNO		0		/*  */
+#define	IDU1_DECO_ZONE1_MDL_FALL_Z1_D_FALL_ONE_A_ZNO		0		/*  */
+
+/* Defined File Name */
+#define	IDS_DECO_ZONE1_MDL_FALL_Z1_FALL_TEST_ZNO		"Z1_FALL_TEST.ZNO"
+#define	IDS_DECO_ZONE1_MDL_FALL_Z1_FALL_LEFT_ZNO		"Z1_FALL_LEFT.ZNO"
+#define	IDS_DECO_ZONE1_MDL_FALL_Z1_FALL_RIGHT_ZNO		"Z1_FALL_RIGHT.ZNO"
+#define	IDS_DECO_ZONE1_MDL_FALL_Z1_FALL_ONE_ZNO		"Z1_FALL_ONE.ZNO"
+#define	IDS_DECO_ZONE1_MDL_FALL_Z1_D_FALL_TEST_A_ZNO		"Z1_D_FALL_TEST_A.ZNO"
+#define	IDS_DECO_ZONE1_MDL_FALL_Z1_D_FALL_LEFT_A_ZNO		"Z1_D_FALL_LEFT_A.ZNO"
+#define	IDS_DECO_ZONE1_MDL_FALL_Z1_D_FALL_RIGHT_A_ZNO		"Z1_D_FALL_RIGHT_A.ZNO"
+#define	IDS_DECO_ZONE1_MDL_FALL_Z1_D_FALL_ONE_A_ZNO		"Z1_D_FALL_ONE_A.ZNO"
+
+#endif	/* _IDB_DECO_ZONE1_MDL_FALL */

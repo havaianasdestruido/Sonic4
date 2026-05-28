@@ -1,0 +1,14 @@
+// root node
+
+// node
+
+// action
+#define IDA_D_STFRL_END_ACT_BG_WHITE  (  0) // bg_white
+#define IDA_D_STFRL_END_ACT_BG_BLACK  (  1) // bg_black
+#define IDA_D_STFRL_END_ACT_BG_BLACK2 (  2) // bg_black2
+#define IDA_D_STFRL_END_ACT_LIGHT_LT  (  3) // light_lt
+#define IDA_D_STFRL_END_ACT_LIGHT_LB  (  4) // light_lb
+#define IDA_D_STFRL_END_ACT_LIGHT_RT  (  5) // light_rt
+#define IDA_D_STFRL_END_ACT_LIGHT_RB  (  6) // light_rb
+#define IDA_D_STFRL_END_ACT_METAL     (  7) // metal
+#define IDA_D_STFRL_END_ACT_EYE01     (  8) // eye01

@@ -1,0 +1,7 @@
+// root node
+
+// node
+
+// action
+#define IDA_G_OVER_ACT_T_FADEOUT (  0) // t_fadeout
+#define IDA_G_OVER_ACT_G_FADEOUT (  1) // g_fadeout

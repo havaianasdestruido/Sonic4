@@ -1,0 +1,17 @@
+// root node
+
+// node
+
+// action
+#define IDA_G_PAUSE_L_ACT_TITLE_PAUSE         (  0) // title_pause
+#define IDA_G_PAUSE_L_ACT_BTN_BACK            (  1) // btn_back
+#define IDA_G_PAUSE_L_ACT_DLG_TITLE_ATTENSION (  2) // dlg_title_attension
+#define IDA_G_PAUSE_L_ACT_DLG_TITLE_LINE      (  3) // dlg_title_line
+#define IDA_G_PAUSE_L_ACT_DLG_SEL_YES         (  4) // dlg_sel_yes
+#define IDA_G_PAUSE_L_ACT_DLG_SEL_YES_S       (  5) // dlg_sel_yes_s
+#define IDA_G_PAUSE_L_ACT_DLG_SEL_NO          (  6) // dlg_sel_no
+#define IDA_G_PAUSE_L_ACT_DLG_SEL_NO_S        (  7) // dlg_sel_no_s
+#define IDA_G_PAUSE_L_ACT_MSG_RETRY           (  8) // msg_retry
+#define IDA_G_PAUSE_L_ACT_MSG_WORLD           (  9) // msg_world
+#define IDA_G_PAUSE_L_ACT_MSG_RETRY2          ( 10) // msg_retry2
+#define IDA_G_PAUSE_L_ACT_MSG_MAINMENU        ( 11) // msg_mainmenu

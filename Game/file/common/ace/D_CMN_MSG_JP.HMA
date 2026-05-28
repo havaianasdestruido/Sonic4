@@ -1,0 +1,19 @@
+// root node
+
+// node
+
+// action
+#define IDA_D_CMN_MSG_JP_ACT_TEX_BACK          (  0) // tex_back
+#define IDA_D_CMN_MSG_JP_ACT_TEX_OK            (  1) // tex_ok
+#define IDA_D_CMN_MSG_JP_ACT_TEX_YES           (  2) // tex_yes
+#define IDA_D_CMN_MSG_JP_ACT_TEX_NO            (  3) // tex_no
+#define IDA_D_CMN_MSG_JP_ACT_TEX_WINTITLE      (  4) // tex_wintitle
+#define IDA_D_CMN_MSG_JP_ACT_TEX_BACK_STGSLCT  (  5) // tex_back_stgslct
+#define IDA_D_CMN_MSG_JP_ACT_TEX_BACK_OPT      (  6) // tex_back_opt
+#define IDA_D_CMN_MSG_JP_ACT_TEX_BACK_RANK     (  7) // tex_back_rank
+#define IDA_D_CMN_MSG_JP_ACT_TEX_MSG01         (  8) // tex_msg01
+#define IDA_D_CMN_MSG_JP_ACT_TEX_MSG02         (  9) // tex_msg02
+#define IDA_D_CMN_MSG_JP_ACT_TEX_MSG03         ( 10) // tex_msg03
+#define IDA_D_CMN_MSG_JP_ACT_TEX_MSG04         ( 11) // tex_msg04
+#define IDA_D_CMN_MSG_JP_ACT_TEX_MSG05         ( 12) // tex_msg05
+#define IDA_D_CMN_MSG_JP_ACT_TEX_BACK_FILESLCT ( 13) // tex_back_fileslct

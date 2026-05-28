@@ -1,0 +1,70 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_GMK_P_STEAM_MDL
+#define	_IDB_GMK_P_STEAM_MDL
+
+/* Defined File ID */
+#define	IDB_GMK_P_STEAM_MDL_GMK_P_STEAM_ZNO		0		/*  */
+#define	IDB_GMK_P_STEAM_MDL_GMK_P_STEAM_02_ZNO		1		/*  */
+#define	IDB_GMK_P_STEAM_MDL_GMK_P_STEAM_03_ZNO		2		/*  */
+#define	IDB_GMK_P_STEAM_MDL_GMK_P_STEAM_04_ZNO		3		/*  */
+#define	IDB_GMK_P_STEAM_MDL_GMK_P_STEAM_05_ZNO		4		/*  */
+#define	IDB_GMK_P_STEAM_MDL_GMK_P_STEAM_06_ZNO		5		/*  */
+#define	IDB_GMK_P_STEAM_MDL_GMK_P_STEAM_07_ZNO		6		/*  */
+#define	IDB_GMK_P_STEAM_MDL_GMK_P_STEAM_08_ZNO		7		/*  */
+#define	IDB_GMK_P_STEAM_MDL_GMK_P_STEAM_PIPE_01_ZNO		8		/*  */
+#define	IDB_GMK_P_STEAM_MDL_GMK_P_STEAM_PIPE_02_ZNO		9		/*  */
+#define	IDB_GMK_P_STEAM_MDL_GMK_P_STEAM_PIPE_03_ZNO		10		/*  */
+#define	IDB_GMK_P_STEAM_MDL_GMK_P_STEAM_PIPE_04_ZNO		11		/*  */
+#define	IDB_GMK_P_STEAM_MDL_GMK_P_STEAM_RED_ZNO		12		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_GMK_P_STEAM_MDL_GMK_P_STEAM_ZNO		0		/*  */
+#define	IDU0_GMK_P_STEAM_MDL_GMK_P_STEAM_02_ZNO		0		/*  */
+#define	IDU0_GMK_P_STEAM_MDL_GMK_P_STEAM_03_ZNO		0		/*  */
+#define	IDU0_GMK_P_STEAM_MDL_GMK_P_STEAM_04_ZNO		0		/*  */
+#define	IDU0_GMK_P_STEAM_MDL_GMK_P_STEAM_05_ZNO		0		/*  */
+#define	IDU0_GMK_P_STEAM_MDL_GMK_P_STEAM_06_ZNO		0		/*  */
+#define	IDU0_GMK_P_STEAM_MDL_GMK_P_STEAM_07_ZNO		0		/*  */
+#define	IDU0_GMK_P_STEAM_MDL_GMK_P_STEAM_08_ZNO		0		/*  */
+#define	IDU0_GMK_P_STEAM_MDL_GMK_P_STEAM_PIPE_01_ZNO		0		/*  */
+#define	IDU0_GMK_P_STEAM_MDL_GMK_P_STEAM_PIPE_02_ZNO		0		/*  */
+#define	IDU0_GMK_P_STEAM_MDL_GMK_P_STEAM_PIPE_03_ZNO		0		/*  */
+#define	IDU0_GMK_P_STEAM_MDL_GMK_P_STEAM_PIPE_04_ZNO		0		/*  */
+#define	IDU0_GMK_P_STEAM_MDL_GMK_P_STEAM_RED_ZNO		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_GMK_P_STEAM_MDL_GMK_P_STEAM_ZNO		0		/*  */
+#define	IDU1_GMK_P_STEAM_MDL_GMK_P_STEAM_02_ZNO		0		/*  */
+#define	IDU1_GMK_P_STEAM_MDL_GMK_P_STEAM_03_ZNO		0		/*  */
+#define	IDU1_GMK_P_STEAM_MDL_GMK_P_STEAM_04_ZNO		0		/*  */
+#define	IDU1_GMK_P_STEAM_MDL_GMK_P_STEAM_05_ZNO		0		/*  */
+#define	IDU1_GMK_P_STEAM_MDL_GMK_P_STEAM_06_ZNO		0		/*  */
+#define	IDU1_GMK_P_STEAM_MDL_GMK_P_STEAM_07_ZNO		0		/*  */
+#define	IDU1_GMK_P_STEAM_MDL_GMK_P_STEAM_08_ZNO		0		/*  */
+#define	IDU1_GMK_P_STEAM_MDL_GMK_P_STEAM_PIPE_01_ZNO		0		/*  */
+#define	IDU1_GMK_P_STEAM_MDL_GMK_P_STEAM_PIPE_02_ZNO		0		/*  */
+#define	IDU1_GMK_P_STEAM_MDL_GMK_P_STEAM_PIPE_03_ZNO		0		/*  */
+#define	IDU1_GMK_P_STEAM_MDL_GMK_P_STEAM_PIPE_04_ZNO		0		/*  */
+#define	IDU1_GMK_P_STEAM_MDL_GMK_P_STEAM_RED_ZNO		0		/*  */
+
+/* Defined File Name */
+#define	IDS_GMK_P_STEAM_MDL_GMK_P_STEAM_ZNO		"GMK_P_STEAM.ZNO"
+#define	IDS_GMK_P_STEAM_MDL_GMK_P_STEAM_02_ZNO		"GMK_P_STEAM_02.ZNO"
+#define	IDS_GMK_P_STEAM_MDL_GMK_P_STEAM_03_ZNO		"GMK_P_STEAM_03.ZNO"
+#define	IDS_GMK_P_STEAM_MDL_GMK_P_STEAM_04_ZNO		"GMK_P_STEAM_04.ZNO"
+#define	IDS_GMK_P_STEAM_MDL_GMK_P_STEAM_05_ZNO		"GMK_P_STEAM_05.ZNO"
+#define	IDS_GMK_P_STEAM_MDL_GMK_P_STEAM_06_ZNO		"GMK_P_STEAM_06.ZNO"
+#define	IDS_GMK_P_STEAM_MDL_GMK_P_STEAM_07_ZNO		"GMK_P_STEAM_07.ZNO"
+#define	IDS_GMK_P_STEAM_MDL_GMK_P_STEAM_08_ZNO		"GMK_P_STEAM_08.ZNO"
+#define	IDS_GMK_P_STEAM_MDL_GMK_P_STEAM_PIPE_01_ZNO		"GMK_P_STEAM_PIPE_01.ZNO"
+#define	IDS_GMK_P_STEAM_MDL_GMK_P_STEAM_PIPE_02_ZNO		"GMK_P_STEAM_PIPE_02.ZNO"
+#define	IDS_GMK_P_STEAM_MDL_GMK_P_STEAM_PIPE_03_ZNO		"GMK_P_STEAM_PIPE_03.ZNO"
+#define	IDS_GMK_P_STEAM_MDL_GMK_P_STEAM_PIPE_04_ZNO		"GMK_P_STEAM_PIPE_04.ZNO"
+#define	IDS_GMK_P_STEAM_MDL_GMK_P_STEAM_RED_ZNO		"GMK_P_STEAM_RED.ZNO"
+
+#endif	/* _IDB_GMK_P_STEAM_MDL */

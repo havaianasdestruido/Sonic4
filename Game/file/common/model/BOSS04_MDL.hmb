@@ -1,0 +1,46 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_BOSS04_MDL
+#define	_IDB_BOSS04_MDL
+
+/* Defined File ID */
+#define	IDB_BOSS04_MDL_B04_BODY_ZNO		0		/*  本体 */
+#define	IDB_BOSS04_MDL_EGGMAN_ZNO		1		/*  エッグマン */
+#define	IDB_BOSS04_MDL_B04_CAPSULE_ZNO		2		/*  カプセル */
+#define	IDB_BOSS04_MDL_B04_M_EGG1_ZNO		3		/*  ちびエッグマン(通常) */
+#define	IDB_BOSS04_MDL_B04_M_EGG2_ZNO		4		/*  ちびエッグマン(高速) */
+#define	IDB_BOSS04_MDL_B04_M_EGG3_ZNO		5		/*  ちびエッグマン(巨大) */
+#define	IDB_BOSS04_MDL_B04_M_EGG4_ZNO		6		/*  鉄球 */
+
+/* Defined USR0 Data */
+#define	IDU0_BOSS04_MDL_B04_BODY_ZNO		0		/*  本体 */
+#define	IDU0_BOSS04_MDL_EGGMAN_ZNO		0		/*  エッグマン */
+#define	IDU0_BOSS04_MDL_B04_CAPSULE_ZNO		0		/*  カプセル */
+#define	IDU0_BOSS04_MDL_B04_M_EGG1_ZNO		0		/*  ちびエッグマン(通常) */
+#define	IDU0_BOSS04_MDL_B04_M_EGG2_ZNO		0		/*  ちびエッグマン(高速) */
+#define	IDU0_BOSS04_MDL_B04_M_EGG3_ZNO		0		/*  ちびエッグマン(巨大) */
+#define	IDU0_BOSS04_MDL_B04_M_EGG4_ZNO		0		/*  鉄球 */
+
+/* Defined USR1 Data */
+#define	IDU1_BOSS04_MDL_B04_BODY_ZNO		0		/*  本体 */
+#define	IDU1_BOSS04_MDL_EGGMAN_ZNO		0		/*  エッグマン */
+#define	IDU1_BOSS04_MDL_B04_CAPSULE_ZNO		0		/*  カプセル */
+#define	IDU1_BOSS04_MDL_B04_M_EGG1_ZNO		0		/*  ちびエッグマン(通常) */
+#define	IDU1_BOSS04_MDL_B04_M_EGG2_ZNO		0		/*  ちびエッグマン(高速) */
+#define	IDU1_BOSS04_MDL_B04_M_EGG3_ZNO		0		/*  ちびエッグマン(巨大) */
+#define	IDU1_BOSS04_MDL_B04_M_EGG4_ZNO		0		/*  鉄球 */
+
+/* Defined File Name */
+#define	IDS_BOSS04_MDL_B04_BODY_ZNO		"B04_BODY.ZNO"
+#define	IDS_BOSS04_MDL_EGGMAN_ZNO		"EGGMAN.ZNO"
+#define	IDS_BOSS04_MDL_B04_CAPSULE_ZNO		"B04_CAPSULE.ZNO"
+#define	IDS_BOSS04_MDL_B04_M_EGG1_ZNO		"B04_M_EGG1.ZNO"
+#define	IDS_BOSS04_MDL_B04_M_EGG2_ZNO		"B04_M_EGG2.ZNO"
+#define	IDS_BOSS04_MDL_B04_M_EGG3_ZNO		"B04_M_EGG3.ZNO"
+#define	IDS_BOSS04_MDL_B04_M_EGG4_ZNO		"B04_M_EGG4.ZNO"
+
+#endif	/* _IDB_BOSS04_MDL */

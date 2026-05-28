@@ -1,0 +1,34 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_MAPFAR_ZONEF_MDL
+#define	_IDB_MAPFAR_ZONEF_MDL
+
+/* Defined File ID */
+#define	IDB_MAPFAR_ZONEF_MDL_ZFF_SPACE_ZNO		0		/*  */
+#define	IDB_MAPFAR_ZONEF_MDL_ZFF_EARTH_ZNO		1		/*  */
+#define	IDB_MAPFAR_ZONEF_MDL_ZFF_CLOUD_ZNO		2		/*  */
+#define	IDB_MAPFAR_ZONEF_MDL_ZFF_FILM_A_ZNO		3		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_MAPFAR_ZONEF_MDL_ZFF_SPACE_ZNO		0		/*  */
+#define	IDU0_MAPFAR_ZONEF_MDL_ZFF_EARTH_ZNO		0		/*  */
+#define	IDU0_MAPFAR_ZONEF_MDL_ZFF_CLOUD_ZNO		0		/*  */
+#define	IDU0_MAPFAR_ZONEF_MDL_ZFF_FILM_A_ZNO		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_MAPFAR_ZONEF_MDL_ZFF_SPACE_ZNO		0		/*  */
+#define	IDU1_MAPFAR_ZONEF_MDL_ZFF_EARTH_ZNO		0		/*  */
+#define	IDU1_MAPFAR_ZONEF_MDL_ZFF_CLOUD_ZNO		0		/*  */
+#define	IDU1_MAPFAR_ZONEF_MDL_ZFF_FILM_A_ZNO		0		/*  */
+
+/* Defined File Name */
+#define	IDS_MAPFAR_ZONEF_MDL_ZFF_SPACE_ZNO		"ZFF_SPACE.ZNO"
+#define	IDS_MAPFAR_ZONEF_MDL_ZFF_EARTH_ZNO		"ZFF_EARTH.ZNO"
+#define	IDS_MAPFAR_ZONEF_MDL_ZFF_CLOUD_ZNO		"ZFF_CLOUD.ZNO"
+#define	IDS_MAPFAR_ZONEF_MDL_ZFF_FILM_A_ZNO		"ZFF_FILM_A.ZNO"
+
+#endif	/* _IDB_MAPFAR_ZONEF_MDL */

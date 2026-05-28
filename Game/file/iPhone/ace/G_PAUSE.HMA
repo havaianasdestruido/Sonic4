@@ -1,0 +1,15 @@
+// root node
+
+// node
+
+// action
+#define IDA_G_PAUSE_ACT_BACK    (  0) // back
+#define IDA_G_PAUSE_ACT_BTN01_L (  1) // btn01_l
+#define IDA_G_PAUSE_ACT_BTN01_C (  2) // btn01_c
+#define IDA_G_PAUSE_ACT_BTN01_R (  3) // btn01_r
+#define IDA_G_PAUSE_ACT_BTN03_L (  4) // btn03_l
+#define IDA_G_PAUSE_ACT_BTN03_C (  5) // btn03_c
+#define IDA_G_PAUSE_ACT_BTN03_R (  6) // btn03_r
+#define IDA_G_PAUSE_ACT_BTN04_L (  7) // btn04_l
+#define IDA_G_PAUSE_ACT_BTN04_C (  8) // btn04_c
+#define IDA_G_PAUSE_ACT_BTN04_R (  9) // btn04_r

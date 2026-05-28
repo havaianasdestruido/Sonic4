@@ -1,0 +1,22 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_GMK_SS_OBLONG_MAT
+#define	_IDB_GMK_SS_OBLONG_MAT
+
+/* Defined File ID */
+#define	IDB_GMK_SS_OBLONG_MAT_SS_OBLONG_ZNV		0		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_GMK_SS_OBLONG_MAT_SS_OBLONG_ZNV		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_GMK_SS_OBLONG_MAT_SS_OBLONG_ZNV		0		/*  */
+
+/* Defined File Name */
+#define	IDS_GMK_SS_OBLONG_MAT_SS_OBLONG_ZNV		"SS_OBLONG.ZNV"
+
+#endif	/* _IDB_GMK_SS_OBLONG_MAT */

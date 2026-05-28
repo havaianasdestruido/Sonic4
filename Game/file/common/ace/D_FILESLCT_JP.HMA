@@ -1,0 +1,11 @@
+// root node
+
+// node
+
+// action
+#define IDA_D_FILESLCT_JP_ACT_1_TEX_NEWGAME (  0) // 1_tex_newgame
+#define IDA_D_FILESLCT_JP_ACT_1_TEX_NAME    (  1) // 1_tex_name
+#define IDA_D_FILESLCT_JP_ACT_TEX_EXP       (  2) // tex_exp
+#define IDA_D_FILESLCT_JP_ACT_TEX_DEL       (  3) // tex_del
+#define IDA_D_FILESLCT_JP_ACT_WIN_MSG       (  4) // win_msg
+#define IDA_D_FILESLCT_JP_ACT_TEX_BACK      (  5) // tex_back

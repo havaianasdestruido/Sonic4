@@ -1,0 +1,30 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_GMK_LAND_2_MAT
+#define	_IDB_GMK_LAND_2_MAT
+
+/* Defined File ID */
+#define	IDB_GMK_LAND_2_MAT_GMK_LAND_2_ZNV		0		/*  •‚“‡ */
+#define	IDB_GMK_LAND_2_MAT_GMK_LAND_B_2_ZNV		1		/*  •‚“‡BIG */
+#define	IDB_GMK_LAND_2_MAT_GMK_LAND_R_2_ZNV		2		/*  •‚“‡SOLID */
+
+/* Defined USR0 Data */
+#define	IDU0_GMK_LAND_2_MAT_GMK_LAND_2_ZNV		0		/*  •‚“‡ */
+#define	IDU0_GMK_LAND_2_MAT_GMK_LAND_B_2_ZNV		0		/*  •‚“‡BIG */
+#define	IDU0_GMK_LAND_2_MAT_GMK_LAND_R_2_ZNV		0		/*  •‚“‡SOLID */
+
+/* Defined USR1 Data */
+#define	IDU1_GMK_LAND_2_MAT_GMK_LAND_2_ZNV		0		/*  •‚“‡ */
+#define	IDU1_GMK_LAND_2_MAT_GMK_LAND_B_2_ZNV		0		/*  •‚“‡BIG */
+#define	IDU1_GMK_LAND_2_MAT_GMK_LAND_R_2_ZNV		0		/*  •‚“‡SOLID */
+
+/* Defined File Name */
+#define	IDS_GMK_LAND_2_MAT_GMK_LAND_2_ZNV		"GMK_LAND_2.ZNV"
+#define	IDS_GMK_LAND_2_MAT_GMK_LAND_B_2_ZNV		"GMK_LAND_B_2.ZNV"
+#define	IDS_GMK_LAND_2_MAT_GMK_LAND_R_2_ZNV		"GMK_LAND_R_2.ZNV"
+
+#endif	/* _IDB_GMK_LAND_2_MAT */

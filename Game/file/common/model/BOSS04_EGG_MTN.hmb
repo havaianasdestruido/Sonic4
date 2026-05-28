@@ -1,0 +1,66 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_BOSS04_EGG_MTN
+#define	_IDB_BOSS04_EGG_MTN
+
+/* Defined File ID */
+#define	IDB_BOSS04_EGG_MTN_B04_1_ATT01_01E_ZNM		0		/*  通常 */
+#define	IDB_BOSS04_EGG_MTN_B04_2_ATT01_01E_ZNM		1		/*  通常(第２形態) */
+#define	IDB_BOSS04_EGG_MTN_B04_2_ATT02_01E_ZNM		2		/*  カプセルを投げる(右) */
+#define	IDB_BOSS04_EGG_MTN_B04_2_ATT03_01E_ZNM		3		/*  カプセルを投げる(左) */
+#define	IDB_BOSS04_EGG_MTN_B04_DMG01_01E_ZNM		4		/*  ダメージ */
+#define	IDB_BOSS04_EGG_MTN_B04_DMG02_01E_ZNM		5		/*  逃亡 */
+#define	IDB_BOSS04_EGG_MTN_B04_1_ANG_01E_ZNM		6		/*  怒り演出(1) */
+#define	IDB_BOSS04_EGG_MTN_B04_1_ANG_02E_ZNM		7		/*  怒り演出(2) */
+#define	IDB_BOSS04_EGG_MTN_B04_1_ANG_03E_ZNM		8		/*  怒り演出(3) */
+#define	IDB_BOSS04_EGG_MTN_B04_1_STA_01E_ZNM		9		/*  笑い演出(右) */
+#define	IDB_BOSS04_EGG_MTN_B04_1_STA_02E_ZNM		10		/*  笑い演出(左) */
+#define	IDB_BOSS04_EGG_MTN_B04_2_STA_01E_ZNM		11		/*  第２形態スタート */
+
+/* Defined USR0 Data */
+#define	IDU0_BOSS04_EGG_MTN_B04_1_ATT01_01E_ZNM		0		/*  通常 */
+#define	IDU0_BOSS04_EGG_MTN_B04_2_ATT01_01E_ZNM		0		/*  通常(第２形態) */
+#define	IDU0_BOSS04_EGG_MTN_B04_2_ATT02_01E_ZNM		0		/*  カプセルを投げる(右) */
+#define	IDU0_BOSS04_EGG_MTN_B04_2_ATT03_01E_ZNM		0		/*  カプセルを投げる(左) */
+#define	IDU0_BOSS04_EGG_MTN_B04_DMG01_01E_ZNM		0		/*  ダメージ */
+#define	IDU0_BOSS04_EGG_MTN_B04_DMG02_01E_ZNM		0		/*  逃亡 */
+#define	IDU0_BOSS04_EGG_MTN_B04_1_ANG_01E_ZNM		0		/*  怒り演出(1) */
+#define	IDU0_BOSS04_EGG_MTN_B04_1_ANG_02E_ZNM		0		/*  怒り演出(2) */
+#define	IDU0_BOSS04_EGG_MTN_B04_1_ANG_03E_ZNM		0		/*  怒り演出(3) */
+#define	IDU0_BOSS04_EGG_MTN_B04_1_STA_01E_ZNM		0		/*  笑い演出(右) */
+#define	IDU0_BOSS04_EGG_MTN_B04_1_STA_02E_ZNM		0		/*  笑い演出(左) */
+#define	IDU0_BOSS04_EGG_MTN_B04_2_STA_01E_ZNM		0		/*  第２形態スタート */
+
+/* Defined USR1 Data */
+#define	IDU1_BOSS04_EGG_MTN_B04_1_ATT01_01E_ZNM		0		/*  通常 */
+#define	IDU1_BOSS04_EGG_MTN_B04_2_ATT01_01E_ZNM		0		/*  通常(第２形態) */
+#define	IDU1_BOSS04_EGG_MTN_B04_2_ATT02_01E_ZNM		0		/*  カプセルを投げる(右) */
+#define	IDU1_BOSS04_EGG_MTN_B04_2_ATT03_01E_ZNM		0		/*  カプセルを投げる(左) */
+#define	IDU1_BOSS04_EGG_MTN_B04_DMG01_01E_ZNM		0		/*  ダメージ */
+#define	IDU1_BOSS04_EGG_MTN_B04_DMG02_01E_ZNM		0		/*  逃亡 */
+#define	IDU1_BOSS04_EGG_MTN_B04_1_ANG_01E_ZNM		0		/*  怒り演出(1) */
+#define	IDU1_BOSS04_EGG_MTN_B04_1_ANG_02E_ZNM		0		/*  怒り演出(2) */
+#define	IDU1_BOSS04_EGG_MTN_B04_1_ANG_03E_ZNM		0		/*  怒り演出(3) */
+#define	IDU1_BOSS04_EGG_MTN_B04_1_STA_01E_ZNM		0		/*  笑い演出(右) */
+#define	IDU1_BOSS04_EGG_MTN_B04_1_STA_02E_ZNM		0		/*  笑い演出(左) */
+#define	IDU1_BOSS04_EGG_MTN_B04_2_STA_01E_ZNM		0		/*  第２形態スタート */
+
+/* Defined File Name */
+#define	IDS_BOSS04_EGG_MTN_B04_1_ATT01_01E_ZNM		"B04_1_ATT01_01E.ZNM"
+#define	IDS_BOSS04_EGG_MTN_B04_2_ATT01_01E_ZNM		"B04_2_ATT01_01E.ZNM"
+#define	IDS_BOSS04_EGG_MTN_B04_2_ATT02_01E_ZNM		"B04_2_ATT02_01E.ZNM"
+#define	IDS_BOSS04_EGG_MTN_B04_2_ATT03_01E_ZNM		"B04_2_ATT03_01E.ZNM"
+#define	IDS_BOSS04_EGG_MTN_B04_DMG01_01E_ZNM		"B04_DMG01_01E.ZNM"
+#define	IDS_BOSS04_EGG_MTN_B04_DMG02_01E_ZNM		"B04_DMG02_01E.ZNM"
+#define	IDS_BOSS04_EGG_MTN_B04_1_ANG_01E_ZNM		"B04_1_ANG_01E.ZNM"
+#define	IDS_BOSS04_EGG_MTN_B04_1_ANG_02E_ZNM		"B04_1_ANG_02E.ZNM"
+#define	IDS_BOSS04_EGG_MTN_B04_1_ANG_03E_ZNM		"B04_1_ANG_03E.ZNM"
+#define	IDS_BOSS04_EGG_MTN_B04_1_STA_01E_ZNM		"B04_1_STA_01E.ZNM"
+#define	IDS_BOSS04_EGG_MTN_B04_1_STA_02E_ZNM		"B04_1_STA_02E.ZNM"
+#define	IDS_BOSS04_EGG_MTN_B04_2_STA_01E_ZNM		"B04_2_STA_01E.ZNM"
+
+#endif	/* _IDB_BOSS04_EGG_MTN */

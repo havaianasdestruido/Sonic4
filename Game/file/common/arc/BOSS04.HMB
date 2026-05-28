@@ -1,0 +1,82 @@
+/************************************************************************/
+/* MG Configration Header File                                          */
+/* <VERSION=0.02>                                                       */
+/* <EXT=MGB>                                                            */
+/************************************************************************/
+
+#ifndef	_IDB_BOSS04
+#define	_IDB_BOSS04
+
+/* Defined File ID */
+#define	IDB_BOSS04_BOSS04_MDL_AMB		0		/*  */
+#define	IDB_BOSS04_BOSS04_TEX_AMB		1		/*  */
+#define	IDB_BOSS04_BOSS04_BODY_MTN_AMB		2		/*  */
+#define	IDB_BOSS04_BOSS04_EGG_MTN_AMB		3		/*  */
+#define	IDB_BOSS04_BOSS04_CAPSULE_MTN_AMB		4		/*  */
+#define	IDB_BOSS04_EFF_BOMB_CP_AME		5		/*  エッグカプセル爆発 */
+#define	IDB_BOSS04_EFF_BALLOON_R_AME		6		/*  ちびエッグマン爆発(NORMAL) */
+#define	IDB_BOSS04_EFF_BALLOON_B_AME		7		/*  ちびエッグマン爆発(SPEED) */
+#define	IDB_BOSS04_EFF_BALLOON_Y_AME		8		/*  ちびエッグマン爆発(BIG) */
+#define	IDB_BOSS04_EFF_JET_BALL_01_AME		9		/*  ちびエッグマンバーニア(N,S) */
+#define	IDB_BOSS04_EFF_JET_BALL_02_AME		10		/*  ちびエッグマンバーニア(B) */
+#define	IDB_BOSS04_EFF_JET_Z4_AME		11		/*  第二形態バーニア */
+#define	IDB_BOSS04_EFF_JET_Z4_02_AME		12		/*  第二形態バーニア(下) */
+#define	IDB_BOSS04_EFF_PARTS_AME		13		/*  飛び散る破片 */
+#define	IDB_BOSS04_EFF_BOSS_LIGHT_AME		14		/*  ライト */
+#define	IDB_BOSS04_EFF_BS4_TEX_AMB		15		/*  */
+
+/* Defined USR0 Data */
+#define	IDU0_BOSS04_BOSS04_MDL_AMB		0		/*  */
+#define	IDU0_BOSS04_BOSS04_TEX_AMB		0		/*  */
+#define	IDU0_BOSS04_BOSS04_BODY_MTN_AMB		0		/*  */
+#define	IDU0_BOSS04_BOSS04_EGG_MTN_AMB		0		/*  */
+#define	IDU0_BOSS04_BOSS04_CAPSULE_MTN_AMB		0		/*  */
+#define	IDU0_BOSS04_EFF_BOMB_CP_AME		0		/*  エッグカプセル爆発 */
+#define	IDU0_BOSS04_EFF_BALLOON_R_AME		0		/*  ちびエッグマン爆発(NORMAL) */
+#define	IDU0_BOSS04_EFF_BALLOON_B_AME		0		/*  ちびエッグマン爆発(SPEED) */
+#define	IDU0_BOSS04_EFF_BALLOON_Y_AME		0		/*  ちびエッグマン爆発(BIG) */
+#define	IDU0_BOSS04_EFF_JET_BALL_01_AME		0		/*  ちびエッグマンバーニア(N,S) */
+#define	IDU0_BOSS04_EFF_JET_BALL_02_AME		0		/*  ちびエッグマンバーニア(B) */
+#define	IDU0_BOSS04_EFF_JET_Z4_AME		0		/*  第二形態バーニア */
+#define	IDU0_BOSS04_EFF_JET_Z4_02_AME		0		/*  第二形態バーニア(下) */
+#define	IDU0_BOSS04_EFF_PARTS_AME		0		/*  飛び散る破片 */
+#define	IDU0_BOSS04_EFF_BOSS_LIGHT_AME		0		/*  ライト */
+#define	IDU0_BOSS04_EFF_BS4_TEX_AMB		0		/*  */
+
+/* Defined USR1 Data */
+#define	IDU1_BOSS04_BOSS04_MDL_AMB		0		/*  */
+#define	IDU1_BOSS04_BOSS04_TEX_AMB		0		/*  */
+#define	IDU1_BOSS04_BOSS04_BODY_MTN_AMB		0		/*  */
+#define	IDU1_BOSS04_BOSS04_EGG_MTN_AMB		0		/*  */
+#define	IDU1_BOSS04_BOSS04_CAPSULE_MTN_AMB		0		/*  */
+#define	IDU1_BOSS04_EFF_BOMB_CP_AME		0		/*  エッグカプセル爆発 */
+#define	IDU1_BOSS04_EFF_BALLOON_R_AME		0		/*  ちびエッグマン爆発(NORMAL) */
+#define	IDU1_BOSS04_EFF_BALLOON_B_AME		0		/*  ちびエッグマン爆発(SPEED) */
+#define	IDU1_BOSS04_EFF_BALLOON_Y_AME		0		/*  ちびエッグマン爆発(BIG) */
+#define	IDU1_BOSS04_EFF_JET_BALL_01_AME		0		/*  ちびエッグマンバーニア(N,S) */
+#define	IDU1_BOSS04_EFF_JET_BALL_02_AME		0		/*  ちびエッグマンバーニア(B) */
+#define	IDU1_BOSS04_EFF_JET_Z4_AME		0		/*  第二形態バーニア */
+#define	IDU1_BOSS04_EFF_JET_Z4_02_AME		0		/*  第二形態バーニア(下) */
+#define	IDU1_BOSS04_EFF_PARTS_AME		0		/*  飛び散る破片 */
+#define	IDU1_BOSS04_EFF_BOSS_LIGHT_AME		0		/*  ライト */
+#define	IDU1_BOSS04_EFF_BS4_TEX_AMB		0		/*  */
+
+/* Defined File Name */
+#define	IDS_BOSS04_BOSS04_MDL_AMB		"BOSS04_MDL.AMB"
+#define	IDS_BOSS04_BOSS04_TEX_AMB		"BOSS04_TEX.AMB"
+#define	IDS_BOSS04_BOSS04_BODY_MTN_AMB		"BOSS04_BODY_MTN.AMB"
+#define	IDS_BOSS04_BOSS04_EGG_MTN_AMB		"BOSS04_EGG_MTN.AMB"
+#define	IDS_BOSS04_BOSS04_CAPSULE_MTN_AMB		"BOSS04_CAPSULE_MTN.AMB"
+#define	IDS_BOSS04_EFF_BOMB_CP_AME		"EFF_BOMB_CP.AME"
+#define	IDS_BOSS04_EFF_BALLOON_R_AME		"EFF_BALLOON_R.AME"
+#define	IDS_BOSS04_EFF_BALLOON_B_AME		"EFF_BALLOON_B.AME"
+#define	IDS_BOSS04_EFF_BALLOON_Y_AME		"EFF_BALLOON_Y.AME"
+#define	IDS_BOSS04_EFF_JET_BALL_01_AME		"EFF_JET_BALL_01.AME"
+#define	IDS_BOSS04_EFF_JET_BALL_02_AME		"EFF_JET_BALL_02.AME"
+#define	IDS_BOSS04_EFF_JET_Z4_AME		"EFF_JET_Z4.AME"
+#define	IDS_BOSS04_EFF_JET_Z4_02_AME		"EFF_JET_Z4_02.AME"
+#define	IDS_BOSS04_EFF_PARTS_AME		"EFF_PARTS.AME"
+#define	IDS_BOSS04_EFF_BOSS_LIGHT_AME		"EFF_BOSS_LIGHT.AME"
+#define	IDS_BOSS04_EFF_BS4_TEX_AMB		"EFF_BS4_TEX.AMB"
+
+#endif	/* _IDB_BOSS04 */

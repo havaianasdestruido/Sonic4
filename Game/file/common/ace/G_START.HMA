@@ -1,0 +1,53 @@
+// root node
+#define IDA_G_START_ROOT_NODE_BG_BLUE  (  0) // bg_blue
+#define IDA_G_START_ROOT_NODE_BG_RED   (  1) // bg_red
+#define IDA_G_START_ROOT_NODE_ZONE1    (  2) // zone1
+#define IDA_G_START_ROOT_NODE_ZONE2    (  3) // zone2
+#define IDA_G_START_ROOT_NODE_ZONE3    (  4) // zone3
+#define IDA_G_START_ROOT_NODE_ZONE4    (  5) // zone4
+#define IDA_G_START_ROOT_NODE_FINAL    (  6) // final
+#define IDA_G_START_ROOT_NODE_NUM_1    (  7) // num_1
+#define IDA_G_START_ROOT_NODE_NUM_2    (  8) // num_2
+#define IDA_G_START_ROOT_NODE_NUM_3    (  9) // num_3
+
+// node
+#define IDA_G_START_NODE_BG_BLUE       (  0) // bg_blue
+#define IDA_G_START_NODE_BG_RED        (  1) // bg_red
+#define IDA_G_START_NODE_ZONE1         (  2) // zone1
+#define IDA_G_START_NODE_ZONE2         (  3) // zone2
+#define IDA_G_START_NODE_ZONE3         (  4) // zone3
+#define IDA_G_START_NODE_ZONE4         (  5) // zone4
+#define IDA_G_START_NODE_FINAL         (  6) // final
+#define IDA_G_START_NODE_NUM_1         (  7) // num_1
+#define IDA_G_START_NODE_NUM_2         (  8) // num_2
+#define IDA_G_START_NODE_NUM_3         (  9) // num_3
+#define IDA_G_START_NODE_BG_A_1        ( 10) // bg_a_1
+#define IDA_G_START_NODE_BG_A_2        ( 11) // bg_a_2
+#define IDA_G_START_NODE_RED           ( 12) // red
+#define IDA_G_START_NODE_TEX_ZNAME_1   ( 13) // tex_zname_1
+#define IDA_G_START_NODE_TEZ_ZNAME_2   ( 14) // tez_zname_2
+#define IDA_G_START_NODE_TEZ_ZNAME_3   ( 15) // tez_zname_3
+#define IDA_G_START_NODE_TEX_ZNAME_4   ( 16) // tex_zname_4
+#define IDA_G_START_NODE_TEX_ZNAME_F   ( 17) // tex_zname_f
+#define IDA_G_START_NODE_NUM_A_1       ( 18) // num_a_1
+#define IDA_G_START_NODE_NUM_A_2       ( 19) // num_a_2
+#define IDA_G_START_NODE_NUM_A_3       ( 20) // num_a_3
+
+// action
+#define IDA_G_START_ACT_BG_A_1         (  0) // bg_a_1
+#define IDA_G_START_ACT_BG_A_2         (  1) // bg_a_2
+#define IDA_G_START_ACT_BG_WHITE       (  2) // bg_white
+#define IDA_G_START_ACT_BG_RED         (  3) // bg_red
+#define IDA_G_START_ACT_BG_A_MOVE      (  4) // bg_a_move
+#define IDA_G_START_ACT_BG_RED_MOVE    (  5) // bg_red_move
+#define IDA_G_START_ACT_TEX_ZNAME_1    (  6) // tex_zname_1
+#define IDA_G_START_ACT_TEX_ZNAME_2    (  7) // tex_zname_2
+#define IDA_G_START_ACT_TEX_ZNAME_3    (  8) // tex_zname_3
+#define IDA_G_START_ACT_TEX_ZNAME_4    (  9) // tex_zname_4
+#define IDA_G_START_ACT_TEX_ZNAME_F    ( 10) // tex_zname_f
+#define IDA_G_START_ACT_TEX_ZNAME_MOVE ( 11) // tex_zname_move
+#define IDA_G_START_ACT_TEX_ZONE       ( 12) // tex_zone
+#define IDA_G_START_ACT_NUM_A_1        ( 13) // num_a_1
+#define IDA_G_START_ACT_NUM_A_2        ( 14) // num_a_2
+#define IDA_G_START_ACT_NUM_A_3        ( 15) // num_a_3
+#define IDA_G_START_ACT_NUM_A_MOVE     ( 16) // num_a_move
