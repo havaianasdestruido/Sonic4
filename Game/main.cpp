@@ -11,7 +11,7 @@
 /*--- Include Files (Pre Definitions) ---------------------------------------*/
 #include "src/pch.h"
 
-#include <library/include/alice.h>
+#include "/library/include/alice.h"
 
 #if _PS3
 #include <sys/spu_initialize.h>

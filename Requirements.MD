@@ -26,7 +26,7 @@ Requirements that are known to be required for compilation.
 
 ## Windows
 
-For this project, I used Kea Sigma Delta's CMake Tutorial for beginners to compile this, so many requirements there may work here.
+For this project, I used [Kea Sigma Delta's CMake Tutorial](https://keasigmadelta.com/blog/cmake-tutorial-getting-started/) for beginners to compile this, so many requirements there may work here.
 
 * Visual Studio Code (Tested with VSCodium, which is a derivative of it.)
 * Cmake - (to compile C++ code.)

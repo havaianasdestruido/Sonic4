@@ -353,6 +353,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="C:\Users\Alory\Documents\SEGA LOT\Sonic 20th Source Codes\Sonic4\game\main.cpp" />
+    <None Include="C:\Users\Alory\Documents\SEGA LOT\Sonic 20th Source Codes\Sonic4">
+    </None>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

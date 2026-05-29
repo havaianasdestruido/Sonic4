@@ -10,7 +10,7 @@
 #endif // !defined(HOG_RGN_JP) && !defined(HOG_RGN_US) && !defined(HOG_RGN_EU) && !defined(HOG_RGN_KR)
 #endif // !(_XBOX || _IPHONE)
 
-#include <alice.h>
+#include "library/include/AliceNn/include/alice.h"
 #include "typedef.h"
 #include "fx.h"
 #include "mi.h"

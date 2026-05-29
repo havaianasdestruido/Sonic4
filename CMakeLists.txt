@@ -6,4 +6,4 @@ set(SOURCE_FILES
   game/
 )
 
-add_executable(${PROJECT_NAME} )
+add_executable(${PROJECT_NAME} ${SOURCE_FILES})
