@@ -1,3 +1,0 @@
-C:/Users/Alory/Documents/SEGA LOT/Sonic 20th Source Codes/Sonic4/build/CMakeFiles/SONIIC4Ep1.dir
-C:/Users/Alory/Documents/SEGA LOT/Sonic 20th Source Codes/Sonic4/build/CMakeFiles/ALL_BUILD.dir
-C:/Users/Alory/Documents/SEGA LOT/Sonic 20th Source Codes/Sonic4/build/CMakeFiles/ZERO_CHECK.dir
